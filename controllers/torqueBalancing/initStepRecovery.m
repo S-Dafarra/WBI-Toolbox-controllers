@@ -49,7 +49,11 @@ CONFIG.SIMULATION_TIME     = inf;
 %               robots/YARP_ROBOT_NAME/initRegGen.m
 % 
 % 'WALKING': under development.
-SM.SM_TYPE                 = 'YOGA';
+%
+% 'STEP': step recovery, under development
+
+
+SM.SM_TYPE                 = 'STEP';
 
 % CONFIG.SCOPES: if set to true, all visualizers for debugging are active
 CONFIG.SCOPES.ALL          = false;
@@ -132,9 +136,10 @@ addpath('../utilityMatlabFunctions/')
 robotSpecificReferences  = fullfile('app/robots',getenv('YARP_ROBOT_NAME'),'initRefGen.m');
 run(robotSpecificReferences);
 
-SM.SM.MASK.COORDINATOR   = bin2dec('001');
-SM.SM.MASK.YOGA          = bin2dec('010');
-SM.SM.MASK.WALKING       = bin2dec('100');
+SM.SM.MASK.COORDINATOR   = bin2dec('0001');
+SM.SM.MASK.YOGA          = bin2dec('0010');
+SM.SM.MASK.WALKING       = bin2dec('0100');
+SM.SM.MASK.STEP          = bin2dec('1000');
 
 
 SM.SM_TYPE_BIN = SM.SM.MASK.COORDINATOR;
@@ -148,6 +153,10 @@ elseif strcmpi(SM.SM_TYPE, 'YOGA')
 elseif strcmpi(SM.SM_TYPE, 'WALKING')
     SM.SM_TYPE_BIN = SM.SM.MASK.WALKING;
     robotSpecificFSM = fullfile('robots',getenv('YARP_ROBOT_NAME'),'initStateMachineWalking.m');
+    run(robotSpecificFSM);
+elseif strcmpi(SM.SM_TYPE, 'STEP')
+    SM.SM_TYPE_BIN = SM.SM.MASK.STEP;
+    robotSpecificFSM = fullfile('app/robots',getenv('YARP_ROBOT_NAME'),'initStateMachineStep.m');
     run(robotSpecificFSM);
 end
 
