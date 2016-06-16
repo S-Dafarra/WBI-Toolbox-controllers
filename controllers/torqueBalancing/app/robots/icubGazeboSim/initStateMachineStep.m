@@ -120,7 +120,7 @@ sm.com.states      = [0.0,  0.01,0.0;   %% state ==  1  TWO FEET BALANCING NOT U
                       0.0,  0.01,0.0;   %% state ==  4  YOGA LEFT FOOT
                       0.0,  0.00,0.0;   %% state ==  5  PREPARING FOR SWITCHING
                       0.0, -0.09,0.0;   %% state ==  6  LOOKING FOR CONTACT 
-                      0.0, -0.09,0.0;   %% state ==  7  TRANSITION INIT POSITION: THIS REFERENCE IS IGNORED
+                      0.0, -0.05,0.0;   %% state ==  7  TRANSITION INIT POSITION: modified
                       % FROM NOW ON, THE REFERENCE ARE ALWAYS DELTAS W.R.T.
                       % THE POSITION OF THE RIGHT FOOT
                       0.0, -0.01,0.0;   %% state ==  8  COM TRANSITION TO RIGHT FOOT
@@ -162,7 +162,11 @@ sm.joints.states = [[0.0864,0.0258,0.0152, ...                          %% state
                      0.0563,0.6789,0.3340,0.6214 ...                    %
                      0.0107,-0.0741,-0.0001,-0.0120,0.0252,0.1369,...   %
                      -0.0026,0.0225,0.0093,-0.0020,0.0027,-0.0277];     %   
-                     zeros(1,ROBOT_DOF);                                %% state == 7  TRANSITION INIT POSITION: THIS REFERENCE IS IGNORED
+                    [0.0008,0,0,...                                     %% state == 7  TRANSITION INIT POSITION: THIS REFERENCE IS IGNORED
+                     -0.5192,0.5195,0,0.7846,...
+                     -0.5192,0.5195,0,0.7846,...
+                     0.0018,0,0,0.0019,-0.0019,0,...
+                     0.0018,0,0,0.0019,-0.0019,0];
                     [0.0864,0.0258,0.0152, ...                          %% state == 8  COM TRANSITION TO RIGHT FOOT
                      0.1253,0.8135,0.3051,0.7928 ...                    %
                      0.0563,0.6789,0.3340,0.6214 ...                    %

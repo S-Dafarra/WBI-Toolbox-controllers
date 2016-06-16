@@ -5,18 +5,16 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     persistent state;
     persistent tSwitch;
     persistent w_H_fixedLink;
-    persistent init_pose;
-
+    
     if isempty(state) || isempty(tSwitch) || isempty(w_H_fixedLink) 
         state         = sm.stateAt0;
         tSwitch       = 0;
         w_H_fixedLink = eye(4);
-        init_pose = q0;
     end
     
     CoMDes      = CoM_0;
     constraints = [1; 1];    
-    qDes        = init_pose;
+    qDes        = q0;
     w_H_b       = eye(4);
     impedances  = gain.impedances(1,:);
     kpCom       = gain.PCOM(1,:);   
@@ -168,11 +166,11 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
         w_H_b       =  w_H_fixedLink * l_sole_H_b;
         
         
-        CoMDes      = CoM_0;% + sm.com.states(state,:)';         
+        CoMDes      = [w_H_fixedLink(1:2,4);CoM_0(3)] + sm.com.states(state,:)';         
 
         
         constraints = [1; 1]; 
-        qDes        = init_pose;
+        qDes        = sm.joints.states(state,:)';
         impedances  = gain.impedances(state,:);
         kpCom       = gain.PCOM(state,:);   
         kdCom       = gain.DCOM(state,:);   
