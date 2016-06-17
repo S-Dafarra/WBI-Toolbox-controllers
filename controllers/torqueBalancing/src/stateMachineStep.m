@@ -173,7 +173,12 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
         qDes        = sm.joints.states(state,:)';
         impedances  = gain.impedances(state,:);
         kpCom       = gain.PCOM(state,:);   
-        kdCom       = gain.DCOM(state,:);   
+        kdCom       = gain.DCOM(state,:); 
+        
+        if STEP_DOWN == 0
+           state   = 2;
+           tSwitch = t;
+        end
     end
     
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
