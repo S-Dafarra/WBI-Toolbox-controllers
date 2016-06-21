@@ -1,4 +1,4 @@
-function fpe = fpe_computation(m, COMx, COM_vel, J_COM, n, g)
+function [fpe, fpe_alternative] = fpe_computation(m, COMx, COM_vel, J_COM, n, g, COPx)
 % This function computes the residual of the foot placement estimator
 % formula
 
@@ -7,7 +7,7 @@ theta_bar = 0;
 n_norm = norm(n,2);
 if (n_norm>0)
     n = n/n_norm;
-else n = 0;
+else n = zeros(3,1);
 end
 
 h_dot = COM_vel(3); % vertical speed of the COM
@@ -25,5 +25,6 @@ vx = COM_vel(1:3)'*x;
 coder.extrinsic('solve_fpe')
 theta_bar = double(solve_fpe(theta_dot, m, h, vx, h_dot, J, g));
 
-fpe =h*tan(theta_bar)*x + [COMx(1);COMx(2);0]; 
+fpe =h*tan(theta_bar)*x + [COMx(1);COMx(2);0];
+fpe_alternative = [COPx(1);COPx(2);0] + 2*h*tan(theta_bar)*x;
 end

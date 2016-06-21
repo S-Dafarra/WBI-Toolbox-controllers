@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3113"
+    ComputedModelVersion    "1.3118"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -67,7 +67,7 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "4077"
-	  Extents		  [566.0, 877.0]
+	  Extents		  [1886.0, 905.0]
 	  ZoomFactor		  [1.25]
 	  Offset		  [-4.9832031250000455, 0.0]
 	}
@@ -77,8 +77,8 @@ Model {
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "4061"
 	  Extents		  [1886.0, 905.0]
-	  ZoomFactor		  [1.3505149809410912]
-	  Offset		  [29.463662203982722, 309.4426282671219]
+	  ZoomFactor		  [1.0842911877394636]
+	  Offset		  [-37.277540442800273, 421.13028306084897]
 	}
 	PropName		"EditorsInfo"
       }
@@ -90,9 +90,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sdafarra"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jun 17 18:32:48 2016"
-  RTWModifiedTimeStamp	  388089067
-  ModelVersionFormat	  "1.%<AutoIncrement:3113>"
+  LastModifiedDate	  "Tue Jun 21 17:22:32 2016"
+  RTWModifiedTimeStamp	  388429846
+  ModelVersionFormat	  "1.%<AutoIncrement:3118>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1159,7 +1159,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "94"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "4115"
+    SIDHighWatermark	    "4170"
     Block {
       BlockType		      SubSystem
       Name		      "DesValues"
@@ -1173,7 +1173,7 @@ Model {
       Variant		      off
       System {
 	Name			"DesValues"
-	Location		[1310, 14, 1930, 1090]
+	Location		[-10, 24, 1930, 1100]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -12826,7 +12826,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "State Machine Step Recovery"
-	    Location		    [-10, 14, 1930, 1090]
+	    Location		    [0, 24, 1920, 1080]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -12838,7 +12838,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "125"
+	    ZoomFactor		    "91"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "jointAngles"
@@ -13007,7 +13007,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"135"
+		ZoomFactor		"108"
 		Block {
 		  BlockType		  Inport
 		  Name			  "Base velocity"
@@ -13056,7 +13056,7 @@ Model {
 		  Variant		  off
 		  System {
 		    Name		    "CMP computer"
-		    Location		    [1269, 14, 1930, 1090]
+		    Location		    [0, 24, 1920, 1080]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -13319,7 +13319,7 @@ Model {
 		    Points		    [13, 0; 0, 45]
 		    Branch {
 		    ZOrder		    33
-		    Points		    [0, 45; 0, 0]
+		    Points		    [0, 45]
 		    Branch {
 		    ZOrder		    37
 		    Points		    [0, 55]
@@ -13592,7 +13592,7 @@ Model {
 		  Name			  "Demux1"
 		  SID			  "4111"
 		  Ports			  [1, 3]
-		  Position		  [1310, 746, 1315, 784]
+		  Position		  [1310, 691, 1315, 729]
 		  ZOrder		  734
 		  ShowName		  off
 		  Outputs		  "3"
@@ -13615,7 +13615,7 @@ Model {
 		  Name			  "Demux3"
 		  SID			  "4113"
 		  Ports			  [1, 3]
-		  Position		  [1310, 881, 1315, 919]
+		  Position		  [1310, 861, 1315, 899]
 		  ZOrder		  736
 		  ShowName		  off
 		  Outputs		  "3"
@@ -13625,14 +13625,14 @@ Model {
 		  BlockType		  SubSystem
 		  Name			  "FPE module"
 		  SID			  "4057"
-		  Ports			  [4, 1]
-		  Position		  [1115, 843, 1260, 952]
+		  Ports			  [5, 2]
+		  Position		  [1110, 847, 1250, 983]
 		  ZOrder		  -72
 		  RequestExecContextInheritance	off
 		  Variant		  off
 		  System {
 		    Name		    "FPE module"
-		    Location		    [1156, 14, 1930, 1090]
+		    Location		    [-10, 15, 1930, 1091]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -13683,6 +13683,15 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
+		    BlockType		    Inport
+		    Name		    "COPx\n"
+		    SID			    "4157"
+		    Position		    [1010, 583, 1040, 597]
+		    ZOrder		    756
+		    Port		    "5"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
 		    BlockType		    Selector
 		    Name		    "CoM6D -> \nCoMXYZ2"
 		    SID			    "4074"
@@ -13708,7 +13717,7 @@ Model {
 		    BlockType		    Constant
 		    Name		    "Constant1"
 		    SID			    "4100"
-		    Position		    [1010, 565, 1040, 595]
+		    Position		    [940, 520, 970, 550]
 		    ZOrder		    745
 		    Value		    "9.81"
 		    }
@@ -14003,8 +14012,8 @@ Model {
 		    BlockType		    SubSystem
 		    Name		    "MATLAB Function2"
 		    SID			    "4097"
-		    Ports		    [6, 1]
-		    Position		    [1105, 211, 1270, 554]
+		    Ports		    [7, 2]
+		    Position		    [1105, 213, 1270, 557]
 		    ZOrder		    742
 		    LibraryVersion	    "1.32"
 		    ErrorFcn		    "Stateflow.Translate.translate"
@@ -14028,7 +14037,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "25"
+		    SIDHighWatermark	    "27"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "COM_vel"
@@ -14083,6 +14092,15 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
+		    BlockType		    Inport
+		    Name		    "COPx"
+		    SID			    "4097::26"
+		    Position		    [20, 316, 40, 334]
+		    ZOrder		    16
+		    Port		    "7"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
 		    SID			    "4097::17"
@@ -14096,16 +14114,22 @@ Model {
 		    Name		    " SFunction "
 		    SID			    "4097::16"
 		    Tag			    "Stateflow S-Function stepRecovery 42"
-		    Ports		    [6, 2]
-		    Position		    [180, 112, 230, 253]
+		    Ports		    [7, 3]
+		    Position		    [180, 115, 230, 275]
 		    ZOrder		    7
 		    FunctionName	    "sf_sfun"
-		    PortCounts		    "[6 2]"
+		    PortCounts		    "[7 3]"
 		    SFunctionDeploymentMode off
 		    EnableBusSupport	    on
 		    Port {
 		    PortNumber		    2
 		    Name		    "fpe"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    Port {
+		    PortNumber		    3
+		    Name		    "fpe_alternative"
 		    RTWStorageClass	    "Auto"
 		    DataLoggingNameMode	    "SignalName"
 		    }
@@ -14125,51 +14149,67 @@ Model {
 		    ZOrder		    -5
 		    IconDisplay		    "Port number"
 		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "fpe_alternative"
+		    SID			    "4097::27"
+		    Position		    [460, 136, 480, 154]
+		    ZOrder		    17
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
 		    Line {
-		    ZOrder		    180
+		    ZOrder		    221
 		    SrcBlock		    "COM_vel"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    181
+		    ZOrder		    222
 		    SrcBlock		    "n"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    182
+		    ZOrder		    223
 		    SrcBlock		    "m"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    183
+		    ZOrder		    224
 		    SrcBlock		    "J_COM"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    184
+		    ZOrder		    225
 		    SrcBlock		    "COMx"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    185
+		    ZOrder		    226
 		    SrcBlock		    "g"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    6
 		    }
 		    Line {
+		    ZOrder		    227
+		    SrcBlock		    "COPx"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    7
+		    }
+		    Line {
 		    Name		    "fpe"
-		    ZOrder		    186
+		    ZOrder		    228
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -14177,14 +14217,23 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    187
+		    Name		    "fpe_alternative"
+		    ZOrder		    229
+		    Labels		    [0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    3
+		    DstBlock		    "fpe_alternative"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    230
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    188
+		    ZOrder		    231
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -14250,8 +14299,17 @@ Model {
 		    BlockType		    Outport
 		    Name		    "FPE\n"
 		    SID			    "4110"
-		    Position		    [1325, 378, 1355, 392]
+		    Position		    [1310, 293, 1340, 307]
 		    ZOrder		    755
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "FPE_alternative"
+		    SID			    "4158"
+		    Position		    [1310, 463, 1340, 477]
+		    ZOrder		    757
+		    Port		    "2"
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
@@ -14333,7 +14391,7 @@ Model {
 		    Points		    [72, 0]
 		    Branch {
 		    ZOrder		    229
-		    Points		    [0, -51; 354, 0; 0, 51]
+		    Points		    [0, -51; 354, 0; 0, 41]
 		    DstBlock		    "MATLAB Function2"
 		    DstPort		    1
 		    }
@@ -14363,7 +14421,7 @@ Model {
 		    ZOrder		    226
 		    SrcBlock		    "J_COM"
 		    SrcPort		    1
-		    Points		    [70, 0; 0, -30]
+		    Points		    [70, 0; 0, -55]
 		    DstBlock		    "MATLAB Function2"
 		    DstPort		    4
 		    }
@@ -14371,7 +14429,7 @@ Model {
 		    ZOrder		    227
 		    SrcBlock		    "MATLAB Function1"
 		    SrcPort		    1
-		    Points		    [62, 0; 0, 5]
+		    Points		    [62, 0; 0, -10]
 		    DstBlock		    "MATLAB Function2"
 		    DstPort		    2
 		    }
@@ -14382,7 +14440,7 @@ Model {
 		    Points		    [48, 0]
 		    Branch {
 		    ZOrder		    257
-		    Points		    [0, 20; 530, 0; 0, -40]
+		    Points		    [0, 20; 530, 0; 0, -70]
 		    DstBlock		    "MATLAB Function2"
 		    DstPort		    5
 		    }
@@ -14397,7 +14455,7 @@ Model {
 		    ZOrder		    234
 		    SrcBlock		    "Constant1"
 		    SrcPort		    1
-		    Points		    [28, 0; 0, -60]
+		    Points		    [98, 0; 0, -50]
 		    DstBlock		    "MATLAB Function2"
 		    DstPort		    6
 		    }
@@ -14406,6 +14464,21 @@ Model {
 		    SrcBlock		    "MATLAB Function2"
 		    SrcPort		    1
 		    DstBlock		    "FPE\n"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    261
+		    SrcBlock		    "COPx\n"
+		    SrcPort		    1
+		    Points		    [44, 0; 0, -55]
+		    DstBlock		    "MATLAB Function2"
+		    DstPort		    7
+		    }
+		    Line {
+		    ZOrder		    262
+		    SrcBlock		    "MATLAB Function2"
+		    SrcPort		    2
+		    DstBlock		    "FPE_alternative"
 		    DstPort		    1
 		    }
 		  }
@@ -14832,6 +14905,1005 @@ Model {
 		  }
 		}
 		Block {
+		  BlockType		  SubSystem
+		  Name			  "Out of foot"
+		  SID			  "4138"
+		  Ports			  [3, 1]
+		  Position		  [1385, 967, 1490, 1053]
+		  ZOrder		  -91
+		  RequestExecContextInheritance	off
+		  Variant		  off
+		  System {
+		    Name		    "Out of foot"
+		    Location		    [0, 24, 1920, 1080]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "106"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "X_global"
+		    SID			    "4139"
+		    Position		    [745, 312, 770, 328]
+		    ZOrder		    747
+		    NamePlacement	    "alternate"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "qj"
+		    SID			    "4140"
+		    Position		    [630, 202, 660, 218]
+		    ZOrder		    748
+		    NamePlacement	    "alternate"
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "w_H_base"
+		    SID			    "4141"
+		    Position		    [630, 147, 655, 163]
+		    ZOrder		    749
+		    NamePlacement	    "alternate"
+		    Port		    "3"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Constant"
+		    SID			    "4125"
+		    Position		    [820, 337, 835, 353]
+		    ZOrder		    744
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Constant1"
+		    SID			    "4127"
+		    Position		    [970, 232, 1050, 248]
+		    ZOrder		    746
+		    Value		    "gain.footSize"
+		    }
+		    Block {
+		    BlockType		    Reference
+		    Name		    "Forward Kinematics1"
+		    SID			    "4122"
+		    Ports		    [2, 1]
+		    Position		    [720, 138, 870, 202]
+		    ZOrder		    741
+		    LibraryVersion	    "1.355"
+		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+		    SourceType		    "Forward Kinematics"
+		    ContentPreviewEnabled   off
+		    frameName		    "'l_sole'"
+		    robotName		    "WBT_robotName"
+		    localName		    "WBT_modelName"
+		    wbiFile		    "WBT_wbiFilename"
+		    wbiList		    "WBT_wbiList"
+		    }
+		    Block {
+		    BlockType		    SubSystem
+		    Name		    "MATLAB Function1"
+		    SID			    "4120"
+		    Ports		    [2, 1]
+		    Position		    [1095, 151, 1225, 269]
+		    ZOrder		    739
+		    LibraryVersion	    "1.32"
+		    ErrorFcn		    "Stateflow.Translate.translate"
+		    PermitHierarchicalResolution "ExplicitOnly"
+		    TreatAsAtomicUnit	    on
+		    RequestExecContextInheritance off
+		    SFBlockType		    "MATLAB Function"
+		    Variant		    off
+		    System {
+		    Name		    "MATLAB Function1"
+		    Location		    [223, 338, 826, 833]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    SIDHighWatermark	    "19"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "x"
+		    SID			    "4120::1"
+		    Position		    [20, 101, 40, 119]
+		    ZOrder		    -1
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "supportp"
+		    SID			    "4120::19"
+		    Position		    [20, 136, 40, 154]
+		    ZOrder		    10
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Demux
+		    Name		    " Demux "
+		    SID			    "4120::17"
+		    Ports		    [1, 1]
+		    Position		    [270, 230, 320, 270]
+		    ZOrder		    8
+		    Outputs		    "1"
+		    }
+		    Block {
+		    BlockType		    S-Function
+		    Name		    " SFunction "
+		    SID			    "4120::16"
+		    Tag			    "Stateflow S-Function stepRecovery 43"
+		    Ports		    [2, 2]
+		    Position		    [180, 100, 230, 160]
+		    ZOrder		    7
+		    FunctionName	    "sf_sfun"
+		    PortCounts		    "[2 2]"
+		    SFunctionDeploymentMode off
+		    EnableBusSupport	    on
+		    Port {
+		    PortNumber		    2
+		    Name		    "OUT"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    }
+		    Block {
+		    BlockType		    Terminator
+		    Name		    " Terminator "
+		    SID			    "4120::18"
+		    Position		    [460, 241, 480, 259]
+		    ZOrder		    9
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "OUT"
+		    SID			    "4120::5"
+		    Position		    [460, 101, 480, 119]
+		    ZOrder		    -5
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    ZOrder		    9
+		    SrcBlock		    "x"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    10
+		    SrcBlock		    "supportp"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    2
+		    }
+		    Line {
+		    Name		    "OUT"
+		    ZOrder		    11
+		    Labels		    [0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    2
+		    DstBlock		    "OUT"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    12
+		    SrcBlock		    " Demux "
+		    SrcPort		    1
+		    DstBlock		    " Terminator "
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    13
+		    SrcBlock		    " SFunction "
+		    SrcPort		    1
+		    DstBlock		    " Demux "
+		    DstPort		    1
+		    }
+		    }
+		    }
+		    Block {
+		    BlockType		    Product
+		    Name		    "Matrix Multiply"
+		    SID			    "4123"
+		    Ports		    [2, 1]
+		    Position		    [940, 159, 995, 201]
+		    ZOrder		    742
+		    Multiplication	    "Matrix(*)"
+		    InputSameDT		    off
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    RndMeth		    "Floor"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Mux
+		    Name		    "Mux"
+		    SID			    "4124"
+		    Ports		    [2, 1]
+		    Position		    [860, 316, 865, 354]
+		    ZOrder		    743
+		    ShowName		    off
+		    Inputs		    "2"
+		    DisplayOption	    "bar"
+		    }
+		    Block {
+		    BlockType		    Selector
+		    Name		    "Selector2"
+		    SID			    "4126"
+		    Ports		    [1, 1]
+		    Position		    [1020, 161, 1060, 199]
+		    ZOrder		    745
+		    InputPortWidth	    "4"
+		    IndexOptions	    "Index vector (dialog)"
+		    Indices		    "[1 2]"
+		    OutputSizes		    "1"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "OUT"
+		    SID			    "4142"
+		    Position		    [1245, 203, 1275, 217]
+		    ZOrder		    750
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    ZOrder		    301
+		    SrcBlock		    "X_global"
+		    SrcPort		    1
+		    Points		    [35, 0; 0, 5]
+		    DstBlock		    "Mux"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    291
+		    SrcBlock		    "Constant1"
+		    SrcPort		    1
+		    DstBlock		    "MATLAB Function1"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    304
+		    SrcBlock		    "MATLAB Function1"
+		    SrcPort		    1
+		    DstBlock		    "OUT"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    302
+		    SrcBlock		    "qj"
+		    SrcPort		    1
+		    Points		    [20, 0; 0, -25]
+		    DstBlock		    "Forward Kinematics1"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    283
+		    SrcBlock		    "Forward Kinematics1"
+		    SrcPort		    1
+		    DstBlock		    "Matrix Multiply"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    285
+		    SrcBlock		    "Constant"
+		    SrcPort		    1
+		    DstBlock		    "Mux"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    289
+		    SrcBlock		    "Matrix Multiply"
+		    SrcPort		    1
+		    DstBlock		    "Selector2"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    290
+		    SrcBlock		    "Selector2"
+		    SrcPort		    1
+		    DstBlock		    "MATLAB Function1"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    303
+		    SrcBlock		    "w_H_base"
+		    SrcPort		    1
+		    DstBlock		    "Forward Kinematics1"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    286
+		    SrcBlock		    "Mux"
+		    SrcPort		    1
+		    Points		    [35, 0; 0, -145]
+		    DstBlock		    "Matrix Multiply"
+		    DstPort		    2
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Out of foot1"
+		  SID			  "4144"
+		  Ports			  [3, 1]
+		  Position		  [1385, 752, 1490, 838]
+		  ZOrder		  754
+		  RequestExecContextInheritance	off
+		  Variant		  off
+		  System {
+		    Name		    "Out of foot1"
+		    Location		    [0, 24, 1920, 1080]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "106"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "X_global"
+		    SID			    "4145"
+		    Position		    [745, 312, 770, 328]
+		    ZOrder		    747
+		    NamePlacement	    "alternate"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "qj"
+		    SID			    "4146"
+		    Position		    [630, 202, 660, 218]
+		    ZOrder		    748
+		    NamePlacement	    "alternate"
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "w_H_base"
+		    SID			    "4147"
+		    Position		    [630, 147, 655, 163]
+		    ZOrder		    749
+		    NamePlacement	    "alternate"
+		    Port		    "3"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Constant"
+		    SID			    "4148"
+		    Position		    [820, 337, 835, 353]
+		    ZOrder		    744
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Constant1"
+		    SID			    "4149"
+		    Position		    [970, 232, 1050, 248]
+		    ZOrder		    746
+		    Value		    "gain.footSize"
+		    }
+		    Block {
+		    BlockType		    Reference
+		    Name		    "Forward Kinematics1"
+		    SID			    "4150"
+		    Ports		    [2, 1]
+		    Position		    [720, 138, 870, 202]
+		    ZOrder		    741
+		    LibraryVersion	    "1.355"
+		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+		    SourceType		    "Forward Kinematics"
+		    ContentPreviewEnabled   off
+		    frameName		    "'l_sole'"
+		    robotName		    "WBT_robotName"
+		    localName		    "WBT_modelName"
+		    wbiFile		    "WBT_wbiFilename"
+		    wbiList		    "WBT_wbiList"
+		    }
+		    Block {
+		    BlockType		    SubSystem
+		    Name		    "MATLAB Function1"
+		    SID			    "4151"
+		    Ports		    [2, 1]
+		    Position		    [1095, 151, 1225, 269]
+		    ZOrder		    739
+		    LibraryVersion	    "1.32"
+		    ErrorFcn		    "Stateflow.Translate.translate"
+		    PermitHierarchicalResolution "ExplicitOnly"
+		    TreatAsAtomicUnit	    on
+		    RequestExecContextInheritance off
+		    SFBlockType		    "MATLAB Function"
+		    Variant		    off
+		    System {
+		    Name		    "MATLAB Function1"
+		    Location		    [223, 338, 826, 833]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    SIDHighWatermark	    "19"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "x"
+		    SID			    "4151::1"
+		    Position		    [20, 101, 40, 119]
+		    ZOrder		    -1
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "supportp"
+		    SID			    "4151::19"
+		    Position		    [20, 136, 40, 154]
+		    ZOrder		    10
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Demux
+		    Name		    " Demux "
+		    SID			    "4151::17"
+		    Ports		    [1, 1]
+		    Position		    [270, 230, 320, 270]
+		    ZOrder		    8
+		    Outputs		    "1"
+		    }
+		    Block {
+		    BlockType		    S-Function
+		    Name		    " SFunction "
+		    SID			    "4151::16"
+		    Tag			    "Stateflow S-Function stepRecovery 44"
+		    Ports		    [2, 2]
+		    Position		    [180, 100, 230, 160]
+		    ZOrder		    7
+		    FunctionName	    "sf_sfun"
+		    PortCounts		    "[2 2]"
+		    SFunctionDeploymentMode off
+		    EnableBusSupport	    on
+		    Port {
+		    PortNumber		    2
+		    Name		    "OUT"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    }
+		    Block {
+		    BlockType		    Terminator
+		    Name		    " Terminator "
+		    SID			    "4151::18"
+		    Position		    [460, 241, 480, 259]
+		    ZOrder		    9
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "OUT"
+		    SID			    "4151::5"
+		    Position		    [460, 101, 480, 119]
+		    ZOrder		    -5
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    ZOrder		    1
+		    SrcBlock		    " SFunction "
+		    SrcPort		    1
+		    DstBlock		    " Demux "
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    2
+		    SrcBlock		    " Demux "
+		    SrcPort		    1
+		    DstBlock		    " Terminator "
+		    DstPort		    1
+		    }
+		    Line {
+		    Name		    "OUT"
+		    ZOrder		    3
+		    Labels		    [0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    2
+		    DstBlock		    "OUT"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    4
+		    SrcBlock		    "supportp"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    5
+		    SrcBlock		    "x"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    1
+		    }
+		    }
+		    }
+		    Block {
+		    BlockType		    Product
+		    Name		    "Matrix Multiply"
+		    SID			    "4152"
+		    Ports		    [2, 1]
+		    Position		    [940, 159, 995, 201]
+		    ZOrder		    742
+		    Multiplication	    "Matrix(*)"
+		    InputSameDT		    off
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    RndMeth		    "Floor"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Mux
+		    Name		    "Mux"
+		    SID			    "4153"
+		    Ports		    [2, 1]
+		    Position		    [860, 316, 865, 354]
+		    ZOrder		    743
+		    ShowName		    off
+		    Inputs		    "2"
+		    DisplayOption	    "bar"
+		    }
+		    Block {
+		    BlockType		    Selector
+		    Name		    "Selector2"
+		    SID			    "4154"
+		    Ports		    [1, 1]
+		    Position		    [1020, 161, 1060, 199]
+		    ZOrder		    745
+		    InputPortWidth	    "4"
+		    IndexOptions	    "Index vector (dialog)"
+		    Indices		    "[1 2]"
+		    OutputSizes		    "1"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "OUT"
+		    SID			    "4155"
+		    Position		    [1245, 203, 1275, 217]
+		    ZOrder		    750
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    ZOrder		    1
+		    SrcBlock		    "Mux"
+		    SrcPort		    1
+		    Points		    [35, 0; 0, -145]
+		    DstBlock		    "Matrix Multiply"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    2
+		    SrcBlock		    "w_H_base"
+		    SrcPort		    1
+		    DstBlock		    "Forward Kinematics1"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    3
+		    SrcBlock		    "Selector2"
+		    SrcPort		    1
+		    DstBlock		    "MATLAB Function1"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    4
+		    SrcBlock		    "Matrix Multiply"
+		    SrcPort		    1
+		    DstBlock		    "Selector2"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    5
+		    SrcBlock		    "Constant"
+		    SrcPort		    1
+		    DstBlock		    "Mux"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    6
+		    SrcBlock		    "Forward Kinematics1"
+		    SrcPort		    1
+		    DstBlock		    "Matrix Multiply"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    7
+		    SrcBlock		    "qj"
+		    SrcPort		    1
+		    Points		    [20, 0; 0, -25]
+		    DstBlock		    "Forward Kinematics1"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    8
+		    SrcBlock		    "MATLAB Function1"
+		    SrcPort		    1
+		    DstBlock		    "OUT"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    9
+		    SrcBlock		    "Constant1"
+		    SrcPort		    1
+		    DstBlock		    "MATLAB Function1"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    10
+		    SrcBlock		    "X_global"
+		    SrcPort		    1
+		    Points		    [35, 0; 0, 5]
+		    DstBlock		    "Mux"
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Out of foot2"
+		  SID			  "4159"
+		  Ports			  [3, 1]
+		  Position		  [1385, 1102, 1490, 1188]
+		  ZOrder		  756
+		  RequestExecContextInheritance	off
+		  Variant		  off
+		  System {
+		    Name		    "Out of foot2"
+		    Location		    [0, 24, 1920, 1080]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "106"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "X_global"
+		    SID			    "4160"
+		    Position		    [745, 312, 770, 328]
+		    ZOrder		    747
+		    NamePlacement	    "alternate"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "qj"
+		    SID			    "4161"
+		    Position		    [630, 202, 660, 218]
+		    ZOrder		    748
+		    NamePlacement	    "alternate"
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "w_H_base"
+		    SID			    "4162"
+		    Position		    [630, 147, 655, 163]
+		    ZOrder		    749
+		    NamePlacement	    "alternate"
+		    Port		    "3"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Constant"
+		    SID			    "4163"
+		    Position		    [820, 337, 835, 353]
+		    ZOrder		    744
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Constant1"
+		    SID			    "4164"
+		    Position		    [970, 232, 1050, 248]
+		    ZOrder		    746
+		    Value		    "gain.footSize"
+		    }
+		    Block {
+		    BlockType		    Reference
+		    Name		    "Forward Kinematics1"
+		    SID			    "4165"
+		    Ports		    [2, 1]
+		    Position		    [720, 138, 870, 202]
+		    ZOrder		    741
+		    LibraryVersion	    "1.355"
+		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+		    SourceType		    "Forward Kinematics"
+		    ContentPreviewEnabled   off
+		    frameName		    "'l_sole'"
+		    robotName		    "WBT_robotName"
+		    localName		    "WBT_modelName"
+		    wbiFile		    "WBT_wbiFilename"
+		    wbiList		    "WBT_wbiList"
+		    }
+		    Block {
+		    BlockType		    SubSystem
+		    Name		    "MATLAB Function1"
+		    SID			    "4166"
+		    Ports		    [2, 1]
+		    Position		    [1095, 151, 1225, 269]
+		    ZOrder		    739
+		    LibraryVersion	    "1.32"
+		    ErrorFcn		    "Stateflow.Translate.translate"
+		    PermitHierarchicalResolution "ExplicitOnly"
+		    TreatAsAtomicUnit	    on
+		    RequestExecContextInheritance off
+		    SFBlockType		    "MATLAB Function"
+		    Variant		    off
+		    System {
+		    Name		    "MATLAB Function1"
+		    Location		    [223, 338, 826, 833]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    SIDHighWatermark	    "19"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "x"
+		    SID			    "4166::1"
+		    Position		    [20, 101, 40, 119]
+		    ZOrder		    -1
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "supportp"
+		    SID			    "4166::19"
+		    Position		    [20, 136, 40, 154]
+		    ZOrder		    10
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Demux
+		    Name		    " Demux "
+		    SID			    "4166::17"
+		    Ports		    [1, 1]
+		    Position		    [270, 230, 320, 270]
+		    ZOrder		    8
+		    Outputs		    "1"
+		    }
+		    Block {
+		    BlockType		    S-Function
+		    Name		    " SFunction "
+		    SID			    "4166::16"
+		    Tag			    "Stateflow S-Function stepRecovery 45"
+		    Ports		    [2, 2]
+		    Position		    [180, 100, 230, 160]
+		    ZOrder		    7
+		    FunctionName	    "sf_sfun"
+		    PortCounts		    "[2 2]"
+		    SFunctionDeploymentMode off
+		    EnableBusSupport	    on
+		    Port {
+		    PortNumber		    2
+		    Name		    "OUT"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    }
+		    Block {
+		    BlockType		    Terminator
+		    Name		    " Terminator "
+		    SID			    "4166::18"
+		    Position		    [460, 241, 480, 259]
+		    ZOrder		    9
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "OUT"
+		    SID			    "4166::5"
+		    Position		    [460, 101, 480, 119]
+		    ZOrder		    -5
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    ZOrder		    1
+		    SrcBlock		    " SFunction "
+		    SrcPort		    1
+		    DstBlock		    " Demux "
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    2
+		    SrcBlock		    " Demux "
+		    SrcPort		    1
+		    DstBlock		    " Terminator "
+		    DstPort		    1
+		    }
+		    Line {
+		    Name		    "OUT"
+		    ZOrder		    3
+		    Labels		    [0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    2
+		    DstBlock		    "OUT"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    4
+		    SrcBlock		    "supportp"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    5
+		    SrcBlock		    "x"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    1
+		    }
+		    }
+		    }
+		    Block {
+		    BlockType		    Product
+		    Name		    "Matrix Multiply"
+		    SID			    "4167"
+		    Ports		    [2, 1]
+		    Position		    [940, 159, 995, 201]
+		    ZOrder		    742
+		    Multiplication	    "Matrix(*)"
+		    InputSameDT		    off
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    RndMeth		    "Floor"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Mux
+		    Name		    "Mux"
+		    SID			    "4168"
+		    Ports		    [2, 1]
+		    Position		    [860, 316, 865, 354]
+		    ZOrder		    743
+		    ShowName		    off
+		    Inputs		    "2"
+		    DisplayOption	    "bar"
+		    }
+		    Block {
+		    BlockType		    Selector
+		    Name		    "Selector2"
+		    SID			    "4169"
+		    Ports		    [1, 1]
+		    Position		    [1020, 161, 1060, 199]
+		    ZOrder		    745
+		    InputPortWidth	    "4"
+		    IndexOptions	    "Index vector (dialog)"
+		    Indices		    "[1 2]"
+		    OutputSizes		    "1"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "OUT"
+		    SID			    "4170"
+		    Position		    [1245, 203, 1275, 217]
+		    ZOrder		    750
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    ZOrder		    1
+		    SrcBlock		    "Mux"
+		    SrcPort		    1
+		    Points		    [35, 0; 0, -145]
+		    DstBlock		    "Matrix Multiply"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    2
+		    SrcBlock		    "w_H_base"
+		    SrcPort		    1
+		    DstBlock		    "Forward Kinematics1"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    3
+		    SrcBlock		    "Selector2"
+		    SrcPort		    1
+		    DstBlock		    "MATLAB Function1"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    4
+		    SrcBlock		    "Matrix Multiply"
+		    SrcPort		    1
+		    DstBlock		    "Selector2"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    5
+		    SrcBlock		    "Constant"
+		    SrcPort		    1
+		    DstBlock		    "Mux"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    6
+		    SrcBlock		    "Forward Kinematics1"
+		    SrcPort		    1
+		    DstBlock		    "Matrix Multiply"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    7
+		    SrcBlock		    "qj"
+		    SrcPort		    1
+		    Points		    [20, 0; 0, -25]
+		    DstBlock		    "Forward Kinematics1"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    8
+		    SrcBlock		    "MATLAB Function1"
+		    SrcPort		    1
+		    DstBlock		    "OUT"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    9
+		    SrcBlock		    "Constant1"
+		    SrcPort		    1
+		    DstBlock		    "MATLAB Function1"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    10
+		    SrcBlock		    "X_global"
+		    SrcPort		    1
+		    Points		    [35, 0; 0, 5]
+		    DstBlock		    "Mux"
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
 		  BlockType		  Scope
 		  Name			  "Scope"
 		  SID			  "3985"
@@ -14856,6 +15928,32 @@ Model {
 		  "47058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0."
 		  "0745098039215686 0.650980392156863])),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('T"
 		  "ools','Measurements',true,'Version','2016a')),'Version','2016a','Position',[243 414 560 420])"
+		}
+		Block {
+		  BlockType		  Scope
+		  Name			  "Scope2"
+		  SID			  "4156"
+		  Ports			  [3]
+		  Position		  [1575, 933, 1695, 1047]
+		  ZOrder		  755
+		  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr"
+		  ".Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sourc"
+		  "es','WiredSimulink',true,'DataLoggingVariableName','ScopeData2'),extmgr.Configuration('Visuals','Time Domain',true"
+		  ",'SerializedDisplays',{struct('MinYLimReal','-0.01302','MaxYLimReal','1.06551','YLabelReal','','MinYLimMag','0.000"
+		  "00','MaxYLimMag','1.06551','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 "
+		  "0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;"
+		  "0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0."
+		  "0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.6509803921568"
+		  "63],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{"
+		  "'Out of foot1','Out of foot','Out of foot2'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct("
+		  "'MinYLimReal','-0.01302','MaxYLimReal','1.06551','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.06551','Le"
+		  "gendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274"
+		  "509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.4117647058"
+		  "82353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.8313725490"
+		  "19608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configuration('To"
+		  "ols','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurement"
+		  "s',true,'Version','2016a')),'Version','2016a','Position',[1289 429 570 422],'VisibleAtModelOpen','on')"
+		  NumInputPorts		  "3"
 		}
 		Block {
 		  BlockType		  Selector
@@ -14952,8 +16050,9 @@ Model {
 		  Name			  "XY Graph2"
 		  SID			  "4112"
 		  Ports			  [2]
-		  Position		  [1375, 745, 1405, 780]
+		  Position		  [1375, 675, 1405, 710]
 		  ZOrder		  735
+		  Commented		  "on"
 		  LibraryVersion	  "1.386"
 		  SourceBlock		  "simulink/Sinks/XY Graph"
 		  SourceType		  "XY scope."
@@ -14969,8 +16068,9 @@ Model {
 		  Name			  "XY Graph3"
 		  SID			  "4114"
 		  Ports			  [2]
-		  Position		  [1375, 880, 1405, 915]
+		  Position		  [1375, 860, 1405, 895]
 		  ZOrder		  737
+		  Commented		  "on"
 		  LibraryVersion	  "1.386"
 		  SourceBlock		  "simulink/Sinks/XY Graph"
 		  SourceType		  "XY scope."
@@ -15112,9 +16212,37 @@ Model {
 		    }
 		    Branch {
 		    ZOrder		    199
-		    Points		    [0, 295]
+		    Points		    [0, 203]
+		    Branch {
+		    ZOrder		    310
+		    Points		    [875, 0; 0, -23]
+		    DstBlock		    "Out of foot1"
+		    DstPort		    2
+		    }
+		    Branch {
+		    ZOrder		    309
+		    Points		    [0, 92; 189, 0; 0, 5]
+		    Branch {
+		    ZOrder		    302
+		    Points		    [0, 95]
+		    Branch {
+		    ZOrder		    326
+		    Points		    [0, 135]
+		    DstBlock		    "Out of foot2"
+		    DstPort		    2
+		    }
+		    Branch {
+		    ZOrder		    325
+		    DstBlock		    "Out of foot"
+		    DstPort		    2
+		    }
+		    }
+		    Branch {
+		    ZOrder		    281
 		    DstBlock		    "FPE module"
 		    DstPort		    3
+		    }
+		    }
 		    }
 		  }
 		  Branch {
@@ -15146,9 +16274,36 @@ Model {
 		    }
 		    Branch {
 		    ZOrder		    227
-		    Points		    [0, 245]
+		    Points		    [0, 135]
+		    Branch {
+		    ZOrder		    313
+		    DstBlock		    "Out of foot1"
+		    DstPort		    3
+		    }
+		    Branch {
+		    ZOrder		    312
+		    Points		    [0, 115]
+		    Branch {
+		    ZOrder		    303
+		    Points		    [0, 100; 3, 0]
+		    Branch {
+		    ZOrder		    329
+		    Points		    [0, 135]
+		    DstBlock		    "Out of foot2"
+		    DstPort		    3
+		    }
+		    Branch {
+		    ZOrder		    328
+		    DstBlock		    "Out of foot"
+		    DstPort		    3
+		    }
+		    }
+		    Branch {
+		    ZOrder		    278
 		    DstBlock		    "FPE module"
 		    DstPort		    4
+		    }
+		    }
 		    }
 		    }
 		    Branch {
@@ -15215,8 +16370,18 @@ Model {
 		  ZOrder		  99
 		  SrcBlock		  "Sum"
 		  SrcPort		  1
-		  DstBlock		  "Demux"
-		  DstPort		  1
+		  Points		  [50, 0]
+		  Branch {
+		    ZOrder		    320
+		    Points		    [0, 590]
+		    DstBlock		    "FPE module"
+		    DstPort		    5
+		  }
+		  Branch {
+		    ZOrder		    319
+		    DstBlock		    "Demux"
+		    DstPort		    1
+		  }
 		}
 		Line {
 		  ZOrder		  106
@@ -15257,7 +16422,7 @@ Model {
 		    Points		    [0, 50; 1, 0]
 		    Branch {
 		    ZOrder		    217
-		    Points		    [0, 110]
+		    Points		    [0, 115]
 		    DstBlock		    "FPE module"
 		    DstPort		    2
 		    }
@@ -15319,7 +16484,7 @@ Model {
 		  Points		  [24, 0]
 		  Branch {
 		    ZOrder		    232
-		    Points		    [0, 135]
+		    Points		    [0, 140]
 		    DstBlock		    "FPE module"
 		    DstPort		    1
 		  }
@@ -15334,13 +16499,24 @@ Model {
 		  ZOrder		  233
 		  SrcBlock		  "ICP\n"
 		  SrcPort		  1
-		  DstBlock		  "Demux1"
-		  DstPort		  1
+		  Points		  [20, 0]
+		  Branch {
+		    ZOrder		    308
+		    Points		    [0, -55]
+		    DstBlock		    "Demux1"
+		    DstPort		    1
+		  }
+		  Branch {
+		    ZOrder		    307
+		    DstBlock		    "Out of foot1"
+		    DstPort		    1
+		  }
 		}
 		Line {
 		  ZOrder		  234
 		  SrcBlock		  "Demux1"
 		  SrcPort		  1
+		  Points		  [10, 0; 0, -15]
 		  DstBlock		  "XY Graph2"
 		  DstPort		  1
 		}
@@ -15348,7 +16524,7 @@ Model {
 		  ZOrder		  235
 		  SrcBlock		  "Demux1"
 		  SrcPort		  2
-		  Points		  [20, 0; 0, 5]
+		  Points		  [25, 0; 0, -10]
 		  DstBlock		  "XY Graph2"
 		  DstPort		  2
 		}
@@ -15356,8 +16532,18 @@ Model {
 		  ZOrder		  239
 		  SrcBlock		  "FPE module"
 		  SrcPort		  1
-		  DstBlock		  "Demux3"
-		  DstPort		  1
+		  Points		  [28, 0]
+		  Branch {
+		    ZOrder		    323
+		    Points		    [0, 100]
+		    DstBlock		    "Out of foot"
+		    DstPort		    1
+		  }
+		  Branch {
+		    ZOrder		    316
+		    DstBlock		    "Demux3"
+		    DstPort		    1
+		  }
 		}
 		Line {
 		  ZOrder		  237
@@ -15374,6 +16560,38 @@ Model {
 		  DstBlock		  "XY Graph3"
 		  DstPort		  2
 		}
+		Line {
+		  ZOrder		  304
+		  SrcBlock		  "Out of foot"
+		  SrcPort		  1
+		  Points		  [1, 0; 0, -20]
+		  DstBlock		  "Scope2"
+		  DstPort		  2
+		}
+		Line {
+		  ZOrder		  305
+		  SrcBlock		  "Out of foot1"
+		  SrcPort		  1
+		  Points		  [13, 0; 0, 155]
+		  DstBlock		  "Scope2"
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  324
+		  SrcBlock		  "FPE module"
+		  SrcPort		  2
+		  Points		  [12, 0; 0, 165]
+		  DstBlock		  "Out of foot2"
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  330
+		  SrcBlock		  "Out of foot2"
+		  SrcPort		  1
+		  Points		  [41, 0; 0, -115]
+		  DstBlock		  "Scope2"
+		  DstPort		  3
+		}
 	      }
 	    }
 	    Block {
@@ -15387,7 +16605,7 @@ Model {
 	      Variant		      off
 	      System {
 		Name			"Switch"
-		Location		[1310, 14, 1930, 1090]
+		Location		[-10, 24, 1930, 1100]
 		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -15477,7 +16695,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"276"
+		ZoomFactor		"310"
 		Block {
 		  BlockType		  Inport
 		  Name			  "wL_WBDT"
@@ -35611,7 +36829,7 @@ Stateflow {
     name		    "stepRecovery"
     created		    "18-Feb-2014 10:14:40"
     isLibrary		    0
-    firstTarget		    495
+    firstTarget		    521
     sfVersion		    80000009
   }
   chart {
@@ -45703,11 +46921,11 @@ Stateflow {
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 484 0 0]
-    firstTransition	    493
-    firstJunction	    492
+    firstTransition	    495
+    firstJunction	    494
     viewObj		    483
     machine		    1
-    ssIdHighWaterMark	    12
+    ssIdHighWaterMark	    14
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    485
@@ -45731,8 +46949,8 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function fpe = fpe_sim(COM_vel, n, m, J_COM, COMx, g)\nfpe = fpe_computation(m, COMx, COM_vel, J_"
-      "COM, n, g);"
+      script		      "function [fpe, fpe_alternative] = fpe_sim(COM_vel, n, m, J_COM, COMx, g, COPx)\n[fpe, fpe_alterna"
+      "tive] = fpe_computation(m, COMx, COM_vel, J_COM, n, g, COPx);"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -45860,9 +47078,59 @@ Stateflow {
   }
   data {
     id			    490
+    ssIdNumber		    11
+    name		    "g"
+    linkNode		    [483 489 491]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    491
+    ssIdNumber		    13
+    name		    "COPx"
+    linkNode		    [483 490 492]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    492
     ssIdNumber		    5
     name		    "fpe"
-    linkNode		    [483 489 491]
+    linkNode		    [483 491 493]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -45882,10 +47150,161 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    491
-    ssIdNumber		    11
-    name		    "g"
-    linkNode		    [483 490 0]
+    id			    493
+    ssIdNumber		    14
+    name		    "fpe_alternative"
+    linkNode		    [483 492 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  junction {
+    id			    494
+    position		    [23.5747 49.5747 7]
+    chart		    483
+    linkNode		    [483 0 0]
+    subviewer		    483
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    495
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [28.125 13.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      494
+      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    483
+    linkNode		    [483 0 0]
+    dataLimits		    [21.175 25.975 14.625 42.575]
+    subviewer		    483
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  instance {
+    id			    496
+    name		    "DesValues/State Machine Step Recovery/Step Recovery Techniques\n/FPE module/MATLAB Function2"
+    machine		    1
+    chart		    483
+  }
+  chart {
+    id			    497
+    name		    "DesValues/State Machine Step Recovery/Step Recovery Techniques\n/Out of foot/MATLAB Function1"
+    windowPosition	    [422 539.941 189 413]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3600 1200 1.180555555555556]
+    treeNode		    [0 498 0 0]
+    firstTransition	    503
+    firstJunction	    502
+    viewObj		    497
+    machine		    1
+    ssIdHighWaterMark	    6
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    499
+    chartFileNumber	    43
+    disableImplicitCasting  1
+    eml {
+      name		      "exit_support_square"
+    }
+  }
+  state {
+    id			    498
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    497
+    treeNode		    [497 0 0 0]
+    superState		    SUBCHART
+    subviewer		    497
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function OUT = exit_support_square(x, supportp)\n%computes whether x is outside the support polyg"
+      "on defined in supportp. x\n%should be a two dimensional vector, while supportp a 2x2 matrix, where\n%the first c"
+      "oloumn is the lower edge, while the first row corresponds to\n%the first dimension of x.\nif((x(1)<supportp(1,1)"
+      ")||(x(1)>supportp(1,2))||(x(2)<supportp(2,1))||(x(2)>supportp(2,2)))\n    OUT = 1;\nelse OUT = 0;\nend\nend"
+      editorLayout	      "100 M4x1[10 5 700 500]"
+    }
+  }
+  data {
+    id			    499
+    ssIdNumber		    4
+    name		    "x"
+    linkNode		    [497 0 500]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    500
+    ssIdNumber		    5
+    name		    "OUT"
+    linkNode		    [497 499 501]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    501
+    ssIdNumber		    6
+    name		    "supportp"
+    linkNode		    [497 500 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -45907,16 +47326,16 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   junction {
-    id			    492
+    id			    502
     position		    [23.5747 49.5747 7]
-    chart		    483
-    linkNode		    [483 0 0]
-    subviewer		    483
+    chart		    497
+    linkNode		    [497 0 0]
+    subviewer		    497
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    493
+    id			    503
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [28.125 13.875 102.544 14.964]
     fontSize		    12
@@ -45924,14 +47343,14 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      492
+      id		      502
       intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    483
-    linkNode		    [483 0 0]
+    chart		    497
+    linkNode		    [497 0 0]
     dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    483
+    subviewer		    497
     drawStyle		    SMART
     slide {
       sticky		      BOTH_STICK
@@ -45940,22 +47359,324 @@ Stateflow {
     ssIdNumber		    2
   }
   instance {
-    id			    494
-    name		    "DesValues/State Machine Step Recovery/Step Recovery Techniques\n/FPE module/MATLAB Function2"
+    id			    504
+    name		    "DesValues/State Machine Step Recovery/Step Recovery Techniques\n/Out of foot/MATLAB Function1"
     machine		    1
-    chart		    483
+    chart		    497
+  }
+  chart {
+    id			    505
+    name		    "DesValues/State Machine Step Recovery/Step Recovery Techniques\n/Out of foot1/MATLAB Function1"
+    windowPosition	    [422 539.941 189 413]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3600 1200 1.180555555555556]
+    treeNode		    [0 506 0 0]
+    firstTransition	    511
+    firstJunction	    510
+    viewObj		    505
+    machine		    1
+    ssIdHighWaterMark	    6
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    507
+    chartFileNumber	    44
+    disableImplicitCasting  1
+    eml {
+      name		      "exit_support_square"
+    }
+  }
+  state {
+    id			    506
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    505
+    treeNode		    [505 0 0 0]
+    superState		    SUBCHART
+    subviewer		    505
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function OUT = exit_support_square(x, supportp)\n%computes whether x is outside the support polyg"
+      "on defined in supportp. x\n%should be a two dimensional vector, while supportp a 2x2 matrix, where\n%the first c"
+      "oloumn is the lower edge, while the first row corresponds to\n%the first dimension of x.\nif((x(1)<supportp(1,1)"
+      ")||(x(1)>supportp(1,2))||(x(2)<supportp(2,1))||(x(2)>supportp(2,2)))\n    OUT = 1;\nelse OUT = 0;\nend\nend"
+      editorLayout	      "100 M4x1[10 5 700 500]"
+    }
+  }
+  data {
+    id			    507
+    ssIdNumber		    4
+    name		    "x"
+    linkNode		    [505 0 508]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    508
+    ssIdNumber		    5
+    name		    "OUT"
+    linkNode		    [505 507 509]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    509
+    ssIdNumber		    6
+    name		    "supportp"
+    linkNode		    [505 508 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  junction {
+    id			    510
+    position		    [23.5747 49.5747 7]
+    chart		    505
+    linkNode		    [505 0 0]
+    subviewer		    505
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    511
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [28.125 13.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      510
+      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    505
+    linkNode		    [505 0 0]
+    dataLimits		    [21.175 25.975 14.625 42.575]
+    subviewer		    505
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  instance {
+    id			    512
+    name		    "DesValues/State Machine Step Recovery/Step Recovery Techniques\n/Out of foot1/MATLAB Function1"
+    machine		    1
+    chart		    505
+  }
+  chart {
+    id			    513
+    name		    "DesValues/State Machine Step Recovery/Step Recovery Techniques\n/Out of foot2/MATLAB Function1"
+    windowPosition	    [422 539.941 189 413]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3600 1200 1.180555555555556]
+    treeNode		    [0 514 0 0]
+    firstTransition	    519
+    firstJunction	    518
+    viewObj		    513
+    machine		    1
+    ssIdHighWaterMark	    6
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    515
+    chartFileNumber	    45
+    disableImplicitCasting  1
+    eml {
+      name		      "exit_support_square"
+    }
+  }
+  state {
+    id			    514
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    513
+    treeNode		    [513 0 0 0]
+    superState		    SUBCHART
+    subviewer		    513
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function OUT = exit_support_square(x, supportp)\n%computes whether x is outside the support polyg"
+      "on defined in supportp. x\n%should be a two dimensional vector, while supportp a 2x2 matrix, where\n%the first c"
+      "oloumn is the lower edge, while the first row corresponds to\n%the first dimension of x.\nif((x(1)<supportp(1,1)"
+      ")||(x(1)>supportp(1,2))||(x(2)<supportp(2,1))||(x(2)>supportp(2,2)))\n    OUT = 1;\nelse OUT = 0;\nend\nend"
+      editorLayout	      "100 M4x1[10 5 700 500]"
+    }
+  }
+  data {
+    id			    515
+    ssIdNumber		    4
+    name		    "x"
+    linkNode		    [513 0 516]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    516
+    ssIdNumber		    5
+    name		    "OUT"
+    linkNode		    [513 515 517]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    517
+    ssIdNumber		    6
+    name		    "supportp"
+    linkNode		    [513 516 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  junction {
+    id			    518
+    position		    [23.5747 49.5747 7]
+    chart		    513
+    linkNode		    [513 0 0]
+    subviewer		    513
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    519
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [28.125 13.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      518
+      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    513
+    linkNode		    [513 0 0]
+    dataLimits		    [21.175 25.975 14.625 42.575]
+    subviewer		    513
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  instance {
+    id			    520
+    name		    "DesValues/State Machine Step Recovery/Step Recovery Techniques\n/Out of foot2/MATLAB Function1"
+    machine		    1
+    chart		    513
   }
   target {
-    id			    495
+    id			    521
     name		    "sfun"
     codeFlags		    ""
     machine		    1
-    linkNode		    [1 0 496]
+    linkNode		    [1 0 522]
   }
   target {
-    id			    496
+    id			    522
     name		    "rtw"
     machine		    1
-    linkNode		    [1 495 0]
+    linkNode		    [1 521 0]
   }
 }
