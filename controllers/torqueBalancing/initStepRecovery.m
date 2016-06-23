@@ -56,7 +56,7 @@ CONFIG.SIMULATION_TIME     = inf;
 SM.SM_TYPE                 = 'STEP';
 
 % CONFIG.SCOPES: if set to true, all visualizers for debugging are active
-CONFIG.SCOPES.ALL          = false;
+CONFIG.SCOPES.ALL          = true;
 % You can also activate only some specific debugging scopes
 CONFIG.SCOPES.BASE_EST_IMU = false;
 CONFIG.SCOPES.EXTWRENCHES  = false;
@@ -121,7 +121,7 @@ PORTS.Q_DES     = ['/' WBT_modelName '/qDes:i'];
 PORTS.WBDT_LEFTLEG_EE  = '/wholeBodyDynamicsTree/left_foot/cartesianEndEffectorWrench:o';
 PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamicsTree/right_foot/cartesianEndEffectorWrench:o';
 
-CONFIG.USE_QP_SOLVER     = true; 
+CONFIG.USE_QP_SOLVER     = true;
 
 CONFIG.Ts                = 0.01; %  Controller period [s]
 

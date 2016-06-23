@@ -38,7 +38,9 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         10    50  10  % state == 10  YOGA RIGHT FOOT 
                         10    50  10  % state == 11  PREPARING FOR SWITCHING 
                         10    50  10  % state == 12  LOOKING FOR CONTACT
-                        10    50  10];% state == 13  TRANSITION TO INITIAL POSITION
+                        10    50  10  % state == 13  TRANSITION TO INITIAL POSITION
+                        30    150 30];% state == 14  FALLING
+                    
     gain.PCOM  =  gain.PCOM;
     gain.ICOM  = gain.PCOM*0;
     gain.DCOM  = 2*sqrt(gain.PCOM);
@@ -76,7 +78,8 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         30   30   30, 10   10    10   10, 10   10    10   10, 50   50   50    50     50  50, 50   50  250   200     50  50  % state == 10  YOGA RIGHT FOOT 
                         30   30   30, 10   10    10   10, 10   10    10   10, 30   50   30    60     50  50, 30   50  300    60     50  50  % state == 11  PREPARING FOR SWITCHING 
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 12  LOOKING FOR CONTACT
-                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50];% state == 13  TRANSITION TO INITIAL POSITION
+                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 13  TRANSITION TO INITIAL POSITION
+                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50];% state == 14  FALLING
 end              
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                      
          
@@ -115,8 +118,9 @@ sm.jointsSmoothingTimes          = [5;   %% state ==  1  TWO FEET BALANCING
                                     5;   %% state == 11  PREPARING FOR SWITCHING
                                     5;   %% state == 12  LOOKING FOR CONTACT 
                                          %%
-                                    4];  %% state == 13  TRANSITION INIT POSITION
-
+                                    4;   %% state == 13  TRANSITION INIT POSITION
+                                    0];  %% state == 14  FALLING
+                                
 sm.com.states      = [0.0,  0.01,0.0;   %% state ==  1  TWO FEET BALANCING NOT USED
                       0.0,  0.01,0.0;   %% state ==  2  COM TRANSITION TO LEFT FOOT: THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT FOOT
                       0.0,  0.00,0.0;   %% state ==  3  LEFT FOOT BALANCING 
@@ -191,7 +195,12 @@ sm.joints.states = [[0.0864,0.0258,0.0152, ...                          %% state
                      0.0563,0.6789,0.3340,0.6214 ...                    %
                      -0.0026,0.0225,0.0093,-0.0020,0.0027,-0.0277,...   %
                      0.0107,-0.0741,-0.0001,-0.0120,0.0252,0.1369];     %   
-                    zeros(1,ROBOT_DOF)];                                %% state == 13  BALANCING TWO FEET, THIS REFERENCE IS IGNORED                     
+                    zeros(1,ROBOT_DOF);                                 %% state == 13  BALANCING TWO FEET, THIS REFERENCE IS IGNORED
+                    [0.0008,0,0,...                                     %% state == 14  FALLING FROM LEFT FOOT
+                     -0.5192,0.5195,0,0.7846,...
+                     -0.5192,0.5195,0,0.7846,...
+                     0.0018,0,0,0.0019,-0.0019,0,...
+                     0.0018,0,0,0.0019,-0.0019,0];];                                                     
 
  
 q1 =        [-0.0790,0.2279, 0.4519, ...

@@ -1,15 +1,18 @@
-function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,jointsSmoothingTime] = ...
+function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,jointsSmoothingTime, QP_OFF] = ...
     stateMachineStep(CoM_0, q0, l_sole_CoM,r_sole_CoM,qj, t, ...
-                  wrench_rightFoot,wrench_leftFoot,l_sole_H_b, r_sole_H_b, sm,gain, STEP_DOWN)
+                  wrench_rightFoot,wrench_leftFoot,l_sole_H_b, r_sole_H_b, sm,gain, STEP_DOWN, r_CxP, COM_l_v, MAKE_A_STEP)
     %#codegen
     persistent state;
     persistent tSwitch;
     persistent w_H_fixedLink;
+    persistent t_previous;
+    persistent COM_prev_l
     
     if isempty(state) || isempty(tSwitch) || isempty(w_H_fixedLink) 
         state         = sm.stateAt0;
         tSwitch       = 0;
         w_H_fixedLink = eye(4);
+        COM_prev_l = CoM_0;
     end
     
     CoMDes      = CoM_0;
@@ -18,7 +21,9 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     w_H_b       = eye(4);
     impedances  = gain.impedances(1,:);
     kpCom       = gain.PCOM(1,:);   
-    kdCom       = gain.DCOM(1,:);   
+    kdCom       = gain.DCOM(1,:);  
+    
+    QP_OFF = 0;
 
     %% TWO FEET BALANCING
     if state == 1 
@@ -111,6 +116,12 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
            tSwitch = t;
         end
         
+        if MAKE_A_STEP
+            state = 14;
+            tSwitch = t;
+        end       
+        
+        
     end
     
     %% PREPARING FOR SWITCHING
@@ -164,9 +175,9 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     %% TRANSITION TO INITIAL POSITION
     if state == 7 
         w_H_b       =  w_H_fixedLink * l_sole_H_b;
+        w_H_b_r     =  w_H_b/r_sole_H_b;        
         
-        
-        CoMDes      = [w_H_fixedLink(1:2,4);CoM_0(3)] + sm.com.states(state,:)';         
+        CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_b_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';         
 
         
         constraints = [1; 1]; 
@@ -315,7 +326,31 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     end 
     
     %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% FALLING STATE (step with the right foot)
+    if state == 14
+    QP_OFF = 1;
+    w_H_b       =  w_H_fixedLink * l_sole_H_b;
+    constraints = [1; 0];
     
+    impedances  = gain.impedances(state,:);
+    kpCom       = gain.PCOM(state,:);   
+    kdCom       = gain.DCOM(state,:);
+    qDes        = sm.joints.states(state,:)';
+    
+    if isempty(t_previous)
+        t_previous = t;
+    end
+    
+    sim_pend = COM_prev_l(1:2) + (t-t_previous)*COM_l_v(1:2) + 0.5* (t-t_previous)^2 * 9.81/CoM_0(3) * (COM_prev_l(1:2) - r_CxP(1:2)); 
+    CoMDes      = [sim_pend;COM_prev_l(3)];
+    t_previous = t;
+    
+    end
+    
+     %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    COM_prev_l = l_sole_CoM;
     currentState        = state;
     jointsSmoothingTime = sm.jointsSmoothingTimes(state);
     
