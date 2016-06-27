@@ -119,7 +119,7 @@ sm.jointsSmoothingTimes          = [5;   %% state ==  1  TWO FEET BALANCING
                                     5;   %% state == 12  LOOKING FOR CONTACT 
                                          %%
                                     4;   %% state == 13  TRANSITION INIT POSITION
-                                    0];  %% state == 14  FALLING
+                                    1];  %% state == 14  FALLING
                                 
 sm.com.states      = [0.0,  0.01,0.0;   %% state ==  1  TWO FEET BALANCING NOT USED
                       0.0,  0.01,0.0;   %% state ==  2  COM TRANSITION TO LEFT FOOT: THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT FOOT

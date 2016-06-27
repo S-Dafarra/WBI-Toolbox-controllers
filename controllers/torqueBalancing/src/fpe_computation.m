@@ -1,4 +1,4 @@
-function [fpe, fpe_alternative, theta_bar] = fpe_computation(m, COMx, COM_vel, J_COM, n, g, COPx, foot)
+function [fpe, fpe_alternative, theta_bar, x] = fpe_computation(m, COMx, COM_vel, J_COM, n, g, COPx, foot)
 % This function computes the residual of the foot placement estimator
 % formula
 

@@ -1,4 +1,4 @@
-function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,jointsSmoothingTime, QP_OFF] = ...
+function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,jointsSmoothingTime, QP_OFF, SMOOTH] = ...
     stateMachineStep(CoM_0, q0, l_sole_CoM,r_sole_CoM,qj, t, ...
                   wrench_rightFoot,wrench_leftFoot,l_sole_H_b, r_sole_H_b, sm,gain, STEP_DOWN, r_CxP, COM_l_v, MAKE_A_STEP)
     %#codegen
@@ -24,6 +24,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     kdCom       = gain.DCOM(1,:);  
     
     QP_OFF = 0;
+    SMOOTH = 1;
 
     %% TWO FEET BALANCING
     if state == 1 
@@ -330,13 +331,15 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     %% FALLING STATE (step with the right foot)
     if state == 14
     QP_OFF = 1;
+    SMOOTH = 0;
     w_H_b       =  w_H_fixedLink * l_sole_H_b;
     constraints = [1; 0];
     
     impedances  = gain.impedances(state,:);
     kpCom       = gain.PCOM(state,:);   
     kdCom       = gain.DCOM(state,:);
-    qDes        = sm.joints.states(state,:)';
+    %qDes        = sm.joints.states(state,:)';
+    qDes = sm.joints.pointsL(1,2:end)';
     
     if isempty(t_previous)
         t_previous = t;
