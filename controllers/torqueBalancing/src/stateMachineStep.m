@@ -1,6 +1,6 @@
 function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,jointsSmoothingTime, QP_OFF, SMOOTH] = ...
     stateMachineStep(CoM_0, q0, l_sole_CoM,r_sole_CoM,qj, t, ...
-                  wrench_rightFoot,wrench_leftFoot,l_sole_H_b, r_sole_H_b, sm,gain, STEP_DOWN, r_CxP, COM_l_v, MAKE_A_STEP)
+                  wrench_rightFoot,wrench_leftFoot,l_sole_H_b, r_sole_H_b, sm,gain, STEP_DOWN, r_CxP, COM_l_v, MAKE_A_STEP, q_step_right_leg)
     %#codegen
     persistent state;
     persistent tSwitch;
@@ -13,6 +13,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
         tSwitch       = 0;
         w_H_fixedLink = eye(4);
         COM_prev_l = CoM_0;
+        t_previous = -1;
     end
     
     CoMDes      = CoM_0;
@@ -186,7 +187,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
         impedances  = gain.impedances(state,:);
         kpCom       = gain.PCOM(state,:);   
         kdCom       = gain.DCOM(state,:); 
-        
+                
         if STEP_DOWN == 0
            state   = 2;
            tSwitch = t;
@@ -338,17 +339,43 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     impedances  = gain.impedances(state,:);
     kpCom       = gain.PCOM(state,:);   
     kdCom       = gain.DCOM(state,:);
-    %qDes        = sm.joints.states(state,:)';
-    qDes = sm.joints.pointsL(1,2:end)';
+    qDes        = [sm.joints.states(state,1:17),q_step_right_leg']';
+    %qDes = sm.joints.pointsL(1,2:end)';
     
-    if isempty(t_previous)
+    if t_previous < 0
         t_previous = t;
     end
     
     sim_pend = COM_prev_l(1:2) + (t-t_previous)*COM_l_v(1:2) + 0.5* (t-t_previous)^2 * 9.81/CoM_0(3) * (COM_prev_l(1:2) - r_CxP(1:2)); 
-    CoMDes      = [sim_pend;COM_prev_l(3)];
+    CoMDes      = [sim_pend;0.6*CoM_0(3)];
     t_previous = t;
     
+    if wrench_rightFoot(3) > (sm.wrench.thresholdContactOn+20)
+            state = 15;
+            tSwitch = t;
+            t_previous = -1; %resetting
+    end
+    
+    
+    end
+    
+    %% RESTORING
+    if state == 15 
+        w_H_b       =  w_H_fixedLink * l_sole_H_b;
+        w_H_b_r     =  w_H_b/r_sole_H_b;        
+        
+        CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_b_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';         
+
+        
+        constraints = [1; 1]; 
+        qDes        = sm.joints.states(state,:)';
+        impedances  = gain.impedances(state,:);
+        kpCom       = gain.PCOM(state,:);   
+        kdCom       = gain.DCOM(state,:); 
+        
+        SMOOTH = 0;
+        QP_OFF = 0;
+        
     end
     
      %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -357,7 +384,3 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     currentState        = state;
     jointsSmoothingTime = sm.jointsSmoothingTimes(state);
     
-    
-    
-    
-   

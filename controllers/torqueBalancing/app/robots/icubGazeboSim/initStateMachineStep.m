@@ -26,20 +26,21 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     %Smoothing time for time-varying constraints
     CONFIG.smoothingTimeTranDynamics  = 0.02;
 
-    gain.PCOM     =    [10    50  10  % state ==  1  TWO FEET BALANCING
-                        10    50  10  % state ==  2  COM TRANSITION TO LEFT 
-                        10    50  10  % state ==  3  LEFT FOOT BALANCING
-                        10    50  10  % state ==  4  YOGA LEFT FOOT 
-                        10    50  10  % state ==  5  PREPARING FOR SWITCHING 
-                        10    50  10  % state ==  6  LOOKING FOR CONTACT
-                        10    50  10  % state ==  7  TRANSITION TO INITIAL POSITION 
-                        10    50  10  % state ==  8  COM TRANSITION TO RIGHT FOOT
-                        10    50  10  % state ==  9  RIGHT FOOT BALANCING
-                        10    50  10  % state == 10  YOGA RIGHT FOOT 
-                        10    50  10  % state == 11  PREPARING FOR SWITCHING 
-                        10    50  10  % state == 12  LOOKING FOR CONTACT
-                        10    50  10  % state == 13  TRANSITION TO INITIAL POSITION
-                        30    150 30];% state == 14  FALLING
+    gain.PCOM     =    [10    50  10;  % state ==  1  TWO FEET BALANCING
+                        10    50  10;  % state ==  2  COM TRANSITION TO LEFT 
+                        10    50  10;  % state ==  3  LEFT FOOT BALANCING
+                        10    50  10;  % state ==  4  YOGA LEFT FOOT 
+                        10    50  10;  % state ==  5  PREPARING FOR SWITCHING 
+                        10    50  10;  % state ==  6  LOOKING FOR CONTACT
+                        10    50  10;  % state ==  7  TRANSITION TO INITIAL POSITION 
+                        10    50  10;  % state ==  8  COM TRANSITION TO RIGHT FOOT
+                        10    50  10;  % state ==  9  RIGHT FOOT BALANCING
+                        10    50  10;  % state == 10  YOGA RIGHT FOOT 
+                        10    50  10;  % state == 11  PREPARING FOR SWITCHING 
+                        10    50  10;  % state == 12  LOOKING FOR CONTACT
+                        10    50  10;  % state == 13  TRANSITION TO INITIAL POSITION
+                        30    150 30;  % state == 14  FALLING
+                        30    150 30]; % state == 15  RESTORING
                     
     gain.PCOM  =  gain.PCOM;
     gain.ICOM  = gain.PCOM*0;
@@ -79,7 +80,8 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         30   30   30, 10   10    10   10, 10   10    10   10, 30   50   30    60     50  50, 30   50  300    60     50  50  % state == 11  PREPARING FOR SWITCHING 
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 12  LOOKING FOR CONTACT
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 13  TRANSITION TO INITIAL POSITION
-                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50];% state == 14  FALLING
+                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 14  FALLING
+                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50];% state == 15  RESTORING
 end              
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                      
          
@@ -119,7 +121,8 @@ sm.jointsSmoothingTimes          = [5;   %% state ==  1  TWO FEET BALANCING
                                     5;   %% state == 12  LOOKING FOR CONTACT 
                                          %%
                                     4;   %% state == 13  TRANSITION INIT POSITION
-                                    1];  %% state == 14  FALLING
+                 CONFIG.robotStepTime;   %% state == 14  FALLING
+                                    1];  %% state == 15  RESTORING
                                 
 sm.com.states      = [0.0,  0.01,0.0;   %% state ==  1  TWO FEET BALANCING NOT USED
                       0.0,  0.01,0.0;   %% state ==  2  COM TRANSITION TO LEFT FOOT: THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT FOOT
@@ -135,7 +138,10 @@ sm.com.states      = [0.0,  0.01,0.0;   %% state ==  1  TWO FEET BALANCING NOT U
                       0.0, -0.00,0.0;   %% state == 10  YOGA RIGHT FOOT
                       0.0, -0.00,0.0;   %% state == 11  PREPARING FOR SWITCHING
                       0.0,  0.09,0.0;   %% state == 12  LOOKING FOR CONTACT 
-                      0.0,  0.00,0.0];  %% state == 13  TRANSITION INIT POSITION: THIS REFERENCE IS IGNORED
+                      0.0,  0.00,0.0;   %% state == 13  TRANSITION INIT POSITION: THIS REFERENCE IS IGNORED
+                      0.0,  0.00,0.0;   %% state == 14  FALLING: THIS REFERENCE IS IGNORED
+                      0.0,  0.00,0.0];  %% state == 15  RESTORING: THIS REFERENCE IS IGNORED
+                  
 sm.tBalancing      = 0;%inf;%0.5;
 
 
@@ -196,12 +202,16 @@ sm.joints.states = [[0.0864,0.0258,0.0152, ...                          %% state
                      -0.0026,0.0225,0.0093,-0.0020,0.0027,-0.0277,...   %
                      0.0107,-0.0741,-0.0001,-0.0120,0.0252,0.1369];     %   
                     zeros(1,ROBOT_DOF);                                 %% state == 13  BALANCING TWO FEET, THIS REFERENCE IS IGNORED
-                    [0.0008,0,0,...                                     %% state == 14  FALLING FROM LEFT FOOT
-                     -0.5192,0.5195,0,0.7846,...
-                     -0.5192,0.5195,0,0.7846,...
-                     0.0018,0,0,0.0019,-0.0019,0,...
-                     0.0018,0,0,0.0019,-0.0019,0];];                                                     
-
+                    [-0.0852,-0.4273,0.0821,...                         %% state == 14 FALLING
+                      0.1391, 1.4585,0.2464, 0.3042, ...                %
+                     -0.4181, 1.6800,0.7373, 0.3031, ...                %
+                      0.2092,0.2960, 0.0006,-0.1741,-0.1044,0.0700, ... %
+                      0.3714,0.9599, 1.3253,-1.6594, 0.6374,-0.0614];   %                                                    
+                    [-0.0852,-0.4273,0.0821,...                         %% state == 14 RESTORING
+                      0.1391, 1.4585,0.2464, 0.3042, ...                %
+                     -0.4181, 1.6800,0.7373, 0.3031, ...                %
+                      0.2092,0.2960, 0.0006,-0.1741,-0.1044,0.0700, ... %
+                      0.3714,0.9599, 1.3253,-1.6594, 0.6374,-0.0614];]; %
  
 q1 =        [-0.0790,0.2279, 0.4519, ...
              -1.1621,0.6663, 0.4919, 0.9947, ... 
