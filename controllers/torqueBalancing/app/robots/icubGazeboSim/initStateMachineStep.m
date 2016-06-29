@@ -1,27 +1,27 @@
 %% OVERWRITING SOME OF THE PARAMETERS CONTAINED IN gains.m WHEN USING FSM
 if strcmpi(SM.SM_TYPE, 'STEP')
     
-    CONFIG.robotStepTime = 0.5; %seconds for the robot to take a step
+    CONFIG.robotStepTime = 0.7; %seconds for the robot to take a step
     
     CONFIG.SMOOTH_DES_COM      = 1;    % If equal to one, the desired streamed values 
                                        % of the center of mass are smoothed internally 
     CONFIG.SMOOTH_DES_Q        = 1;    % If equal to one, the desired streamed values 
                                        % of the postural tasks are smoothed internally 
 
-    reg.pinvDamp               = 1;
+    reg.pinvDamp               = 0.8;
     reg.impedances             = 0.1;
     reg.dampings               = 0;
-    reg.HessianQP              = 1e-7;
+    reg.HessianQP              = 1e-6;
 
     sat.torque                 = 60;
 
-    gain.footSize              = [ -0.05  0.10 ;    % xMin, xMax
+    gain.footSize              = [ -0.05  0.05;%0.10 ;    % xMin, xMax
                                    -0.025 0.025];   % yMin, yMax  
                    
     forceFrictionCoefficient     = 1/3;  
     
     %Smoothing time for time varying impedances
-    gain.SmoothingTimeGainScheduling              = 2;  
+    gain.SmoothingTimeGainScheduling              = 0.5;  
 
     %Smoothing time for time-varying constraints
     CONFIG.smoothingTimeTranDynamics  = 0.02;
@@ -39,8 +39,8 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         10    50  10;  % state == 11  PREPARING FOR SWITCHING 
                         10    50  10;  % state == 12  LOOKING FOR CONTACT
                         10    50  10;  % state == 13  TRANSITION TO INITIAL POSITION
-                        30    150 30;  % state == 14  FALLING
-                        30    150 30]; % state == 15  RESTORING
+                        10    50  10;  % state == 14  FALLING
+                        10    50  10]; % state == 15  RESTORING
                     
     gain.PCOM  =  gain.PCOM;
     gain.ICOM  = gain.PCOM*0;
@@ -121,26 +121,26 @@ sm.jointsSmoothingTimes          = [5;   %% state ==  1  TWO FEET BALANCING
                                     5;   %% state == 12  LOOKING FOR CONTACT 
                                          %%
                                     4;   %% state == 13  TRANSITION INIT POSITION
-                 CONFIG.robotStepTime;   %% state == 14  FALLING
+                                    0.5;   %% state == 14  FALLING
                                     1];  %% state == 15  RESTORING
                                 
-sm.com.states      = [0.0,  0.01,0.0;   %% state ==  1  TWO FEET BALANCING NOT USED
-                      0.0,  0.01,0.0;   %% state ==  2  COM TRANSITION TO LEFT FOOT: THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT FOOT
-                      0.0,  0.00,0.0;   %% state ==  3  LEFT FOOT BALANCING 
-                      0.0,  0.01,0.0;   %% state ==  4  YOGA LEFT FOOT
-                      0.0,  0.00,0.0;   %% state ==  5  PREPARING FOR SWITCHING
-                      0.0, -0.09,0.0;   %% state ==  6  LOOKING FOR CONTACT 
-                      0.0, -0.05,0.0;   %% state ==  7  TRANSITION INIT POSITION: modified
+sm.com.states      = [0.0,  0.01,0.0   %% state ==  1  TWO FEET BALANCING NOT USED
+                      0.0,  0.01,0.0   %% state ==  2  COM TRANSITION TO LEFT FOOT: THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT FOOT
+                      0.0,  0.00,0.0   %% state ==  3  LEFT FOOT BALANCING 
+                      0.0,  0.01,0.0   %% state ==  4  YOGA LEFT FOOT
+                      0.0,  0.00,0.0   %% state ==  5  PREPARING FOR SWITCHING
+                      0.0, -0.09,0.0   %% state ==  6  LOOKING FOR CONTACT 
+                      0.0, -0.05,0.0   %% state ==  7  TRANSITION INIT POSITION: modified
                       % FROM NOW ON, THE REFERENCE ARE ALWAYS DELTAS W.R.T.
                       % THE POSITION OF THE RIGHT FOOT
-                      0.0, -0.01,0.0;   %% state ==  8  COM TRANSITION TO RIGHT FOOT
-                      0.0,  0.00,0.0;   %% state ==  9  RIGHT FOOT BALANCING 
-                      0.0, -0.00,0.0;   %% state == 10  YOGA RIGHT FOOT
-                      0.0, -0.00,0.0;   %% state == 11  PREPARING FOR SWITCHING
-                      0.0,  0.09,0.0;   %% state == 12  LOOKING FOR CONTACT 
-                      0.0,  0.00,0.0;   %% state == 13  TRANSITION INIT POSITION: THIS REFERENCE IS IGNORED
-                      0.0,  0.00,0.0;   %% state == 14  FALLING: THIS REFERENCE IS IGNORED
-                      0.0,  0.00,0.0];  %% state == 15  RESTORING: THIS REFERENCE IS IGNORED
+                      0.0, -0.01,0.0   %% state ==  8  COM TRANSITION TO RIGHT FOOT
+                      0.0,  0.00,0.0   %% state ==  9  RIGHT FOOT BALANCING 
+                      0.0, -0.00,0.0   %% state == 10  YOGA RIGHT FOOT
+                      0.0, -0.00,0.0   %% state == 11  PREPARING FOR SWITCHING
+                      0.0,  0.09,0.0   %% state == 12  LOOKING FOR CONTACT 
+                      0.0,  0.00,0.0   %% state == 13  TRANSITION INIT POSITION: THIS REFERENCE IS IGNORED
+                      0.0,  0.00,0.0   %% state == 14  FALLING: THIS REFERENCE IS IGNORED
+                      0.0,  -0.02,0.0];  %% state == 15  RESTORING: THIS REFERENCE IS IGNORED
                   
 sm.tBalancing      = 0;%inf;%0.5;
 
@@ -207,11 +207,11 @@ sm.joints.states = [[0.0864,0.0258,0.0152, ...                          %% state
                      -0.4181, 1.6800,0.7373, 0.3031, ...                %
                       0.2092,0.2960, 0.0006,-0.1741,-0.1044,0.0700, ... %
                       0.3714,0.9599, 1.3253,-1.6594, 0.6374,-0.0614];   %                                                    
-                    [-0.0852,-0.4273,0.0821,...                         %% state == 14 RESTORING
-                      0.1391, 1.4585,0.2464, 0.3042, ...                %
-                     -0.4181, 1.6800,0.7373, 0.3031, ...                %
-                      0.2092,0.2960, 0.0006,-0.1741,-0.1044,0.0700, ... %
-                      0.3714,0.9599, 1.3253,-1.6594, 0.6374,-0.0614];]; %
+                    [0.0008,0,0,...                                     %% state == 15  RESTORING
+                     -0.5192,0.5195,0,0.7846,...                        %
+                     -0.5192,0.5195,0,0.7846,...                        %
+                     0.0018,0,0,0.0019,-0.0019,0,...                    %
+                     0.0018,0,0,0.0019,-0.0019,0];];                    %      
  
 q1 =        [-0.0790,0.2279, 0.4519, ...
              -1.1621,0.6663, 0.4919, 0.9947, ... 
