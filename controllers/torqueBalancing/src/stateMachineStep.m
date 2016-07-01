@@ -6,7 +6,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     persistent tSwitch;
     persistent w_H_fixedLink;
     persistent t_previous;
-    persistent COM_prev_l
+    persistent COM_prev_l;
     
     if isempty(state) || isempty(tSwitch) || isempty(w_H_fixedLink) 
         state         = sm.stateAt0;
@@ -102,7 +102,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
         % Set the center of mass projection onto the x-y plane to be
         % coincident to the origin of the left foot (l_sole) plus a
         % configurable delta
-        CoMDes      = [w_H_fixedLink(1:2,4);0.8*CoM_0(3)] + sm.com.states(state,:)';         
+        CoMDes      = [w_H_fixedLink(1:2,4);CoM_0(3)] + sm.com.states(state,:)';         
         
         constraints = [1; 0]; %right foot is no longer a constraints
 
@@ -370,24 +370,28 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     if state == 15 
         w_H_b       =  w_H_fixedLink * l_sole_H_b;
         w_H_b_r     =  w_H_b/r_sole_H_b;        
+               
+        %CoMDes      = [w_H_fixedLink(1:2,4);CoM_0(3)] + sm.com.states(15,:)';
+        CoMDes = [w_H_b_r(1:2,4);COM_prev_l(3)] + sm.com.states(15,:)';
         
-        %CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_b_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';         
-       % CoMDes      = [w_H_fixedLink(1:2,4);0.8*CoM_0(3)] + sm.com.states(15,:)';
-        
-       CoMDes = [w_H_b_r(1:2,4);CoM_0(3)];
-    if wrench_rightFoot(3) > (sm.wrench.thresholdContactOff)      
-        constraints = [1; 1]; 
-    else constraints = [0; 1]; 
-    end
+%     if wrench_leftFoot(3) > (sm.wrench.thresholdContactOn)      
+           constraints = [1; 1];
+%          %CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_b_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';
+%          %SMOOTH_com = 1;
+%          
+%     else constraints = [0; 1];
+%          %CoMDes = [w_H_b_r(1:2,4);CoM_0(3)];
+%          %SMOOTH_com = 0;
+%     end
     
         qDes        = [sm.joints.states(state,1:11),q_left',sm.joints.states(state,18:23)]';
         impedances  = gain.impedances(state,:);
         kpCom       = gain.PCOM(state,:);   
         kdCom       = gain.DCOM(state,:); 
         
-        SMOOTH = 1;
-        SMOOTH_com = 1;
-        QP_OFF = 1;
+        SMOOTH = 1;        
+        QP_OFF = 0;
+        SMOOTH_com = 1; 
         
     end
     

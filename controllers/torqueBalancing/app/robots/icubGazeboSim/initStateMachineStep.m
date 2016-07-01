@@ -1,7 +1,7 @@
 %% OVERWRITING SOME OF THE PARAMETERS CONTAINED IN gains.m WHEN USING FSM
 if strcmpi(SM.SM_TYPE, 'STEP')
     
-    CONFIG.robotStepTime = 0.4; %seconds for the robot to take a step
+    CONFIG.robotStepTime = 0.65; %seconds for the robot to take a step
     
     CONFIG.SMOOTH_DES_COM      = 1;    % If equal to one, the desired streamed values 
                                        % of the center of mass are smoothed internally 
@@ -16,7 +16,10 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     sat.torque                 = 60;
 
     gain.footSize              = [ -0.05   0.10 ;    % xMin, xMax
-                                   -0.025 0.025];   % yMin, yMax  
+                                   -0.025 0.025];   % yMin, yMax 
+                               
+    gain.footSize_step        = [ -0.03   0.05 ;    % xMin, xMax
+                                  -0.015 0.015];   % yMin, yMax 
                    
     forceFrictionCoefficient     = 1/3;  
     
@@ -40,7 +43,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         10    50  10;  % state == 12  LOOKING FOR CONTACT
                         10    50  10;  % state == 13  TRANSITION TO INITIAL POSITION
                         10    50  10;  % state == 14  FALLING
-                        10    50  10]; % state == 15  RESTORING
+                        30    60  1]; % state == 15  RESTORING
                     
     gain.PCOM  =  gain.PCOM;
     gain.ICOM  = gain.PCOM*0;
@@ -81,7 +84,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 12  LOOKING FOR CONTACT
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 13  TRANSITION TO INITIAL POSITION
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 14  FALLING
-                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 1   1   1    1     1  1];% state == 15  RESTORING
+                        10   30   20, 10   10    10    8, 10   10    10    8, 1   1   1    2    1  1, 1   1   1    1     1  1];% state == 15  RESTORING
 end              
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                      
          
@@ -121,7 +124,7 @@ sm.jointsSmoothingTimes          = [5;   %% state ==  1  TWO FEET BALANCING
                                     5;   %% state == 12  LOOKING FOR CONTACT 
                                          %%
                                     4;   %% state == 13  TRANSITION INIT POSITION
-                                    0.5;   %% state == 14  FALLING
+                                    0.4;   %% state == 14  FALLING
                                     5];  %% state == 15  RESTORING
                                 
 sm.com.states      = [0.0,  0.01,0.0   %% state ==  1  TWO FEET BALANCING NOT USED
@@ -140,7 +143,7 @@ sm.com.states      = [0.0,  0.01,0.0   %% state ==  1  TWO FEET BALANCING NOT US
                       0.0,  0.09,0.0   %% state == 12  LOOKING FOR CONTACT 
                       0.0,  0.00,0.0   %% state == 13  TRANSITION INIT POSITION: THIS REFERENCE IS IGNORED
                       0.0,  0.00,0.0   %% state == 14  FALLING: THIS REFERENCE IS IGNORED
-                      0.0,  -0.02,0.0];  %% state == 15  RESTORING: THIS REFERENCE IS IGNORED
+                      0.0,  +0.02,0.0];  %% state == 15  RESTORING: THIS REFERENCE IS IGNORED
                   
 sm.tBalancing      = 0;%inf;%0.5;
 
@@ -229,7 +232,7 @@ q3 =        [-0.0852,-0.4273,0.0821,...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092,0.2960, 0.0006,-0.1741,-0.1044,0.0700, ...
-              0.3714,0.9599, 1.3253,-1.6594, -0.5,0];
+              0.3714,0.9599, 1.3253,-1.6594, +0.3,0];
           
 q4 =        [-0.0852,-0.4273,0.0821,...
               0.1391, 1.4585,0.2464, 0.3042, ...
