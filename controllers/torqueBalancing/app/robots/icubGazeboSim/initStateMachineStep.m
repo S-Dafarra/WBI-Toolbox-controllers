@@ -1,21 +1,21 @@
 %% OVERWRITING SOME OF THE PARAMETERS CONTAINED IN gains.m WHEN USING FSM
 if strcmpi(SM.SM_TYPE, 'STEP')
     
-    CONFIG.robotStepTime = 0.7; %seconds for the robot to take a step
+    CONFIG.robotStepTime = 0.4; %seconds for the robot to take a step
     
     CONFIG.SMOOTH_DES_COM      = 1;    % If equal to one, the desired streamed values 
                                        % of the center of mass are smoothed internally 
     CONFIG.SMOOTH_DES_Q        = 1;    % If equal to one, the desired streamed values 
                                        % of the postural tasks are smoothed internally 
 
-    reg.pinvDamp               = 0.8;
+    reg.pinvDamp               = 2;
     reg.impedances             = 0.1;
     reg.dampings               = 0;
-    reg.HessianQP              = 1e-6;
+    reg.HessianQP              = 1e-3;
 
     sat.torque                 = 60;
 
-    gain.footSize              = [ -0.05  0.05;%0.10 ;    % xMin, xMax
+    gain.footSize              = [ -0.05   0.10 ;    % xMin, xMax
                                    -0.025 0.025];   % yMin, yMax  
                    
     forceFrictionCoefficient     = 1/3;  
@@ -81,7 +81,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 12  LOOKING FOR CONTACT
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 13  TRANSITION TO INITIAL POSITION
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 14  FALLING
-                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50];% state == 15  RESTORING
+                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 1   1   1    1     1  1];% state == 15  RESTORING
 end              
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                      
          
@@ -122,7 +122,7 @@ sm.jointsSmoothingTimes          = [5;   %% state ==  1  TWO FEET BALANCING
                                          %%
                                     4;   %% state == 13  TRANSITION INIT POSITION
                                     0.5;   %% state == 14  FALLING
-                                    1];  %% state == 15  RESTORING
+                                    5];  %% state == 15  RESTORING
                                 
 sm.com.states      = [0.0,  0.01,0.0   %% state ==  1  TWO FEET BALANCING NOT USED
                       0.0,  0.01,0.0   %% state ==  2  COM TRANSITION TO LEFT FOOT: THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT FOOT
@@ -229,7 +229,7 @@ q3 =        [-0.0852,-0.4273,0.0821,...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092,0.2960, 0.0006,-0.1741,-0.1044,0.0700, ...
-              0.3714,0.9599, 1.3253,-1.6594, 0.6374,-0.0614];
+              0.3714,0.9599, 1.3253,-1.6594, -0.5,0];
           
 q4 =        [-0.0852,-0.4273,0.0821,...
               0.1391, 1.4585,0.2464, 0.3042, ...
