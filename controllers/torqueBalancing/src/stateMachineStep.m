@@ -7,6 +7,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     persistent w_H_fixedLink;
     persistent t_previous;
     persistent COM_prev_l;
+    persistent t_debounce;
     
     if isempty(state) || isempty(tSwitch) || isempty(w_H_fixedLink) 
         state         = sm.stateAt0;
@@ -14,6 +15,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
         w_H_fixedLink = eye(4);
         COM_prev_l = CoM_0;
         t_previous = -1;
+        t_debounce = -1;
     end
     
     CoMDes      = CoM_0;
@@ -27,7 +29,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     QP_OFF = 0;
     SMOOTH = 1;
     SMOOTH_com = 1;
-    q_left = zeros(6,1);
+    q_before = zeros(12,1);
 
     %% TWO FEET BALANCING
     if state == 1 
@@ -334,7 +336,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     %% FALLING STATE (step with the right foot)
     if state == 14
     
-    QP_OFF = 1;
+    QP_OFF = 0;
     SMOOTH = 1;
     SMOOTH_com = 0;
     
@@ -356,11 +358,17 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     CoMDes = [COM_ref(1:3)];
     t_previous = t;
     
-    if wrench_rightFoot(3) > (sm.wrench.thresholdContactOn + 10)
+    if wrench_rightFoot(3) < (sm.wrench.thresholdContactOn + 30)
+        t_debounce = t;
+    end
+    if (t-t_debounce) > 0.02
             state = 15;
             tSwitch = t;
             t_previous = -1; %resetting
-            q_left = q_step_legs(1:6);
+            q_before = q_step_legs;
+            t_debounce = -1;
+            
+           % w_H_fixedLink   = w_H_fixedLink*l_sole_H_b/r_sole_H_b;
     end
     
     
@@ -368,15 +376,17 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     
     %% RESTORING
     if state == 15 
+        %w_H_b       =  w_H_fixedLink*r_sole_H_b;
         w_H_b       =  w_H_fixedLink * l_sole_H_b;
         w_H_b_r     =  w_H_b/r_sole_H_b;        
                
-        %CoMDes      = [w_H_fixedLink(1:2,4);CoM_0(3)] + sm.com.states(15,:)';
-        CoMDes = [w_H_b_r(1:2,4);COM_prev_l(3)] + sm.com.states(15,:)';
+        CoMDes      = [w_H_fixedLink(1:2,4);CoM_0(3)] - sm.com.states(15,:)';
+        %CoMDes = [w_H_b_r(1:2,4);CoM_0(3)] + sm.com.states(15,:)';
+        %CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';
         
 %     if wrench_leftFoot(3) > (sm.wrench.thresholdContactOn)      
            constraints = [1; 1];
-%          %CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_b_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';
+
 %          %SMOOTH_com = 1;
 %          
 %     else constraints = [0; 1];
@@ -384,14 +394,14 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
 %          %SMOOTH_com = 0;
 %     end
     
-        qDes        = [sm.joints.states(state,1:11),q_left',sm.joints.states(state,18:23)]';
+        qDes        = [sm.joints.states(state,1:11),q_before']';
         impedances  = gain.impedances(state,:);
         kpCom       = gain.PCOM(state,:);   
         kdCom       = gain.DCOM(state,:); 
         
         SMOOTH = 1;        
         QP_OFF = 0;
-        SMOOTH_com = 1; 
+        SMOOTH_com = 0; 
         
     end
     

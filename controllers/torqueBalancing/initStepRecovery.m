@@ -120,6 +120,7 @@ PORTS.Q_DES     = ['/' WBT_modelName '/qDes:i'];
 
 PORTS.WBDT_LEFTLEG_EE  = '/wholeBodyDynamicsTree/left_foot/cartesianEndEffectorWrench:o';
 PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamicsTree/right_foot/cartesianEndEffectorWrench:o';
+PORTS.WBDT_CHEST = '/wholeBodyDynamicsTree/torso/cartesianEndEffectorWrench:o';
 
 CONFIG.USE_QP_SOLVER     = true;
 
