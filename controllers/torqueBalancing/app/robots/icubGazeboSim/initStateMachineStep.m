@@ -3,6 +3,8 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     
     CONFIG.robotStepTime = 0.65; %seconds for the robot to take a step
     
+    CONFIG.alsoBACKandLEFT = 0; %if 1 the robot will step even toward left and back.
+    
     CONFIG.SMOOTH_DES_COM      = 1;    % If equal to one, the desired streamed values 
                                        % of the center of mass are smoothed internally 
     CONFIG.SMOOTH_DES_Q        = 1;    % If equal to one, the desired streamed values 
@@ -21,6 +23,19 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                                
     gain.footSize_step        = [ -0.03   0.05 ;    % xMin, xMax
                                   -0.015   0.015];   % yMin, yMax 
+    
+    %The step recovery estimators will be not considered for triggering a step
+    %if they are outside the shadowed region (when balancing on a single foot)                               
+    gain.l_foot_shadowed      = [ -0.01   gain.footSize_step(1,2) + 0.01;    % xMin, xMax
+                                      0   gain.footSize_step(2,2) + 0.01];   % yMin, yMax 
+                                    
+    gain.r_foot_shadowed      = [ -0.01                          gain.footSize_step(1,2) + 0.01;    % xMin, xMax
+                                  gain.footSize_step(2,1) - 0.01                              0];   % yMin, yMax
+    
+    %Leg length
+    gain.leg_length           = 0.6; %from root to the sole
+    gain.minimum_height       = 0.3; %minimum heigth that the root can reach.    
+                              
                    
     forceFrictionCoefficient     = 1/3;  
     
