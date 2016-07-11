@@ -28,7 +28,8 @@ clear; clc;
 % setenv('YARP_ROBOT_NAME','iCubGenova01');
 % setenv('YARP_ROBOT_NAME','iCubGenova02');
 % setenv('YARP_ROBOT_NAME','iCubDarmstadt01');
-setenv('YARP_ROBOT_NAME','icubGazeboSim');
+ setenv('YARP_ROBOT_NAME','icubGazeboSim');
+% setenv('YARP_ROBOT_NAME','iCubGenova05');
 
 % Simulation time in seconds
 CONFIG.SIMULATION_TIME     = inf;   
@@ -118,10 +119,6 @@ PORTS.COM_DES   = ['/' WBT_modelName '/comDes:i'];
 
 PORTS.Q_DES     = ['/' WBT_modelName '/qDes:i'];
 
-PORTS.WBDT_LEFTLEG_EE  = '/wholeBodyDynamicsTree/left_foot/cartesianEndEffectorWrench:o';
-PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamicsTree/right_foot/cartesianEndEffectorWrench:o';
-PORTS.WBDT_CHEST = '/wholeBodyDynamicsTree/torso/cartesianEndEffectorWrench:o';
-
 CONFIG.USE_QP_SOLVER     = true;
 
 CONFIG.Ts                = 0.01; %  Controller period [s]
@@ -129,7 +126,12 @@ CONFIG.Ts                = 0.01; %  Controller period [s]
 CONFIG.ON_GAZEBO         = false;
 baseToWorldRotationPort  = ['/' WBT_modelName '/floatingBaseRotationMatrix:i'];
 
-run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/gains.m')); 
+run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/gains.m'));
+
+PORTS.WBDT_LEFTLEG_EE  = '/wholeBodyDynamicsTree/left_foot/cartesianEndEffectorWrench:o';
+PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamicsTree/right_foot/cartesianEndEffectorWrench:o';
+PORTS.WBDT_CHEST = '/wholeBodyDynamicsTree/torso/cartesianEndEffectorWrench:o';
+
 addpath('./src/')
 addpath('../utilityMatlabFunctions/')
 [ConstraintsMatrix,bVectorConstraints]= constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,gain.footSize,fZmin);
