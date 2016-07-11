@@ -1,6 +1,10 @@
 %% OVERWRITING SOME OF THE PARAMETERS CONTAINED IN gains.m WHEN USING FSM
 if strcmpi(SM.SM_TYPE, 'STEP')
     
+    PORTS.WBDT_LEFTLEG_EE  = '/wholeBodyDynamics/left_foot/cartesianEndEffectorWrench:o';
+    PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamics/right_foot/cartesianEndEffectorWrench:o';
+    PORTS.WBDT_CHEST = '/wholeBodyDynamics/torso/cartesianEndEffectorWrench:o';
+    
     CONFIG.robotStepTime = 0.65; %seconds for the robot to take a step    
        
     CONFIG.SMOOTH_DES_COM      = 1;    % If equal to one, the desired streamed values 

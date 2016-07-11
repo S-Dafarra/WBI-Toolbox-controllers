@@ -28,7 +28,7 @@ clear; clc;
 % setenv('YARP_ROBOT_NAME','iCubGenova01');
 % setenv('YARP_ROBOT_NAME','iCubGenova02');
 % setenv('YARP_ROBOT_NAME','iCubDarmstadt01');
- setenv('YARP_ROBOT_NAME','icubGazeboSim');
+setenv('YARP_ROBOT_NAME','icubGazeboSim');
 % setenv('YARP_ROBOT_NAME','iCubGenova05');
 
 % Simulation time in seconds
@@ -127,10 +127,6 @@ CONFIG.ON_GAZEBO         = false;
 baseToWorldRotationPort  = ['/' WBT_modelName '/floatingBaseRotationMatrix:i'];
 
 run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/gains.m'));
-
-PORTS.WBDT_LEFTLEG_EE  = '/wholeBodyDynamicsTree/left_foot/cartesianEndEffectorWrench:o';
-PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamicsTree/right_foot/cartesianEndEffectorWrench:o';
-PORTS.WBDT_CHEST = '/wholeBodyDynamicsTree/torso/cartesianEndEffectorWrench:o';
 
 addpath('./src/')
 addpath('../utilityMatlabFunctions/')
