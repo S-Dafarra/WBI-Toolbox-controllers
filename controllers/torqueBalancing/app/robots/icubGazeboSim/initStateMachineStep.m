@@ -5,7 +5,9 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamicsTree/right_foot/cartesianEndEffectorWrench:o';
     PORTS.WBDT_CHEST = '/wholeBodyDynamicsTree/torso/cartesianEndEffectorWrench:o';
     
-    CONFIG.robotStepTime = 0.65; %seconds for the robot to take a step    
+    CONFIG.robotStepTime = 0.65; %seconds for the robot to take a step   
+    
+    CONFIG.FPEoffset = 20/180*pi;
     
     CONFIG.SMOOTH_DES_COM      = 1;    % If equal to one, the desired streamed values 
                                        % of the center of mass are smoothed internally 
@@ -36,7 +38,8 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     
     %Leg length
     gain.leg_length           = 0.6; %from root to the sole
-    gain.minimum_height       = 0.3; %minimum heigth that the root can reach.    
+    gain.minimum_height       = 0.3; %minimum heigth that the root can reach.
+    gain.min_step_length      = 0.1; %minimum distance between the ankle centres after a step
                               
                    
     forceFrictionCoefficient     = 1/3;  

@@ -380,9 +380,9 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
         w_H_b       =  w_H_fixedLink * l_sole_H_b;
         w_H_b_r     =  w_H_b/r_sole_H_b;        
                
-        CoMDes      = [w_H_fixedLink(1:2,4);CoM_0(3)] - sm.com.states(15,:)';
+        %CoMDes      = [w_H_fixedLink(1:2,4);CoM_0(3)] - sm.com.states(15,:)';
         %CoMDes = [w_H_b_r(1:2,4);CoM_0(3)] + sm.com.states(15,:)';
-        %CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';
+        CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_b_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';
         
 %     if wrench_leftFoot(3) > (sm.wrench.thresholdContactOn)      
            constraints = [1; 1];

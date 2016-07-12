@@ -5,7 +5,9 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamics/right_foot/cartesianEndEffectorWrench:o';
     PORTS.WBDT_CHEST = '/wholeBodyDynamics/torso/cartesianEndEffectorWrench:o';
     
-    CONFIG.robotStepTime = 0.65; %seconds for the robot to take a step    
+    CONFIG.robotStepTime = 0.65; %seconds for the robot to take a step 
+    
+    CONFIG.FPEoffset = 20/180*pi;
        
     CONFIG.SMOOTH_DES_COM      = 1;    % If equal to one, the desired streamed values 
                                        % of the center of mass are smoothed internally 

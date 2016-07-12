@@ -1,4 +1,4 @@
-function [fpe, fpe_alternative, theta_bar, x] = fpe_computation(m, COMx, COM_vel, J_COM, n, g, COPx, foot)
+function [theta_bar, x] = fpe_computation(m, COMx, COM_vel, J_COM, n, g, COPx, foot)
 % This function computes the residual of the foot placement estimator
 % formula
 
@@ -34,6 +34,6 @@ theta_dot = vx*(h)/(h^2+(COM_proj(1)-foot_proj(1)));
 coder.extrinsic('solve_fpe')
 theta_bar = double(solve_fpe(theta_dot, m, h, vx, h_dot, J, g));
 
-fpe =h*tan(theta_bar)*x + [COMx(1);COMx(2);0];
-fpe_alternative = [COPx(1);COPx(2);0] + 2*h*tan(theta_bar)*x;
+%fpe =h*tan(theta_bar+offset)*x + [COMx(1);COMx(2);0];
+%fpe_alternative = [COPx(1);COPx(2);0] + 2*h*tan(theta_bar)*x;
 end
