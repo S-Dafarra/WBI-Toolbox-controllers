@@ -3,17 +3,23 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     
     PORTS.WBDT_LEFTLEG_EE  = '/wholeBodyDynamicsTree/left_foot/cartesianEndEffectorWrench:o';
     PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamicsTree/right_foot/cartesianEndEffectorWrench:o';
-    PORTS.WBDT_CHEST = '/wholeBodyDynamicsTree/torso/cartesianEndEffectorWrench:o';
-    
-    CONFIG.robotStepTime = 0.65; %seconds for the robot to take a step   
-    
-    CONFIG.FPEoffset = 20/180*pi;
-    
+    PORTS.WBDT_CHEST       = '/wholeBodyDynamicsTree/torso/cartesianEndEffectorWrench:o';
+        
     CONFIG.SMOOTH_DES_COM      = 1;    % If equal to one, the desired streamed values 
                                        % of the center of mass are smoothed internally 
     CONFIG.SMOOTH_DES_Q        = 1;    % If equal to one, the desired streamed values 
                                        % of the postural tasks are smoothed internally 
+                                       
+    CONFIG.SR.TECHNIQUE        = 0;    %0 uses Capture Point, 1 uses FPE, 2 an alternative method of computing the CP
+   
+    %%Just related to Capture point
+    CONFIG.SR.CP.robotStepTime    = 0.65; %seconds for the robot to take a step
+    CONFIG.SR.CP.MODEL         = 0;    %0 uses the simple LIP, 1 the LIP plus finite sized foot, 2 the LIP plus foot and flywheel
+    CONFIG.SR.CP.FF            = 0;    %0 uses no feed-forward, 1 adds the COP position (in foot local frame) to the desired foot position. With 2 is the same, but uses the CMP                                
 
+    %%Just related to the FPE
+    CONFIG.SR.FPE.offset = 20/180*pi;
+    
     reg.pinvDamp               = 2;
     %reg.pinvDampLeg            = 2;
     reg.impedances             = 0.1;

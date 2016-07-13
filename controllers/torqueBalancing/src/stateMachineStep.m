@@ -1,6 +1,9 @@
-function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,jointsSmoothingTime, QP_OFF, SMOOTH, SMOOTH_com] = ...
+function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
+    currentState,jointsSmoothingTime, QP_OFF, SMOOTH, SMOOTH_com] = ...
     stateMachineStep(CoM_0, q0, l_sole_CoM,r_sole_CoM,qj, t, ...
-                  wrench_rightFoot,wrench_leftFoot,l_sole_H_b, r_sole_H_b, sm,gain, STEP_DOWN, r_CxP, COM_l_v, MAKE_A_STEP, q_step_legs, COM_ref)
+                  wrench_rightFoot,wrench_leftFoot,l_sole_H_b, r_sole_H_b,...
+                  sm,gain, STEP_DOWN, r_CxP, COM_l_v, MAKE_A_STEP,...
+                  q_step_legs, COM_ref, l_solex, r_solex)
     %#codegen
     persistent state;
     persistent tSwitch;
@@ -8,6 +11,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     persistent t_previous;
     persistent COM_prev_l;
     persistent t_debounce;
+    persistent COMconstRef;
     
     if isempty(state) || isempty(tSwitch) || isempty(w_H_fixedLink) 
         state         = sm.stateAt0;
@@ -16,6 +20,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
         COM_prev_l = CoM_0;
         t_previous = -1;
         t_debounce = -1;
+        COMconstRef = -ones(3,1);
     end
     
     CoMDes      = CoM_0;
@@ -183,8 +188,8 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
         w_H_b       =  w_H_fixedLink * l_sole_H_b;
         w_H_b_r     =  w_H_b/r_sole_H_b;        
         
-        CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_b_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';         
-
+        %CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_b_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';         
+        CoMDes      = 0.5*([l_solex(1:2);CoM_0(3)] + [r_solex(1:2);CoM_0(3)]);
         
         constraints = [1; 1]; 
         qDes        = sm.joints.states(state,:)';
@@ -358,7 +363,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
     CoMDes = [COM_ref(1:3)];
     t_previous = t;
     
-    if wrench_rightFoot(3) < (sm.wrench.thresholdContactOn + 30)
+    if wrench_rightFoot(3) < (sm.wrench.thresholdContactOn + 20)
         t_debounce = t;
     end
     if (t-t_debounce) > 0.02
@@ -367,7 +372,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
             t_previous = -1; %resetting
             q_before = q_step_legs;
             t_debounce = -1;
-            
+            COMconstRef = -ones(3,1);
            % w_H_fixedLink   = w_H_fixedLink*l_sole_H_b/r_sole_H_b;
     end
     
@@ -382,7 +387,14 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,currentState,joi
                
         %CoMDes      = [w_H_fixedLink(1:2,4);CoM_0(3)] - sm.com.states(15,:)';
         %CoMDes = [w_H_b_r(1:2,4);CoM_0(3)] + sm.com.states(15,:)';
-        CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_b_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';
+        %CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_b_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';
+        
+        if COMconstRef(3) == -1
+            COMconstRef = 0.5*([l_solex(1:2);CoM_0(3)] + [r_solex(1:2);CoM_0(3)]);            
+        end
+        
+        CoMDes = COMconstRef;
+            
         
 %     if wrench_leftFoot(3) > (sm.wrench.thresholdContactOn)      
            constraints = [1; 1];
