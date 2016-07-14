@@ -57,12 +57,12 @@ CONFIG.SIMULATION_TIME     = inf;
 SM.SM_TYPE                 = 'STEP';
 
 % CONFIG.SCOPES: if set to true, all visualizers for debugging are active
-CONFIG.SCOPES.ALL          = true;
+CONFIG.SCOPES.ALL          = false;
 % You can also activate only some specific debugging scopes
 CONFIG.SCOPES.BASE_EST_IMU = false;
-CONFIG.SCOPES.EXTWRENCHES  = false;
+CONFIG.SCOPES.EXTWRENCHES  = true;
 CONFIG.SCOPES.GAIN_SCHE_INFO=false;
-CONFIG.SCOPES.MAIN         = false;
+CONFIG.SCOPES.MAIN         = true;
 CONFIG.SCOPES.QP           = false;
 
 
