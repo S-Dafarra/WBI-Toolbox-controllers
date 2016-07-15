@@ -14,7 +14,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     CONFIG.SR.TECHNIQUE        = 0;    %0 uses Capture Point, 1 uses FPE, 2 an alternative method of computing the CP
    
     %%Just related to Capture point
-    CONFIG.SR.CP.robotStepTime    = 0.65; %seconds for the robot to take a step
+    CONFIG.SR.CP.robotStepTime  = 0.55; %seconds for the robot to take a step
     CONFIG.SR.CP.MODEL         = 0;    %0 uses the simple LIP, 1 the LIP plus finite sized foot, 2 the LIP plus foot and flywheel
     CONFIG.SR.CP.FF            = 0;    %0 uses no feed-forward, 1 adds the COP position (in foot local frame) to the desired foot position. With 2 is the same, but uses the CMP                                
 
@@ -31,10 +31,10 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     sat.torque                 = 60;
 
     gain.footSize              = [ -0.07  0.12 ;    % xMin, xMax
-                                   -0.045 0.05 ];   % yMin, yMax  
+                                   -0.025 0.04 ];   % yMin, yMax  
                                
     gain.footSize_step        = [ -0.07   0.08 ;    % xMin, xMax
-                                  -0.025   0.025];   % yMin, yMax 
+                                  -0.02   0.02];   % yMin, yMax 
     
     %The step recovery estimators will be not considered for triggering a step
     %if they are outside the shadowed region (when balancing on a single foot)                               
