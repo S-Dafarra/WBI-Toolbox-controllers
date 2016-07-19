@@ -23,6 +23,8 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
         COMconstRef = -ones(3,1);
     end
     
+    %CoM_0(3) = CoM_0(3) - 0.05; 
+    
     CoMDes      = CoM_0;
     constraints = [1; 1];    
     qDes        = q0;
@@ -360,7 +362,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
     
     sim_pend = COM_prev_l(1:2) + (t-t_previous)*COM_l_v(1:2) + 0.5* (t-t_previous)^2 * 9.81/CoM_0(3) * (COM_prev_l(1:2) - r_CxP(1:2)); 
     %CoMDes      = [sim_pend;0*CoM_0(3)];
-    CoMDes = [COM_ref(1:3)];
+    CoMDes = COM_ref(1:3)+[0.02;0;0];
     t_previous = t;
     
     if wrench_rightFoot(3) < (sm.wrench.thresholdContactOn + 20)
