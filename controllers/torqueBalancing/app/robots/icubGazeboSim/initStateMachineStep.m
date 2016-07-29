@@ -10,11 +10,11 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     CONFIG.SMOOTH_DES_Q        = 1;    % If equal to one, the desired streamed values 
                                        % of the postural tasks are smoothed internally 
                                        
-    CONFIG.SR.TECHNIQUE        = 2;    %0 uses Capture Point, 1 uses FPE, 2 an alternative method of computing the CP
+    CONFIG.SR.TECHNIQUE        = 0;    %0 uses Capture Point, 1 uses FPE, 2 an alternative method of computing the CP
    
     %%Just related to Capture point
     CONFIG.SR.CP.robotStepTime    = 0.6; %seconds for the robot to take a step
-    CONFIG.SR.CP.MODEL            = 1;    %0 uses the simple LIP, 1 the LIP plus finite sized foot, 2 the LIP plus foot and flywheel
+    CONFIG.SR.CP.MODEL            = 0;    %0 uses the simple LIP, 1 the LIP plus finite sized foot, 2 the LIP plus foot and flywheel
     CONFIG.SR.CP.FF               = 0;    %0 uses no feed-forward, 1 adds the COP position (in foot local frame) to the desired foot position. With 2 is the same, but uses the CMP                                
 
     %%Just related to the FPE

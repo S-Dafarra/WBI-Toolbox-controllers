@@ -393,7 +393,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
         %CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_b_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';
         
         if COMconstRef(3) == -1
-            COMconstRef = ([l_solex(1:2);CoM_0(3)] + [r_solex(1:2);CoM_0(3)])/2 + [0.05;0.02;0];            
+            COMconstRef = ([l_solex(1:2);CoM_0(3)] + [r_solex(1:2);CoM_0(3)])/2 + [0.05;0.05;0];  %lip [0.05;0.02;0] %cop         
         end
         
         CoMDes = COMconstRef;
