@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3340"
+    ComputedModelVersion    "1.3352"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -91,48 +91,48 @@ Model {
 	}
 	Object {
 	  $ObjectID		  9
-	  IsActive		  [1]
+	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "2275"
 	  Extents		  [1821.0, 905.0]
-	  ZoomFactor		  [1.02]
-	  Offset		  [0.0, 0.0]
+	  ZoomFactor		  [1.0150462962962963]
+	  Offset		  [-142.7231473150656, -101.79247434435575]
 	}
 	Object {
 	  $ObjectID		  10
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "4664"
+	  LoadSaveID		  "4207"
 	  Extents		  [1821.0, 905.0]
-	  ZoomFactor		  [1.1330749354005167]
-	  Offset		  [-631.42591598667332, 381.64424173318127]
+	  ZoomFactor		  [2.0442890442890445]
+	  Offset		  [575.73007233466365, -63.848346636259947]
 	}
 	Object {
 	  $ObjectID		  11
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "4592"
+	  LoadSaveID		  "4860"
 	  Extents		  [1821.0, 905.0]
-	  ZoomFactor		  [1.1348101265822785]
-	  Offset		  [127.66313441160071, -21.74511991076406]
+	  ZoomFactor		  [2.3702173694144011]
+	  Offset		  [1068.6265718680283, 106.08923973002646]
 	}
 	Object {
 	  $ObjectID		  12
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "3698"
+	  LoadSaveID		  "4757"
 	  Extents		  [1821.0, 905.0]
-	  ZoomFactor		  [0.79391980932082018]
-	  Offset		  [-644.82759510246842, -99.2795923964029]
+	  ZoomFactor		  [0.89999999999999991]
+	  Offset		  [-10.159071180555543, 0.0]
 	}
 	Object {
 	  $ObjectID		  13
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "4319"
+	  LoadSaveID		  "4061"
 	  Extents		  [1821.0, 905.0]
-	  ZoomFactor		  [0.85584725536992845]
-	  Offset		  [-711.358059118794, -287.96583937534865]
+	  ZoomFactor		  [0.89810547875064006]
+	  Offset		  [-206.38179585055582, 493.91163055872295]
 	}
 	PropName		"EditorsInfo"
       }
@@ -144,9 +144,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sdafarra"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jul 18 20:48:32 2016"
-  RTWModifiedTimeStamp	  390773447
-  ModelVersionFormat	  "1.%<AutoIncrement:3340>"
+  LastModifiedDate	  "Thu Jul 28 15:43:37 2016"
+  RTWModifiedTimeStamp	  391613131
+  ModelVersionFormat	  "1.%<AutoIncrement:3352>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1357,9 +1357,25 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "85"
+    ZoomFactor		    "81"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "4901"
+    SIDHighWatermark	    "4945"
+    Block {
+      BlockType		      Reference
+      Name		      "Compare\nTo Constant"
+      SID		      "4921"
+      Ports		      [1, 1]
+      Position		      [1700, 85, 1730, 115]
+      ZOrder		      692
+      LibraryVersion	      "1.386"
+      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
+      SourceType	      "Compare To Constant"
+      ContentPreviewEnabled   off
+      relop		      ">="
+      const		      "17"
+      OutDataTypeStr	      "boolean"
+      ZeroCross		      on
+    }
     Block {
       BlockType		      SubSystem
       Name		      "DesValues"
@@ -1385,7 +1401,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"52"
+	ZoomFactor		"100"
 	Block {
 	  BlockType		  Reference
 	  Name			  "Compare\nTo Zero"
@@ -1583,7 +1599,7 @@ Model {
 	  ZOrder		  638
 	  BackgroundColor	  "[0.513700, 0.851000, 0.670600]"
 	  ShowName		  off
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
 	  SourceType		  "Get Estimate"
 	  ContentPreviewEnabled	  off
@@ -1738,7 +1754,7 @@ Model {
 	      ZOrder		      577
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -1752,7 +1768,7 @@ Model {
 	      ZOrder		      579
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -1765,7 +1781,7 @@ Model {
 	      Position		      [-560, 398, -510, 412]
 	      ZOrder		      679
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.IMU"
@@ -1843,7 +1859,7 @@ Model {
 		  Position		  [-65, 42, 15, 78]
 		  ZOrder		  563
 		  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
 		  SourceType		  "Get Estimate"
 		  ContentPreviewEnabled	  off
@@ -1860,7 +1876,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -120, -65, -65]
 		  ZOrder		  558
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -1877,7 +1893,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -55, -65, 0]
 		  ZOrder		  559
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -2576,7 +2592,7 @@ Model {
 		  ZOrder		  663
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "[WBT_robotName, '/head/state:o']"
@@ -2938,7 +2954,7 @@ Model {
 		  ZOrder		  610
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -2952,7 +2968,7 @@ Model {
 		  ZOrder		  611
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -2964,7 +2980,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, -75, 295, -15]
 		  ZOrder		  569
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -2998,7 +3014,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 10, 295, 70]
 		  ZOrder		  572
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -3021,7 +3037,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 95, 295, 155]
 		  ZOrder		  606
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -3377,7 +3393,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [115, 230, 280, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -3951,12 +3967,13 @@ Model {
 	  Position		  [865, 2510, 1005, 2550]
 	  ZOrder		  598
 	  ShowName		  off
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	  SourceType		  "Minimum Jerk Trajectory Generator"
 	  externalSettlingTime	  on
 	  settlingTime		  "1"
 	  sampleTime		  "CONFIG.Ts"
+	  resetOnSettlingTime	  on
 	  firstDerivatives	  off
 	  secondDerivatives	  off
 	  explicitInitialValue	  off
@@ -3966,15 +3983,16 @@ Model {
 	  Name			  "Minimum Jerk Trajectory Generator2"
 	  SID			  "2153"
 	  Ports			  [2, 3]
-	  Position		  [955, 2370, 1095, 2420]
+	  Position		  [955, 2370, 1105, 2420]
 	  ZOrder		  597
 	  ShowName		  off
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	  SourceType		  "Minimum Jerk Trajectory Generator"
 	  externalSettlingTime	  on
 	  settlingTime		  "references.com.smoothingTime "
 	  sampleTime		  "CONFIG.Ts"
+	  resetOnSettlingTime	  on
 	  firstDerivatives	  on
 	  secondDerivatives	  on
 	  explicitInitialValue	  off
@@ -4111,7 +4129,7 @@ Model {
 	  Position		  [-1345, 2229, -1285, 2271]
 	  ZOrder		  599
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 	  SourceType		  "YARP Read"
 	  portName		  "PORTS.COM_DES"
@@ -4129,7 +4147,7 @@ Model {
 	  Position		  [-1325, 2374, -1255, 2421]
 	  ZOrder		  600
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 	  SourceType		  "YARP Read"
 	  portName		  "PORTS.Q_DES"
@@ -4281,7 +4299,7 @@ Model {
 	      BackgroundColor	      "lightBlue"
 	      DropShadow	      on
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	      SourceType	      ""
 	      ContentPreviewEnabled   off
@@ -4329,7 +4347,7 @@ Model {
 	      ZOrder		      640
 	      BackgroundColor	      "lightBlue"
 	      DropShadow	      on
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	      SourceType	      ""
 	      ContentPreviewEnabled   off
@@ -5151,12 +5169,13 @@ Model {
 	      Position		      [475, 335, 575, 355]
 	      ZOrder		      594
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
 	      externalSettlingTime    off
 	      settlingTime	      "gain.SmoothingTimeGainScheduling"
 	      sampleTime	      "CONFIG.Ts"
+	      resetOnSettlingTime     off
 	      firstDerivatives	      off
 	      secondDerivatives	      off
 	      explicitInitialValue    off
@@ -5416,7 +5435,7 @@ Model {
 	      ZOrder		      583
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -5430,7 +5449,7 @@ Model {
 	      ZOrder		      584
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -5443,7 +5462,7 @@ Model {
 	      Position		      [-485, 428, -435, 442]
 	      ZOrder		      654
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.IMU"
@@ -5462,7 +5481,7 @@ Model {
 	      ZOrder		      598
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.WBDT_LEFTLEG_EE"
@@ -5537,7 +5556,7 @@ Model {
 		  Position		  [-65, 42, 15, 78]
 		  ZOrder		  563
 		  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
 		  SourceType		  "Get Estimate"
 		  ContentPreviewEnabled	  off
@@ -5554,7 +5573,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -120, -65, -65]
 		  ZOrder		  558
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -5571,7 +5590,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -55, -65, 0]
 		  ZOrder		  559
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -5860,7 +5879,7 @@ Model {
 	      ZOrder		      599
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.WBDT_RIGHTLEG_EE"
@@ -8337,7 +8356,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 20, 295, 80]
 		    ZOrder		    569
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -8354,7 +8373,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 105, 295, 165]
 		    ZOrder		    572
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -8690,7 +8709,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 20, 295, 80]
 		    ZOrder		    569
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -8707,7 +8726,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 105, 295, 165]
 		    ZOrder		    572
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -8947,7 +8966,7 @@ Model {
 		    ZOrder		    663
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "[WBT_robotName, '/head/state:o']"
@@ -9309,7 +9328,7 @@ Model {
 		    ZOrder		    610
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -9323,7 +9342,7 @@ Model {
 		    ZOrder		    611
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -9335,7 +9354,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, -75, 295, -15]
 		    ZOrder		    569
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -9369,7 +9388,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 10, 295, 70]
 		    ZOrder		    572
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -9392,7 +9411,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 95, 295, 155]
 		    ZOrder		    606
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -9820,7 +9839,7 @@ Model {
 		    ZOrder		    663
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "[WBT_robotName, '/head/state:o']"
@@ -10182,7 +10201,7 @@ Model {
 		    ZOrder		    610
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -10196,7 +10215,7 @@ Model {
 		    ZOrder		    611
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -10208,7 +10227,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, -75, 295, -15]
 		    ZOrder		    569
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -10242,7 +10261,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 10, 295, 70]
 		    ZOrder		    572
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -10265,7 +10284,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 95, 295, 155]
 		    ZOrder		    606
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -10850,7 +10869,7 @@ Model {
 		  ZOrder		  663
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "[WBT_robotName, '/head/state:o']"
@@ -11212,7 +11231,7 @@ Model {
 		  ZOrder		  610
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -11226,7 +11245,7 @@ Model {
 		  ZOrder		  611
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -11238,7 +11257,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, -75, 295, -15]
 		  ZOrder		  569
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -11272,7 +11291,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 10, 295, 70]
 		  ZOrder		  572
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -11295,7 +11314,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 95, 295, 155]
 		  ZOrder		  606
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -11723,7 +11742,7 @@ Model {
 		  ZOrder		  663
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "[WBT_robotName, '/head/state:o']"
@@ -12085,7 +12104,7 @@ Model {
 		  ZOrder		  610
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -12099,7 +12118,7 @@ Model {
 		  ZOrder		  611
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -12111,7 +12130,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, -75, 295, -15]
 		  ZOrder		  569
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -12145,7 +12164,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 10, 295, 70]
 		  ZOrder		  572
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -12168,7 +12187,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 95, 295, 155]
 		  ZOrder		  606
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -12524,7 +12543,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [115, 230, 280, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -12640,7 +12659,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [115, 230, 280, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -13210,7 +13229,7 @@ Model {
 	  System {
 	    Name		    "State Machine Step Recovery"
 	    Location		    [65, 24, 1920, 1080]
-	    Open		    on
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -13259,7 +13278,7 @@ Model {
 	      Variant		      off
 	      System {
 		Name			"COM linear velocity"
-		Location		[0, 24, 1920, 1080]
+		Location		[65, 24, 1920, 1080]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -13271,7 +13290,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"265"
+		ZoomFactor		"256"
 		Block {
 		  BlockType		  Inport
 		  Name			  "w_H_b"
@@ -13305,7 +13324,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [295, 22, 415, 73]
 		  ZOrder		  768
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -13405,6 +13424,18 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Constant
+	      Name		      "Constant"
+	      SID		      "4920"
+	      Position		      [327, 655, 423, 675]
+	      ZOrder		      798
+	      BlockRotation	      270
+	      BlockMirror	      on
+	      NamePlacement	      "alternate"
+	      ShowName		      off
+	      Value		      "gain.COM_offset"
+	    }
+	    Block {
+	      BlockType		      Constant
 	      Name		      "Constant1"
 	      SID		      "3702"
 	      Position		      [890, 209, 945, 221]
@@ -13430,7 +13461,7 @@ Model {
 	      Ports		      [2, 1]
 	      Position		      [-105, 853, 45, 917]
 	      ZOrder		      793
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 	      SourceType	      "Forward Kinematics"
 	      ContentPreviewEnabled   off
@@ -13447,7 +13478,7 @@ Model {
 	      Ports		      [2, 1]
 	      Position		      [-105, 943, 45, 1007]
 	      ZOrder		      794
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 	      SourceType	      "Forward Kinematics"
 	      ContentPreviewEnabled   off
@@ -13498,12 +13529,13 @@ Model {
 	      Position		      [940, 380, 1040, 400]
 	      ZOrder		      594
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
 	      externalSettlingTime    off
 	      settlingTime	      "gain.SmoothingTimeGainScheduling"
 	      sampleTime	      "CONFIG.Ts"
+	      resetOnSettlingTime     off
 	      firstDerivatives	      off
 	      secondDerivatives	      off
 	      explicitInitialValue    off
@@ -13578,7 +13610,7 @@ Model {
 	      System {
 		Name			"Safety Switch"
 		Location		[65, 24, 1920, 1080]
-		Open			on
+		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -13665,7 +13697,7 @@ Model {
 	      Name		      "Selector1"
 	      SID		      "4455"
 	      Ports		      [1, 1]
-	      Position		      [400, 591, 440, 629]
+	      Position		      [325, 686, 365, 724]
 	      ZOrder		      752
 	      NumberOfDimensions      "2"
 	      InputPortWidth	      "3"
@@ -13830,7 +13862,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [1145, 618, 1295, 682]
 		  ZOrder		  741
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -13847,7 +13879,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [735, 715, 820, 810]
 		  ZOrder		  751
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -13870,7 +13902,7 @@ Model {
 		  System {
 		    Name		    "Inverse Kinematics"
 		    Location		    [65, 24, 1920, 1080]
-		    Open		    on
+		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -13881,7 +13913,7 @@ Model {
 		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "86"
+		    ZoomFactor		    "85"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "x_foot"
@@ -13934,23 +13966,7 @@ Model {
 		    SID			    "4894"
 		    Position		    [215, 15, 295, 45]
 		    ZOrder		    784
-		    Value		    "0"
-		    }
-		    Block {
-		    BlockType		    Constant
-		    Name		    "Constant1"
-		    SID			    "4895"
-		    Position		    [240, 60, 270, 90]
-		    ZOrder		    785
-		    Value		    "0"
-		    }
-		    Block {
-		    BlockType		    Constant
-		    Name		    "Constant2"
-		    SID			    "4459"
-		    Position		    [380, -25, 410, 5]
-		    ZOrder		    775
-		    Value		    "0"
+		    Value		    "gain.ik_rotation"
 		    }
 		    Block {
 		    BlockType		    Constant
@@ -13965,7 +13981,7 @@ Model {
 		    SID			    "4792"
 		    Position		    [30, -45, 110, -25]
 		    ZOrder		    782
-		    Value		    "[-0.05; 0; -0.05]"
+		    Value		    "gain.ik_offset"
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -13980,16 +13996,15 @@ Model {
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
-		    BlockType		    Reference
-		    Name		    "Degrees to\nRadians1"
-		    SID			    "4897"
-		    Ports		    [1, 1]
-		    Position		    [330, 60, 360, 90]
-		    ZOrder		    787
-		    LibraryVersion	    "1.58"
-		    SourceBlock		    "simulink_extras/Transformations/Degrees to\nRadians"
-		    SourceType		    "DegreesToRadians"
-		    ContentPreviewEnabled   off
+		    BlockType		    Demux
+		    Name		    "Demux"
+		    SID			    "4918"
+		    Ports		    [1, 3]
+		    Position		    [385, -2, 390, 62]
+		    ZOrder		    788
+		    ShowName		    off
+		    Outputs		    "3"
+		    DisplayOption	    "bar"
 		    }
 		    Block {
 		    BlockType		    Display
@@ -14019,7 +14034,7 @@ Model {
 		    Position		    [-350, 213, -235, 262]
 		    ZOrder		    760
 		    Commented		    "on"
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -14037,7 +14052,7 @@ Model {
 		    Position		    [-260, 278, -145, 327]
 		    ZOrder		    769
 		    Commented		    "on"
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -14167,12 +14182,11 @@ Model {
 		    Ports		    [3, 2]
 		    Position		    [905, 197, 1055, 273]
 		    ZOrder		    -37
-		    Commented		    "on"
 		    RequestExecContextInheritance off
 		    Variant		    off
 		    System {
 		    Name		    "Local inverse kin"
-		    Location		    [0, 24, 1920, 1080]
+		    Location		    [65, 24, 1920, 1080]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -14184,7 +14198,7 @@ Model {
 		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "246"
+		    ZoomFactor		    "237"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "Desired Transformation"
@@ -14221,7 +14235,7 @@ Model {
 		    ZOrder		    61
 		    BackgroundColor	    "lightBlue"
 		    DropShadow		    on
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 		    SourceType		    ""
 		    ContentPreviewEnabled   off
@@ -14233,7 +14247,7 @@ Model {
 		    Ports		    [3, 2]
 		    Position		    [1275, 215, 1450, 295]
 		    ZOrder		    66
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Inverse Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -14397,7 +14411,7 @@ Model {
 		    Name		    "MATLAB Function"
 		    SID			    "4328"
 		    Ports		    [4, 1]
-		    Position		    [440, -53, 630, 63]
+		    Position		    [440, -58, 630, 83]
 		    ZOrder		    41
 		    LibraryVersion	    "1.32"
 		    ErrorFcn		    "Stateflow.Translate.translate"
@@ -14555,6 +14569,14 @@ Model {
 		    }
 		    }
 		    Block {
+		    BlockType		    ManualSwitch
+		    Name		    "Manual Switch"
+		    SID			    "4923"
+		    Position		    [1160, 167, 1190, 203]
+		    ZOrder		    789
+		    CurrentSetting	    "0"
+		    }
+		    Block {
 		    BlockType		    Product
 		    Name		    "Matrix Multiply1"
 		    SID			    "4460"
@@ -14569,11 +14591,33 @@ Model {
 		    }
 		    Block {
 		    BlockType		    Mux
+		    Name		    "Mux"
+		    SID			    "4924"
+		    Ports		    [2, 1]
+		    Position		    [1095, 206, 1100, 244]
+		    ZOrder		    790
+		    ShowName		    off
+		    Inputs		    "2"
+		    DisplayOption	    "bar"
+		    }
+		    Block {
+		    BlockType		    Mux
 		    Name		    "Mux1"
 		    SID			    "4461"
 		    Ports		    [2, 1]
 		    Position		    [225, -49, 230, -11]
 		    ZOrder		    777
+		    ShowName		    off
+		    Inputs		    "2"
+		    DisplayOption	    "bar"
+		    }
+		    Block {
+		    BlockType		    Mux
+		    Name		    "Mux2"
+		    SID			    "4927"
+		    Ports		    [2, 1]
+		    Position		    [1095, 71, 1100, 109]
+		    ZOrder		    793
 		    ShowName		    off
 		    Inputs		    "2"
 		    DisplayOption	    "bar"
@@ -14628,7 +14672,7 @@ Model {
 		    ZOrder		    786
 		    BackgroundColor	    "lightBlue"
 		    DropShadow		    on
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 		    SourceType		    ""
 		    ContentPreviewEnabled   off
@@ -14661,7 +14705,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [1595, 50, 1755, 110]
 		    ZOrder		    784
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Remote Inverse Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -14874,6 +14918,30 @@ Model {
 		    }
 		    Block {
 		    BlockType		    Selector
+		    Name		    "Selector"
+		    SID			    "4925"
+		    Ports		    [1, 1]
+		    Position		    [1300, 161, 1335, 189]
+		    ZOrder		    791
+		    InputPortWidth	    "12+23"
+		    IndexOptions	    "Index vector (dialog)"
+		    Indices		    "[1:12]"
+		    OutputSizes		    "1"
+		    }
+		    Block {
+		    BlockType		    Selector
+		    Name		    "Selector1"
+		    SID			    "4926"
+		    Ports		    [1, 1]
+		    Position		    [1300, 231, 1335, 259]
+		    ZOrder		    792
+		    InputPortWidth	    "12+23"
+		    IndexOptions	    "Index vector (dialog)"
+		    Indices		    "[13:35]"
+		    OutputSizes		    "1"
+		    }
+		    Block {
+		    BlockType		    Selector
 		    Name		    "Selector4"
 		    SID			    "4449"
 		    Ports		    [1, 1]
@@ -14969,7 +15037,7 @@ Model {
 		    BlockType		    Outport
 		    Name		    "q_legs"
 		    SID			    "4322"
-		    Position		    [1095, 63, 1125, 77]
+		    Position		    [1375, 168, 1405, 182]
 		    ZOrder		    -3
 		    IconDisplay		    "Port number"
 		    }
@@ -14977,7 +15045,7 @@ Model {
 		    BlockType		    Outport
 		    Name		    "q_total\n"
 		    SID			    "4362"
-		    Position		    [1095, 103, 1125, 117]
+		    Position		    [1375, 208, 1405, 222]
 		    ZOrder		    64
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -15013,7 +15081,7 @@ Model {
 		    ZOrder		    329
 		    SrcBlock		    "MATLAB Function"
 		    SrcPort		    1
-		    Points		    [23, 0; 0, 65]
+		    Points		    [23, 0; 0, 55]
 		    Branch {
 		    ZOrder		    419
 		    Points		    [0, 140]
@@ -15047,7 +15115,7 @@ Model {
 		    ZOrder		    87
 		    SrcBlock		    "Inverse"
 		    SrcPort		    1
-		    Points		    [48, 0; 0, -85; 412, 0]
+		    Points		    [460, 0]
 		    DstBlock		    "Matrix Multiply1"
 		    DstPort		    1
 		    }
@@ -15138,13 +15206,6 @@ Model {
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    187
-		    SrcBlock		    "Constant2"
-		    SrcPort		    1
-		    DstBlock		    "MATLAB Function"
-		    DstPort		    2
-		    }
-		    Line {
 		    ZOrder		    195
 		    SrcBlock		    "Mux1"
 		    SrcPort		    1
@@ -15224,9 +15285,19 @@ Model {
 		    ZOrder		    423
 		    SrcBlock		    "Local inverse kin"
 		    SrcPort		    2
-		    Points		    [14, 0; 0, 115; -1348, 0; 0, -55]
+		    Points		    [14, 0]
+		    Branch {
+		    ZOrder		    531
+		    Points		    [0, 115; -1348, 0; 0, -55]
 		    DstBlock		    "Forward Kinematics3"
 		    DstPort		    2
+		    }
+		    Branch {
+		    ZOrder		    530
+		    Points		    [0, -20]
+		    DstBlock		    "Mux"
+		    DstPort		    2
+		    }
 		    }
 		    Line {
 		    ZOrder		    495
@@ -15236,42 +15307,105 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    496
-		    SrcBlock		    "Constant1"
+		    ZOrder		    521
+		    SrcBlock		    "Degrees to\nRadians"
 		    SrcPort		    1
-		    DstBlock		    "Degrees to\nRadians1"
+		    DstBlock		    "Demux"
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    497
-		    SrcBlock		    "Degrees to\nRadians"
-		    SrcPort		    1
-		    Points		    [60, 0]
+		    ZOrder		    522
+		    SrcBlock		    "Demux"
+		    SrcPort		    2
 		    DstBlock		    "MATLAB Function"
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    498
-		    SrcBlock		    "Degrees to\nRadians1"
+		    ZOrder		    523
+		    SrcBlock		    "Demux"
 		    SrcPort		    1
-		    Points		    [24, 0; 0, -25]
+		    Points		    [20, 0; 0, -15]
+		    DstBlock		    "MATLAB Function"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    524
+		    SrcBlock		    "Demux"
+		    SrcPort		    3
+		    Points		    [20, 0; 0, 15]
 		    DstBlock		    "MATLAB Function"
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    518
-		    SrcBlock		    "Remote Inverse Kineamtics"
+		    ZOrder		    532
+		    SrcBlock		    "Mux"
+		    SrcPort		    1
+		    Points		    [18, 0; 0, -30]
+		    DstBlock		    "Manual Switch"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    528
+		    SrcBlock		    "Local inverse kin"
+		    SrcPort		    1
+		    DstBlock		    "Mux"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    533
+		    SrcBlock		    "Selector"
 		    SrcPort		    1
 		    DstBlock		    "q_legs"
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    519
-		    SrcBlock		    "Remote Inverse Kineamtics"
-		    SrcPort		    2
-		    Points		    [13, 0; 0, 10]
+		    ZOrder		    534
+		    SrcBlock		    "Manual Switch"
+		    SrcPort		    1
+		    Points		    [50, 0]
+		    Branch {
+		    ZOrder		    537
+		    Points		    [0, 60]
+		    DstBlock		    "Selector1"
+		    DstPort		    1
+		    }
+		    Branch {
+		    ZOrder		    536
+		    Points		    [0, -10]
+		    DstBlock		    "Selector"
+		    DstPort		    1
+		    }
+		    }
+		    Line {
+		    ZOrder		    535
+		    SrcBlock		    "Selector1"
+		    SrcPort		    1
+		    Points		    [15, 0; 0, -30]
 		    DstBlock		    "q_total\n"
 		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    539
+		    SrcBlock		    "Mux2"
+		    SrcPort		    1
+		    Points		    [25, 0; 0, 85]
+		    DstBlock		    "Manual Switch"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    540
+		    SrcBlock		    "Remote Inverse Kineamtics"
+		    SrcPort		    1
+		    Points		    [13, 0; 0, 10]
+		    DstBlock		    "Mux2"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    542
+		    SrcBlock		    "Remote Inverse Kineamtics"
+		    SrcPort		    2
+		    DstBlock		    "Mux2"
+		    DstPort		    2
 		    }
 		  }
 		}
@@ -15342,26 +15476,26 @@ Model {
 		  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr"
 		  ".Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sourc"
 		  "es','WiredSimulink',true,'DataLoggingVariableName','ScopeData1'),extmgr.Configuration('Visuals','Time Domain',true"
-		  ",'SerializedDisplays',{struct('MinYLimReal','-0.09454','MaxYLimReal','0.12057','YLabelReal','','MinYLimMag','0.000"
-		  "00','MaxYLimMag','0.12057','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 "
+		  ",'SerializedDisplays',{struct('MinYLimReal','-0.34115','MaxYLimReal','0.42123','YLabelReal','','MinYLimMag','0.000"
+		  "00','MaxYLimMag','0.42123','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 "
 		  "0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;"
 		  "0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0."
 		  "0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.6509803921568"
 		  "63],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{"
-		  "'Sum:1','Sum:2','Sum:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-0.75','MaxYLimReal','16.75','YL"
-		  "abelReal','','MinYLimMag','0.00000','MaxYLimMag','16.1172','LegendVisibility','off','XGrid',true,'YGrid',true,'Plo"
-		  "tMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'Colo"
-		  "rOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.3921"
-		  "56862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0."
-		  "0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',"
-		  "{{}},'NumLines',1,'LineNames',{{'STATE'}},'ShowContent',true,'Placement',2)},'DisplayPropertyDefaults',struct('YLa"
-		  "belReal','','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickC"
-		  "olor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1"
-		  ";1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.3921568627450"
-		  "98 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'DisplayLa"
-		  "youtDimensions',[2 1]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousZoomMode','"
-		  "ZoomX','PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2"
-		  "016a','Position',[66 1 1855 1001])"
+		  "'Sum:1','Sum:2','Sum:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-0.625','MaxYLimReal','15.625','"
+		  "YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','16.1172','LegendVisibility','off','XGrid',true,'YGrid',true,'P"
+		  "lotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'Co"
+		  "lorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.39"
+		  "2156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 "
+		  "0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames"
+		  "',{{}},'NumLines',1,'LineNames',{{'STATE'}},'ShowContent',true,'Placement',2)},'DisplayPropertyDefaults',struct('Y"
+		  "LabelReal','','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTic"
+		  "kColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706"
+		  " 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.39215686274"
+		  "5098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'Display"
+		  "LayoutDimensions',[2 1]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousZoomMode'"
+		  ",'ZoomY','PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version',"
+		  "'2016a','Position',[66 1 1855 1001])"
 		  NumInputPorts		  "2"
 		}
 		Block {
@@ -15393,6 +15527,38 @@ Model {
 		  ",'Measurements',true,'Version','2016a')),'Version','2016a','Position',[1 1 1920 1001])"
 		}
 		Block {
+		  BlockType		  Scope
+		  Name			  "Scope2"
+		  SID			  "4945"
+		  Ports			  [2]
+		  Position		  [575, 226, 605, 259]
+		  ZOrder		  808
+		  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr"
+		  ".Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sourc"
+		  "es','WiredSimulink',true,'DataLoggingVariableName','ScopeData1'),extmgr.Configuration('Visuals','Time Domain',true"
+		  ",'SerializedDisplays',{struct('MinYLimReal','-0.95179','MaxYLimReal','0.67732','YLabelReal','','MinYLimMag','0.000"
+		  "00','MaxYLimMag','0.95179','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 "
+		  "0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;"
+		  "0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0."
+		  "0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.6509803921568"
+		  "63],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{"
+		  "'CoM lin vel:1','CoM lin vel:2','CoM lin vel:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','11.47826"
+		  "','MaxYLimReal','15.93478','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','16.97361','LegendVisibility','off'"
+		  ",'XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509"
+		  "803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.41176470"
+		  "5882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.27450980392156"
+		  "9 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',"
+		  "{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'STATE'}},'ShowContent',true,'Placement',2)},'Displ"
+		  "ayPropertyDefaults',struct('YLabelReal','','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false"
+		  ",'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.07450"
+		  "98039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.27"
+		  "4509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686"
+		  " 0.650980392156863]),'DisplayLayoutDimensions',[2 1]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtS"
+		  "top',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version"
+		  "','2016a')"
+		  NumInputPorts		  "2"
+		}
+		Block {
 		  BlockType		  Selector
 		  Name			  "Selector"
 		  SID			  "4359"
@@ -15417,7 +15583,7 @@ Model {
 		  System {
 		    Name		    "Selector and Saturation"
 		    Location		    [65, 24, 1920, 1080]
-		    Open		    on
+		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -16282,7 +16448,7 @@ Model {
 		    Name		    "Capture Point"
 		    SID			    "4184"
 		    Ports		    [6, 3]
-		    Position		    [1230, 110, 1385, 275]
+		    Position		    [1230, 114, 1385, 281]
 		    ZOrder		    -106
 		    RequestExecContextInheritance off
 		    Variant		    off
@@ -16300,7 +16466,7 @@ Model {
 		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "100"
+		    ZoomFactor		    "135"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "STATE"
@@ -16848,7 +17014,7 @@ Model {
 		    EnableBusSupport	    on
 		    Port {
 		    PortNumber		    2
-		    Name		    "direction"
+		    Name		    "r_ic_dot"
 		    RTWStorageClass	    "Auto"
 		    DataLoggingNameMode	    "SignalName"
 		    }
@@ -16862,7 +17028,7 @@ Model {
 		    }
 		    Block {
 		    BlockType		    Outport
-		    Name		    "direction"
+		    Name		    "r_ic_dot"
 		    SID			    "4331::5"
 		    Position		    [460, 101, 480, 119]
 		    ZOrder		    -5
@@ -16890,12 +17056,12 @@ Model {
 		    DstPort		    3
 		    }
 		    Line {
-		    Name		    "direction"
+		    Name		    "r_ic_dot"
 		    ZOrder		    25
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
-		    DstBlock		    "direction"
+		    DstBlock		    "r_ic_dot"
 		    DstPort		    1
 		    }
 		    Line {
@@ -16996,7 +17162,7 @@ Model {
 		    ZOrder		    584
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -17066,7 +17232,7 @@ Model {
 		    BlockType		    Outport
 		    Name		    "STEP\n"
 		    SID			    "4240"
-		    Position		    [650, 453, 680, 467]
+		    Position		    [695, 443, 725, 457]
 		    ZOrder		    786
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -17184,7 +17350,7 @@ Model {
 		    Points		    [0, 5; 4, 0]
 		    Branch {
 		    ZOrder		    463
-		    Points		    [0, 45]
+		    Points		    [0, 35]
 		    DstBlock		    "STEP\n"
 		    DstPort		    1
 		    }
@@ -17275,7 +17441,7 @@ Model {
 		    Variant		    off
 		    System {
 		    Name		    "Capture Point-alternative"
-		    Location		    [0, 24, 1920, 1080]
+		    Location		    [65, 24, 1920, 1080]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -17287,7 +17453,7 @@ Model {
 		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "170"
+		    ZoomFactor		    "100"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "STATE"
@@ -17692,7 +17858,7 @@ Model {
 		    ZOrder		    584
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -18035,7 +18201,7 @@ Model {
 		    ZOrder		    584
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -18954,6 +19120,70 @@ Model {
 		    }
 		    }
 		    Block {
+		    BlockType		    Scope
+		    Name		    "Scope"
+		    SID			    "4940"
+		    Ports		    [1]
+		    Position		    [890, 64, 920, 96]
+		    ZOrder		    773
+		    ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
+		    "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
+		    "ources','WiredSimulink',true,'DataLoggingVariableName','ScopeData2'),extmgr.Configuration('Visuals','Time Domain"
+		    "',true,'SerializedDisplays',{struct('MinYLimReal','-0.13823','MaxYLimReal','0.08681','YLabelReal','','MinYLimMag"
+		    "','0.00000','MaxYLimMag','0.13823','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'Axes"
+		    "Color',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666"
+		    "66666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.8313"
+		    "72549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686"
+		    " 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines"
+		    "',3,'LineNames',{{'ICP :1','ICP :2','ICP :3'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',stru"
+		    "ct('MinYLimReal','-0.13823','MaxYLimReal','0.08681','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','0.13823"
+		    "','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0"
+		    ".686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.4"
+		    "11764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0"
+		    ".831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Conf"
+		    "iguration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tool"
+		    "s','Measurements',true,'Version','2016a')),'Version','2016a','Position',[675 325 570 422])"
+		    }
+		    Block {
+		    BlockType		    Scope
+		    Name		    "Scope1"
+		    SID			    "4943"
+		    Ports		    [1]
+		    Position		    [1420, 309, 1450, 341]
+		    ZOrder		    774
+		    ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
+		    "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
+		    "ources','WiredSimulink',true,'DataLoggingVariableName','ScopeData3'),extmgr.Configuration('Visuals','Time Domain"
+		    "',true,'SerializedDisplays',{struct('MinYLimReal','-54.94105','MaxYLimReal','239.58807','YLabelReal','','MinYLim"
+		    "Mag','0.00000','MaxYLimMag','239.58807','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,"
+		    "'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0."
+		    "0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0"
+		    ".831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.07450980392"
+		    "15686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'Num"
+		    "Lines',3,'LineNames',{{'Capture Point/r_ic_dot:1','Capture Point/r_ic_dot:2','Capture Point/r_ic_dot:3'}},'ShowC"
+		    "ontent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-54.94105','MaxYLimReal','239.58807"
+		    "','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','239.58807','LegendVisibility','off','XGrid',true,'YGrid',"
+		    "true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.68627450980"
+		    "3922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666"
+		    "666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294"
+		    "117647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configuration('Tools','Plot Navigation',true,'Previo"
+		    "usAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Posit"
+		    "ion',[675 297 570 422])"
+		    }
+		    Block {
+		    BlockType		    ToWorkspace
+		    Name		    "To Workspace"
+		    SID			    "4938"
+		    Ports		    [1]
+		    Position		    [890, 180, 950, 210]
+		    ZOrder		    772
+		    VariableName	    "icp"
+		    MaxDataPoints	    "inf"
+		    Save2DSignal	    "2-D array (concatenate along first dimension)"
+		    FixptAsFi		    on
+		    SampleTime		    "-1"
+		    }
+		    Block {
 		    BlockType		    Outport
 		    Name		    "r_CP"
 		    SID			    "4213"
@@ -18965,7 +19195,7 @@ Model {
 		    BlockType		    Outport
 		    Name		    "r_CP1"
 		    SID			    "4279"
-		    Position		    [1405, -12, 1435, 2]
+		    Position		    [1405, -27, 1435, -13]
 		    ZOrder		    763
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -19012,14 +19242,14 @@ Model {
 		    SrcPort		    1
 		    Points		    [516, 0]
 		    Branch {
-		    ZOrder		    435
+		    ZOrder		    526
 		    Points		    [0, -170]
 		    DstBlock		    "Capture Point-alternative"
 		    DstPort		    2
 		    }
 		    Branch {
 		    ZOrder		    434
-		    Points		    [0, 5]
+		    Points		    [0, 10]
 		    DstBlock		    "Capture Point"
 		    DstPort		    2
 		    }
@@ -19046,6 +19276,7 @@ Model {
 		    }
 		    Branch {
 		    ZOrder		    432
+		    Points		    [0, 5]
 		    DstBlock		    "Capture Point"
 		    DstPort		    3
 		    }
@@ -19069,7 +19300,25 @@ Model {
 		    ZOrder		    233
 		    SrcBlock		    "ICP\n"
 		    SrcPort		    1
-		    Points		    [35, 0]
+		    Points		    [27, 0]
+		    Branch {
+		    ZOrder		    559
+		    Points		    [0, -25]
+		    Branch {
+		    ZOrder		    563
+		    Points		    [0, -115]
+		    DstBlock		    "Scope"
+		    DstPort		    1
+		    }
+		    Branch {
+		    ZOrder		    562
+		    DstBlock		    "To Workspace"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    ZOrder		    558
+		    Points		    [8, 0]
 		    Branch {
 		    ZOrder		    476
 		    Points		    [0, 30]
@@ -19078,10 +19327,10 @@ Model {
 		    }
 		    Branch {
 		    ZOrder		    404
-		    Points		    [306, 0; 0, -15]
+		    Points		    [306, 0; 0, -10]
 		    Branch {
-		    ZOrder		    498
-		    Points		    [0, -175]
+		    ZOrder		    525
+		    Points		    [0, -180]
 		    DstBlock		    "Capture Point-alternative"
 		    DstPort		    4
 		    }
@@ -19092,14 +19341,15 @@ Model {
 		    }
 		    }
 		    }
+		    }
 		    Line {
 		    ZOrder		    463
 		    SrcBlock		    "Out of left foot_CH"
 		    SrcPort		    1
-		    Points		    [103, 0; 0, -25]
+		    Points		    [103, 0; 0, -20]
 		    Branch {
-		    ZOrder		    429
-		    Points		    [0, -175]
+		    ZOrder		    524
+		    Points		    [0, -180]
 		    DstBlock		    "Capture Point-alternative"
 		    DstPort		    5
 		    }
@@ -19127,8 +19377,18 @@ Model {
 		    ZOrder		    459
 		    SrcBlock		    "Capture Point"
 		    SrcPort		    3
+		    Points		    [0, 0]
+		    Branch {
+		    ZOrder		    561
+		    Points		    [0, 70]
+		    DstBlock		    "Scope1"
+		    DstPort		    1
+		    }
+		    Branch {
+		    ZOrder		    560
 		    DstBlock		    "Direction"
 		    DstPort		    1
+		    }
 		    }
 		    Line {
 		    ZOrder		    477
@@ -19146,6 +19406,7 @@ Model {
 		    }
 		    Branch {
 		    ZOrder		    503
+		    Points		    [0, 5]
 		    DstBlock		    "Capture Point"
 		    DstPort		    6
 		    }
@@ -19197,7 +19458,7 @@ Model {
 		    }
 		    Branch {
 		    ZOrder		    496
-		    Points		    [0, 10]
+		    Points		    [0, 15]
 		    DstBlock		    "Capture Point"
 		    DstPort		    1
 		    }
@@ -19243,7 +19504,7 @@ Model {
 		    System {
 		    Name		    "Dump and Visualize SRT\n"
 		    Location		    [65, 24, 1920, 1080]
-		    Open		    on
+		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -19446,6 +19707,31 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
+		    BlockType		    Scope
+		    Name		    "Scope"
+		    SID			    "4939"
+		    Ports		    [1]
+		    Position		    [-25, 609, 5, 641]
+		    ZOrder		    855
+		    ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
+		    "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
+		    "ources','WiredSimulink',true,'DataLoggingVariableName','ScopeData1'),extmgr.Configuration('Visuals','Time Domain"
+		    "',true,'SerializedDisplays',{struct('MinYLimReal','-0.1431','MaxYLimReal','0.10604','YLabelReal','','MinYLimMag'"
+		    ",'0.00000','MaxYLimMag','0.1431','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesCo"
+		    "lor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666"
+		    "666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372"
+		    "549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0"
+		    ".650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',"
+		    "3,'LineNames',{{'COP:1','COP:2','COP:3'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('M"
+		    "inYLimReal','-0.1431','MaxYLimReal','0.10604','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','0.1431','Lege"
+		    "ndVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274"
+		    "509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.41176470"
+		    "5882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372"
+		    "549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configurati"
+		    "on('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Mea"
+		    "surements',true,'Version','2016a')),'Version','2016a','Position',[675 299 560 420])"
+		    }
+		    Block {
 		    BlockType		    SubSystem
 		    Name		    "Subsystem"
 		    SID			    "4757"
@@ -19456,7 +19742,7 @@ Model {
 		    Variant		    off
 		    System {
 		    Name		    "Subsystem"
-		    Location		    [0, 24, 1920, 1080]
+		    Location		    [65, 24, 1920, 1080]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -19847,7 +20133,7 @@ Model {
 		    System {
 		    Name		    "Visualize\n"
 		    Location		    [65, 24, 1920, 1080]
-		    Open		    on
+		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -20058,40 +20344,39 @@ Model {
 		    ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
 		    "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
 		    "ources','WiredSimulink',true,'DataLoggingVariableName','ScopeData2'),extmgr.Configuration('Visuals','Time Domain"
-		    "',true,'SerializedDisplays',{struct('MinYLimReal','-0.2519','MaxYLimReal','0.0859','YLabelReal','','MinYLimMag',"
-		    "'0.00000','MaxYLimMag','0.2519','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesCol"
-		    "or',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666666"
-		    "66666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.8313725"
-		    "49019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0."
-		    "650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',3"
-		    ",'LineNames',{{'CP:1','CP:2','CP:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-1.29255','MaxYLim"
-		    "Real','0.88789','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.06551','LegendVisibility','off','XGrid',t"
-		    "rue,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0"
-		    ".686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.41176470588235"
-		    "3 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;"
-		    "0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{"
-		    "}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'CP1:1','CP1:2','CP1:3'}},'ShowContent',true,'Place"
-		    "ment',2),struct('MinYLimReal','-0.33644','MaxYLimReal','0.44272','YLabelReal','','MinYLimMag','0.00000','MaxYLim"
-		    "Mag','1.06551','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'Axes"
-		    "TickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.074509"
-		    "8039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.074509"
-		    "8039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],"
-		    "'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'F"
-		    "PE:1','FPE:2','FPE:3'}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-0.125','MaxYLimReal','1.125','Y"
-		    "LabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.06551','LegendVisibility','off','XGrid',true,'YGrid',true,'"
-		    "PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],"
-		    "'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549"
-		    ";0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647"
-		    " 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedCha"
-		    "nnelNames',{{}},'NumLines',3,'LineNames',{{'Triggers:1','Triggers:2','Triggers:3'}},'ShowContent',true,'Placemen"
-		    "t',4)},'DisplayPropertyDefaults',struct('YLabelReal','','LegendVisibility','off','XGrid',true,'YGrid',true,'Plot"
-		    "MagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'Col"
-		    "orOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.7"
-		    "17647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1"
-		    ";1 0.0745098039215686 0.650980392156863]),'DisplayLayoutDimensions',[4 1],'DisplayContentCache',[]),extmgr.Confi"
-		    "guration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY','PreviousZoomMode','ZoomY'),"
-		    "extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Position',[66 1 1855 973"
-		    "])"
+		    "',true,'SerializedDisplays',{struct('MinYLimReal','-0.41937','MaxYLimReal','0.20937','YLabelReal','','MinYLimMag"
+		    "','0.00000','MaxYLimMag','0.41937','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'Axes"
+		    "Color',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666"
+		    "66666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.8313"
+		    "72549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686"
+		    " 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines"
+		    "',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-3.89113','MaxYLimReal','4.4663',"
+		    "'YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.06551','LegendVisibility','off','XGrid',true,'YGrid',true"
+		    ",'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922"
+		    "],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.160784313725"
+		    "49;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.05882352941176"
+		    "47 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedC"
+		    "hannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',2),struct('MinYLimReal','-0.551"
+		    "61','MaxYLimReal','0.47408','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.06551','LegendVisibility','of"
+		    "f','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.68627"
+		    "4509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.41"
+		    "1764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509"
+		    "803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropert"
+		    "iesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',3),"
+		    "struct('MinYLimReal','-0.125','MaxYLimReal','1.125','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.06551"
+		    "','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0"
+		    ".686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0."
+		    "623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0."
+		    "717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<Si"
+		    "gnalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowConte"
+		    "nt',true,'Placement',4)},'DisplayPropertyDefaults',struct('YLabelReal','','LegendVisibility','off','XGrid',true,"
+		    "'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686"
+		    "274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.06"
+		    "66666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.05"
+		    "88235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'DisplayLayoutDimensions',[4 1],'DisplayContentCache"
+		    "',[]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Co"
+		    "nfiguration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Position',[1557 390 313 391],'Vis"
+		    "ibleAtModelOpen','on')"
 		    NumInputPorts	    "4"
 		    }
 		    Block {
@@ -20271,9 +20556,18 @@ Model {
 		    ZOrder		    2333
 		    SrcBlock		    "COP"
 		    SrcPort		    1
-		    Points		    [50, 0; 0, -10]
+		    Points		    [50, 0; 0, -10; 13, 0]
+		    Branch {
+		    ZOrder		    2356
+		    Points		    [0, -120; 282, 0; 0, 245]
+		    DstBlock		    "Scope"
+		    DstPort		    1
+		    }
+		    Branch {
+		    ZOrder		    2355
 		    DstBlock		    "Subsystem"
 		    DstPort		    2
+		    }
 		    }
 		    Line {
 		    ZOrder		    2334
@@ -21154,7 +21448,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [220, 359, 360, 426]
 		    ZOrder		    724
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
 		    SourceType		    "Mass Matrix"
 		    ContentPreviewEnabled   off
@@ -21276,7 +21570,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [465, 203, 615, 267]
 		    ZOrder		    741
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -21293,7 +21587,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [465, 488, 615, 552]
 		    ZOrder		    766
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -22446,7 +22740,7 @@ Model {
 		    Variant		    off
 		    System {
 		    Name		    "ankle, CoP, Cmp (LEFT FOOT)"
-		    Location		    [0, 24, 1920, 1080]
+		    Location		    [65, 24, 1920, 1080]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -22480,7 +22774,7 @@ Model {
 		    BlockType		    Inport
 		    Name		    "w_H_lsole"
 		    SID			    "4788"
-		    Position		    [580, 158, 610, 172]
+		    Position		    [590, 198, 620, 212]
 		    ZOrder		    808
 		    Port		    "3"
 		    IconDisplay		    "Port number"
@@ -23041,7 +23335,7 @@ Model {
 		    Variant		    off
 		    System {
 		    Name		    "COP computer"
-		    Location		    [0, 24, 1920, 1080]
+		    Location		    [65, 24, 1920, 1080]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -23053,7 +23347,7 @@ Model {
 		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "286"
+		    ZoomFactor		    "276"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "Contact Wrench"
@@ -23361,7 +23655,7 @@ Model {
 		    ZOrder		    1694
 		    SrcBlock		    "w_H_lsole"
 		    SrcPort		    1
-		    Points		    [92, 0; 0, 40]
+		    Points		    [82, 0]
 		    Branch {
 		    ZOrder		    491
 		    Points		    [0, 70]
@@ -23503,7 +23797,7 @@ Model {
 		    BlockType		    Outport
 		    Name		    "r_CMP"
 		    SID			    "4294"
-		    Position		    [760, 628, 790, 642]
+		    Position		    [745, 633, 775, 647]
 		    ZOrder		    777
 		    IconDisplay		    "Port number"
 		    }
@@ -23793,7 +24087,16 @@ Model {
 		    ZOrder		    2068
 		    SrcBlock		    "ankle, CoP, Cmp (LEFT FOOT)"
 		    SrcPort		    2
-		    Points		    [244, 0; 0, 30]
+		    Points		    [67, 0]
+		    Branch {
+		    ZOrder		    2669
+		    Points		    [0, 25]
+		    DstBlock		    "r_CMP"
+		    DstPort		    1
+		    }
+		    Branch {
+		    ZOrder		    2668
+		    Points		    [177, 0; 0, 30]
 		    Branch {
 		    ZOrder		    2376
 		    DstBlock		    "Dump and Visualize SRT\n"
@@ -23804,6 +24107,7 @@ Model {
 		    Points		    [0, 265]
 		    DstBlock		    "Multiport\nSwitch"
 		    DstPort		    3
+		    }
 		    }
 		    }
 		    Line {
@@ -23846,19 +24150,9 @@ Model {
 		    Points		    [116, 0]
 		    Branch {
 		    ZOrder		    2554
-		    Points		    [0, -15; 47, 0]
-		    Branch {
-		    ZOrder		    2367
-		    Points		    [0, -35]
-		    DstBlock		    "r_CMP"
-		    DstPort		    1
-		    }
-		    Branch {
-		    ZOrder		    2352
-		    Points		    [0, 6; 764, 0; 0, 24]
+		    Points		    [0, -9; 811, 0; 0, 24]
 		    DstBlock		    "Dump and Visualize SRT\n"
 		    DstPort		    3
-		    }
 		    }
 		    Branch {
 		    ZOrder		    2480
@@ -24031,7 +24325,7 @@ Model {
 		  BlockType		  Terminator
 		  Name			  "Terminator"
 		  SID			  "4735"
-		  Position		  [685, 610, 705, 630]
+		  Position		  [685, 605, 705, 625]
 		  ZOrder		  802
 		  ShowName		  off
 		}
@@ -24064,7 +24358,7 @@ Model {
 		  Position		  [365, 556, 425, 584]
 		  ZOrder		  727
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "PORTS.WBDT_LEFTLEG_EE"
@@ -24144,18 +24438,28 @@ Model {
 		  ZOrder		  1331
 		  SrcBlock		  "STATE"
 		  SrcPort		  1
-		  Points		  [0, 39; -14, 0]
+		  Points		  [0, 4]
 		  Branch {
+		    ZOrder		    1573
+		    Points		    [-89, 0; 0, -113; -890, 0; 0, -36]
+		    DstBlock		    "Scope2"
+		    DstPort		    2
+		  }
+		  Branch {
+		    ZOrder		    1572
+		    Points		    [0, 35; -14, 0]
+		    Branch {
 		    ZOrder		    1460
 		    Points		    [0, -29]
 		    DstBlock		    "Memory1"
 		    DstPort		    1
-		  }
-		  Branch {
+		    }
+		    Branch {
 		    ZOrder		    511
 		    Points		    [0, 107; 41, 0; 0, 39]
 		    DstBlock		    "Scope"
 		    DstPort		    2
+		    }
 		  }
 		}
 		Line {
@@ -24408,7 +24712,6 @@ Model {
 		  ZOrder		  1341
 		  SrcBlock		  "Step Recovery Techniques\n"
 		  SrcPort		  7
-		  Points		  [15, 0; 0, 5]
 		  DstBlock		  "Terminator"
 		  DstPort		  1
 		}
@@ -24416,7 +24719,6 @@ Model {
 		  ZOrder		  1342
 		  SrcBlock		  "Step Recovery Techniques\n"
 		  SrcPort		  8
-		  Points		  [0, -42; 20, 0]
 		  DstBlock		  "Terminator1"
 		  DstPort		  1
 		}
@@ -24455,8 +24757,18 @@ Model {
 		  ZOrder		  1410
 		  SrcBlock		  "CoM lin vel"
 		  SrcPort		  1
-		  DstBlock		  "Step Recovery Techniques\n"
-		  DstPort		  3
+		  Points		  [7, 0]
+		  Branch {
+		    ZOrder		    1571
+		    Points		    [0, -215]
+		    DstBlock		    "Scope2"
+		    DstPort		    1
+		  }
+		  Branch {
+		    ZOrder		    1570
+		    DstBlock		    "Step Recovery Techniques\n"
+		    DstPort		    3
+		  }
 		}
 		Line {
 		  ZOrder		  1523
@@ -24466,6 +24778,20 @@ Model {
 		  DstPort		  2
 		}
 	      }
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "4919"
+	      Ports		      [2, 1]
+	      Position		      [380, 695, 400, 715]
+	      ZOrder		      797
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "++|"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      SubSystem
@@ -24479,7 +24805,7 @@ Model {
 	      System {
 		Name			"Switch"
 		Location		[65, 24, 1920, 1080]
-		Open			on
+		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -24557,7 +24883,7 @@ Model {
 	      System {
 		Name			"Visualise external wrenches  "
 		Location		[65, 24, 1920, 1080]
-		Open			on
+		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -24708,26 +25034,26 @@ Model {
 		  ".Configuration('Core','General UI',true,'FigureColor',[0.156862745098039 0.156862745098039 0.156862745098039]),ext"
 		  "mgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sources','WiredSimulink',true,'DataLoggingVariabl"
 		  "eName','ScopeData1','DataLoggingSaveFormat','Array','DataLoggingDecimation','1','DataLoggingDecimateData',true),ex"
-		  "tmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-1.00000','MaxYLimReal"
-		  "','1.00000','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.00000','LegendVisibility','on','XGrid',true,'YG"
-		  "rid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.68627450"
-		  "9803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.1607843"
-		  "1372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.05882352941"
-		  "17647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',"
-		  "[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','Li"
-		  "neWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none"
-		  "','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('C"
-		  "olor',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','"
-		  "-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'Se"
-		  "lector:1','Selector:2','Selector:3'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLim"
-		  "Real','-1.00000','MaxYLimReal','1.00000','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.00000','LegendVisi"
-		  "bility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922"
-		  " 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;"
-		  "1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.27"
-		  "4509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>'),'TimeRang"
-		  "eSamples','42.68','TimeRangeFrames','42.68','DisplayContentCache',[]),extmgr.Configuration('Tools','Plot Navigatio"
-		  "n',true,'OnceAtStop',false,'PreviousZoomMode','ZoomY','PreviousAutoscale','XY'),extmgr.Configuration('Tools','Meas"
-		  "urements',true,'Version','2016a')),'Version','2016a','Location',[370 255 1709 1079])"
+		  "tmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-1151.96753','MaxYLimR"
+		  "eal','4309.48966','YLabelReal','','MinYLimMag','  0.00000','MaxYLimMag','4309.48966','LegendVisibility','on','XGri"
+		  "d',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922"
+		  " 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.41176470588235"
+		  "3 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0."
+		  "0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{stru"
+		  "ct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineSty"
+		  "le','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Ma"
+		  "rker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'"
+		  "),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'L"
+		  "ineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineN"
+		  "ames',{{'Selector:1','Selector:2','Selector:3'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',stru"
+		  "ct('MinYLimReal','-1151.96753','MaxYLimReal','4309.48966','YLabelReal','','MinYLimMag','  0.00000','MaxYLimMag','4"
+		  "309.48966','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickCol"
+		  "or',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.074509803921568"
+		  "6 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;"
+		  "0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<Si"
+		  "gnalLabel>'),'TimeRangeSamples','42.68','TimeRangeFrames','42.68','DisplayContentCache',[]),extmgr.Configuration('"
+		  "Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousZoomMode','ZoomY','PreviousAutoscale','XY'),extmgr.Confi"
+		  "guration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Location',[360 261 1719 1089])"
 		}
 		Block {
 		  BlockType		  Scope
@@ -24799,53 +25125,53 @@ Model {
 		  ".Configuration('Core','General UI',true,'FigureColor',[0.156862745098039 0.156862745098039 0.156862745098039]),ext"
 		  "mgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sources','WiredSimulink',true,'DataLoggingVariabl"
 		  "eName','ScopeData2','DataLoggingSaveFormat','Array','DataLoggingDecimation','1','DataLoggingDecimateData',true),ex"
-		  "tmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-85.56075','MaxYLimRea"
-		  "l','285.56585','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','285.56585','LegendVisibility','on','XGrid',tru"
-		  "e,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686"
-		  "274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16"
-		  "078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.058823"
-		  "5294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Co"
-		  "lor',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-"
-		  "','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker',"
-		  "'none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),stru"
-		  "ct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineSty"
-		  "le','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',6,'LineNames',"
-		  "{{'wR_WBDT:1','wR_WBDT:2','wR_WBDT:3','wR_WBDT:4','wR_WBDT:5','wR_WBDT:6'}},'ShowContent',true,'Placement',1),stru"
-		  "ct('MinYLimReal','15.00000','MaxYLimReal','35.00000','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVis"
-		  "ibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68627450980392"
-		  "2 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1"
-		  ";1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.2"
-		  "74509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LineProp"
-		  "ertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Colo"
-		  "r',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-',"
-		  "'LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','n"
-		  "one','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct"
-		  "('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},"
-		  "'NumLines',1,'LineNames',{{'thresholdContactOn'}},'ShowContent',true,'Placement',2),struct('MinYLimReal','75.00000"
-		  "','MaxYLimReal','95.00000','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true"
-		  ",'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.6862"
-		  "74509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.160"
-		  "78431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235"
-		  "294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Col"
-		  "or',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-'"
-		  ",'LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','"
-		  "none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struc"
-		  "t('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyl"
-		  "e','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{"
-		  "{'thresholdContactOff'}},'ShowContent',true,'Placement',3)},'DisplayPropertyDefaults',struct('YLabelReal','','Lege"
-		  "ndVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509"
-		  "803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764"
-		  "706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.71764705882352"
-		  "9 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','Lin"
-		  "ePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct("
-		  "'Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle'"
-		  ",'-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marke"
-		  "r','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),s"
-		  "truct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',"
-		  "{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1),'TimeRangeSamples','42.68','TimeRangeFrames"
-		  "','42.68','DisplayLayoutDimensions',[3 1]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,"
-		  "'PreviousAutoscale','XY','PreviousZoomMode','ZoomX'),extmgr.Configuration('Tools','Measurements',true,'Version','2"
-		  "016a')),'Version','2016a','Location',[66 78 1921 1079])"
+		  "tmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-2868.50683','MaxYLimR"
+		  "eal','2132.58445','YLabelReal','','MinYLimMag','  0.00000','MaxYLimMag','2868.50683','LegendVisibility','on','XGri"
+		  "d',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922"
+		  " 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.41176470588235"
+		  "3 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0."
+		  "0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{stru"
+		  "ct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineSty"
+		  "le','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Ma"
+		  "rker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'"
+		  "),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'L"
+		  "ineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',6,'LineN"
+		  "ames',{{'wR_WBDT:1','wR_WBDT:2','wR_WBDT:3','wR_WBDT:4','wR_WBDT:5','wR_WBDT:6'}},'ShowContent',true,'Placement',1"
+		  "),struct('MinYLimReal','15.00000','MaxYLimReal','35.00000','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','Leg"
+		  "endVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68627450"
+		  "9803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.62352941176"
+		  "4706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.7176470588235"
+		  "29 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','Li"
+		  "nePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct"
+		  "('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle"
+		  "','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Mark"
+		  "er','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),"
+		  "struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames'"
+		  ",{{}},'NumLines',1,'LineNames',{{'thresholdContactOn'}},'ShowContent',true,'Placement',2),struct('MinYLimReal','75"
+		  ".00000','MaxYLimReal','95.00000','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid"
+		  "',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 "
+		  "0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353"
+		  " 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0"
+		  "588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struc"
+		  "t('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyl"
+		  "e','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Mar"
+		  "ker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')"
+		  ",struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'Li"
+		  "neStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNa"
+		  "mes',{{'thresholdContactOff'}},'ShowContent',true,'Placement',3)},'DisplayPropertyDefaults',struct('YLabelReal',''"
+		  ",'LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686"
+		  "274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529"
+		  "411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.71764705"
+		  "8823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>"
+		  "','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),s"
+		  "truct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'Line"
+		  "Style','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,"
+		  "'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','"
+		  "on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelN"
+		  "ames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1),'TimeRangeSamples','42.68','TimeRange"
+		  "Frames','42.68','DisplayLayoutDimensions',[3 1]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',"
+		  "false,'PreviousAutoscale','XY','PreviousZoomMode','ZoomY'),extmgr.Configuration('Tools','Measurements',true,'Versi"
+		  "on','2016a')),'Version','2016a','Location',[66 78 1921 1079])"
 		  NumInputPorts		  "3"
 		}
 		Line {
@@ -25368,7 +25694,7 @@ Model {
 	      ZOrder		      782
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.WBDT_CHEST"
@@ -25387,7 +25713,7 @@ Model {
 	      ZOrder		      583
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -25401,7 +25727,7 @@ Model {
 	      ZOrder		      584
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -25414,7 +25740,7 @@ Model {
 	      Position		      [-485, 413, -435, 427]
 	      ZOrder		      654
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.IMU"
@@ -25433,7 +25759,7 @@ Model {
 	      ZOrder		      598
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.WBDT_LEFTLEG_EE"
@@ -25461,7 +25787,7 @@ Model {
 	      Variant		      off
 	      System {
 		Name			"nu"
-		Location		[0, 24, 1920, 1080]
+		Location		[65, 24, 1920, 1080]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -25473,7 +25799,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"239"
+		ZoomFactor		"231"
 		Block {
 		  BlockType		  Inport
 		  Name			  "qj"
@@ -25508,7 +25834,7 @@ Model {
 		  Position		  [-65, 42, 15, 78]
 		  ZOrder		  563
 		  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
 		  SourceType		  "Get Estimate"
 		  ContentPreviewEnabled	  off
@@ -25525,7 +25851,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -120, -65, -65]
 		  ZOrder		  558
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -25542,7 +25868,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -55, -65, 0]
 		  ZOrder		  559
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -25831,7 +26157,7 @@ Model {
 	      ZOrder		      599
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.WBDT_RIGHTLEG_EE"
@@ -28509,7 +28835,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 20, 295, 80]
 		    ZOrder		    569
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -28526,7 +28852,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 105, 295, 165]
 		    ZOrder		    572
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -28862,7 +29188,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 20, 295, 80]
 		    ZOrder		    569
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -28879,7 +29205,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 105, 295, 165]
 		    ZOrder		    572
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -29119,7 +29445,7 @@ Model {
 		    ZOrder		    663
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "[WBT_robotName, '/head/state:o']"
@@ -29481,7 +29807,7 @@ Model {
 		    ZOrder		    610
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -29495,7 +29821,7 @@ Model {
 		    ZOrder		    611
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -29507,7 +29833,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, -75, 295, -15]
 		    ZOrder		    569
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -29541,7 +29867,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 10, 295, 70]
 		    ZOrder		    572
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -29564,7 +29890,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 95, 295, 155]
 		    ZOrder		    606
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -29992,7 +30318,7 @@ Model {
 		    ZOrder		    663
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "[WBT_robotName, '/head/state:o']"
@@ -30354,7 +30680,7 @@ Model {
 		    ZOrder		    610
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -30368,7 +30694,7 @@ Model {
 		    ZOrder		    611
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -30380,7 +30706,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, -75, 295, -15]
 		    ZOrder		    569
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -30414,7 +30740,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 10, 295, 70]
 		    ZOrder		    572
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -30437,7 +30763,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 95, 295, 155]
 		    ZOrder		    606
-		    LibraryVersion	    "1.369"
+		    LibraryVersion	    "1.375"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -31022,7 +31348,7 @@ Model {
 		  ZOrder		  663
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "[WBT_robotName, '/head/state:o']"
@@ -31384,7 +31710,7 @@ Model {
 		  ZOrder		  610
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -31398,7 +31724,7 @@ Model {
 		  ZOrder		  611
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -31410,7 +31736,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, -75, 295, -15]
 		  ZOrder		  569
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -31444,7 +31770,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 10, 295, 70]
 		  ZOrder		  572
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -31467,7 +31793,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 95, 295, 155]
 		  ZOrder		  606
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -31788,7 +32114,7 @@ Model {
 	      }
 	      System {
 		Name			"w_H_root_link4"
-		Location		[0, 24, 1920, 1080]
+		Location		[65, 24, 1920, 1080]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -31800,7 +32126,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"162"
+		ZoomFactor		"156"
 		Block {
 		  BlockType		  Inport
 		  Name			  "qj"
@@ -31895,7 +32221,7 @@ Model {
 		  ZOrder		  663
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "[WBT_robotName, '/head/state:o']"
@@ -32257,7 +32583,7 @@ Model {
 		  ZOrder		  610
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -32271,7 +32597,7 @@ Model {
 		  ZOrder		  611
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -32283,7 +32609,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, -75, 295, -15]
 		  ZOrder		  569
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -32317,7 +32643,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 10, 295, 70]
 		  ZOrder		  572
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -32340,7 +32666,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 95, 295, 155]
 		  ZOrder		  606
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -32696,7 +33022,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [115, 230, 280, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -32812,7 +33138,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [115, 230, 280, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -33418,12 +33744,6 @@ Model {
 	      SrcPort		      8
 	      Points		      [94, 0]
 	      Branch {
-		ZOrder			1366
-		Points			[0, -415]
-		DstBlock		"Visualize\nhom transf5"
-		DstPort			1
-	      }
-	      Branch {
 		ZOrder			1020
 		Points			[84, 0]
 		Branch {
@@ -33437,6 +33757,12 @@ Model {
 		  DstBlock		  "Step Recovery reference generator"
 		  DstPort		  8
 		}
+	      }
+	      Branch {
+		ZOrder			1366
+		Points			[0, -415]
+		DstBlock		"Visualize\nhom transf5"
+		DstPort			1
 	      }
 	    }
 	    Line {
@@ -33600,9 +33926,10 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      764
-	      SrcBlock		      "Selector1"
+	      ZOrder		      1576
+	      SrcBlock		      "Sum"
 	      SrcPort		      1
+	      Points		      [30, 0; 0, -95]
 	      DstBlock		      "stateMachineFCN"
 	      DstPort		      16
 	    }
@@ -33648,7 +33975,7 @@ Model {
 	      ZOrder		      1337
 	      SrcBlock		      "Step Recovery reference generator"
 	      SrcPort		      3
-	      Points		      [28, 0; 0, -65]
+	      Points		      [36, 0; 0, -65]
 	      DstBlock		      "stateMachineFCN"
 	      DstPort		      15
 	    }
@@ -33656,7 +33983,6 @@ Model {
 	      ZOrder		      1338
 	      SrcBlock		      "Step Recovery reference generator"
 	      SrcPort		      4
-	      Points		      [49, 0; 0, -95]
 	      DstBlock		      "Selector1"
 	      DstPort		      1
 	    }
@@ -33709,6 +34035,20 @@ Model {
 	      Points		      [206, 0; 0, -305]
 	      DstBlock		      "stateMachineFCN"
 	      DstPort		      18
+	    }
+	    Line {
+	      ZOrder		      1575
+	      SrcBlock		      "Selector1"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      1577
+	      SrcBlock		      "Constant"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
 	    }
 	  }
 	}
@@ -33800,7 +34140,7 @@ Model {
 	      BackgroundColor	      "lightBlue"
 	      DropShadow	      on
 	      Commented		      "on"
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	      SourceType	      ""
 	      ContentPreviewEnabled   off
@@ -33962,12 +34302,13 @@ Model {
 	      Position		      [715, 380, 855, 420]
 	      ZOrder		      594
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
 	      externalSettlingTime    off
 	      settlingTime	      "gain.SmoothingTimeImp"
 	      sampleTime	      "CONFIG.Ts"
+	      resetOnSettlingTime     off
 	      firstDerivatives	      off
 	      secondDerivatives	      off
 	      explicitInitialValue    off
@@ -33980,12 +34321,13 @@ Model {
 	      Position		      [715, 330, 855, 370]
 	      ZOrder		      595
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
 	      externalSettlingTime    off
 	      settlingTime	      "CONFIG.smoothingTimeTranDynamics"
 	      sampleTime	      "CONFIG.Ts"
+	      resetOnSettlingTime     off
 	      firstDerivatives	      off
 	      secondDerivatives	      off
 	      explicitInitialValue    off
@@ -34205,7 +34547,7 @@ Model {
 	      ZOrder		      667
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -34219,7 +34561,7 @@ Model {
 	      ZOrder		      584
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -34232,7 +34574,7 @@ Model {
 	      Position		      [-485, 443, -435, 457]
 	      ZOrder		      654
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.IMU"
@@ -34259,7 +34601,7 @@ Model {
 	      Position		      [-390, -94, -330, -46]
 	      ZOrder		      681
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.WBDT_LEFTLEG_EE"
@@ -34334,7 +34676,7 @@ Model {
 		  Position		  [-65, 42, 15, 78]
 		  ZOrder		  563
 		  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
 		  SourceType		  "Get Estimate"
 		  ContentPreviewEnabled	  off
@@ -34351,7 +34693,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -120, -65, -65]
 		  ZOrder		  558
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -34368,7 +34710,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -55, -65, 0]
 		  ZOrder		  559
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -34656,7 +34998,7 @@ Model {
 	      Position		      [-390, 6, -330, 54]
 	      ZOrder		      682
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.WBDT_RIGHTLEG_EE"
@@ -35257,7 +35599,7 @@ Model {
 		  ZOrder		  663
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "[WBT_robotName, '/head/state:o']"
@@ -35619,7 +35961,7 @@ Model {
 		  ZOrder		  610
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -35633,7 +35975,7 @@ Model {
 		  ZOrder		  611
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -35645,7 +35987,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, -75, 295, -15]
 		  ZOrder		  569
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -35679,7 +36021,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 10, 295, 70]
 		  ZOrder		  572
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -35702,7 +36044,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 95, 295, 155]
 		  ZOrder		  606
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -36130,7 +36472,7 @@ Model {
 		  ZOrder		  663
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "[WBT_robotName, '/head/state:o']"
@@ -36492,7 +36834,7 @@ Model {
 		  ZOrder		  610
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -36506,7 +36848,7 @@ Model {
 		  ZOrder		  611
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -36518,7 +36860,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, -75, 295, -15]
 		  ZOrder		  569
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -36552,7 +36894,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 10, 295, 70]
 		  ZOrder		  572
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -36575,7 +36917,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 95, 295, 155]
 		  ZOrder		  606
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -36938,7 +37280,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [115, 230, 280, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -37055,7 +37397,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [115, 230, 280, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -37996,7 +38338,7 @@ Model {
 	  ZOrder		  621
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 	  Commented		  "on"
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 	  SourceType		  "YARP Read"
 	  portName		  "[baseToWorldRotationPort]"
@@ -38049,7 +38391,7 @@ Model {
 	  ZOrder		  601
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 	  ShowName		  off
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 	  SourceType		  "YARP Read"
 	  portName		  "['/' WBT_modelName '/constraints:i']"
@@ -39171,7 +39513,7 @@ Model {
       System {
 	Name			"Dump and visualize"
 	Location		[65, 24, 1920, 1080]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -39300,7 +39642,7 @@ Model {
 	  ZOrder		  512
 	  BackgroundColor	  "lightBlue"
 	  DropShadow		  on
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	  SourceType		  ""
 	  ContentPreviewEnabled	  off
@@ -39348,7 +39690,7 @@ Model {
 	  ZOrder		  513
 	  BackgroundColor	  "lightBlue"
 	  DropShadow		  on
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	  SourceType		  ""
 	  ContentPreviewEnabled	  off
@@ -39396,7 +39738,7 @@ Model {
 	  ZOrder		  514
 	  BackgroundColor	  "lightBlue"
 	  DropShadow		  on
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	  SourceType		  ""
 	  ContentPreviewEnabled	  off
@@ -39444,7 +39786,7 @@ Model {
 	  ZOrder		  515
 	  BackgroundColor	  "lightBlue"
 	  DropShadow		  on
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	  SourceType		  ""
 	  ContentPreviewEnabled	  off
@@ -39492,7 +39834,7 @@ Model {
 	  ZOrder		  516
 	  BackgroundColor	  "lightBlue"
 	  DropShadow		  on
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	  SourceType		  ""
 	  ContentPreviewEnabled	  off
@@ -39540,7 +39882,7 @@ Model {
 	  ZOrder		  511
 	  BackgroundColor	  "lightBlue"
 	  DropShadow		  on
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	  SourceType		  ""
 	  ContentPreviewEnabled	  off
@@ -39597,40 +39939,40 @@ Model {
 	  "Configuration('Core','General UI',true,'FigureColor',[0.156862745098039 0.156862745098039 0.156862745098039]),extmg"
 	  "r.Configuration('Core','Source UI',true),extmgr.Configuration('Sources','WiredSimulink',true,'DataLoggingVariableNa"
 	  "me','CoM_data','DataLoggingSaveFormat','StructureWithTime','DataLoggingDecimation','1','DataLoggingDecimateData',tr"
-	  "ue),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-0.3443','MaxYLim"
-	  "Real','0.65881','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','0.65881','LegendVisibility','on','XGrid',true,"
-	  "'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274"
-	  "509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.160784"
-	  "31372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.05882352941"
-	  "17647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',["
-	  "1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','Line"
-	  "Width',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','"
-	  "Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color"
-	  "',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','L"
-	  "ineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'CoM_Meas"
-	  "ured:1','CoM_Measured:2','CoM_Measured:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-0.21526','MaxY"
-	  "LimReal','0.64823','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',"
-	  "true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.68627450980392"
-	  "2],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549"
-	  ";0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 "
-	  "1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'"
-	  "LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0"
-	  ".5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible'"
-	  ",'on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0"
-	  "],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth"
-	  "',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'CoM_Desired:1','"
-	  "CoM_Desired:2','CoM_Desired:3'}},'ShowContent',true,'Placement',2),struct('MinYLimReal','-0.18549','MaxYLimReal','0"
-	  ".37716','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotM"
-	  "agPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOr"
-	  "der',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.39215686"
-	  "2745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.07450"
-	  "98039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle',"
-	  "'-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker'"
-	  ",'none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),stru"
-	  "ct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyl"
-	  "e','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Mark"
-	  "er','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'CoM_Error:1','CoM_Error:2',"
-	  "'CoM_Error:3'}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-0.75','MaxYLimReal','16.75','YLabelReal','"
+	  "ue),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-0.24947','MaxYLi"
+	  "mReal','0.67112','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','0.67112','LegendVisibility','on','XGrid',true"
+	  ",'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.68627"
+	  "4509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078"
+	  "431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294"
+	  "117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',"
+	  "[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','Lin"
+	  "eWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none',"
+	  "'Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Colo"
+	  "r',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','"
+	  "LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'CoM_Mea"
+	  "sured:1','CoM_Measured:2','CoM_Measured:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-0.15262','Max"
+	  "YLimReal','0.63262','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid'"
+	  ",true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.6862745098039"
+	  "22],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.1607843137254"
+	  "9;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1"
+	  " 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],"
+	  "'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',"
+	  "0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible"
+	  "','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 "
+	  "0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidt"
+	  "h',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'CoM_Desired:1',"
+	  "'CoM_Desired:2','CoM_Desired:3'}},'ShowContent',true,'Placement',2),struct('MinYLimReal','-0.22','MaxYLimReal','0.1"
+	  "5202','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMag"
+	  "Phase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrde"
+	  "r',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.3921568627"
+	  "45098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098"
+	  "039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-"
+	  "','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','"
+	  "none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct"
+	  "('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle'"
+	  ",'-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker"
+	  "','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'CoM_Error:1','CoM_Error:2','C"
+	  "oM_Error:3'}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-0.625','MaxYLimReal','15.625','YLabelReal','"
 	  "','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesCo"
 	  "lor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666"
 	  "666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019"
@@ -39794,7 +40136,7 @@ Model {
 	  ZOrder		  509
 	  BackgroundColor	  "[0.827500, 0.576500, 0.603900]"
 	  ShowName		  off
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
 	  SourceType		  "Get Estimate"
 	  ContentPreviewEnabled	  off
@@ -39813,7 +40155,7 @@ Model {
 	  ZOrder		  510
 	  BackgroundColor	  "[0.513700, 0.851000, 0.670600]"
 	  ShowName		  off
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
 	  SourceType		  "Get Estimate"
 	  ContentPreviewEnabled	  off
@@ -40556,7 +40898,7 @@ Model {
 	  "'LineNames',{{[]}},'ShowContent',true,'Placement',1),'TimeRangeSamples','40','TimeRangeFrames','40','DisplayLayoutD"
 	  "imensions',[7 1]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousZoomMode','ZoomY'"
 	  ",'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','"
-	  "Location',[1 78 1921 1079])"
+	  "Location',[66 78 1921 1079])"
 	  NumInputPorts		  "7"
 	}
 	Block {
@@ -41129,133 +41471,29 @@ Model {
 	  "Configuration('Core','General UI',true,'FigureColor',[0.156862745098039 0.156862745098039 0.156862745098039]),extmg"
 	  "r.Configuration('Core','Source UI',true),extmgr.Configuration('Sources','WiredSimulink',true,'DataLoggingVariableNa"
 	  "me','qj_and_v3','DataLoggingSaveFormat','StructureWithTime','DataLoggingDecimation','1','DataLoggingDecimateData',t"
-	  "rue),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-28.1308','MaxYL"
-	  "imReal','8.35229','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','28.1308','LegendVisibility','on','XGrid',tru"
-	  "e,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.6862"
-	  "74509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.1607"
-	  "8431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.058823529"
-	  "4117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color'"
-	  ",[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','Li"
-	  "neWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none'"
-	  ",'Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Col"
-	  "or',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-',"
-	  "'LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'torso:"
-	  "1','torso:2','torso:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-50.09549','MaxYLimReal','98.41716"
-	  "','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhas"
-	  "e',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',["
-	  "1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.39215686274509"
-	  "8 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.07450980392"
-	  "15686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','L"
-	  "ineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none"
-	  "','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Co"
-	  "lor',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-'"
-	  ",'LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','n"
-	  "one','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',4,'LineNames',{{'left_arm:1','left_arm:2','left_ar"
-	  "m:3','left_arm:4'}},'ShowContent',true,'Placement',2),struct('MinYLimReal','-51.87962','MaxYLimReal','112.71652','Y"
-	  "LabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',f"
-	  "alse,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 "
-	  "0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0."
-	  "831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.074509803921568"
-	  "6 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineW"
-	  "idth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','V"
-	  "isible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color'"
-	  ",[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','Li"
-	  "neWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none'"
-	  ",'Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',4,'LineNames',{{'right_arm:1','right_arm:2','right_arm"
-	  ":3','right_arm:4'}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-67.82527','MaxYLimReal','54.19468','YL"
-	  "abelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',fa"
-	  "lse,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0"
-	  ".0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.8"
-	  "31372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686"
-	  " 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWi"
-	  "dth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Vi"
-	  "sible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',"
-	  "[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','Lin"
-	  "eWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none',"
-	  "'Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',6,'LineNames',{{'left_leg:1','left_leg:2','left_leg:3',"
-	  "'left_leg:4','left_leg:5','left_leg:6'}},'ShowContent',true,'Placement',4),struct('MinYLimReal','-57.49135','MaxYLi"
-	  "mReal','150.72915','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',"
-	  "true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.68627450980392"
-	  "2],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549"
-	  ";0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 "
-	  "1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'"
-	  "LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0"
-	  ".5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible'"
-	  ",'on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0"
-	  "],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth"
-	  "',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',6,'LineNames',{{'right_leg:1','ri"
-	  "ght_leg:2','right_leg:3','right_leg:4','right_leg:5','right_leg:6'}},'ShowContent',true,'Placement',5),struct('MinY"
-	  "LimReal','-0.75','MaxYLimReal','16.75','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','"
-	  "XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803"
-	  "922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882"
-	  "353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0"
-	  ".0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','','LinePropertiesCache',{{struct('Color',[1 "
-	  "1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWi"
-	  "dth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Vi"
-	  "sible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',"
-	  "[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','Lin"
-	  "eWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'state'}},'"
-	  "ShowContent',true,'Placement',6)},'DisplayPropertyDefaults',struct('YLabelReal','','LegendVisibility','on','XGrid',"
-	  "true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.6"
-	  "86274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.1"
-	  "6078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.058823"
-	  "5294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Col"
-	  "or',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-',"
-	  "'LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','no"
-	  "ne','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('"
-	  "Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','"
-	  "-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}}"
-	  ",'ShowContent',true,'Placement',1),'TimeRangeSamples','40','TimeRangeFrames','40','DisplayLayoutDimensions',[6 1]),"
-	  "extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousZoomMode','ZoomY','PreviousAutoscal"
-	  "e','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Location',[66 78 1"
-	  "921 1079])"
-	  NumInputPorts		  "6"
-	}
-	Block {
-	  BlockType		  Scope
-	  Name			  "qj_err"
-	  SID			  "2335"
-	  Ports			  [6]
-	  Position		  [1340, 285, 1425, 405]
-	  ZOrder		  504
-	  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr."
-	  "Configuration('Core','General UI',true,'FigureColor',[0.156862745098039 0.156862745098039 0.156862745098039]),extmg"
-	  "r.Configuration('Core','Source UI',true),extmgr.Configuration('Sources','WiredSimulink',true,'DataLoggingVariableNa"
-	  "me','qj_and_v4','DataLoggingSaveFormat','StructureWithTime','DataLoggingDecimation','1','DataLoggingDecimateData',t"
-	  "rue),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-60.74401','MaxY"
-	  "LimReal','17.40199','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','60.74401','LegendVisibility','on','XGrid',"
-	  "true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.6"
-	  "86274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.1"
-	  "6078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.058823"
-	  "5294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Col"
-	  "or',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-',"
-	  "'LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','no"
-	  "ne','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('"
-	  "Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','"
-	  "-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'tor"
-	  "so:1','torso:2','torso:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-41.15276','MaxYLimReal','53.44"
-	  "233','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagP"
-	  "hase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder"
-	  "',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.39215686274"
-	  "5098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.07450980"
-	  "39215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-'"
-	  ",'LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','n"
-	  "one','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct("
-	  "'Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle',"
-	  "'-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker'"
-	  ",'none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',4,'LineNames',{{'left_arm:1','left_arm:2','left"
-	  "_arm:3','left_arm:4'}},'ShowContent',true,'Placement',2),struct('MinYLimReal','-56.18345','MaxYLimReal','51.49805',"
-	  "'YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase'"
-	  ",false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 "
-	  "1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 "
-	  "0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215"
-	  "686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','Lin"
-	  "eWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none',"
-	  "'Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Colo"
-	  "r',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','"
-	  "LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','non"
-	  "e','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',4,'LineNames',{{'right_arm:1','right_arm:2','right_a"
-	  "rm:3','right_arm:4'}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-43.48273','MaxYLimReal','22.17229','"
+	  "rue),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-28.13021','MaxY"
+	  "LimReal','8.35216','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','28.13021','LegendVisibility','on','XGrid',t"
+	  "rue,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.68"
+	  "6274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16"
+	  "078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235"
+	  "294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Colo"
+	  "r',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','"
+	  "LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','non"
+	  "e','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('C"
+	  "olor',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-"
+	  "','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'tors"
+	  "o:1','torso:2','torso:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-43.87062','MaxYLimReal','97.724"
+	  "7','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPha"
+	  "se',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',"
+	  "[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.3921568627450"
+	  "98 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039"
+	  "215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','"
+	  "LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','non"
+	  "e','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('C"
+	  "olor',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-"
+	  "','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','"
+	  "none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',4,'LineNames',{{'left_arm:1','left_arm:2','left_a"
+	  "rm:3','left_arm:4'}},'ShowContent',true,'Placement',2),struct('MinYLimReal','-45.46126','MaxYLimReal','112.00225','"
 	  "YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',"
 	  "false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1"
 	  " 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0"
@@ -41265,9 +41503,20 @@ Model {
 	  "Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color"
 	  "',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','L"
 	  "ineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none"
-	  "','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',6,'LineNames',{{'left_leg:1','left_leg:2','left_leg:3"
-	  "','left_leg:4','left_leg:5','left_leg:6'}},'ShowContent',true,'Placement',4),struct('MinYLimReal','-23.88341','MaxY"
-	  "LimReal','13.55372','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid'"
+	  "','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',4,'LineNames',{{'right_arm:1','right_arm:2','right_ar"
+	  "m:3','right_arm:4'}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-58.59098','MaxYLimReal','64.64035','Y"
+	  "LabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',f"
+	  "alse,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 "
+	  "0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0."
+	  "831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.074509803921568"
+	  "6 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineW"
+	  "idth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','V"
+	  "isible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color'"
+	  ",[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','Li"
+	  "neWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none'"
+	  ",'Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',6,'LineNames',{{'left_leg:1','left_leg:2','left_leg:3'"
+	  ",'left_leg:4','left_leg:5','left_leg:6'}},'ShowContent',true,'Placement',4),struct('MinYLimReal','-116.40039','MaxY"
+	  "LimReal','97.26637','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid'"
 	  ",true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.6862745098039"
 	  "22],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.1607843137254"
 	  "9;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1"
@@ -41299,9 +41548,102 @@ Model {
 	  "'Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle',"
 	  "'-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}"
 	  "},'ShowContent',true,'Placement',1),'TimeRangeSamples','40','TimeRangeFrames','40','DisplayLayoutDimensions',[6 1])"
-	  ",extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY','PreviousZoomMode'"
-	  ",'ZoomX'),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Location',[66 78 "
-	  "1921 1079])"
+	  ",extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousZoomMode','ZoomX','PreviousAutosca"
+	  "le','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Location',[66 106"
+	  " 1921 1079])"
+	  NumInputPorts		  "6"
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "qj_err"
+	  SID			  "2335"
+	  Ports			  [6]
+	  Position		  [1340, 285, 1425, 405]
+	  ZOrder		  504
+	  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr."
+	  "Configuration('Core','General UI',true,'FigureColor',[0.156862745098039 0.156862745098039 0.156862745098039]),extmg"
+	  "r.Configuration('Core','Source UI',true),extmgr.Configuration('Sources','WiredSimulink',true,'DataLoggingVariableNa"
+	  "me','qj_and_v4','DataLoggingSaveFormat','StructureWithTime','DataLoggingDecimation','1','DataLoggingDecimateData',t"
+	  "rue),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-53.84545','MaxY"
+	  "LimReal','23.73719','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','53.84545','LegendVisibility','on','XGrid',"
+	  "true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.6"
+	  "86274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.1"
+	  "6078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.058823"
+	  "5294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Col"
+	  "or',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-',"
+	  "'LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','no"
+	  "ne','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('"
+	  "Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','"
+	  "-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'tor"
+	  "so:1','torso:2','torso:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-40.95818','MaxYLimReal','12.32"
+	  "167','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagP"
+	  "hase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder"
+	  "',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.39215686274"
+	  "5098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.07450980"
+	  "39215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-'"
+	  ",'LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','n"
+	  "one','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct("
+	  "'Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle',"
+	  "'-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker'"
+	  ",'none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',4,'LineNames',{{'left_arm:1','left_arm:2','left"
+	  "_arm:3','left_arm:4'}},'ShowContent',true,'Placement',2),struct('MinYLimReal','-29.95676','MaxYLimReal','31.43764',"
+	  "'YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase'"
+	  ",false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 "
+	  "1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 "
+	  "0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215"
+	  "686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','Lin"
+	  "eWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none',"
+	  "'Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Colo"
+	  "r',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','"
+	  "LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','non"
+	  "e','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',4,'LineNames',{{'right_arm:1','right_arm:2','right_a"
+	  "rm:3','right_arm:4'}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-34.54531','MaxYLimReal','82.07701','"
+	  "YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',"
+	  "false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1"
+	  " 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0"
+	  ".831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.07450980392156"
+	  "86 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','Line"
+	  "Width',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','"
+	  "Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color"
+	  "',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','L"
+	  "ineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none"
+	  "','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',6,'LineNames',{{'left_leg:1','left_leg:2','left_leg:3"
+	  "','left_leg:4','left_leg:5','left_leg:6'}},'ShowContent',true,'Placement',4),struct('MinYLimReal','-129.60511','Max"
+	  "YLimReal','109.4715','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid"
+	  "',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803"
+	  "922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.160784313725"
+	  "49;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 "
+	  "1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0]"
+	  ",'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth'"
+	  ",0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visibl"
+	  "e','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1"
+	  " 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWid"
+	  "th',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',6,'LineNames',{{'right_leg:1','"
+	  "right_leg:2','right_leg:3','right_leg:4','right_leg:5','right_leg:6'}},'ShowContent',true,'Placement',5),struct('Mi"
+	  "nYLimReal','-0.75','MaxYLimReal','16.75','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on'"
+	  ",'XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.6862745098"
+	  "03922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.4117647058"
+	  "82353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1"
+	  ";0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','','LinePropertiesCache',{{struct('Color',["
+	  "1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','Line"
+	  "Width',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','"
+	  "Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color"
+	  "',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','L"
+	  "ineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'state'}}"
+	  ",'ShowContent',true,'Placement',6)},'DisplayPropertyDefaults',struct('YLabelReal','','LegendVisibility','on','XGrid"
+	  "',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0"
+	  ".686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0"
+	  ".16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588"
+	  "235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('C"
+	  "olor',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-"
+	  "','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','"
+	  "none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct"
+	  "('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle'"
+	  ",'-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]"
+	  "}},'ShowContent',true,'Placement',1),'TimeRangeSamples','40','TimeRangeFrames','40','DisplayLayoutDimensions',[6 1]"
+	  "),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY','PreviousZoomMode"
+	  "','ZoomX'),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Location',[66 78"
+	  " 1921 1079])"
 	  NumInputPorts		  "6"
 	}
 	Block {
@@ -41315,8 +41657,8 @@ Model {
 	  "Configuration('Core','General UI',true,'FigureColor',[0.156862745098039 0.156862745098039 0.156862745098039]),extmg"
 	  "r.Configuration('Core','Source UI',true),extmgr.Configuration('Sources','WiredSimulink',true,'DataLoggingVariableNa"
 	  "me','tauDes','DataLoggingSaveFormat','StructureWithTime','DataLoggingDecimation','1','DataLoggingDecimateData',true"
-	  "),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-30.97139','MaxYLim"
-	  "Real','28.70358','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','30.97139','LegendVisibility','on','XGrid',tru"
+	  "),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-13.05661','MaxYLim"
+	  "Real','18.23349','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','18.23349','LegendVisibility','on','XGrid',tru"
 	  "e,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.6862"
 	  "74509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.1607"
 	  "8431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.058823529"
@@ -41326,7 +41668,7 @@ Model {
 	  ",'Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Col"
 	  "or',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-',"
 	  "'LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'torso:"
-	  "1','torso:2','torso:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-2.74668','MaxYLimReal','5.95108',"
+	  "1','torso:2','torso:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-1.49708','MaxYLimReal','2.02856',"
 	  "'YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase'"
 	  ",false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 "
 	  "1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 "
@@ -41337,7 +41679,7 @@ Model {
 	  "r',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','"
 	  "LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','non"
 	  "e','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',4,'LineNames',{{'left_arm:1','left_arm:2','left_arm:"
-	  "3','left_arm:4'}},'ShowContent',true,'Placement',2),struct('MinYLimReal','-3.61157','MaxYLimReal','4.75712','YLabel"
+	  "3','left_arm:4'}},'ShowContent',true,'Placement',2),struct('MinYLimReal','-0.25705','MaxYLimReal','1.22126','YLabel"
 	  "Real','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,"
 	  "'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.066"
 	  "6666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.83137"
@@ -41348,7 +41690,7 @@ Model {
 	  " 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWid"
 	  "th',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Vis"
 	  "ible','on')}},'UserDefinedChannelNames',{{}},'NumLines',4,'LineNames',{{'right_arm:1','right_arm:2','right_arm:3','"
-	  "right_arm:4'}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-29.26508','MaxYLimReal','53.22913','YLabelR"
+	  "right_arm:4'}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-12.56827','MaxYLimReal','16.08466','YLabelR"
 	  "eal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,'"
 	  "AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666"
 	  "666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372"
@@ -41359,42 +41701,41 @@ Model {
 	  "0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidt"
 	  "h',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visi"
 	  "ble','on')}},'UserDefinedChannelNames',{{}},'NumLines',6,'LineNames',{{'left_leg:1','left_leg:2','left_leg:3','left"
-	  "_leg:4','left_leg:5','left_leg:6'}},'ShowContent',true,'Placement',4),struct('MinYLimReal','-25.51839','MaxYLimReal"
-	  "','45.21558','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'"
-	  "PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'Co"
-	  "lorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392"
-	  "156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0."
-	  "0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineSt"
-	  "yle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Ma"
-	  "rker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')"
-	  ",struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'Lin"
-	  "eStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,"
-	  "'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',6,'LineNames',{{'right_leg:1','right_le"
-	  "g:2','right_leg:3','right_leg:4','right_leg:5','right_leg:6'}},'ShowContent',true,'Placement',5),struct('MinYLimRea"
-	  "l','-0.75','MaxYLimReal','16.75','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid'"
-	  ",true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0."
-	  "686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0."
-	  "16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.05882"
-	  "35294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','','LinePropertiesCache',{{struct('Color',[1 1 0],'"
-	  "LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0"
-	  ".5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible'"
-	  ",'on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0"
-	  "],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth"
-	  "',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'state'}},'ShowCo"
-	  "ntent',true,'Placement',6)},'DisplayPropertyDefaults',struct('YLabelReal','','LegendVisibility','on','XGrid',true,'"
-	  "YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.6862745"
-	  "09803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.1607843"
-	  "1372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.058823529411"
-	  "7647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1"
-	  " 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineW"
-	  "idth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','V"
-	  "isible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color'"
-	  ",[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','Li"
-	  "neWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'Show"
-	  "Content',true,'Placement',1),'TimeRangeSamples','14','TimeRangeFrames','14','DisplayLayoutDimensions',[6 1]),extmgr"
-	  ".Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousZoomMode','ZoomX','PreviousAutoscale','XY"
-	  "'),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Location',[1 106 1921 10"
-	  "79])"
+	  "_leg:4','left_leg:5','left_leg:6'}},'ShowContent',true,'Placement',4),struct('MinYLimReal','-7.55825','MaxYLimReal'"
+	  ",'11.84735','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'P"
+	  "lotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'Col"
+	  "orOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.3921"
+	  "56862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0"
+	  "745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineSty"
+	  "le','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Mar"
+	  "ker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),"
+	  "struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'Line"
+	  "Style','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'"
+	  "Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',6,'LineNames',{{'right_leg:1','right_leg"
+	  ":2','right_leg:3','right_leg:4','right_leg:5','right_leg:6'}},'ShowContent',true,'Placement',5),struct('MinYLimReal"
+	  "','0.9','MaxYLimReal','1.1','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true"
+	  ",'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.68627"
+	  "4509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078"
+	  "431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294"
+	  "117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','','LinePropertiesCache',{{struct('Color',[1 1 0],'LineS"
+	  "tyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'M"
+	  "arker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'"
+	  "),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'Li"
+	  "neStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5"
+	  ",'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'state'}},'ShowContent"
+	  "',true,'Placement',6)},'DisplayPropertyDefaults',struct('YLabelReal','','LegendVisibility','on','XGrid',true,'YGrid"
+	  "',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803"
+	  "922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.160784313725"
+	  "49;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 "
+	  "1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0]"
+	  ",'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth'"
+	  ",0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visibl"
+	  "e','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1"
+	  " 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWid"
+	  "th',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowConte"
+	  "nt',true,'Placement',1),'TimeRangeSamples','14','TimeRangeFrames','14','DisplayLayoutDimensions',[6 1]),extmgr.Conf"
+	  "iguration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousZoomMode','ZoomX','PreviousAutoscale','XY'),ex"
+	  "tmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Location',[66 78 1921 1079])"
 	  NumInputPorts		  "6"
 	}
 	Block {
@@ -42305,6 +42646,20 @@ Model {
     }
     Block {
       BlockType		      Logic
+      Name		      "Logical\nOperator"
+      SID		      "4934"
+      Ports		      [1, 1]
+      Position		      [1814, 210, 1846, 240]
+      ZOrder		      696
+      BlockRotation	      270
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      Operator		      "NOT"
+      AllPortsSameDT	      off
+      OutDataTypeStr	      "boolean"
+    }
+    Block {
+      BlockType		      Logic
       Name		      "Logical\nOperator1"
       SID		      "3273"
       Ports		      [2, 1]
@@ -42373,7 +42728,7 @@ Model {
 	  Ports			  [4, 1]
 	  Position		  [295, 451, 480, 514]
 	  ZOrder		  223
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Dynamics/Centroidal Momentum"
 	  SourceType		  "Centroidal Momentum"
 	  ContentPreviewEnabled	  off
@@ -42415,7 +42770,7 @@ Model {
 	  Ports			  [4, 1]
 	  Position		  [295, 302, 435, 403]
 	  ZOrder		  222
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Bias Forces"
 	  SourceType		  "Get Generalized Bias Forces"
 	  ContentPreviewEnabled	  off
@@ -42432,7 +42787,7 @@ Model {
 	  Ports			  [2, 1]
 	  Position		  [295, 189, 435, 256]
 	  ZOrder		  221
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
 	  SourceType		  "Mass Matrix"
 	  ContentPreviewEnabled	  off
@@ -42629,7 +42984,7 @@ Model {
       Name		      "Saturation"
       SID		      "2353"
       Ports		      [1, 1]
-      Position		      [1680, 260, 1730, 310]
+      Position		      [1680, 285, 1730, 335]
       ZOrder		      545
       ShowName		      off
       InputPortMap	      "u0"
@@ -42637,23 +42992,144 @@ Model {
       LowerLimit	      "-sat.torque"
     }
     Block {
-      BlockType		      Reference
-      Name		      "Set References"
-      SID		      "2354"
-      Ports		      [1]
-      Position		      [1890, 260, 1965, 310]
-      ZOrder		      549
-      BackgroundColor	      "[0.827500, 0.576500, 0.603900]"
-      ShowName		      off
-      LibraryVersion	      "1.369"
-      SourceBlock	      "WBToolboxLibrary/wholeBodyActuators/Set References"
-      SourceType	      "Set References"
-      ContentPreviewEnabled   off
-      controlType	      "Torque"
-      robotName		      "WBT_robotName"
-      localName		      "WBT_modelName"
-      wbiFile		      "WBT_wbiFilename"
-      wbiList		      "WBT_wbiList"
+      BlockType		      SubSystem
+      Name		      "Subsystem"
+      SID		      "4928"
+      Ports		      [1, 0, 1]
+      Position		      [1890, 125, 1965, 185]
+      ZOrder		      -14
+      RequestExecContextInheritance off
+      Variant		      off
+      System {
+	Name			"Subsystem"
+	Location		[65, 24, 1920, 1080]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"756"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Joint Position"
+	  SID			  "4929"
+	  Position		  [20, 38, 50, 52]
+	  ZOrder		  694
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  EnablePort
+	  Name			  "Enable"
+	  SID			  "4930"
+	  Ports			  []
+	  Position		  [87, 100, 107, 120]
+	  ZOrder		  695
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Set References1"
+	  SID			  "4922"
+	  Ports			  [1]
+	  Position		  [70, 20, 145, 70]
+	  ZOrder		  693
+	  BackgroundColor	  "[0.392200, 0.788200, 0.345100]"
+	  ShowName		  off
+	  LibraryVersion	  "1.375"
+	  SourceBlock		  "WBToolboxLibrary/wholeBodyActuators/Set References"
+	  SourceType		  "Set References"
+	  ContentPreviewEnabled	  off
+	  controlType		  "Position Direct"
+	  fullOrSubControl	  "Full"
+	  controlledJoints	  "''"
+	  robotName		  "WBT_robotName"
+	  localName		  "WBT_modelName"
+	  wbiFile		  "WBT_wbiFilename"
+	  wbiList		  "WBT_wbiList"
+	}
+	Line {
+	  ZOrder		  98
+	  SrcBlock		  "Joint Position"
+	  SrcPort		  1
+	  DstBlock		  "Set References1"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Subsystem1"
+      SID		      "4931"
+      Ports		      [1, 0, 1]
+      Position		      [1890, 280, 1965, 340]
+      ZOrder		      -16
+      RequestExecContextInheritance off
+      Variant		      off
+      System {
+	Name			"Subsystem1"
+	Location		[65, 24, 1920, 1080]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"560"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Torques\n"
+	  SID			  "4932"
+	  Position		  [20, 38, 50, 52]
+	  ZOrder		  550
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  EnablePort
+	  Name			  "Enable"
+	  SID			  "4933"
+	  Ports			  []
+	  Position		  [310, 20, 330, 40]
+	  ZOrder		  -2
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Set References"
+	  SID			  "2354"
+	  Ports			  [1]
+	  Position		  [215, 20, 290, 70]
+	  ZOrder		  549
+	  BackgroundColor	  "[0.827500, 0.576500, 0.603900]"
+	  ShowName		  off
+	  LibraryVersion	  "1.375"
+	  SourceBlock		  "WBToolboxLibrary/wholeBodyActuators/Set References"
+	  SourceType		  "Set References"
+	  ContentPreviewEnabled	  off
+	  controlType		  "Torque"
+	  fullOrSubControl	  "Full"
+	  controlledJoints	  "''"
+	  robotName		  "WBT_robotName"
+	  localName		  "WBT_modelName"
+	  wbiFile		  "WBT_wbiFilename"
+	  wbiList		  "WBT_wbiList"
+	}
+	Line {
+	  ZOrder		  21
+	  SrcBlock		  "Torques\n"
+	  SrcPort		  1
+	  DstBlock		  "Set References"
+	  DstPort		  1
+	}
+      }
     }
     Block {
       BlockType		      SubSystem
@@ -42949,7 +43425,7 @@ Model {
 	  Position		  [1230, 900, 1395, 995]
 	  ZOrder		  545
 	  ShowName		  off
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 	  SourceType		  "DotJ Nu"
 	  ContentPreviewEnabled	  off
@@ -42966,7 +43442,7 @@ Model {
 	  Ports			  [4, 1]
 	  Position		  [1230, 1009, 1395, 1076]
 	  ZOrder		  547
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 	  SourceType		  "DotJ Nu"
 	  ContentPreviewEnabled	  off
@@ -42997,7 +43473,7 @@ Model {
 	  Position		  [1005, 1225, 1170, 1280]
 	  ZOrder		  549
 	  ShowName		  off
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	  SourceType		  "Jacobian"
 	  ContentPreviewEnabled	  off
@@ -43015,7 +43491,7 @@ Model {
 	  Position		  [1230, 785, 1395, 840]
 	  ZOrder		  544
 	  ShowName		  off
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	  SourceType		  "Jacobian"
 	  ContentPreviewEnabled	  off
@@ -43033,7 +43509,7 @@ Model {
 	  Position		  [1230, 850, 1395, 890]
 	  ZOrder		  546
 	  ShowName		  off
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	  SourceType		  "Jacobian"
 	  ContentPreviewEnabled	  off
@@ -43663,7 +44139,7 @@ Model {
 	      Ports		      [4, 1]
 	      Position		      [915, 71, 1100, 134]
 	      ZOrder		      73
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Centroidal Momentum"
 	      SourceType	      "Centroidal Momentum"
 	      ContentPreviewEnabled   off
@@ -43679,7 +44155,7 @@ Model {
 	      Ports		      [2, 1]
 	      Position		      [360, 285, 520, 340]
 	      ZOrder		      40
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	      SourceType	      "Jacobian"
 	      ContentPreviewEnabled   off
@@ -44049,7 +44525,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 20, 295, 80]
 		  ZOrder		  569
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -44066,7 +44542,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 105, 295, 165]
 		  ZOrder		  572
-		  LibraryVersion	  "1.369"
+		  LibraryVersion	  "1.375"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -44267,7 +44743,7 @@ Model {
 	  Position		  [1230, 683, 1390, 727]
 	  ZOrder		  541
 	  ShowName		  off
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 	  SourceType		  "Forward Kinematics"
 	  ContentPreviewEnabled	  off
@@ -44285,7 +44761,7 @@ Model {
 	  Position		  [1230, 740, 1390, 780]
 	  ZOrder		  543
 	  ShowName		  off
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 	  SourceType		  "Forward Kinematics"
 	  ContentPreviewEnabled	  off
@@ -45215,7 +45691,7 @@ Model {
 	      Ports		      [2, 1]
 	      Position		      [115, 230, 280, 290]
 	      ZOrder		      578
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 	      SourceType	      "Forward Kinematics"
 	      ContentPreviewEnabled   off
@@ -46032,7 +46508,7 @@ Model {
 	  ZOrder		  551
 	  BackgroundColor	  "[0.513725, 0.850980, 0.670588]"
 	  ShowName		  off
-	  LibraryVersion	  "1.369"
+	  LibraryVersion	  "1.375"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Limits"
 	  SourceType		  "Get Estimate"
 	  ContentPreviewEnabled	  off
@@ -46271,7 +46747,7 @@ Model {
       }
       System {
 	Name			"synchronizer"
-	Location		[0, 24, 1920, 1080]
+	Location		[65, 24, 1920, 1080]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -46283,7 +46759,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"361"
+	ZoomFactor		"348"
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "GAZEBO_SYNCHRONIZER"
@@ -46295,7 +46771,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "GAZEBO_SYNCHRONIZER"
-	    Location		    [0, 24, 1920, 1080]
+	    Location		    [65, 24, 1920, 1080]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -46325,7 +46801,7 @@ Model {
 	      ZOrder		      539
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
 	      SourceType	      "Simulator Synchronizer"
 	      period		      "CONFIG.Ts"
@@ -46401,7 +46877,7 @@ Model {
 	      ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
 	      BackgroundColor	      "gray"
 	      ShowName		      off
-	      LibraryVersion	      "1.369"
+	      LibraryVersion	      "1.375"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
 	      SourceType	      "Real Time Synchronizer"
 	      period		      "CONFIG.Ts"
@@ -46486,16 +46962,15 @@ Model {
       ZOrder		      8
       SrcBlock		      "controller_QP"
       SrcPort		      1
-      Points		      [40, 0]
+      Points		      [40, 0; 0, 10]
       Branch {
 	ZOrder			53
-	Points			[0, -15]
 	DstBlock		"Saturation"
 	DstPort			1
       }
       Branch {
 	ZOrder			9
-	Points			[0, 84; 206, 0; 0, 641]
+	Points			[0, 74; 206, 0; 0, 641]
 	DstBlock		"Dump and visualize"
 	DstPort			1
       }
@@ -46512,17 +46987,27 @@ Model {
       ZOrder		      12
       SrcBlock		      "DesValues"
       SrcPort		      9
-      Points		      [91, 0; 0, 155]
+      Points		      [38, 0]
       Branch {
-	ZOrder			13
-	Points			[0, 260]
-	DstBlock		"Dump and visualize"
-	DstPort			6
+	ZOrder			114
+	Points			[0, -555]
+	DstBlock		"Subsystem"
+	DstPort			1
       }
       Branch {
-	ZOrder			14
-	DstBlock		"controller_QP"
-	DstPort			11
+	ZOrder			113
+	Points			[53, 0; 0, 155]
+	Branch {
+	  ZOrder		  13
+	  Points		  [0, 260]
+	  DstBlock		  "Dump and visualize"
+	  DstPort		  6
+	}
+	Branch {
+	  ZOrder		  14
+	  DstBlock		  "controller_QP"
+	  DstPort		  11
+	}
       }
     }
     Line {
@@ -46556,13 +47041,6 @@ Model {
       SrcPort		      1
       Points		      [131, 0; 0, -15]
       DstBlock		      "controller_QP"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      20
-      SrcBlock		      "Saturation"
-      SrcPort		      1
-      DstBlock		      "Set References"
       DstPort		      1
     }
     Line {
@@ -46615,8 +47093,17 @@ Model {
       Branch {
 	ZOrder			38
 	Points			[0, 150]
-	DstBlock		"Dump and visualize"
-	DstPort			7
+	Branch {
+	  ZOrder		  96
+	  Points		  [-346, 0; 0, -1045]
+	  DstBlock		  "Compare\nTo Constant"
+	  DstPort		  1
+	}
+	Branch {
+	  ZOrder		  94
+	  DstBlock		  "Dump and visualize"
+	  DstPort		  7
+	}
       }
       Branch {
 	ZOrder			29
@@ -46684,6 +47171,38 @@ Model {
       Points		      [19, 0; 0, 230]
       DstBlock		      "controller_QP"
       DstPort		      14
+    }
+    Line {
+      ZOrder		      98
+      SrcBlock		      "Compare\nTo Constant"
+      SrcPort		      1
+      Points		      [95, 0]
+      Branch {
+	ZOrder			106
+	Points			[95, 0]
+	DstBlock		"Subsystem"
+	DstPort			enable
+      }
+      Branch {
+	ZOrder			102
+	DstBlock		"Logical\nOperator"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      99
+      SrcBlock		      "Saturation"
+      SrcPort		      1
+      DstBlock		      "Subsystem1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      103
+      SrcBlock		      "Logical\nOperator"
+      SrcPort		      1
+      Points		      [95, 0]
+      DstBlock		      "Subsystem1"
+      DstPort		      enable
     }
   }
 }
@@ -56978,10 +57497,7 @@ Stateflow {
     firstTransition	    499
     firstJunction	    498
     viewObj		    488
-    visible		    1
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    18
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -58515,9 +59031,7 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function direction = CP_direction(r_CxP, omega, r_ic)\n\nr_ic_dot = omega*(r_ic - r_CxP);\n\nif(n"
-      "orm(r_ic_dot,2) > 0)\n    direction = r_ic_dot/norm(r_ic_dot,2);\nelse direction = zeros(length(r_ic_dot),1);\ne"
-      "nd\n\nend"
+      script		      "function r_ic_dot = CP_direction(r_CxP, omega, r_ic)\n\nr_ic_dot = omega*(r_ic - r_CxP);\n\n\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -58596,7 +59110,7 @@ Stateflow {
   data {
     id			    569
     ssIdNumber		    5
-    name		    "direction"
+    name		    "r_ic_dot"
     linkNode		    [564 568 0]
     scope		    OUTPUT_DATA
     machine		    1

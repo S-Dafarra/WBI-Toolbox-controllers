@@ -10,11 +10,11 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     CONFIG.SMOOTH_DES_Q        = 1;    % If equal to one, the desired streamed values 
                                        % of the postural tasks are smoothed internally 
                                        
-    CONFIG.SR.TECHNIQUE        = 0;    %0 uses Capture Point, 1 uses FPE, 2 an alternative method of computing the CP
+    CONFIG.SR.TECHNIQUE        = 2;    %0 uses Capture Point, 1 uses FPE, 2 an alternative method of computing the CP
    
     %%Just related to Capture point
-    CONFIG.SR.CP.robotStepTime    = 0.65; %seconds for the robot to take a step
-    CONFIG.SR.CP.MODEL            = 0;    %0 uses the simple LIP, 1 the LIP plus finite sized foot, 2 the LIP plus foot and flywheel
+    CONFIG.SR.CP.robotStepTime    = 0.6; %seconds for the robot to take a step
+    CONFIG.SR.CP.MODEL            = 1;    %0 uses the simple LIP, 1 the LIP plus finite sized foot, 2 the LIP plus foot and flywheel
     CONFIG.SR.CP.FF               = 0;    %0 uses no feed-forward, 1 adds the COP position (in foot local frame) to the desired foot position. With 2 is the same, but uses the CMP                                
 
     %%Just related to the FPE
@@ -46,12 +46,17 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     gain.leg_length           = 0.6; %from root to the sole
     gain.minimum_height       = 0.3; %minimum heigth that the root can reach.
     gain.min_step_length      = 0.1; %minimum distance between the ankle centres after a step
+    
+    %Foot placement offset
+    gain.ik_offset = [+0.02;-0.02; 0.02*0];
+    gain.ik_rotation  = [0; -30; 0];   %X,Y,Z cartesian angles (deg)
+    gain.COM_offset = [0;0;0];
                               
                    
     forceFrictionCoefficient     = 1/3;  
     
     %Smoothing time for time varying impedances
-    gain.SmoothingTimeGainScheduling              = 0.1;  
+    gain.SmoothingTimeGainScheduling              = 0.01;  
 
     %Smoothing time for time-varying constraints
     %CONFIG.smoothingTimeTranDynamics  = 0.02; not used
@@ -69,12 +74,13 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         10    50  10;  % state == 11  PREPARING FOR SWITCHING 
                         10    50  10;  % state == 12  LOOKING FOR CONTACT
                         10    50  10;  % state == 13  TRANSITION TO INITIAL POSITION
-                        17    17   5;  % state == 14  FALLING
-                        17    17   5]; % state == 15  RESTORING
+                        20    70   5;  % state == 14  FALLING
+                        20    65   5]; % state == 15  RESTORING
                     
     gain.PCOM  =  gain.PCOM;
     gain.ICOM  = gain.PCOM*0;
     gain.DCOM  = 2*sqrt(gain.PCOM);
+    gain.DCOM(14:15)  = gain.DCOM(14:15)/30;
 
     gain.PAngularMomentum  = 0.25*10;
     gain.DAngularMomentum  = 2*sqrt(gain.PAngularMomentum);
@@ -111,8 +117,8 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 12  LOOKING FOR CONTACT
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 13  TRANSITION TO INITIAL POSITION
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60      5   5  % state == 14  FALLING
-                        10   30   20, 10   10    10    8, 10   10    10    8,  1    1    1     2     50  50, 10   10   10    10      1   1];% state == 15  RESTORING
-end              
+                        10   30   20, 10   10    10    8, 10   10    10    8,  5    5    5     5      5   5,  5    5    5     5      1   1];% state == 15  RESTORING
+end               
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                      
          
 %% %%%%%%%%%%%%%%%%    FINITE STATE MACHINE SPECIFIC PARAMETERS
@@ -259,7 +265,7 @@ q3 =        [-0.0852,-0.4273,0.0821,...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092,0.2960, 0.0006,-0.3741,-0.1044,0.0700, ...
-              0.3714,0.9599, 1.3253,-1.6594, +0.5,0];
+              0.3714,0.9599, 1.3253,-1.6594, +0.5,0];%0.52,0.052, 0,-0.64, 0,0];
           
 q4 =        [-0.0852,-0.4273,0.0821,...
               0.1391, 1.4585,0.2464, 0.3042, ...

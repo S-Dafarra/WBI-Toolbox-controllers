@@ -47,7 +47,12 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     %Leg length
     gain.leg_length           = 0.6; %from root to the sole
     gain.minimum_height       = 0.3; %minimum heigth that the root can reach.    
-    gain.min_step_length      = 0.15; %minimum distance between the ankle centres after a step                           
+    gain.min_step_length      = 0.15; %minimum distance between the ankle centres after a step  
+    
+    %Foot placement offset
+    gain.ik_offset = [-0.05; 0; -0.05];
+    gain.ik_rotation  = [0; 0; 0];
+    gain.COM_offset = [0.02;0;0];
                    
     forceFrictionCoefficient     = 1/3;  
     
