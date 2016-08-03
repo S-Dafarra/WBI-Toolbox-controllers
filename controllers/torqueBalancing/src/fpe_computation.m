@@ -1,13 +1,16 @@
-function [theta_bar, x] = fpe_computation(m, COMx, COM_vel, J_COM, g, foot)
-% This function computes the residual of the foot placement estimator
+function [theta_bar, x, fpe_poly, fpe_poly_offset, dissipation] = fpe_computation(m, COMx, COM_vel, J_COM, g, foot, offset)
+ %[theta_bar, x, fpe_poly, ctheta, test] = fpe_computation(m, COMx, COM_vel, J_COM, g, foot);
+ % This function computes the residual of the foot placement estimator
 % formula
-persistent in_guess;
+%persistent in_guess;
 
 theta_bar = 0;
 
-if isempty(in_guess)
-    in_guess = theta_bar;
-end
+
+
+% if isempty(in_guess)
+%     in_guess = theta_bar;
+% end
 
 
 z = [0;0;1];        % vertical axis versor
@@ -43,13 +46,46 @@ COM_proj(2) = COMx'*z;
 foot_proj(1) = foot'*x;
 foot_proj(2) = foot'*z;
 
-theta_dot = (vx*(h)-h_dot*(COM_proj(1)-foot_proj(1)))/(h^2+(COM_proj(1)-foot_proj(1))^2);
+theta_dot = vx/h; %V/R, R=V/Vx*h
+%theta_dot = (vx*(h)-h_dot*(COM_proj(1)-foot_proj(1)))/(h^2+(COM_proj(1)-foot_proj(1))^2);
 %theta_dot = V/(h^2+(COM_proj(1)-foot_proj(1))^2);
 
-coder.extrinsic('solve_fpe')
-theta_bar = double(solve_fpe(theta_dot, m, h, vx, h_dot, J, g, in_guess));
-in_guess = theta_bar;
+% coder.extrinsic('solve_fpe')
+% theta_bar = double(solve_fpe(theta_dot, m, h, vx, h_dot, J, g, in_guess));
+% in_guess = theta_bar;
 
-%fpe =h*tan(theta_bar+offset)*x + [COMx(1);COMx(2);0];
-%fpe_alternative = [COPx(1);COPx(2);0] + 2*h*tan(theta_bar)*x;
+p = [(J^2*theta_dot^2 + 2*m*g*h*J); (2*m*h*V*J*theta_dot -2*m*g*h*J); (2*m^2*g*h^3 + m^2*h^2*V^2); -2*m^2*g*h^3]';
+
+ctheta_in = roots(p);
+
+ctheta = complex(zeros(3,1),zeros(3,1));
+for k=1:min(3,length(ctheta_in))
+    ctheta(k) = ctheta_in(k);
+end
+fpe_poly = zeros(3,1);
+fpe_poly_temp = zeros(3,1);
+fpe_max = 0;
+ctheta_fin = 0;
+
+for k = 1:length(ctheta)
+        if ((abs(imag( ctheta(k) ))<0.001) && (ctheta(k)> 0) && (ctheta(k) <= 1))
+            
+            theta_bar = acos(real(ctheta(k)));
+            fpe_poly_temp = h*tan(theta_bar)*x + [COMx(1);COMx(2);0];
+            
+            if (norm(fpe_poly_temp,2) > fpe_max)
+                
+                fpe_poly = fpe_poly_temp;
+                fpe_max = norm(fpe_poly,2);
+                ctheta_fin = real(ctheta(k));
+                
+            end
+        end
+end
+
+fpe_poly_offset = h*tan(theta_bar + offset)*x + [COMx(1);COMx(2);0];
+
+l = h/ctheta_fin;
+dissipation = (m*l^2*(2*ctheta_fin^2 -1)+J)/(m*l^2+J);
+
 end

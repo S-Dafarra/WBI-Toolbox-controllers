@@ -393,10 +393,16 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
         %CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_b_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';
         
         if COMconstRef(3) == -1
-            COMconstRef = ([l_solex(1:2);CoM_0(3)] + [r_solex(1:2);CoM_0(3)])/2 + [0.05;0.05;0];  %lip [0.05;0.02;0] %cop         
+            COMconstRef = ([l_solex(1:2);CoM_0(3)] + [r_solex(1:2);CoM_0(3)])/2 + [0.02;0;0]; %cop %[0.05;0.05;0];  %lip          
         end
         
         CoMDes = COMconstRef;
+        
+        if ((t-tSwitch) < 0.5)
+            CoMDes = CoMDes + [0.02;0.03;0]; %cop %[0.05;0.05;0];  %lip
+            SMOOTH_com = 0; 
+        else SMOOTH_com = 1; 
+        end
             
         
 %     if wrench_leftFoot(3) > (sm.wrench.thresholdContactOn)      
@@ -409,14 +415,14 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
 %          %SMOOTH_com = 0;
 %     end
     
-        qDes        = [sm.joints.states(state,1:11),zeros(1,12)]';%q_before']';
+        qDes        = [sm.joints.states(7,:)]';%,q_before']'; %zeros(1,12)]';
         impedances  = gain.impedances(state,:);
         kpCom       = gain.PCOM(state,:);   
         kdCom       = gain.DCOM(state,:); 
         
         SMOOTH = 1;        
         QP_OFF = 0;
-        SMOOTH_com = 0; 
+        
         
     end
     

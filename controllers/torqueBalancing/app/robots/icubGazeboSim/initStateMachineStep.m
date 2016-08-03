@@ -18,7 +18,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     CONFIG.SR.CP.FF               = 0;    %0 uses no feed-forward, 1 adds the COP position (in foot local frame) to the desired foot position. With 2 is the same, but uses the CMP                                
 
     %%Just related to the FPE
-    CONFIG.SR.FPE.offset = 20/180*pi;
+    CONFIG.SR.FPE.offset = 0*20/180*pi;
     
     reg.pinvDamp               = 2;
     %reg.pinvDampLeg            = 2;
@@ -158,7 +158,7 @@ sm.jointsSmoothingTimes          = [5;   %% state ==  1  TWO FEET BALANCING
                                          %%
                                     4;   %% state == 13  TRANSITION INIT POSITION
                                     0.5;   %% state == 14  FALLING
-                                    5];  %% state == 15  RESTORING
+                                    2];  %% state == 15  RESTORING
                                 
 sm.com.states      = [0.0,  0.01,0.0   %% state ==  1  TWO FEET BALANCING NOT USED
                       0.0,  0.01,0.0   %% state ==  2  COM TRANSITION TO LEFT FOOT: THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT FOOT
