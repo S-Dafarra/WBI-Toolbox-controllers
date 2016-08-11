@@ -47,6 +47,10 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     gain.minimum_height       = 0.3; %minimum heigth that the root can reach.
     gain.min_step_length      = 0.1; %minimum distance between the ankle centres after a step
     
+    %COP gain
+    gain.cop_gain             = 10;
+    gain.COP_weight           = 0; %relative weight in the optimization
+    
     %Foot placement offset
     gain.ik_offset = [+0.02;-0.02; 0.02*0];
     gain.ik_rotation  = [0; -30; 0];   %X,Y,Z cartesian angles (deg)
