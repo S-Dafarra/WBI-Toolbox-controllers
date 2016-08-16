@@ -26,7 +26,7 @@ function [hessian,gradient,C,B] = cost_constraints(Mg, Cl, Bl, Cr, Br, ch_points
 
 m = Mg(1,1); %mass of the robot
 J_com = Mg(4:6,4:6);
-M_inv = blkdiag([eye(3)/m,inv(J_com)]);
+M_inv = blkdiag(eye(3)/m,inv(J_com));
 
 %The state "chi" is composed as follows:
 %[gamma(1);gamma(i);gamma(nsteps);f(0);f(i);f(nsteps-1)] where
@@ -41,7 +41,7 @@ Ev_gamma = [   eye(3),    T*eye(3), zeros(3,3);
             zeros(3,3),     eye(3), zeros(3,3);
             zeros(3,3), zeros(3,3),     eye(3)]; %forward euler
 
-F_gamma = [zeros(3,1);
+F_gamma = [zeros(3,12);
            T*M_inv*Alr];
        
 G_gamma = [zeros(3,3);T*eye(3);zeros(3)]*[0;0;abs(g)]; %gravity affects just the z direction of the speed evolution
