@@ -191,7 +191,7 @@ hes_f = eF'*Kf_hor*eF;
 
 Fdif = sparse(eye(12*nsteps)-diag(ones(12*(nsteps-1),1),-12));
 Kdf_hor = sparse(diag(repmat(gains.F(:,2),nsteps,1)));
-f0 = [ref.F;zeros(12*nsteps-length(ref.F),1)];
+f0 = sparse([ref.F;zeros(12*nsteps-length(ref.F),1)]);
 
 hes_df = eF'*Fdif'*Kdf_hor*Fdif*eF;
 grad_df = -eF'*Fdif'*Kdf_hor*f0;
