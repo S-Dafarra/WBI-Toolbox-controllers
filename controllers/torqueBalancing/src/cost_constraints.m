@@ -8,12 +8,12 @@ function [hessian,gradient,C,B] = cost_constraints(Mg, Cl, Bl, Cr, Br, ch_points
 % omega is the time constant used for computing the instantaneous capture point
 % g is the modulus of the gravity acceleration
 % ref is a struct containing the reference for the COM and for the ICP, composed by:
-%            -a 27-by-nsteps matrix identifying the reference for gamma (see below) at each time step, ref.COM,
-%`           -a 2 rows column vector with the reference for the position of the instantaneous capture point, ref.ICP,
+%            -a 9-by-nsteps matrix identifying the reference for gamma (see below) at each time step, ref.COM,
+%`           -a 2 rows column vector with the reference for the position of the instantaneous capture point (constant reference), ref.ICP,
 %            -a 6-rows coloumn vector with the previous desired wrench (just on the left foot, since the right foot is assumed to be raised), ref.F
 % gains is a struct containing the gains for the cost function, composed by:
-%           -a 3*3 matrix with the gains for the COM [Kp,Kd,Kw], gains.COM
-%           -a 2*1 vector containing the gains for the icp [Kicp], gains.ICP
+%           -a 3*3 matrix with the gains for the COM (coloumnwise)[Kp,Kd,Kw], gains.COM
+%           -a 2*1 vector containing the gains for the icp [Kicpx;Kicpy], gains.ICP
 %           -a 12*2 matrix with the gains proportional to the magnitude of the force and to difference for the desired force from one time step to the next [Kf,Kdf], gains.F
 % gamma0 is the initial state [comx;COMvel;w]
 % nsteps is the horizon length
@@ -52,7 +52,7 @@ state_dim =(9+12)*nsteps;
 
 Ev_gamma0 = [Ev_gamma;zeros(state_dim-9,9)]*gamma0; %gamma(1) is the only one which depends from the initial state
 
-G = [repmat(G_gamma,nsteps,1);zeros(12*nstep,1)]; %just gamma is affected by the gravity, not the forces
+G = [repmat(G_gamma,nsteps,1);zeros(12*nsteps,1)]; %just gamma is affected by the gravity, not the forces
 
 Ev = zeros(state_dim);
 
@@ -74,7 +74,7 @@ else if k_impact>0
     end
 end
 
-[Cch,Bch] = ch_contraints(ch_points); %if Cch*x<=Bch then x is in the convex hull
+[Cch,Bch] = ch_constraints(ch_points); %if Cch*x<=Bch then x is in the convex hull
 nch = size(Cch,1);
 if (k_impact > nsteps)
     C_horCH = zeros(0,state_dim);
@@ -107,8 +107,7 @@ for i = 1:nsteps
     %satisfing the same constraints of the left foot after the impact;
     %% Constraints on the icp
     if (i>=k_impact)
-        C_horCH((nch*(i-k_impact)+1):(nch*(i-k_impact+1)),:) = ...
-            [Cch,zeros(nch,1)]*[eye(3),1/omega*eye(3),zeros(3)]*[zeros(9,9*(i-1)),eye(9),zeros(9,9*(nsteps-i-1)),zeros(9,12*nsteps)];
+        C_horCH((nch*(i-k_impact)+1):(nch*(i-k_impact+1)),:) = [Cch,zeros(nch,1)]*[eye(3),1/omega*eye(3),zeros(3)]*[zeros(9,9*(i-1)),eye(9),zeros(9,9*(nsteps-i)),zeros(9,12*nsteps)];
         % the first matrix avoid considering the z component, the second
         % computes the instantaneous capture point from the state of the
         % COM extracted by the third matrix. These constraints impose the
@@ -121,7 +120,7 @@ end
 %% Definition of the B matrices
 B_ev = G-Ev_gamma0;
 B_horL = repmat(Bl,nsteps,1);
-B_horR = zeros(size(C_horR,1)/6,1);
+B_horR = zeros(size(C_horR,1),1);
 B_horRI = repmat(Br,size(C_horRI,1)/ncr,1);
 B_horCH = repmat(Bch,size(C_horCH,1)/nch,1);
 
@@ -130,8 +129,8 @@ B_horCH = repmat(Bch,size(C_horCH,1)/nch,1);
 %with the equal sign, therefore, for example, C_horR*chi<=B_horR and
 %-C_horR*chi<=-B_horR.
 
-C = [Ev-eye(n_states);
-     eye(n_states)-Ev;
+C = [Ev-eye(state_dim);
+     eye(state_dim)-Ev;
      C_horL;
      C_horR;
      -C_horR;
@@ -187,7 +186,7 @@ Kf_hor = diag(repmat(gains.F(:,1),nsteps,1));
 hes_f = eF'*Kf_hor*eF;
 
 Fdif = eye(12*nsteps)-diag(ones(12*(nsteps-1),1),-12);
-Kdf_hor = diag(repmat(gains.F(:,1),nsteps,1));
+Kdf_hor = diag(repmat(gains.F(:,2),nsteps,1));
 f0 = [ref.F;zeros(12*nsteps-length(ref.F),1)];
 
 hes_df = eF'*Fdif'*Kdf_hor*Fdif*eF;
