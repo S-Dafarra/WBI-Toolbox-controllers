@@ -1,4 +1,4 @@
-function [hessian,gradient,C,B] = cost_constraints(Mg, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, ref,gains, gamma0, nsteps, T, k_impact)
+function [hessian,gradient,C,B,time] = cost_constraints(Mg, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, ref,gains, gamma0, nsteps, T, k_impact)
 %Inputs
 % Mg the mass matrix around the COM
 % Cl and Bl are the matrices constraining the left foot wrench with the inequality Cl*fl<=Bl
@@ -23,7 +23,7 @@ function [hessian,gradient,C,B] = cost_constraints(Mg, Cl, Bl, Cr, Br, ch_points
 %          if 1 it happens at the immediate next time step (at the beginning of the first step)
 
 %% Constraints preliminaries
-
+t_prelim = tic;
 m = Mg(1,1); %mass of the robot
 J_com = Mg(4:6,4:6);
 M_inv = blkdiag(eye(3)/m,inv(J_com));
@@ -84,8 +84,10 @@ else if k_impact>0
     end
 end
 
-
+el_prelim = toc(t_prelim);
 %% Computation of constraints for all the time steps
+t_for = tic;
+
 for i = 1:nsteps
    %% Constraints introduced by the dynamics
     if (i>1) % the evolution for i=1 has been already defined above
@@ -93,21 +95,21 @@ for i = 1:nsteps
     end
     
     %% Constraints for the left foot wrench
-    C_horL((ncl*(i-1)+1):(ncl*i),:) = Cl*[eye(6),zeros(6)]*[zeros(12,9*nsteps),zeros(12,12*(i-1)),eye(12),zeros(12,12*(nsteps-i))];
+    C_horL((ncl*(i-1)+1):(ncl*i),:) = full(sparse(Cl)*sparse([eye(6),zeros(6)])*sparse([zeros(12,9*nsteps),zeros(12,12*(i-1)),eye(12),zeros(12,12*(nsteps-i))]));
     %For each time instant, Cl is multiplied by a matrix that extracts the
     %left foot, than by a matrix which extracts the left and ri[ht wrench
     %from the overall state vector
     
     %% Constraints for the right foot wrench
     if (i<k_impact)
-         C_horR((6*(i-1)+1):(6*i),:) = [zeros(6,6),eye(6)]*[zeros(12,9*nsteps),zeros(12,12*(i-1)),eye(12),zeros(12,12*(nsteps-i))];
-    else C_horRI((ncr*(i-k_impact)+1):(ncr*(i-k_impact+1)),:) = Cr*[zeros(6,6),eye(6)]*[zeros(12,9*nsteps),zeros(12,12*(i-1)),eye(12),zeros(12,12*(nsteps-i))];
+         C_horR((6*(i-1)+1):(6*i),:) = full(sparse([zeros(6,6),eye(6)])*sparse([zeros(12,9*nsteps),zeros(12,12*(i-1)),eye(12),zeros(12,12*(nsteps-i))]));
+    else C_horRI((ncr*(i-k_impact)+1):(ncr*(i-k_impact+1)),:) = full(sparse(Cr)*sparse([zeros(6,6),eye(6)])*sparse([zeros(12,9*nsteps),zeros(12,12*(i-1)),eye(12),zeros(12,12*(nsteps-i))]));
     end
     %The wrench on the right foot should be zero before the impact and
     %satisfing the same constraints of the left foot after the impact;
     %% Constraints on the icp
     if (i>=k_impact)
-        C_horCH((nch*(i-k_impact)+1):(nch*(i-k_impact+1)),:) = [Cch,zeros(nch,1)]*[eye(3),1/omega*eye(3),zeros(3)]*[zeros(9,9*(i-1)),eye(9),zeros(9,9*(nsteps-i)),zeros(9,12*nsteps)];
+        C_horCH((nch*(i-k_impact)+1):(nch*(i-k_impact+1)),:) = full(sparse([Cch,zeros(nch,1)])*sparse([eye(3),1/omega*eye(3),zeros(3)])*sparse([zeros(9,9*(i-1)),eye(9),zeros(9,9*(nsteps-i)),zeros(9,12*nsteps)]));
         % the first matrix avoid considering the z component, the second
         % computes the instantaneous capture point from the state of the
         % COM extracted by the third matrix. These constraints impose the
@@ -116,7 +118,8 @@ for i = 1:nsteps
     end
    
 end
-
+el_for = toc(t_for);
+t_B = tic;
 %% Definition of the B matrices
 B_ev = G-Ev_gamma0;
 B_horL = repmat(Bl,nsteps,1);
@@ -146,32 +149,33 @@ C = [Ev-eye(state_dim);
      B_horCH];
  
  
- 
+ el_B = toc(t_B);
  %% Definition of the cost function
 %Sum(over all steps)[0.5*K_gamma(gamma-gamma_desired)^2 + 0.5*Kf*(f)^2 + 0.5*Kdf*(f-f(i-1))^2] + Sum(over all the steps after the impact)[0.5*k_icp*(icp-icp_desired)^2]
-
+t_cost = tic;
 %% Cost related to gamma
-K_gamma = diag(reshape(gains.COM,[],1));
-gamma_d = reshape(ref.COM,[],1);
+K_gamma = sparse(diag(reshape(gains.COM,[],1)));
+gamma_d = sparse(reshape(ref.COM,[],1));
 
-eGAMMA = [eye(9*nsteps),zeros(9*nsteps,12*nsteps)]; %extract the set of gamma from chi
+eGAMMA = sparse([eye(9*nsteps),zeros(9*nsteps,12*nsteps)]); %extract the set of gamma from chi
 
 K_gamma_cell = repmat({K_gamma},1,nsteps);
-K_hor_gamma = blkdiag(K_gamma_cell{:}); %repeat K_gamma nsteps time along the diagonal.
+K_hor_gamma = sparse(blkdiag(K_gamma_cell{:})); %repeat K_gamma nsteps time along the diagonal.
 hes_gamma = eGAMMA'*K_hor_gamma*eGAMMA;
 grad_gamma = -eGAMMA'*K_hor_gamma*gamma_d;
 
 %% Cost related to the icp
 
-e_ICP = [eye(2),zeros(2,1)]*[eye(3),1/omega*eye(3),zeros(3)]; %it computes the instantaneous capture point (just x and y are considered) starting from gamma(i)
+e_ICP = sparse([eye(2),zeros(2,1)]*[eye(3),1/omega*eye(3),zeros(3)]); %it computes the instantaneous capture point (just x and y are considered) starting from gamma(i)
 e_ICP_cell = repmat({e_ICP},1,nsteps);
-e_ICP_hor = blkdiag(e_ICP_cell{:}); %extract the icp from the overall vector gamma
+e_ICP_hor = sparse(blkdiag(e_ICP_cell{:})); %extract the icp from the overall vector gamma
+
 
 if (k_impact > nsteps)
-    K_icp_hor = zeros(2*nsteps);
+    K_icp_hor = sparse(zeros(2*nsteps));
 else if k_impact>0
-        K_icp_hor = blkdiag( zeros(2*(k_impact-1)), diag(repmat(gains.ICP,nsteps-k_impact+1,1)));    
-    else K_icp_hor = diag(repmat(gains.ICP,nsteps,1));
+        K_icp_hor = sparse(blkdiag( zeros(2*(k_impact-1)), diag(repmat(gains.ICP,nsteps-k_impact+1,1))));    
+    else K_icp_hor = sparse(diag(repmat(gains.ICP,nsteps,1)));
     end
 end
 
@@ -180,19 +184,23 @@ grad_icp = -eGAMMA'*e_ICP_hor'*K_icp_hor*repmat(ref.ICP,nsteps,1);
 
 %% Cost related to forces
 
-eF = [zeros(12*nsteps,9*nsteps),eye(12*nsteps)];    %extract the set of wrenches from chi
-Kf_hor = diag(repmat(gains.F(:,1),nsteps,1));
+eF = sparse([zeros(12*nsteps,9*nsteps),eye(12*nsteps)]);    %extract the set of wrenches from chi
+Kf_hor = sparse(diag(repmat(gains.F(:,1),nsteps,1)));
 
 hes_f = eF'*Kf_hor*eF;
 
-Fdif = eye(12*nsteps)-diag(ones(12*(nsteps-1),1),-12);
-Kdf_hor = diag(repmat(gains.F(:,2),nsteps,1));
+Fdif = sparse(eye(12*nsteps)-diag(ones(12*(nsteps-1),1),-12));
+Kdf_hor = sparse(diag(repmat(gains.F(:,2),nsteps,1)));
 f0 = [ref.F;zeros(12*nsteps-length(ref.F),1)];
 
 hes_df = eF'*Fdif'*Kdf_hor*Fdif*eF;
 grad_df = -eF'*Fdif'*Kdf_hor*f0;
 
 %% Overall cost
-hessian = hes_gamma + hes_icp + hes_f + hes_df;
-gradient = grad_gamma + grad_icp + grad_df;
+hessian = full(hes_gamma + hes_icp + hes_f + hes_df);
+gradient = full(grad_gamma + grad_icp + grad_df);
+
+
+el_cost = toc(t_cost);
+time = [el_prelim;el_for;el_B;el_cost];
 
