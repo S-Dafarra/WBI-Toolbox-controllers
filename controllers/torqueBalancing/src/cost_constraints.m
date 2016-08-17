@@ -1,4 +1,4 @@
-function [hessian,gradient,C,B,time] = cost_constraints(Mg, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, ref,gains, gamma0, nsteps, T, k_impact)
+function [hessian,gradient,C,B,fRH,time] = cost_constraints(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, ref,gains, gamma0, nsteps, T, k_impact)
 %Inputs
 % Mg the mass matrix around the COM
 % Cl and Bl are the matrices constraining the left foot wrench with the inequality Cl*fl<=Bl
@@ -24,13 +24,10 @@ function [hessian,gradient,C,B,time] = cost_constraints(Mg, Cl, Bl, Cr, Br, ch_p
 
 %% Constraints preliminaries
 t_prelim = tic;
-m = Mg(1,1); %mass of the robot
-J_com = Mg(4:6,4:6);
-M_inv = blkdiag(eye(3)/m,inv(J_com));
 
 %The state "chi" is composed as follows:
 %[gamma(1);gamma(i);gamma(nsteps);f(0);f(i);f(nsteps-1)] where
-%gamma(i)=[x_com(i);v_com(i);w_com(i)], the position, linear and angular speed respectively,
+%gamma(i)=[x_com(i);v_com(i);w_com(i)], the position, linear speed and angular momentum respectively,
 %while f(i)=[fl(i);fr(i)] which are the 6D wrech applied on the left and right foot respectively.
 
 %The evolution of the state is as follows:
@@ -42,7 +39,7 @@ Ev_gamma = [   eye(3),    T*eye(3), zeros(3,3);
             zeros(3,3), zeros(3,3),     eye(3)]; %forward euler
 
 F_gamma = [zeros(3,12);
-           T*M_inv*Alr];
+           T*blkdiag(m^-1*eye(3),eye(3))*Alr];
        
 G_gamma = [zeros(3,3);T*eye(3);zeros(3)]*[0;0;abs(g)]; %gravity affects just the z direction of the speed evolution
 
@@ -204,3 +201,5 @@ gradient = full(grad_gamma + grad_icp + grad_df);
 el_cost = toc(t_cost);
 time = [el_prelim;el_for;el_B;el_cost];
 
+%% Extract f(0)
+fRH = full(eF(1:12,:));

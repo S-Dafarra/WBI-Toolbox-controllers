@@ -1,5 +1,13 @@
 function [x_des,v_des] = fourth_traj(x0,v0,xf,vf,af,dT,nsteps)
 
+if(size(x0,1) > size(x0,2)) %all the vectors should be row vectorss
+   x0 = x0';
+   v0 = v0';
+   xf = xf';
+   vf = vf';
+   af = af';
+end
+   
 T = dT*nsteps;
 time = dT:dT:T;
 
