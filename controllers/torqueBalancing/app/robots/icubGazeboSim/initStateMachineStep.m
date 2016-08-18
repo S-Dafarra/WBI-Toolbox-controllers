@@ -122,6 +122,31 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 13  TRANSITION TO INITIAL POSITION
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60      5   5  % state == 14  FALLING
                         10   30   20, 10   10    10    8, 10   10    10    8,  5    5    5     5      5   5,  5    5    5     5      1   1];% state == 15  RESTORING
+   
+   %% MPC parameters
+   mpc_init.nsteps = 50;
+   mpc_init.tstep = 0.5;
+   mpc_init.ENABLE = 0;
+   %                         Kp                  Kd                     Kw
+   mpc_init.gains.COM = [gain.PCOM(15,:)',gain.DCOM(15,:)',ones(3,1)*gain.PAngularMomentum];
+   
+   %                  Kcipx;   Kicpy
+   mpc_init.gains.ICP = [50;    50];
+   
+   %                   Kpf,     Kdfs
+   mpc_init.gains.F = [[10;
+                        10;
+                         1;
+                        10;
+                        10;
+                        10;
+                        10;
+                        10;
+                         1;
+                        10;
+                        10;
+                        10],ones(12,1)];
+       
 end               
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                      
          

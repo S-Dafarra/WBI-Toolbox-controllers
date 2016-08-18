@@ -1,4 +1,4 @@
-function [hessian,gradient,C,B,fRH,time] = cost_constraints(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, ref,gains, gamma0, nsteps, T, k_impact)
+function [hessian,gradient,C,B,Ceq,Beq,Cleq,Bleq,fRH,time] = cost_constraints(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, ref,gains, gamma0, nsteps, T, k_impact)
 %Inputs
 % Mg the mass matrix around the COM
 % Cl and Bl are the matrices constraining the left foot wrench with the inequality Cl*fl<=Bl
@@ -10,7 +10,7 @@ function [hessian,gradient,C,B,fRH,time] = cost_constraints(m, Cl, Bl, Cr, Br, c
 % ref is a struct containing the reference for the COM and for the ICP, composed by:
 %            -a 9-by-nsteps matrix identifying the reference for gamma (see below) at each time step, ref.COM,
 %`           -a 2 rows column vector with the reference for the position of the instantaneous capture point (constant reference), ref.ICP,
-%            -a 6-rows coloumn vector with the previous desired wrench (just on the left foot, since the right foot is assumed to be raised), ref.F
+%            -a 12-rows coloumn vector with the previous desired wrench, ref.F
 % gains is a struct containing the gains for the cost function, composed by:
 %           -a 3*3 matrix with the gains for the COM (coloumnwise)[Kp,Kd,Kw], gains.COM
 %           -a 2*1 vector containing the gains for the icp [Kicpx;Kicpy], gains.ICP
@@ -23,7 +23,7 @@ function [hessian,gradient,C,B,fRH,time] = cost_constraints(m, Cl, Bl, Cr, Br, c
 %          if 1 it happens at the immediate next time step (at the beginning of the first step)
 
 %% Constraints preliminaries
-t_prelim = tic;
+%t_prelim = tic;
 
 %The state "chi" is composed as follows:
 %[gamma(1);gamma(i);gamma(nsteps);f(0);f(i);f(nsteps-1)] where
@@ -47,14 +47,19 @@ state_dim =(9+12)*nsteps;
 
 %The state evolves according to this equation: chi = Ev*chi - G + Ev_gamma0
 
-Ev_gamma0 = [Ev_gamma;zeros(state_dim-9,9)]*gamma0; %gamma(1) is the only one which depends from the initial state
+%Ev_gamma0 = [Ev_gamma;zeros(state_dim-9,9)]*gamma0; %gamma(1) is the only one which depends from the initial state
+ Ev_gamma0 = [Ev_gamma;zeros(9*(nsteps-1),9)]*gamma0;
 
-G = [repmat(G_gamma,nsteps,1);zeros(12*nsteps,1)]; %just gamma is affected by the gravity, not the forces
 
-Ev = zeros(state_dim);
+%G = [repmat(G_gamma,nsteps,1);zeros(12*nsteps,1)]; %just gamma is affected by the gravity, not the forces
+G = repmat(G_gamma,nsteps,1);
+
+
+%Ev = zeros(state_dim);
+Ev = zeros(9*nsteps,state_dim);
 
 Ev(1:9,:)=[zeros(9,9*nsteps),F_gamma,zeros(9,(nsteps-1)*12)]; %first step of integration
-Ev((9*nsteps +1):end,:) = [zeros(12*nsteps,9*nsteps),eye(12*nsteps)]; %forces are equal to themselves
+%Ev((9*nsteps +1):end,:) = [zeros(12*nsteps,9*nsteps),eye(12*nsteps)]; %forces are equal to themselves
 
 ncl = size(Cl,1); %number of constraints on the left foot
 C_horL = zeros(nsteps*ncl,state_dim); %initialization of constraints matrix on the left foot over the horizon
@@ -81,32 +86,32 @@ else if k_impact>0
     end
 end
 
-el_prelim = toc(t_prelim);
+%el_prelim = toc(t_prelim);
 %% Computation of constraints for all the time steps
-t_for = tic;
+%t_for = tic;
 
 for i = 1:nsteps
    %% Constraints introduced by the dynamics
     if (i>1) % the evolution for i=1 has been already defined above
-        Ev((9*(i-1)+1):(9*i),:) = [zeros(9,9*(i-2)),Ev_gamma,zeros(9,9*(nsteps-i+1)),zeros(9,12*(i-1)),F_gamma,zeros(9,12*(nsteps-i))];
+        Ev((9*(i-1)+1):(9*i),:) = sparse([zeros(9,9*(i-2)),Ev_gamma,zeros(9,9*(nsteps-i+1)),zeros(9,12*(i-1)),F_gamma,zeros(9,12*(nsteps-i))]);
     end
     
     %% Constraints for the left foot wrench
-    C_horL((ncl*(i-1)+1):(ncl*i),:) = full(sparse(Cl)*sparse([eye(6),zeros(6)])*sparse([zeros(12,9*nsteps),zeros(12,12*(i-1)),eye(12),zeros(12,12*(nsteps-i))]));
+    C_horL((ncl*(i-1)+1):(ncl*i),:) = sparse(Cl)*sparse([eye(6),zeros(6)])*sparse([zeros(12,9*nsteps),zeros(12,12*(i-1)),eye(12),zeros(12,12*(nsteps-i))]);
     %For each time instant, Cl is multiplied by a matrix that extracts the
     %left foot, than by a matrix which extracts the left and ri[ht wrench
     %from the overall state vector
     
     %% Constraints for the right foot wrench
     if (i<k_impact)
-         C_horR((6*(i-1)+1):(6*i),:) = full(sparse([zeros(6,6),eye(6)])*sparse([zeros(12,9*nsteps),zeros(12,12*(i-1)),eye(12),zeros(12,12*(nsteps-i))]));
-    else C_horRI((ncr*(i-k_impact)+1):(ncr*(i-k_impact+1)),:) = full(sparse(Cr)*sparse([zeros(6,6),eye(6)])*sparse([zeros(12,9*nsteps),zeros(12,12*(i-1)),eye(12),zeros(12,12*(nsteps-i))]));
+         C_horR((6*(i-1)+1):(6*i),:) = sparse([zeros(6,6),eye(6)])*sparse([zeros(12,9*nsteps),zeros(12,12*(i-1)),eye(12),zeros(12,12*(nsteps-i))]);
+    else C_horRI((ncr*(i-k_impact)+1):(ncr*(i-k_impact+1)),:) = sparse(Cr)*sparse([zeros(6,6),eye(6)])*sparse([zeros(12,9*nsteps),zeros(12,12*(i-1)),eye(12),zeros(12,12*(nsteps-i))]);
     end
     %The wrench on the right foot should be zero before the impact and
     %satisfing the same constraints of the left foot after the impact;
     %% Constraints on the icp
     if (i>=k_impact)
-        C_horCH((nch*(i-k_impact)+1):(nch*(i-k_impact+1)),:) = full(sparse([Cch,zeros(nch,1)])*sparse([eye(3),1/omega*eye(3),zeros(3)])*sparse([zeros(9,9*(i-1)),eye(9),zeros(9,9*(nsteps-i)),zeros(9,12*nsteps)]));
+        C_horCH((nch*(i-k_impact)+1):(nch*(i-k_impact+1)),:) = sparse([Cch,zeros(nch,1)])*sparse([eye(3),1/omega*eye(3),zeros(3)])*sparse([zeros(9,9*(i-1)),eye(9),zeros(9,9*(nsteps-i)),zeros(9,12*nsteps)]);
         % the first matrix avoid considering the z component, the second
         % computes the instantaneous capture point from the state of the
         % COM extracted by the third matrix. These constraints impose the
@@ -115,8 +120,8 @@ for i = 1:nsteps
     end
    
 end
-el_for = toc(t_for);
-t_B = tic;
+%el_for = toc(t_for);
+%t_B = tic;
 %% Definition of the B matrices
 B_ev = G-Ev_gamma0;
 B_horL = repmat(Bl,nsteps,1);
@@ -129,8 +134,8 @@ B_horCH = repmat(Bch,size(C_horCH,1)/nch,1);
 %with the equal sign, therefore, for example, C_horR*chi<=B_horR and
 %-C_horR*chi<=-B_horR.
 
-C = [Ev-eye(state_dim);
-     eye(state_dim)-Ev;
+C = [Ev-[eye(9*nsteps),zeros(9*nsteps,12*nsteps)];  %gamma = Ev*chi - B_ev => [eye(9*nsteps),zeros(9*nsteps,12*nsteps)]*chi = gamma = Ev*chi - B_ev=> (Ev - [eye(9*nsteps),zeros(9*nsteps,12*nsteps)])*chi = B_ev
+     [eye(9*nsteps),zeros(9*nsteps,12*nsteps)]-Ev;
      C_horL;
      C_horR;
      -C_horR;
@@ -145,11 +150,24 @@ C = [Ev-eye(state_dim);
      B_horRI;
      B_horCH];
  
+ Ceq = [Ev-[eye(9*nsteps),zeros(9*nsteps,12*nsteps)];
+        C_horR];
+    
+ Beq = [B_ev;
+        B_horR];
+    
+ Cleq = [C_horL;
+         C_horRI;
+         C_horCH];
+     
+ Bleq = [B_horL;
+         B_horRI;
+         B_horCH];
  
- el_B = toc(t_B);
+% el_B = toc(t_B);
  %% Definition of the cost function
 %Sum(over all steps)[0.5*K_gamma(gamma-gamma_desired)^2 + 0.5*Kf*(f)^2 + 0.5*Kdf*(f-f(i-1))^2] + Sum(over all the steps after the impact)[0.5*k_icp*(icp-icp_desired)^2]
-t_cost = tic;
+%t_cost = tic;
 %% Cost related to gamma
 K_gamma = sparse(diag(reshape(gains.COM,[],1)));
 gamma_d = sparse(reshape(ref.COM,[],1));
@@ -194,12 +212,12 @@ hes_df = eF'*Fdif'*Kdf_hor*Fdif*eF;
 grad_df = -eF'*Fdif'*Kdf_hor*f0;
 
 %% Overall cost
-hessian = full(hes_gamma + hes_icp + hes_f + hes_df);
-gradient = full(grad_gamma + grad_icp + grad_df);
+hessian = hes_gamma + hes_icp + hes_f + hes_df;
+gradient = grad_gamma + grad_icp + grad_df;
 
 
-el_cost = toc(t_cost);
-time = [el_prelim;el_for;el_B;el_cost];
+%el_cost = toc(t_cost);
+time = 0;%[el_prelim;el_for;el_B;el_cost];
 
 %% Extract f(0)
-fRH = full(eF(1:12,:));
+fRH = eF(1:12,:);
