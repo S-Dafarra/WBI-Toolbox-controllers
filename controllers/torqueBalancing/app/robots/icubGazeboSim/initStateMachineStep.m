@@ -124,28 +124,28 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         10   30   20, 10   10    10    8, 10   10    10    8,  5    5    5     5      5   5,  5    5    5     5      1   1];% state == 15  RESTORING
    
    %% MPC parameters
-   mpc_init.nsteps = 50;
+   mpc_init.nsteps = 25;
    mpc_init.tstep = 0.5;
-   mpc_init.ENABLE = 0;
+   mpc_init.ENABLE = 1;
    %                         Kp                  Kd                     Kw
-   mpc_init.gains.COM = [gain.PCOM(15,:)',gain.DCOM(15,:)',ones(3,1)*gain.PAngularMomentum];
+   mpc_init.gains.COM = 1e5*[[gain.PCOM(15,1:2)';50],gain.DCOM(15,:)',ones(3,1)*gain.PAngularMomentum];
    
    %                  Kcipx;   Kicpy
-   mpc_init.gains.ICP = [50;    50];
+   mpc_init.gains.ICP = 100*[50;    50];
    
    %                   Kpf,     Kdfs
-   mpc_init.gains.F = [[10;
-                        10;
+   mpc_init.gains.F = [[ 2;
+                         2;
                          1;
-                        10;
-                        10;
-                        10;
-                        10;
-                        10;
+                         2;
+                         2;
+                         2;
+                         2;
+                         2;
                          1;
-                        10;
-                        10;
-                        10],ones(12,1)];
+                         2;
+                         2;
+                         2],0.01*ones(12,1)];
        
 end               
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                      

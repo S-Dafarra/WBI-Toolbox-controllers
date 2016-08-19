@@ -12,7 +12,7 @@ if isempty(elapsed_time)
 end
 
 if(constraints_vec(2)>0)
-    k_impact = 0; %%impact already happened
+    k_impact = 1; %%impact already happened
     elapsed_time = 0;
 else if STEP
         k_impact = min(ceil((step_time - elapsed_time)/dT),2); %basically the 2 avoids requiring wrench on the right foot for a wrong preview on the step time
