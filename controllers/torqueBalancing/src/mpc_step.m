@@ -1,6 +1,7 @@
-function [f,exitflag,COM_des] = mpc_step(mpc_init,constraints_vec, ConstraintsMatrix, bVectorConstraints, w_H_l_sole,lsole_H_r_sole, w_H_r_sole_in, COMx, COMv, Hw, COMdes, f_prev, foot_size, omega, m, dT, STEP)
+function [f,exitflag,COM_des,COMref] = mpc_step(mpc_init,constraints_vec, ConstraintsMatrix, bVectorConstraints, w_H_l_sole,lsole_H_r_sole, w_H_r_sole_in, COMx, COMv, Hw, COMdes, f_prev, foot_size, omega, m, dT, STEP)
 
 persistent elapsed_time;
+persistent COMref_prev;
 
 
 nsteps = mpc_init.nsteps;
@@ -11,16 +12,22 @@ if isempty(elapsed_time)
     elapsed_time = 0;
 end
 
+if isempty(COMref_prev)
+    COMref_prev = COMx;
+end
+
 if(constraints_vec(2)>0)
     k_impact = 1; %%impact already happened
     elapsed_time = 0;
+    COMref_prev = COMx;
 else if STEP
-        k_impact = min(ceil((step_time - elapsed_time)/dT),2); %basically the 2 avoids requiring wrench on the right foot for a wrong preview on the step time
+        k_impact = max(ceil((step_time - elapsed_time)/dT),2); %basically the 2 avoids requiring wrench on the right foot for a wrong preview on the step time
         if (elapsed_time + dT) <= step_time
             elapsed_time = elapsed_time + dT;
         end
     else k_impact = nsteps +1;
          elapsed_time = 0;
+         COMref_prev = COMx;
     end
 end  
 
@@ -75,15 +82,20 @@ ych = [pointsl(2,:),pointsr(2,:)];
 
 K_in = zeros(length(xch),1);
 coder.extrinsic('mpc_ch')
-K_in = mpc_ch(xch,ych);
+K_in(:) = mpc_ch(xch,ych);
 K = K_in(1:sum(K_in>0)); %avoid considering the zeros used to fill the vector
 
 gamma0 = [COMx;COMv;Hw];
-
+ch_points = [xch(K)',ych(K)'];
+% if(sum(ch_points(1,:)==ch_points(end,:))==2) %the last point is equal to the first
+%     COMdesfilt = [mean(ch_points(1:(end-1),:))';COMdes(3)] + mpc_init.COMoffset;
+% else COMdesfilt = [mean(ch_points)';COMdes(3)]+ mpc_init.COMoffset;
+% end
 f= zeros(12,1);
 exitflag = 1;
 COM_des = zeros(9,1);
+COMref = zeros(3,1);
 
 coder.extrinsic('solve_mpc')
-[f,COM_des,exitflag] = solve_mpc(m, Cl, Bl, Cr, Br, [xch(K)',ych(K)'], Alr, omega, 9.81, f_prev, COMx, COMv, COMdes, gains, gamma0, nsteps, dT, k_impact); 
-
+[f(:),COM_des(:,:),exitflag(:),COMref(:,:)] = solve_mpc(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, 9.81, f_prev, COMref_prev, COMv, COMdes, gains, gamma0, nsteps, dT, k_impact); 
+COMref_prev = COMref;

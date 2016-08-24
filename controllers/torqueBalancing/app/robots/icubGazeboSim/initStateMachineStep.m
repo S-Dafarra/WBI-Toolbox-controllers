@@ -53,7 +53,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     
     %Foot placement offset
     gain.ik_offset = [+0.02;-0.02; 0.02*0];
-    gain.ik_rotation  = [0; -30; 0];   %X,Y,Z cartesian angles (deg)
+    gain.ik_rotation  = [0; -30/2; 0];   %X,Y,Z cartesian angles (deg)
     gain.COM_offset = [0;0;0];
                               
                    
@@ -124,14 +124,14 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         10   30   20, 10   10    10    8, 10   10    10    8,  5    5    5     5      5   5,  5    5    5     5      1   1];% state == 15  RESTORING
    
    %% MPC parameters
-   mpc_init.nsteps = 25;
+   mpc_init.nsteps = 10;
    mpc_init.tstep = 0.5;
    mpc_init.ENABLE = 1;
    %                         Kp                  Kd                     Kw
-   mpc_init.gains.COM = 1e5*[[gain.PCOM(15,1:2)';50],gain.DCOM(15,:)',ones(3,1)*gain.PAngularMomentum];
+   mpc_init.gains.COM = 1e6*[[gain.PCOM(15,1:2)';50],30*gain.DCOM(15,:)',0.1*ones(3,1)*gain.PAngularMomentum];
    
    %                  Kcipx;   Kicpy
-   mpc_init.gains.ICP = 100*[50;    50];
+   mpc_init.gains.ICP = 0*[50;    50];
    
    %                   Kpf,     Kdfs
    mpc_init.gains.F = [[ 2;
@@ -146,6 +146,11 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                          2;
                          2;
                          2],0.01*ones(12,1)];
+                     
+   mpc_init.COMoffset = [0;0;0];
+   
+   gain.footSize_mpc        = [ -0.05   0.05 ;    % xMin, xMax
+                                -0.03   0.03];   % yMin, yMax 
        
 end               
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                      

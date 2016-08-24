@@ -130,7 +130,7 @@ run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/gains.m'));
 
 addpath('./src/')
 addpath('../utilityMatlabFunctions/')
-[ConstraintsMatrix,bVectorConstraints]= constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,gain.footSize,fZmin);
+
 
 robotSpecificReferences  = fullfile('app/robots',getenv('YARP_ROBOT_NAME'),'initRefGen.m');
 run(robotSpecificReferences);
@@ -159,6 +159,8 @@ elseif strcmpi(SM.SM_TYPE, 'STEP')
     run(robotSpecificFSM);
 end
 
+[ConstraintsMatrix,bVectorConstraints]= constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,gain.footSize,fZmin);
 
+[ConstraintsMatrixMPC,bVectorConstraintsMPC]= constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,gain.footSize_mpc,fZmin);
 
 

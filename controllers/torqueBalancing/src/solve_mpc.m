@@ -1,19 +1,23 @@
-function [f,COM_des,exitflag] = solve_mpc(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, f_prev, COMx,COMv,COMdes, gains, gamma0, nsteps, dT, k_impact)
+function [f,COM_des,exitflag,COMref] = solve_mpc(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, f_prev, COMx,COMv,COMdes, gains, gamma0, nsteps, dT, k_impact)
 
-
-
-[COM_hor_des,COMv_hor_des] = fourth_traj(COMx,COMv,COMdes,zeros(3,1),zeros(3,1),dT,dT*max(nsteps,k_impact));
+   
+[COM_hor_des,COMv_hor_des] = fourth_traj(COMx(1:3),COMdes(1:3,2),COMdes(1:3,1),zeros(3,1),zeros(3,1),dT,1,nsteps); %bypassed for the moment
 
 ref.COM = [COM_hor_des(1:3,1:nsteps);
            COMv_hor_des(1:3,1:nsteps);
            zeros(3,nsteps)];
-    
-ref.ICP = mean(ch_points)'; %the centroid of the convex hull
+
+if(sum(ch_points(1,:)==ch_points(end,:))==2) %the last point is equal to the first
+     ref.ICP = mean(ch_points(1:(end-1),:))'; %the centroid of the convex hull
+else ref.ICP = mean(ch_points)'; %the centroid of the convex hull
+end
 
 ref.F = f_prev;
 
-
 [hessian,gradient,~,~,Ceq,Beq,Cleq,Bleq,fRH,~] = cost_constraints(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, ref, gains, gamma0, nsteps, dT, k_impact);
+
+%size([full(hessian),full(Ceq');full(Ceq),zeros(size(full(Ceq),1))])
+%rank([full(hessian),full(Ceq');full(Ceq),zeros(size(full(Ceq),1))])
 
 f=zeros(12,1);
 COM_des = zeros(9,1);
@@ -26,4 +30,5 @@ if (exitflag>0)
     COM_des = chi(1:9);
 end
 
+COMref = COM_hor_des(1:3,1);
 end
