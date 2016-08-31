@@ -11,8 +11,10 @@ function [hessian,gradient,C,B,Ceq,Beq,Cleq,Bleq,fRH,time] = cost_constraints(m,
 %            -a 9-by-nsteps matrix identifying the reference for gamma (see below) at each time step, ref.COM,
 %`           -a 2 rows column vector with the reference for the position of the instantaneous capture point (constant reference), ref.ICP,
 %            -a 12-rows coloumn vector with the previous desired wrench, ref.F
+%            -a scalar containing the minimum height for the center of mass, ref.minZ
 % gains is a struct containing the gains for the cost function, composed by:
 %           -a 3*3 matrix with the gains for the COM (coloumnwise)[Kp,Kd,Kw], gains.COM
+%           -a 3*3 matrix with the terminal gains for the COM (coloumnwise)[KpT,KdT,KwT], gains.TerCOM
 %           -a 2*1 vector containing the gains for the icp [Kicpx;Kicpy], gains.ICP
 %           -a 12*2 matrix with the gains proportional to the magnitude of the force and to difference for the desired force from one time step to the next [Kf,Kdf], gains.F
 % gamma0 is the initial state [comx;COMvel;w]
@@ -86,6 +88,8 @@ else if k_impact>0
     end
 end
 
+%C_horZ = zeros(nsteps,state_dim);
+
 %el_prelim = toc(t_prelim);
 %% Computation of constraints for all the time steps
 %t_for = tic;
@@ -119,6 +123,10 @@ for i = 1:nsteps
         % performed.
     end
    
+    %% Constraints on the minimum height of the COM
+    
+    %C_horZ(i,:) = sparse([0,0,-1,zeros(1,6)])*sparse([zeros(9,9*(i-1)),eye(9),zeros(9,9*(nsteps-i)),zeros(9,12*nsteps)]);
+    % Extract the z-component of the position of the COM for each gammma.
 end
 %el_for = toc(t_for);
 %t_B = tic;
@@ -128,6 +136,7 @@ B_horL = repmat(Bl,nsteps,1);
 B_horR = zeros(size(C_horR,1),1);
 B_horRI = repmat(Br,size(C_horRI,1)/ncr,1);
 B_horCH = repmat(Bch,size(C_horCH,1)/nch,1);
+%B_horZ  = -ref.minZ*ones(nsteps,1);
 
 %% Overall Constraints: C*chi<=B
 %The constraints on the dynamic and on the right foot before the impact are
@@ -141,6 +150,7 @@ C = [Ev-[eye(9*nsteps),zeros(9*nsteps,12*nsteps)];  %gamma = Ev*chi - B_ev => [e
      -C_horR;
      C_horRI;
      C_horCH];
+     %C_horZ];
  
  B = [B_ev;
      -B_ev;
@@ -149,6 +159,7 @@ C = [Ev-[eye(9*nsteps),zeros(9*nsteps,12*nsteps)];  %gamma = Ev*chi - B_ev => [e
      -B_horR;
      B_horRI;
      B_horCH];
+     %B_horZ];
  
  Ceq = [Ev-[eye(9*nsteps),zeros(9*nsteps,12*nsteps)];
         C_horR];
@@ -159,25 +170,33 @@ C = [Ev-[eye(9*nsteps),zeros(9*nsteps,12*nsteps)];  %gamma = Ev*chi - B_ev => [e
  Cleq = [C_horL;
          C_horRI;
          C_horCH];
+         %C_horZ];
      
  Bleq = [B_horL;
          B_horRI;
          B_horCH];
+         %B_horZ];
  
 % el_B = toc(t_B);
  %% Definition of the cost function
 %Sum(over all steps)[0.5*K_gamma(gamma-gamma_desired)^2 + 0.5*Kf*(f)^2 + 0.5*Kdf*(f-f(i-1))^2] + Sum(over all the steps after the impact)[0.5*k_icp*(icp-icp_desired)^2]
 %t_cost = tic;
 %% Cost related to gamma
-K_gamma = sparse(diag(reshape(gains.COM,[],1)));
+%K_gamma = sparse(diag(reshape(gains.COM,[],1)));
 gamma_d = sparse(reshape(ref.COM,[],1));
 
 eGAMMA = sparse([eye(9*nsteps),zeros(9*nsteps,12*nsteps)]); %extract the set of gamma from chi
 
-K_gamma_cell = repmat({K_gamma},1,nsteps);
-K_hor_gamma = sparse(blkdiag(K_gamma_cell{:})); %repeat K_gamma nsteps time along the diagonal.
+%K_gamma_cell = repmat({K_gamma},1,nsteps);
+%K_hor_gamma = sparse(blkdiag(K_gamma_cell{:})); %repeat K_gamma nsteps time along the diagonal.
+K_hor_gamma = sparse(diag(repmat(reshape(gains.COM,[],1),nsteps,1)));
 hes_gamma = eGAMMA'*K_hor_gamma*eGAMMA;
 grad_gamma = -eGAMMA'*K_hor_gamma*gamma_d;
+
+%% Terminal cost on gamma
+K_hor_gammaTer = sparse(diag([zeros(9*(min(nsteps,k_impact)-1),1);repmat(reshape(gains.TerCOM,[],1),nsteps-min(nsteps,k_impact)+1,1)]));
+hes_gamma_Ter = eGAMMA'*K_hor_gammaTer*eGAMMA;
+grad_gamma_Ter = -eGAMMA'*K_hor_gammaTer*gamma_d;
 
 %% Cost related to the icp
 
@@ -212,8 +231,8 @@ hes_df = eF'*Fdif'*Kdf_hor*Fdif*eF;
 grad_df = -eF'*Fdif'*Kdf_hor*f0;
 
 %% Overall cost
-hessian = hes_gamma + hes_icp + hes_f + hes_df;
-gradient = grad_gamma + grad_icp + grad_df;
+hessian = hes_gamma + hes_icp + hes_f + hes_df + hes_gamma_Ter;
+gradient = grad_gamma + grad_icp + grad_df + grad_gamma_Ter;
 
 
 %el_cost = toc(t_cost);

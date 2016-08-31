@@ -161,6 +161,6 @@ end
 
 [ConstraintsMatrix,bVectorConstraints]= constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,gain.footSize,fZmin);
 
-[ConstraintsMatrixMPC,bVectorConstraintsMPC]= constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,gain.footSize_mpc,fZmin);
+[ConstraintsMatrixMPC,bVectorConstraintsMPC]= constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,mpc_init.footSize,fZmin);
 
 
