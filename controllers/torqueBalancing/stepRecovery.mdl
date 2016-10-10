@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3492"
+    ComputedModelVersion    "1.3501"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -52,7 +52,7 @@ Model {
       }
       Array {
 	Type			"Simulink.EditorInfo"
-	Dimension		10
+	Dimension		11
 	Object {
 	  $ObjectID		  5
 	  IsActive		  [0]
@@ -100,12 +100,12 @@ Model {
 	}
 	Object {
 	  $ObjectID		  10
-	  IsActive		  [1]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "4722"
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
 	  Extents		  [1821.0, 905.0]
-	  ZoomFactor		  [1.2601541534258986]
-	  Offset		  [122.13958767822452, 328.50323312415975]
+	  ZoomFactor		  [0.77999999999999992]
+	  Offset		  [-2.2737367544323206e-13, -1.1368683772161603e-13]
 	}
 	Object {
 	  $ObjectID		  11
@@ -123,7 +123,7 @@ Model {
 	  LoadSaveID		  "4207"
 	  Extents		  [1821.0, 905.0]
 	  ZoomFactor		  [1.33]
-	  Offset		  [0.0, -159.39849624060142]
+	  Offset		  [0.0, -159.39849624060108]
 	}
 	Object {
 	  $ObjectID		  13
@@ -143,6 +143,15 @@ Model {
 	  ZoomFactor		  [1.0]
 	  Offset		  [-322.95700635775552, -34.645901592020721]
 	}
+	Object {
+	  $ObjectID		  15
+	  IsActive		  [1]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "4319"
+	  Extents		  [1821.0, 905.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-15.0, -241.50000000000011]
+	}
 	PropName		"EditorsInfo"
       }
     }
@@ -153,9 +162,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sdafarra"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Aug 31 12:11:12 2016"
-  RTWModifiedTimeStamp	  394545831
-  ModelVersionFormat	  "1.%<AutoIncrement:3492>"
+  LastModifiedDate	  "Mon Oct 10 17:24:27 2016"
+  RTWModifiedTimeStamp	  398021063
+  ModelVersionFormat	  "1.%<AutoIncrement:3501>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -203,7 +212,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    15
+    $ObjectID		    16
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "torqueBalancing"
     signals_		    []
@@ -248,13 +257,13 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      16
+      $ObjectID		      17
       Version		      "1.16.2"
       Array {
 	Type			"Handle"
 	Dimension		10
 	Simulink.SolverCC {
-	  $ObjectID		  17
+	  $ObjectID		  18
 	  Version		  "1.16.2"
 	  StartTime		  "0.0"
 	  StopTime		  "CONFIG.SIMULATION_TIME "
@@ -272,7 +281,7 @@ Model {
 	  MinStep		  "auto"
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
-	  SolverMode		  "Auto"
+	  SolverMode		  "SingleTasking"
 	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "FixedStepDiscrete"
@@ -291,7 +300,7 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  18
+	  $ObjectID		  19
 	  Version		  "1.16.2"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
@@ -329,7 +338,7 @@ Model {
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  19
+	  $ObjectID		  20
 	  Version		  "1.16.2"
 	  Array {
 	    Type		    "Cell"
@@ -386,7 +395,7 @@ Model {
 	  AccelVerboseBuild	  off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  20
+	  $ObjectID		  21
 	  Version		  "1.16.2"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
@@ -481,7 +490,7 @@ Model {
 	  AllowAutomaticUnitConversions	on
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  21
+	  $ObjectID		  22
 	  Version		  "1.16.2"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
@@ -523,7 +532,7 @@ Model {
 	  UseSimulinkCoderFeatures on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  22
+	  $ObjectID		  23
 	  Version		  "1.16.2"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  EnableRefExpFcnMdlSchedulingChecks on
@@ -539,7 +548,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  23
+	  $ObjectID		  24
 	  Version		  "1.16.2"
 	  SFSimEcho		  on
 	  SimCtrlC		  on
@@ -551,7 +560,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  24
+	  $ObjectID		  25
 	  Version		  "1.16.2"
 	  Array {
 	    Type		    "Cell"
@@ -623,7 +632,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      25
+	      $ObjectID		      26
 	      Version		      "1.16.2"
 	      Array {
 		Type			"Cell"
@@ -693,7 +702,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      26
+	      $ObjectID		      27
 	      Version		      "1.16.2"
 	      Array {
 		Type			"Cell"
@@ -779,7 +788,7 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  27
+	  $ObjectID		  28
 	  Version		  "1.16.2"
 	  Description		  "Simulink Coverage Configuration Component"
 	  Name			  "Simulink Coverage"
@@ -812,7 +821,7 @@ Model {
 	  CovStopTime		  0
 	}
 	SSC.SimscapeCC {
-	  $ObjectID		  28
+	  $ObjectID		  29
 	  Version		  "1.0"
 	  Array {
 	    Type		    "Cell"
@@ -824,7 +833,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    MECH.SimMechanicsCC {
-	      $ObjectID		      29
+	      $ObjectID		      30
 	      Version		      "1.16.2"
 	      WarnOnRedundantConstraints on
 	      WarnOnSingularInitialAssembly off
@@ -857,14 +866,14 @@ Model {
 	      Name		      "SimscapeMultibody1G"
 	    }
 	    simmechanics.ConfigurationSet {
-	      $ObjectID		      30
+	      $ObjectID		      31
 	      Version		      "1.16.2"
 	      Description	      "Simscape Multibody"
 	      Array {
 		Type			"Handle"
 		Dimension		2
 		simmechanics.DiagnosticsConfigSet {
-		  $ObjectID		  31
+		  $ObjectID		  32
 		  Version		  "1.16.2"
 		  Description		  "Diagnostics"
 		  Name			  "DiagnosticsConfigSet"
@@ -879,7 +888,7 @@ Model {
 		  SimMechanicsJointTargetOverSpecification "error"
 		}
 		simmechanics.ExplorerConfigSet {
-		  $ObjectID		  32
+		  $ObjectID		  33
 		  Version		  "1.16.2"
 		  Description		  "Explorer"
 		  Name			  "ExplorerConfigSet"
@@ -907,17 +916,17 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition     [ 85, 71, 1165, 734 ] 
+      ConfigPrmDlgPosition     [ 441, 163, 1521, 826 ] 
     }
     PropName		    "ConfigurationSets"
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    16
+    $ObjectID		    17
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    33
+    $ObjectID		    34
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1232,6 +1241,15 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      RateTransition
+      Integrity		      on
+      Deterministic	      on
+      X0		      "0"
+      OutPortSampleTimeOpt    "Specify"
+      OutPortSampleTimeMultiple	"1"
+      OutPortSampleTime	      "-1"
+    }
+    Block {
       BlockType		      Reshape
       OutputDimensionality    "1-D array"
       OutputDimensions	      "[1,1]"
@@ -1366,7 +1384,7 @@ Model {
   System {
     Name		    "stepRecovery"
     Location		    [65, 24, 1920, 1080]
-    Open		    off
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1379,7 +1397,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "78"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "5248"
+    SIDHighWatermark	    "5259"
     Block {
       BlockType		      Reference
       Name		      "Compare\nTo Constant"
@@ -1638,7 +1656,7 @@ Model {
 	  ZOrder		  638
 	  BackgroundColor	  "[0.513700, 0.851000, 0.670600]"
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
 	  SourceType		  "Get Estimate"
 	  ContentPreviewEnabled	  off
@@ -1793,7 +1811,7 @@ Model {
 	      ZOrder		      577
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -1807,7 +1825,7 @@ Model {
 	      ZOrder		      579
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -1820,7 +1838,7 @@ Model {
 	      Position		      [-560, 398, -510, 412]
 	      ZOrder		      679
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.IMU"
@@ -1898,7 +1916,7 @@ Model {
 		  Position		  [-65, 42, 15, 78]
 		  ZOrder		  563
 		  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
 		  SourceType		  "Get Estimate"
 		  ContentPreviewEnabled	  off
@@ -1915,7 +1933,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -120, -65, -65]
 		  ZOrder		  558
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -1932,7 +1950,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -55, -65, 0]
 		  ZOrder		  559
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -2505,7 +2523,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		34
+		$ObjectID		35
 		$ClassName		"Simulink.Mask"
 		Description		"This block evaluates the homogeneous transformation between the world and the root link, i.e. ^wH_b. I"
 		"t assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertial frame, but"
@@ -2514,7 +2532,7 @@ Model {
 		"r str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  35
+		  $ObjectID		  36
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "link_name"
@@ -2631,7 +2649,7 @@ Model {
 		  ZOrder		  663
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "[WBT_robotName, '/head/state:o']"
@@ -2993,7 +3011,7 @@ Model {
 		  ZOrder		  610
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -3007,7 +3025,7 @@ Model {
 		  ZOrder		  611
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -3019,7 +3037,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, -75, 295, -15]
 		  ZOrder		  569
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -3053,7 +3071,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 10, 295, 70]
 		  ZOrder		  572
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -3076,7 +3094,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 95, 295, 155]
 		  ZOrder		  606
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -3432,7 +3450,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [115, 230, 280, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -4442,13 +4460,13 @@ Model {
 	  Position		  [865, 2510, 1005, 2550]
 	  ZOrder		  598
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	  SourceType		  "Minimum Jerk Trajectory Generator"
 	  externalSettlingTime	  on
 	  settlingTime		  "1"
 	  sampleTime		  "CONFIG.Ts"
-	  resetOnSettlingTime	  on
+	  resetOnSettlingTime	  off
 	  firstDerivatives	  off
 	  secondDerivatives	  off
 	  explicitInitialValue	  off
@@ -4461,13 +4479,13 @@ Model {
 	  Position		  [955, 2370, 1105, 2420]
 	  ZOrder		  597
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	  SourceType		  "Minimum Jerk Trajectory Generator"
 	  externalSettlingTime	  on
 	  settlingTime		  "references.com.smoothingTime "
 	  sampleTime		  "CONFIG.Ts"
-	  resetOnSettlingTime	  on
+	  resetOnSettlingTime	  off
 	  firstDerivatives	  on
 	  secondDerivatives	  on
 	  explicitInitialValue	  off
@@ -4617,7 +4635,7 @@ Model {
 	  Position		  [-1345, 2229, -1285, 2271]
 	  ZOrder		  599
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 	  SourceType		  "YARP Read"
 	  portName		  "PORTS.COM_DES"
@@ -4635,7 +4653,7 @@ Model {
 	  Position		  [-1325, 2374, -1255, 2421]
 	  ZOrder		  600
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 	  SourceType		  "YARP Read"
 	  portName		  "PORTS.Q_DES"
@@ -4787,7 +4805,7 @@ Model {
 	      BackgroundColor	      "lightBlue"
 	      DropShadow	      on
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	      SourceType	      ""
 	      ContentPreviewEnabled   off
@@ -4835,7 +4853,7 @@ Model {
 	      ZOrder		      640
 	      BackgroundColor	      "lightBlue"
 	      DropShadow	      on
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	      SourceType	      ""
 	      ContentPreviewEnabled   off
@@ -5657,7 +5675,7 @@ Model {
 	      Position		      [475, 335, 575, 355]
 	      ZOrder		      594
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
 	      externalSettlingTime    off
@@ -5923,7 +5941,7 @@ Model {
 	      ZOrder		      583
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -5937,7 +5955,7 @@ Model {
 	      ZOrder		      584
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -5950,7 +5968,7 @@ Model {
 	      Position		      [-485, 428, -435, 442]
 	      ZOrder		      654
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.IMU"
@@ -5969,7 +5987,7 @@ Model {
 	      ZOrder		      598
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.WBDT_LEFTLEG_EE"
@@ -6044,7 +6062,7 @@ Model {
 		  Position		  [-65, 42, 15, 78]
 		  ZOrder		  563
 		  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
 		  SourceType		  "Get Estimate"
 		  ContentPreviewEnabled	  off
@@ -6061,7 +6079,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -120, -65, -65]
 		  ZOrder		  558
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -6078,7 +6096,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -55, -65, 0]
 		  ZOrder		  559
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -6367,7 +6385,7 @@ Model {
 	      ZOrder		      599
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.WBDT_RIGHTLEG_EE"
@@ -8605,11 +8623,11 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    36
+		    $ObjectID		    37
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    37
+		    $ObjectID		    38
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -8844,7 +8862,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 20, 295, 80]
 		    ZOrder		    569
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -8861,7 +8879,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 105, 295, 165]
 		    ZOrder		    572
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -8958,11 +8976,11 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    38
+		    $ObjectID		    39
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    39
+		    $ObjectID		    40
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -9197,7 +9215,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 20, 295, 80]
 		    ZOrder		    569
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -9214,7 +9232,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 105, 295, 165]
 		    ZOrder		    572
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -9328,7 +9346,7 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    40
+		    $ObjectID		    41
 		    $ClassName		    "Simulink.Mask"
 		    Description		    "This block evaluates the homogeneous transformation between the world and the root link, i.e. "
 		    "^wH_b. It assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertia"
@@ -9337,7 +9355,7 @@ Model {
 		    ")\nclear str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    41
+		    $ObjectID		    42
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -9454,7 +9472,7 @@ Model {
 		    ZOrder		    663
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "[WBT_robotName, '/head/state:o']"
@@ -9816,7 +9834,7 @@ Model {
 		    ZOrder		    610
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -9830,7 +9848,7 @@ Model {
 		    ZOrder		    611
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -9842,7 +9860,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, -75, 295, -15]
 		    ZOrder		    569
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -9876,7 +9894,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 10, 295, 70]
 		    ZOrder		    572
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -9899,7 +9917,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 95, 295, 155]
 		    ZOrder		    606
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -10201,7 +10219,7 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    42
+		    $ObjectID		    43
 		    $ClassName		    "Simulink.Mask"
 		    Description		    "This block evaluates the homogeneous transformation between the world and the root link, i.e. "
 		    "^wH_b. It assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertia"
@@ -10210,7 +10228,7 @@ Model {
 		    ")\nclear str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    43
+		    $ObjectID		    44
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -10327,7 +10345,7 @@ Model {
 		    ZOrder		    663
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "[WBT_robotName, '/head/state:o']"
@@ -10689,7 +10707,7 @@ Model {
 		    ZOrder		    610
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -10703,7 +10721,7 @@ Model {
 		    ZOrder		    611
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -10715,7 +10733,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, -75, 295, -15]
 		    ZOrder		    569
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -10749,7 +10767,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 10, 295, 70]
 		    ZOrder		    572
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -10772,7 +10790,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 95, 295, 155]
 		    ZOrder		    606
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -11231,7 +11249,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		44
+		$ObjectID		45
 		$ClassName		"Simulink.Mask"
 		Description		"This block evaluates the homogeneous transformation between the world and the root link, i.e. ^wH_b. I"
 		"t assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertial frame, but"
@@ -11240,7 +11258,7 @@ Model {
 		"r str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  45
+		  $ObjectID		  46
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "link_name"
@@ -11357,7 +11375,7 @@ Model {
 		  ZOrder		  663
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "[WBT_robotName, '/head/state:o']"
@@ -11719,7 +11737,7 @@ Model {
 		  ZOrder		  610
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -11733,7 +11751,7 @@ Model {
 		  ZOrder		  611
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -11745,7 +11763,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, -75, 295, -15]
 		  ZOrder		  569
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -11779,7 +11797,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 10, 295, 70]
 		  ZOrder		  572
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -11802,7 +11820,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 95, 295, 155]
 		  ZOrder		  606
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -12104,7 +12122,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		46
+		$ObjectID		47
 		$ClassName		"Simulink.Mask"
 		Description		"This block evaluates the homogeneous transformation between the world and the root link, i.e. ^wH_b. I"
 		"t assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertial frame, but"
@@ -12113,7 +12131,7 @@ Model {
 		"r str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  47
+		  $ObjectID		  48
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "link_name"
@@ -12230,7 +12248,7 @@ Model {
 		  ZOrder		  663
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "[WBT_robotName, '/head/state:o']"
@@ -12592,7 +12610,7 @@ Model {
 		  ZOrder		  610
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -12606,7 +12624,7 @@ Model {
 		  ZOrder		  611
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -12618,7 +12636,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, -75, 295, -15]
 		  ZOrder		  569
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -12652,7 +12670,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 10, 295, 70]
 		  ZOrder		  572
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -12675,7 +12693,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 95, 295, 155]
 		  ZOrder		  606
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -13031,7 +13049,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [115, 230, 280, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -13147,7 +13165,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [115, 230, 280, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -13964,7 +13982,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [295, 22, 415, 73]
 		  ZOrder		  768
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -14101,7 +14119,7 @@ Model {
 	      Ports		      [2, 1]
 	      Position		      [-105, 853, 45, 917]
 	      ZOrder		      793
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 	      SourceType	      "Forward Kinematics"
 	      ContentPreviewEnabled   off
@@ -14118,7 +14136,7 @@ Model {
 	      Ports		      [2, 1]
 	      Position		      [-105, 943, 45, 1007]
 	      ZOrder		      794
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 	      SourceType	      "Forward Kinematics"
 	      ContentPreviewEnabled   off
@@ -14169,7 +14187,7 @@ Model {
 	      Position		      [940, 380, 1040, 400]
 	      ZOrder		      594
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
 	      externalSettlingTime    off
@@ -14370,7 +14388,7 @@ Model {
 	      System {
 		Name			"Step Recovery reference generator"
 		Location		[65, 24, 1920, 1080]
-		Open			on
+		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -14381,7 +14399,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"126"
+		ZoomFactor		"110"
 		Block {
 		  BlockType		  Inport
 		  Name			  "COMx"
@@ -14403,7 +14421,7 @@ Model {
 		  BlockType		  Inport
 		  Name			  "q_smoothed\n"
 		  SID			  "4728"
-		  Position		  [425, 803, 455, 817]
+		  Position		  [315, 778, 345, 792]
 		  ZOrder		  795
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -14528,7 +14546,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [1180, 678, 1330, 742]
 		  ZOrder		  741
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -14540,12 +14558,12 @@ Model {
 		}
 		Block {
 		  BlockType		  Reference
-		  Name			  "Forward Kinematics2"
-		  SID			  "4454"
+		  Name			  "Forward Kinematics4"
+		  SID			  "5254"
 		  Ports			  [2, 1]
-		  Position		  [615, 740, 700, 835]
-		  ZOrder		  751
-		  LibraryVersion	  "1.375"
+		  Position		  [485, 715, 570, 810]
+		  ZOrder		  820
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -14575,7 +14593,7 @@ Model {
 		  System {
 		    Name		    "Inverse Kinematics"
 		    Location		    [65, 24, 1920, 1080]
-		    Open		    off
+		    Open		    on
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -14586,7 +14604,7 @@ Model {
 		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "85"
+		    ZoomFactor		    "100"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "x_foot"
@@ -14707,7 +14725,7 @@ Model {
 		    Position		    [-350, 213, -235, 262]
 		    ZOrder		    760
 		    Commented		    "on"
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -14725,7 +14743,7 @@ Model {
 		    Position		    [-260, 278, -145, 327]
 		    ZOrder		    769
 		    Commented		    "on"
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -14855,11 +14873,13 @@ Model {
 		    Ports		    [3, 2]
 		    Position		    [825, 197, 975, 273]
 		    ZOrder		    -37
+		    TreatAsAtomicUnit	    on
+		    SystemSampleTime	    "CONFIG.Ts*2"
 		    RequestExecContextInheritance off
 		    Variant		    off
 		    System {
 		    Name		    "Local inverse kin"
-		    Location		    [12, 170, 1887, 1246]
+		    Location		    [65, 24, 1920, 1080]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -14908,7 +14928,7 @@ Model {
 		    ZOrder		    61
 		    BackgroundColor	    "lightBlue"
 		    DropShadow		    on
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 		    SourceType		    ""
 		    ContentPreviewEnabled   off
@@ -14920,7 +14940,7 @@ Model {
 		    Ports		    [3, 2]
 		    Position		    [1275, 215, 1450, 295]
 		    ZOrder		    66
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Inverse Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -15242,14 +15262,6 @@ Model {
 		    }
 		    }
 		    Block {
-		    BlockType		    ManualSwitch
-		    Name		    "Manual Switch"
-		    SID			    "4923"
-		    Position		    [1160, 167, 1190, 203]
-		    ZOrder		    789
-		    CurrentSetting	    "0"
-		    }
-		    Block {
 		    BlockType		    Product
 		    Name		    "Matrix Multiply1"
 		    SID			    "4460"
@@ -15292,8 +15304,23 @@ Model {
 		    Position		    [1095, 71, 1100, 109]
 		    ZOrder		    793
 		    ShowName		    off
+		    Commented		    "on"
 		    Inputs		    "2"
 		    DisplayOption	    "bar"
+		    }
+		    Block {
+		    BlockType		    RateTransition
+		    Name		    "Rate Transition"
+		    SID			    "5257"
+		    Position		    [1010, 234, 1050, 276]
+		    ZOrder		    796
+		    }
+		    Block {
+		    BlockType		    RateTransition
+		    Name		    "Rate Transition1"
+		    SID			    "5258"
+		    Position		    [1010, 194, 1050, 236]
+		    ZOrder		    797
 		    }
 		    Block {
 		    BlockType		    SubSystem
@@ -15302,6 +15329,7 @@ Model {
 		    Ports		    [2, 2]
 		    Position		    [900, 54, 1060, 116]
 		    ZOrder		    -35
+		    Commented		    "on"
 		    RequestExecContextInheritance off
 		    Variant		    off
 		    System {
@@ -15345,7 +15373,7 @@ Model {
 		    ZOrder		    786
 		    BackgroundColor	    "lightBlue"
 		    DropShadow		    on
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.367"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 		    SourceType		    ""
 		    ContentPreviewEnabled   off
@@ -16011,19 +16039,8 @@ Model {
 		    ZOrder		    423
 		    SrcBlock		    "Local inverse kin"
 		    SrcPort		    2
-		    Points		    [94, 0]
-		    Branch {
-		    ZOrder		    531
-		    Points		    [0, 115; -1348, 0; 0, -55]
-		    DstBlock		    "Forward Kinematics3"
-		    DstPort		    2
-		    }
-		    Branch {
-		    ZOrder		    530
-		    Points		    [0, -20]
-		    DstBlock		    "Mux"
-		    DstPort		    2
-		    }
+		    DstBlock		    "Rate Transition"
+		    DstPort		    1
 		    }
 		    Line {
 		    ZOrder		    495
@@ -16063,18 +16080,10 @@ Model {
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    532
-		    SrcBlock		    "Mux"
-		    SrcPort		    1
-		    Points		    [18, 0; 0, -30]
-		    DstBlock		    "Manual Switch"
-		    DstPort		    2
-		    }
-		    Line {
 		    ZOrder		    528
 		    SrcBlock		    "Local inverse kin"
 		    SrcPort		    1
-		    DstBlock		    "Mux"
+		    DstBlock		    "Rate Transition1"
 		    DstPort		    1
 		    }
 		    Line {
@@ -16085,20 +16094,20 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    534
-		    SrcBlock		    "Manual Switch"
+		    ZOrder		    630
+		    SrcBlock		    "Mux"
 		    SrcPort		    1
-		    Points		    [50, 0]
+		    Points		    [140, 0]
 		    Branch {
-		    ZOrder		    537
-		    Points		    [0, 60]
-		    DstBlock		    "Selector1"
+		    ZOrder		    631
+		    Points		    [0, -50]
+		    DstBlock		    "Selector"
 		    DstPort		    1
 		    }
 		    Branch {
-		    ZOrder		    536
-		    Points		    [0, -10]
-		    DstBlock		    "Selector"
+		    ZOrder		    537
+		    Points		    [0, 20]
+		    DstBlock		    "Selector1"
 		    DstPort		    1
 		    }
 		    }
@@ -16108,14 +16117,6 @@ Model {
 		    SrcPort		    1
 		    Points		    [15, 0; 0, -30]
 		    DstBlock		    "q_total\n"
-		    DstPort		    1
-		    }
-		    Line {
-		    ZOrder		    539
-		    SrcBlock		    "Mux2"
-		    SrcPort		    1
-		    Points		    [25, 0; 0, 85]
-		    DstBlock		    "Manual Switch"
 		    DstPort		    1
 		    }
 		    Line {
@@ -16133,6 +16134,31 @@ Model {
 		    DstBlock		    "Mux2"
 		    DstPort		    2
 		    }
+		    Line {
+		    ZOrder		    636
+		    SrcBlock		    "Rate Transition"
+		    SrcPort		    1
+		    Points		    [19, 0]
+		    Branch {
+		    ZOrder		    531
+		    Points		    [0, 115; -1348, 0; 0, -55]
+		    DstBlock		    "Forward Kinematics3"
+		    DstPort		    2
+		    }
+		    Branch {
+		    ZOrder		    530
+		    Points		    [0, -20]
+		    DstBlock		    "Mux"
+		    DstPort		    2
+		    }
+		    }
+		    Line {
+		    ZOrder		    637
+		    SrcBlock		    "Rate Transition1"
+		    SrcPort		    1
+		    DstBlock		    "Mux"
+		    DstPort		    1
+		    }
 		  }
 		}
 		Block {
@@ -16148,7 +16174,7 @@ Model {
 		  BlockType		  Memory
 		  Name			  "Memory2"
 		  SID			  "4465"
-		  Position		  [530, 795, 560, 825]
+		  Position		  [395, 770, 425, 800]
 		  ZOrder		  754
 		}
 		Block {
@@ -16202,8 +16228,8 @@ Model {
 		  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr"
 		  ".Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sourc"
 		  "es','WiredSimulink',true,'DataLoggingVariableName','ScopeData1'),extmgr.Configuration('Visuals','Time Domain',true"
-		  ",'SerializedDisplays',{struct('MinYLimReal','-0.52644','MaxYLimReal','0.44229','YLabelReal','','MinYLimMag','0.000"
-		  "00','MaxYLimMag','0.52644','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 "
+		  ",'SerializedDisplays',{struct('MinYLimReal','-0.55647','MaxYLimReal','0.73055','YLabelReal','','MinYLimMag','0.000"
+		  "00','MaxYLimMag','0.73055','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 "
 		  "0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;"
 		  "0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0."
 		  "0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.6509803921568"
@@ -17967,7 +17993,7 @@ Model {
 		    ZOrder		    584
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -18854,7 +18880,7 @@ Model {
 		    ZOrder		    584
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -19489,7 +19515,7 @@ Model {
 		    ZOrder		    584
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -19848,7 +19874,7 @@ Model {
 		    ZOrder		    584
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -22383,40 +22409,40 @@ Model {
 		    ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
 		    "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
 		    "ources','WiredSimulink',true,'DataLoggingVariableName','ScopeData2'),extmgr.Configuration('Visuals','Time Domain"
-		    "',true,'SerializedDisplays',{struct('MinYLimReal','-0.36583','MaxYLimReal','0.36257','YLabelReal','','MinYLimMag"
-		    "','0.00000','MaxYLimMag','0.36583','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'Axes"
-		    "Color',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666"
-		    "66666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.8313"
-		    "72549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686"
-		    " 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines"
-		    "',3,'LineNames',{{'CP:1','CP:2','CP:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-0.36583','MaxY"
-		    "LimReal','0.36257','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.06551','LegendVisibility','off','XGrid"
-		    "',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.68627450980392"
-		    "2 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.41176470588"
-		    "2353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569"
-		    " 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache'"
-		    ",{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'CP1:1','CP1:2','CP1:3'}},'ShowContent',true,'Pl"
-		    "acement',2),struct('MinYLimReal','-0.40069','MaxYLimReal','0.67627','YLabelReal','','MinYLimMag','0.00000','MaxY"
-		    "LimMag','1.06551','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'A"
-		    "xesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.074"
-		    "5098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.074"
-		    "5098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.65098039215686"
-		    "3],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{"
-		    "{'CP_pratt :1','CP_pratt :2','CP_pratt :3'}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-0.125','Ma"
-		    "xYLimReal','1.125','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.06551','LegendVisibility','off','XGrid"
-		    "',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.68627450980392"
-		    "2 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.41176470588"
-		    "2353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569"
-		    " 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache'"
-		    ",{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'Triggers:1','Triggers:2','Triggers:3'}},'ShowCo"
-		    "ntent',true,'Placement',4)},'DisplayPropertyDefaults',struct('YLabelReal','','LegendVisibility','off','XGrid',tr"
-		    "ue,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0."
-		    "686274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0"
-		    ".0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0"
-		    ".0588235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'DisplayLayoutDimensions',[4 1],'DisplayContentCa"
-		    "che',[]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr"
-		    ".Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Position',[1520 242 340 513],'"
-		    "VisibleAtModelOpen','on')"
+		    "',true,'SerializedDisplays',{struct('MinYLimReal','-0.3196','MaxYLimReal','0.1213','YLabelReal','','MinYLimMag',"
+		    "'0.00000','MaxYLimMag','0.3196','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesCol"
+		    "or',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666666"
+		    "66666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.8313725"
+		    "49019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0."
+		    "650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',3"
+		    ",'LineNames',{{'CP:1','CP:2','CP:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-0.33722','MaxYLim"
+		    "Real','0.13524','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.06551','LegendVisibility','off','XGrid',t"
+		    "rue,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0"
+		    ".686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.41176470588235"
+		    "3 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;"
+		    "0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{"
+		    "}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'CP1:1','CP1:2','CP1:3'}},'ShowContent',true,'Place"
+		    "ment',2),struct('MinYLimReal','-0.09603','MaxYLimReal','0.46723','YLabelReal','','MinYLimMag','0.00000','MaxYLim"
+		    "Mag','1.06551','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'Axes"
+		    "TickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.074509"
+		    "8039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.074509"
+		    "8039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],"
+		    "'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'C"
+		    "P_pratt :1','CP_pratt :2','CP_pratt :3'}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-0.125','MaxYL"
+		    "imReal','1.125','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.06551','LegendVisibility','off','XGrid',t"
+		    "rue,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0"
+		    ".686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.41176470588235"
+		    "3 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;"
+		    "0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{"
+		    "}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'Triggers:1','Triggers:2','Triggers:3'}},'ShowConte"
+		    "nt',true,'Placement',4)},'DisplayPropertyDefaults',struct('YLabelReal','','LegendVisibility','off','XGrid',true,"
+		    "'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686"
+		    "274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.06"
+		    "66666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.05"
+		    "88235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'DisplayLayoutDimensions',[4 1],'DisplayContentCache"
+		    "',[]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Co"
+		    "nfiguration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Position',[1552 318 340 513],'Vis"
+		    "ibleAtModelOpen','on')"
 		    NumInputPorts	    "4"
 		    }
 		    Block {
@@ -23508,7 +23534,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [220, 359, 360, 426]
 		    ZOrder		    724
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
 		    SourceType		    "Mass Matrix"
 		    ContentPreviewEnabled   off
@@ -23630,7 +23656,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [465, 203, 615, 267]
 		    ZOrder		    741
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -23647,7 +23673,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [465, 488, 615, 552]
 		    ZOrder		    766
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -26546,7 +26572,7 @@ Model {
 		  Position		  [365, 556, 425, 584]
 		  ZOrder		  727
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "PORTS.WBDT_LEFTLEG_EE"
@@ -26586,7 +26612,7 @@ Model {
 		  BlockType		  Outport
 		  Name			  "COM_step_ref"
 		  SID			  "4732"
-		  Position		  [805, 783, 835, 797]
+		  Position		  [600, 758, 630, 772]
 		  ZOrder		  799
 		  Port			  "4"
 		  IconDisplay		  "Port number"
@@ -26684,16 +26710,16 @@ Model {
 		  Points		  [129, 0]
 		  Branch {
 		    ZOrder		    1461
-		    Points		    [0, 174; 178, 0]
+		    Points		    [0, 174; 122, 0]
 		    Branch {
-		    ZOrder		    1875
-		    Points		    [0, 81]
-		    DstBlock		    "Forward Kinematics2"
+		    ZOrder		    1941
+		    Points		    [0, 56]
+		    DstBlock		    "Forward Kinematics4"
 		    DstPort		    1
 		    }
 		    Branch {
-		    ZOrder		    1874
-		    Points		    [321, 0; 0, -49]
+		    ZOrder		    1940
+		    Points		    [377, 0; 0, -49]
 		    Branch {
 		    ZOrder		    1525
 		    Points		    [246, 0; 0, 60]
@@ -26848,7 +26874,7 @@ Model {
 		  ZOrder		  868
 		  SrcBlock		  "Memory2"
 		  SrcPort		  1
-		  DstBlock		  "Forward Kinematics2"
+		  DstBlock		  "Forward Kinematics4"
 		  DstPort		  2
 		}
 		Line {
@@ -27025,12 +27051,8 @@ Model {
 		  DstPort		  3
 		}
 		Line {
-		  FontName		  "Helvetica"
-		  FontSize		  9
-		  FontWeight		  "normal"
-		  FontAngle		  "normal"
-		  ZOrder		  1743
-		  SrcBlock		  "Forward Kinematics2"
+		  ZOrder		  1939
+		  SrcBlock		  "Forward Kinematics4"
 		  SrcPort		  1
 		  DstBlock		  "COM_step_ref"
 		  DstPort		  1
@@ -27952,7 +27974,7 @@ Model {
 	      ZOrder		      782
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.WBDT_CHEST"
@@ -27971,7 +27993,7 @@ Model {
 	      ZOrder		      583
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -27985,7 +28007,7 @@ Model {
 	      ZOrder		      584
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -27998,7 +28020,7 @@ Model {
 	      Position		      [-485, 413, -435, 427]
 	      ZOrder		      654
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.IMU"
@@ -28017,7 +28039,7 @@ Model {
 	      ZOrder		      598
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.WBDT_LEFTLEG_EE"
@@ -28092,7 +28114,7 @@ Model {
 		  Position		  [-65, 42, 15, 78]
 		  ZOrder		  563
 		  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
 		  SourceType		  "Get Estimate"
 		  ContentPreviewEnabled	  off
@@ -28109,7 +28131,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -120, -65, -65]
 		  ZOrder		  558
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -28126,7 +28148,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -55, -65, 0]
 		  ZOrder		  559
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -28415,7 +28437,7 @@ Model {
 	      ZOrder		      599
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.WBDT_RIGHTLEG_EE"
@@ -30854,11 +30876,11 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    48
+		    $ObjectID		    49
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    49
+		    $ObjectID		    50
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -31093,7 +31115,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 20, 295, 80]
 		    ZOrder		    569
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -31110,7 +31132,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 105, 295, 165]
 		    ZOrder		    572
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -31207,11 +31229,11 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    50
+		    $ObjectID		    51
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    51
+		    $ObjectID		    52
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -31446,7 +31468,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 20, 295, 80]
 		    ZOrder		    569
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -31463,7 +31485,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 105, 295, 165]
 		    ZOrder		    572
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -31577,7 +31599,7 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    52
+		    $ObjectID		    53
 		    $ClassName		    "Simulink.Mask"
 		    Description		    "This block evaluates the homogeneous transformation between the world and the root link, i.e. "
 		    "^wH_b. It assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertia"
@@ -31586,7 +31608,7 @@ Model {
 		    ")\nclear str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    53
+		    $ObjectID		    54
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -31703,7 +31725,7 @@ Model {
 		    ZOrder		    663
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "[WBT_robotName, '/head/state:o']"
@@ -32065,7 +32087,7 @@ Model {
 		    ZOrder		    610
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -32079,7 +32101,7 @@ Model {
 		    ZOrder		    611
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -32091,7 +32113,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, -75, 295, -15]
 		    ZOrder		    569
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -32125,7 +32147,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 10, 295, 70]
 		    ZOrder		    572
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -32148,7 +32170,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 95, 295, 155]
 		    ZOrder		    606
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -32450,7 +32472,7 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    54
+		    $ObjectID		    55
 		    $ClassName		    "Simulink.Mask"
 		    Description		    "This block evaluates the homogeneous transformation between the world and the root link, i.e. "
 		    "^wH_b. It assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertia"
@@ -32459,7 +32481,7 @@ Model {
 		    ")\nclear str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    55
+		    $ObjectID		    56
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -32576,7 +32598,7 @@ Model {
 		    ZOrder		    663
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "[WBT_robotName, '/head/state:o']"
@@ -32938,7 +32960,7 @@ Model {
 		    ZOrder		    610
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -32952,7 +32974,7 @@ Model {
 		    ZOrder		    611
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -32964,7 +32986,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, -75, 295, -15]
 		    ZOrder		    569
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -32998,7 +33020,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 10, 295, 70]
 		    ZOrder		    572
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -33021,7 +33043,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [130, 95, 295, 155]
 		    ZOrder		    606
-		    LibraryVersion	    "1.375"
+		    LibraryVersion	    "1.377"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -33480,7 +33502,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		56
+		$ObjectID		57
 		$ClassName		"Simulink.Mask"
 		Description		"This block evaluates the homogeneous transformation between the world and the root link, i.e. ^wH_b. I"
 		"t assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertial frame, but"
@@ -33489,7 +33511,7 @@ Model {
 		"r str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  57
+		  $ObjectID		  58
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "link_name"
@@ -33606,7 +33628,7 @@ Model {
 		  ZOrder		  663
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "[WBT_robotName, '/head/state:o']"
@@ -33968,7 +33990,7 @@ Model {
 		  ZOrder		  610
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -33982,7 +34004,7 @@ Model {
 		  ZOrder		  611
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -33994,7 +34016,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, -75, 295, -15]
 		  ZOrder		  569
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -34028,7 +34050,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 10, 295, 70]
 		  ZOrder		  572
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -34051,7 +34073,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 95, 295, 155]
 		  ZOrder		  606
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -34353,7 +34375,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		58
+		$ObjectID		59
 		$ClassName		"Simulink.Mask"
 		Description		"This block evaluates the homogeneous transformation between the world and the root link, i.e. ^wH_b. I"
 		"t assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertial frame, but"
@@ -34362,7 +34384,7 @@ Model {
 		"r str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  59
+		  $ObjectID		  60
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "link_name"
@@ -34479,7 +34501,7 @@ Model {
 		  ZOrder		  663
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "[WBT_robotName, '/head/state:o']"
@@ -34841,7 +34863,7 @@ Model {
 		  ZOrder		  610
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -34855,7 +34877,7 @@ Model {
 		  ZOrder		  611
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -34867,7 +34889,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, -75, 295, -15]
 		  ZOrder		  569
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -34901,7 +34923,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 10, 295, 70]
 		  ZOrder		  572
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -34924,7 +34946,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 95, 295, 155]
 		  ZOrder		  606
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -35280,7 +35302,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [115, 230, 280, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -35396,7 +35418,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [115, 230, 280, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -36451,7 +36473,7 @@ Model {
 	      BackgroundColor	      "lightBlue"
 	      DropShadow	      on
 	      Commented		      "on"
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	      SourceType	      ""
 	      ContentPreviewEnabled   off
@@ -36613,7 +36635,7 @@ Model {
 	      Position		      [715, 380, 855, 420]
 	      ZOrder		      594
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
 	      externalSettlingTime    off
@@ -36632,7 +36654,7 @@ Model {
 	      Position		      [715, 330, 855, 370]
 	      ZOrder		      595
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
 	      externalSettlingTime    off
@@ -36858,7 +36880,7 @@ Model {
 	      ZOrder		      667
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -36872,7 +36894,7 @@ Model {
 	      ZOrder		      584
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -36885,7 +36907,7 @@ Model {
 	      Position		      [-485, 443, -435, 457]
 	      ZOrder		      654
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.IMU"
@@ -36912,7 +36934,7 @@ Model {
 	      Position		      [-390, -94, -330, -46]
 	      ZOrder		      681
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.WBDT_LEFTLEG_EE"
@@ -36987,7 +37009,7 @@ Model {
 		  Position		  [-65, 42, 15, 78]
 		  ZOrder		  563
 		  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
 		  SourceType		  "Get Estimate"
 		  ContentPreviewEnabled	  off
@@ -37004,7 +37026,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -120, -65, -65]
 		  ZOrder		  558
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -37021,7 +37043,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [-230, -55, -65, 0]
 		  ZOrder		  559
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -37309,7 +37331,7 @@ Model {
 	      Position		      [-390, 6, -330, 54]
 	      ZOrder		      682
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.WBDT_RIGHTLEG_EE"
@@ -37784,7 +37806,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		60
+		$ObjectID		61
 		$ClassName		"Simulink.Mask"
 		Description		"This block evaluates the homogeneous transformation between the world and the root link, i.e. ^wH_b. I"
 		"t assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertial frame, but"
@@ -37793,7 +37815,7 @@ Model {
 		"r str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  61
+		  $ObjectID		  62
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "link_name"
@@ -37910,7 +37932,7 @@ Model {
 		  ZOrder		  663
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "[WBT_robotName, '/head/state:o']"
@@ -38272,7 +38294,7 @@ Model {
 		  ZOrder		  610
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -38286,7 +38308,7 @@ Model {
 		  ZOrder		  611
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -38298,7 +38320,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, -75, 295, -15]
 		  ZOrder		  569
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -38332,7 +38354,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 10, 295, 70]
 		  ZOrder		  572
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -38355,7 +38377,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 95, 295, 155]
 		  ZOrder		  606
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -38657,7 +38679,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		62
+		$ObjectID		63
 		$ClassName		"Simulink.Mask"
 		Description		"This block evaluates the homogeneous transformation between the world and the root link, i.e. ^wH_b. I"
 		"t assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertial frame, but"
@@ -38666,7 +38688,7 @@ Model {
 		"r str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  63
+		  $ObjectID		  64
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "link_name"
@@ -38783,7 +38805,7 @@ Model {
 		  ZOrder		  663
 		  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
 		  portName		  "[WBT_robotName, '/head/state:o']"
@@ -39145,7 +39167,7 @@ Model {
 		  ZOrder		  610
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -39159,7 +39181,7 @@ Model {
 		  ZOrder		  611
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -39171,7 +39193,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, -75, 295, -15]
 		  ZOrder		  569
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -39205,7 +39227,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 10, 295, 70]
 		  ZOrder		  572
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -39228,7 +39250,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 95, 295, 155]
 		  ZOrder		  606
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -39591,7 +39613,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [115, 230, 280, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -39708,7 +39730,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [115, 230, 280, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -40649,7 +40671,7 @@ Model {
 	  ZOrder		  621
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 	  Commented		  "on"
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 	  SourceType		  "YARP Read"
 	  portName		  "[baseToWorldRotationPort]"
@@ -40702,7 +40724,7 @@ Model {
 	  ZOrder		  601
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 	  SourceType		  "YARP Read"
 	  portName		  "['/' WBT_modelName '/constraints:i']"
@@ -42031,7 +42053,7 @@ Model {
 	  ZOrder		  512
 	  BackgroundColor	  "lightBlue"
 	  DropShadow		  on
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	  SourceType		  ""
 	  ContentPreviewEnabled	  off
@@ -42079,7 +42101,7 @@ Model {
 	  ZOrder		  513
 	  BackgroundColor	  "lightBlue"
 	  DropShadow		  on
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	  SourceType		  ""
 	  ContentPreviewEnabled	  off
@@ -42127,7 +42149,7 @@ Model {
 	  ZOrder		  514
 	  BackgroundColor	  "lightBlue"
 	  DropShadow		  on
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	  SourceType		  ""
 	  ContentPreviewEnabled	  off
@@ -42175,7 +42197,7 @@ Model {
 	  ZOrder		  515
 	  BackgroundColor	  "lightBlue"
 	  DropShadow		  on
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	  SourceType		  ""
 	  ContentPreviewEnabled	  off
@@ -42223,7 +42245,7 @@ Model {
 	  ZOrder		  516
 	  BackgroundColor	  "lightBlue"
 	  DropShadow		  on
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	  SourceType		  ""
 	  ContentPreviewEnabled	  off
@@ -42271,7 +42293,7 @@ Model {
 	  ZOrder		  511
 	  BackgroundColor	  "lightBlue"
 	  DropShadow		  on
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/23-DoFs WBI to YARP"
 	  SourceType		  ""
 	  ContentPreviewEnabled	  off
@@ -42525,7 +42547,7 @@ Model {
 	  ZOrder		  509
 	  BackgroundColor	  "[0.827500, 0.576500, 0.603900]"
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
 	  SourceType		  "Get Estimate"
 	  ContentPreviewEnabled	  off
@@ -42544,7 +42566,7 @@ Model {
 	  ZOrder		  510
 	  BackgroundColor	  "[0.513700, 0.851000, 0.670600]"
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
 	  SourceType		  "Get Estimate"
 	  ContentPreviewEnabled	  off
@@ -45118,7 +45140,7 @@ Model {
 	  Ports			  [4, 1]
 	  Position		  [295, 451, 480, 514]
 	  ZOrder		  223
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Dynamics/Centroidal Momentum"
 	  SourceType		  "Centroidal Momentum"
 	  ContentPreviewEnabled	  off
@@ -45160,7 +45182,7 @@ Model {
 	  Ports			  [4, 1]
 	  Position		  [295, 302, 435, 403]
 	  ZOrder		  222
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Bias Forces"
 	  SourceType		  "Get Generalized Bias Forces"
 	  ContentPreviewEnabled	  off
@@ -45177,7 +45199,7 @@ Model {
 	  Ports			  [2, 1]
 	  Position		  [295, 189, 435, 256]
 	  ZOrder		  221
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
 	  SourceType		  "Mass Matrix"
 	  ContentPreviewEnabled	  off
@@ -45505,7 +45527,7 @@ Model {
 	  ZOrder		  693
 	  BackgroundColor	  "[0.392200, 0.788200, 0.345100]"
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyActuators/Set References"
 	  SourceType		  "Set References"
 	  ContentPreviewEnabled	  off
@@ -45575,7 +45597,7 @@ Model {
 	  ZOrder		  549
 	  BackgroundColor	  "[0.827500, 0.576500, 0.603900]"
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyActuators/Set References"
 	  SourceType		  "Set References"
 	  ContentPreviewEnabled	  off
@@ -46019,7 +46041,7 @@ Model {
 	  Position		  [1230, 840, 1395, 935]
 	  ZOrder		  545
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 	  SourceType		  "DotJ Nu"
 	  ContentPreviewEnabled	  off
@@ -46036,7 +46058,7 @@ Model {
 	  Ports			  [4, 1]
 	  Position		  [1230, 1019, 1395, 1086]
 	  ZOrder		  547
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 	  SourceType		  "DotJ Nu"
 	  ContentPreviewEnabled	  off
@@ -46085,7 +46107,7 @@ Model {
 	  Position		  [1005, 1225, 1170, 1280]
 	  ZOrder		  549
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	  SourceType		  "Jacobian"
 	  ContentPreviewEnabled	  off
@@ -46103,7 +46125,7 @@ Model {
 	  Position		  [1230, 720, 1395, 775]
 	  ZOrder		  544
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	  SourceType		  "Jacobian"
 	  ContentPreviewEnabled	  off
@@ -46121,7 +46143,7 @@ Model {
 	  Position		  [1230, 795, 1395, 835]
 	  ZOrder		  546
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	  SourceType		  "Jacobian"
 	  ContentPreviewEnabled	  off
@@ -47139,7 +47161,7 @@ Model {
 		  ZOrder		  584
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 		  ShowName		  off
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  ContentPreviewEnabled	  off
@@ -48020,20 +48042,20 @@ Model {
 	  "Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sources"
 	  "','WiredSimulink',true,'DataLoggingVariableName','ScopeData1','DataLoggingLimitDataPoints',true,'DataLoggingSaveFor"
 	  "mat','Array','DataLoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visuals','Time Domai"
-	  "n',true,'SerializedDisplays',{struct('MinYLimReal','-0.0101','MaxYLimReal','0.10467','YLabelReal','','MinYLimMag','"
-	  "0.00000','MaxYLimMag','0.10467','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor'"
-	  ",[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666666666666"
-	  "67;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 "
-	  "0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156"
-	  "863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{"
-	  "'MPC /exitflag'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-0.0101','MaxY"
-	  "LimReal','0.10467','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','0.10467','LegendVisibility','off','XGrid',t"
-	  "rue,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.68"
-	  "6274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666"
-	  "666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235"
-	  "294117647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAt"
-	  "Stop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version"
-	  "','2016a','Position',[848 1 550 418])"
+	  "n',true,'SerializedDisplays',{struct('MinYLimReal','-0.125','MaxYLimReal','1.125','YLabelReal','','MinYLimMag','0.0"
+	  "0000','MaxYLimMag','1.125','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0"
+	  " 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0."
+	  "0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.074"
+	  "5098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],"
+	  "'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'MPC "
+	  "/exitflag'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-0.125','MaxYLimRea"
+	  "l','1.125','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.125','LegendVisibility','off','XGrid',true,'YGrid"
+	  "',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803"
+	  "922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.06666666666666"
+	  "67;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 "
+	  "1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',fals"
+	  "e,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a',"
+	  "'Position',[956 -13 560 448])"
 	}
 	Block {
 	  BlockType		  Scope
@@ -48157,7 +48179,7 @@ Model {
 	  "78431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745"
 	  "098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'DisplayLayoutDimensions',[3 1]),extmg"
 	  "r.Configuration('Tools','Plot Navigation',true,'PreviousAutoscale','XY','OnceAtStop',false),extmgr.Configuration('T"
-	  "ools','Measurements',true,'Version','2016a')),'Version','2016a','Position',[974 -3 917 939])"
+	  "ools','Measurements',true,'Version','2016a')),'Version','2016a','Position',[974 27 907 937])"
 	  NumInputPorts		  "3"
 	}
 	Block {
@@ -48171,20 +48193,20 @@ Model {
 	  "Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sources"
 	  "','WiredSimulink',true,'DataLoggingVariableName','ScopeData1','DataLoggingLimitDataPoints',true,'DataLoggingSaveFor"
 	  "mat','Array','DataLoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visuals','Time Domai"
-	  "n',true,'SerializedDisplays',{struct('MinYLimReal','-0.23157','MaxYLimReal','0.61553','YLabelReal','','MinYLimMag',"
-	  "'0.00000','MaxYLimMag','0.61553','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor"
+	  "n',true,'SerializedDisplays',{struct('MinYLimReal','-0.22811','MaxYLimReal','0.58502','YLabelReal','','MinYLimMag',"
+	  "'0.00000','MaxYLimMag','0.58502','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor"
 	  "',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666"
 	  "667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608"
 	  " 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.65098039215"
 	  "6863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{"
 	  "{'MPC /COMref:1','MPC /COMref:2','MPC /COMref:3'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',str"
-	  "uct('MinYLimReal','-0.23157','MaxYLimReal','0.61553','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','0.61553',"
+	  "uct('MinYLimReal','-0.22811','MaxYLimReal','0.58502','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','0.58502',"
 	  "'LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.6862"
 	  "74509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705"
 	  "882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.8313725490"
 	  "19608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configuration('Too"
 	  "ls','Plot Navigation',true,'PreviousAutoscale','XY','OnceAtStop',false,'PreviousZoomMode','ZoomX'),extmgr.Configura"
-	  "tion('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Position',[843 149 887 339])"
+	  "tion('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Position',[903 102 887 339])"
 	}
 	Block {
 	  BlockType		  Selector
@@ -48314,7 +48336,7 @@ Model {
 	      Ports		      [4, 1]
 	      Position		      [915, 71, 1100, 134]
 	      ZOrder		      73
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Centroidal Momentum"
 	      SourceType	      "Centroidal Momentum"
 	      ContentPreviewEnabled   off
@@ -48330,7 +48352,7 @@ Model {
 	      Ports		      [2, 1]
 	      Position		      [360, 285, 520, 340]
 	      ZOrder		      40
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	      SourceType	      "Jacobian"
 	      ContentPreviewEnabled   off
@@ -48700,7 +48722,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 20, 295, 80]
 		  ZOrder		  569
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -48717,7 +48739,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [130, 105, 295, 165]
 		  ZOrder		  572
-		  LibraryVersion	  "1.375"
+		  LibraryVersion	  "1.377"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -48918,7 +48940,7 @@ Model {
 	  Position		  [1230, 618, 1390, 662]
 	  ZOrder		  541
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 	  SourceType		  "Forward Kinematics"
 	  ContentPreviewEnabled	  off
@@ -48972,7 +48994,7 @@ Model {
 	  Position		  [1230, 670, 1390, 710]
 	  ZOrder		  543
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 	  SourceType		  "Forward Kinematics"
 	  ContentPreviewEnabled	  off
@@ -49975,7 +49997,7 @@ Model {
 	      Ports		      [2, 1]
 	      Position		      [115, 230, 280, 290]
 	      ZOrder		      578
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 	      SourceType	      "Forward Kinematics"
 	      ContentPreviewEnabled   off
@@ -51222,7 +51244,7 @@ Model {
 	  ZOrder		  551
 	  BackgroundColor	  "[0.513725, 0.850980, 0.670588]"
 	  ShowName		  off
-	  LibraryVersion	  "1.375"
+	  LibraryVersion	  "1.377"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Limits"
 	  SourceType		  "Get Estimate"
 	  ContentPreviewEnabled	  off
@@ -51455,7 +51477,7 @@ Model {
       Variant		      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		64
+	$ObjectID		65
 	$ClassName		"Simulink.Mask"
 	Display			"disp('SYNCHRONIZER')"
       }
@@ -51515,7 +51537,7 @@ Model {
 	      ZOrder		      539
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
 	      SourceType	      "Simulator Synchronizer"
 	      period		      "CONFIG.Ts"
@@ -51591,7 +51613,7 @@ Model {
 	      ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
 	      BackgroundColor	      "gray"
 	      ShowName		      off
-	      LibraryVersion	      "1.375"
+	      LibraryVersion	      "1.377"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
 	      SourceType	      "Real Time Synchronizer"
 	      period		      "CONFIG.Ts"
@@ -64003,10 +64025,7 @@ Stateflow {
     firstTransition	    577
     firstJunction	    576
     viewObj		    569
-    visible		    1
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
