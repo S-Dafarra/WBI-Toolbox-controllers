@@ -154,6 +154,23 @@ if strcmpi(SM.SM_TYPE, 'STEP')
    mpc_init.footSize        = [ -0.05   0.05 ;    % xMin, xMax
                                 -0.03   0.03];   % yMin, yMax 
    mpc_init.minHeightRatio  = 0; %no more used
+   
+   
+%% Pseudo-Inverse-Kinematics
+
+% Feet gains for inverse kinematics
+gain.ikin.kpfeet                 = 5;
+gain.ikin.kdfeet                 = 2*sqrt(gain.ikin.kpfeet);
+
+gain.ikin.kp                 = diag([50   100  50]);
+gain.ikin.kd                 = 2*sqrt(gain.ikin.kp);
+gain.ikin.kpsole             = diag([50   100  50])*2;
+gain.ikin.kdsole             = 2*sqrt(gain.ikin.kp); 
+
+ %                          %   TORSO  %%  LEFT ARM       %%      RIGHT ARM  %%     LEFT LEG            %%         RIGHT LEG         %% 
+gain.ikin.impedances      = [10   30   20, 10    10   10   8, 10   10   10   8, 30  50   30    60   50  50, 30   50   30    60   5   5];
+gain.ikin.dampings        = 2*sqrt(gain.ikin.impedances);
+
        
 end               
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                      

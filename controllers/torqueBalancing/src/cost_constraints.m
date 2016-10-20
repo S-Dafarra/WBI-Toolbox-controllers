@@ -58,7 +58,7 @@ G = repmat(G_gamma,nsteps,1);
 
 
 %Ev = zeros(state_dim);
-Ev = zeros(9*nsteps,state_dim);
+Ev = zeros(9*nsteps,state_dim); 
 
 Ev(1:9,:)=[zeros(9,9*nsteps),F_gamma,zeros(9,(nsteps-1)*12)]; %first step of integration
 %Ev((9*nsteps +1):end,:) = [zeros(12*nsteps,9*nsteps),eye(12*nsteps)]; %forces are equal to themselves

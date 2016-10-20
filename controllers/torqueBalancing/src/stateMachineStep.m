@@ -3,7 +3,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
     stateMachineStep(CoM_0, q0, l_sole_CoM,r_sole_CoM,qj, t, ...
                   wrench_rightFoot,wrench_leftFoot,l_sole_H_b, r_sole_H_b,...
                   sm,gain, STEP_DOWN, r_CxP, COM_l_v, MAKE_A_STEP,...
-                  q_step_legs, COM_ref, l_solex, r_solex)
+                  q_step, COM_ref, l_solex, r_solex)
     %#codegen
     persistent state;
     persistent tSwitch;
@@ -354,7 +354,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
     impedances  = gain.impedances(state,:);
     kpCom       = gain.PCOM(state,:);   
     kdCom       = gain.DCOM(state,:);
-    qDes        = [sm.joints.states(state,1:11),q_step_legs']';
+    qDes        = q_step;
     %qDes = sm.joints.pointsL(1,2:end)';
     
     if t_previous < 0
@@ -373,7 +373,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
             state = 15;
             tSwitch = t;
             t_previous = -1; %resetting
-            q_before = q_step_legs;
+            q_before = q_step;
             t_debounce = -1;
             COMconstRef = -ones(3,1);
            % w_H_fixedLink   = w_H_fixedLink*l_sole_H_b/r_sole_H_b;

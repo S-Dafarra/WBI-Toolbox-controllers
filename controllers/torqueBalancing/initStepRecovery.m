@@ -129,6 +129,7 @@ baseToWorldRotationPort  = ['/' WBT_modelName '/floatingBaseRotationMatrix:i'];
 run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/gains.m'));
 
 addpath('./src/')
+addpath('./src/pseudo-ik-src/')
 addpath('../utilityMatlabFunctions/')
 
 
