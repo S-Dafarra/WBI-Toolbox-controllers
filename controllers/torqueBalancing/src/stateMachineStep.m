@@ -363,7 +363,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
     
     sim_pend = COM_prev_l(1:2) + (t-t_previous)*COM_l_v(1:2) + 0.5* (t-t_previous)^2 * 9.81/CoM_0(3) * (COM_prev_l(1:2) - r_CxP(1:2)); 
     %CoMDes      = [sim_pend;0.8*CoM_0(3)];
-    CoMDes = COM_ref(1:3);
+    CoMDes = COM_ref(1:3)+gain.COM_offset(:,1);
     t_previous = t;
     
     if wrench_rightFoot(3) < (sm.wrench.thresholdContactOn + 20)
@@ -393,13 +393,13 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
         %CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_b_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';
         
         if COMconstRef(3) == -1
-            COMconstRef = ([l_solex(1:2);CoM_0(3)] + [r_solex(1:2);CoM_0(3)])/2 + [0.02;0;0]; %cop %[0.05;0.05;0];  %lip          
+            COMconstRef = ([l_solex(1:2);CoM_0(3)] + [r_solex(1:2);CoM_0(3)])/2 + gain.COM_offset(:,2);%[0.02;0;0]; %cop %[0.05;0.05;0];  %lip          
         end
         
         CoMDes = COMconstRef;
         
         if ((t-tSwitch) < 0.5)
-            CoMDes = CoMDes + [0.02;0.03;0]; %cop %[0.05;0.05;0];  %lip
+            CoMDes = CoMDes + gain.COM_offset(:,3);%[0.02;0.03;0]; %cop %[0.05;0.05;0];  %lip
             SMOOTH_com = 0; 
         else SMOOTH_com = 1; 
         end

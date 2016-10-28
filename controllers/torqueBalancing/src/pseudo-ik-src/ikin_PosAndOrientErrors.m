@@ -18,5 +18,5 @@ iKinSoleCorr    = [(-gain.ikin.kpsole*cartesian_err(:,1) -gain.ikin.kdsole*lFoot
                
 
 %% Posture errors
-iKinPostCorr    = posturesDes(:,3)-gain.ikin.impedances*(qj-posturesDes(:,1))-gain.ikin.dampings*(dqj-posturesDes(:,2));
+iKinPostCorr    = posturesDes(:,3)-diag(gain.ikin.impedances)*(qj-posturesDes(:,1))-diag(gain.ikin.dampings)*(dqj-posturesDes(:,2));
 end

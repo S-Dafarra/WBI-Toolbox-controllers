@@ -54,7 +54,11 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     %Foot placement offset
     gain.ik_offset = [+0.02;-0.02; 0.02*0];
     gain.ik_rotation  = [0; -30/2*0; -15];   %X,Y,Z cartesian angles (deg)
-    gain.COM_offset = [0;0;-0.03*0];
+    
+                       %falling    %restoring (part1)   %restoring (part2)
+    gain.COM_offset = [      0,          0.02,                  0.02;
+                             0,             0,                  0.03;    
+                             0,             0,                     0];
                               
                    
     forceFrictionCoefficient     = 1/3;  
@@ -79,7 +83,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         10    50  10;  % state == 12  LOOKING FOR CONTACT
                         10    50  10;  % state == 13  TRANSITION TO INITIAL POSITION
                         20    70+10   5;  % state == 14  FALLING
-                        20    65-15   5]; % state == 15  RESTORING
+                        20    65-15*0   5]; % state == 15  RESTORING
                     
     gain.PCOM  =  gain.PCOM;
     gain.ICOM  = gain.PCOM*0;
@@ -162,14 +166,18 @@ if strcmpi(SM.SM_TYPE, 'STEP')
 %First task: correction of feet position
 gain.ikin.kpfeet                 = 5;
 gain.ikin.kdfeet                 = 2*sqrt(gain.ikin.kpfeet);
-%@nd
-gain.ikin.kp                 = diag([50   100  50]);
-gain.ikin.kd                 = 2*sqrt(gain.ikin.kp);
-gain.ikin.kpsole             = diag([50   100  50])*10;
-gain.ikin.kdsole             = 2*sqrt(gain.ikin.kp); 
 
- %                          %   TORSO  %%  LEFT ARM       %%      RIGHT ARM  %%     LEFT LEG            %%         RIGHT LEG         %% 
-gain.ikin.impedances      = [10   30   20, 10    10   10   8, 10   10   10   8, 30  50   30    60   50  50, 30   50   30    60   5   5];
+%2nd task - Cartesian position of the swing foot
+gain.ikin.kpsole             = diag([100   200  100]);
+gain.ikin.kdsole             = 2*sqrt(gain.ikin.kpsole);
+
+%3rd task - CoM dynamics
+gain.ikin.kp                 = diag([25   50  25]);
+gain.ikin.kd                 = 2*sqrt(gain.ikin.kp);
+ 
+
+%4th task - postural          %   TORSO  %%  LEFT ARM       %%      RIGHT ARM  %%     LEFT LEG            %%         RIGHT LEG         %% 
+gain.ikin.impedances      = [100   300   200, 10    10   10   8, 10   10   10   8, 30  50   30    60   50  50, 30   50   30    60   5   5];
 gain.ikin.dampings        = 2*sqrt(gain.ikin.impedances);
 
        
