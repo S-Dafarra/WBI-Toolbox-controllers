@@ -1,9 +1,9 @@
 %% OVERWRITING SOME OF THE PARAMETERS CONTAINED IN gains.m WHEN USING FSM
 if strcmpi(SM.SM_TYPE, 'STEP')
     
-    PORTS.WBDT_LEFTLEG_EE  = '/wholeBodyDynamicsTree/left_foot/cartesianEndEffectorWrench:o';
-    PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamicsTree/right_foot/cartesianEndEffectorWrench:o';
-    PORTS.WBDT_CHEST       = '/wholeBodyDynamicsTree/torso/cartesianEndEffectorWrench:o';
+    PORTS.WBDT_LEFTLEG_EE  = '/wholeBodyDynamics/left_foot/cartesianEndEffectorWrench:o';
+    PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamics/right_foot/cartesianEndEffectorWrench:o';
+    PORTS.WBDT_CHEST       = '/wholeBodyDynamics/torso/cartesianEndEffectorWrench:o';
         
     CONFIG.SMOOTH_DES_COM      = 1;    % If equal to one, the desired streamed values 
                                        % of the center of mass are smoothed internally 
@@ -13,7 +13,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     CONFIG.SR.TECHNIQUE        = 0;    %0 uses Capture Point, 1 uses FPE, 2 an alternative method of computing the CP
    
     %%Just related to Capture point
-    CONFIG.SR.CP.robotStepTime    = 0.6; %seconds for the robot to take a step
+    CONFIG.SR.CP.robotStepTime    = 0.55; %seconds for the robot to take a step
     CONFIG.SR.CP.MODEL            = 0;    %0 uses the simple LIP, 1 the LIP plus finite sized foot, 2 the LIP plus foot and flywheel
     CONFIG.SR.CP.FF               = 0;    %0 uses no feed-forward, 1 adds the COP position (in foot local frame) to the desired foot position. With 2 is the same, but uses the CMP                                
 
@@ -26,19 +26,13 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     reg.dampings               = 0;
     reg.HessianQP              = 1e-3;
 
-    
-    reg.EnSlack = 1; %enables the use of slack variables in the QP for two feet.
-    gain.slack_weight = blkdiag(1e11*eye(3),1e8*eye(3)); %relative weight of slack variables
-    
-    
     sat.torque                 = 60;
 
-    gain.footSize              = [ -0.05   0.10 ;    % xMin, xMax
-                                   -0.03   0.03];   % yMin, yMax 
+    gain.footSize              = [ -0.07  0.12 ;    % xMin, xMax
+                                   -0.025 0.04 ];   % yMin, yMax  
                                
-    gain.footSize_step        = [ -0.03   0.05 ;    % xMin, xMax
+    gain.footSize_step        = [ -0.07   0.08 ;    % xMin, xMax
                                   -0.02   0.02];   % yMin, yMax 
-    
     %The step recovery estimators will be not considered for triggering a step
     %if they are outside the shadowed region (when balancing on a single foot)                               
     gain.l_foot_shadowed      = [ -0.01   inf;    % xMin, xMax
@@ -50,7 +44,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     %Leg length
     gain.leg_length           = 0.6; %from root to the sole
     gain.minimum_height       = 0.3; %minimum heigth that the root can reach.
-    gain.min_step_length      = 0.1; %minimum distance between the ankle centres after a step
+    gain.min_step_length      = 0.15; %minimum distance between the ankle centres after a step
     
     %COP gain
     gain.cop_gain             = 10;
@@ -58,10 +52,10 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     
     %Foot placement offset
     gain.ik_offset = [+0.02;-0.02; 0.02*0];
-    gain.ik_rotation  = [5; -30/2*0; -20];   %X,Y,Z cartesian angles (deg)
+    gain.ik_rotation  = [0; -30/2*0; -15];   %X,Y,Z cartesian angles (deg)
     
                        %falling    %restoring (part1)   %restoring (part2)
-    gain.COM_offset = [      0,          0.02,                  0.02;
+    gain.COM_offset = [      0.02,          0.02,                  0.02;
                              0,             0,                  0.03;    
                              0,             0,                     0];
                               
@@ -115,59 +109,48 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     % state == 13  TRANSITION TO INITIAL POSITION
 
 
-    %                   %   TORSO  %%      LEFT ARM   %%      RIGHT ARM   %%         LEFT LEG            %%         RIGHT LEG           %% 
-    gain.impedances  = [10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state ==  1  TWO FEET BALANCING
-                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state ==  2  COM TRANSITION TO LEFT 
-                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state ==  3  LEFT FOOT BALANCING
-                        30   30   30, 10   10    10   10, 10   10    10   10, 50   50  250   200     50  50, 50   50   50    50     50  50  % state ==  4  YOGA LEFT FOOT 
-                        30   30   30, 10   10    10   10, 10   10    10   10, 30   50  300    60     50  50, 30   50   30    60     50  50  % state ==  5  PREPARING FOR SWITCHING 
-                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state ==  6  LOOKING FOR CONTACT
-                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state ==  7  TRANSITION TO INITIAL POSITION 
-                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state ==  8  COM TRANSITION TO RIGHT FOOT
-                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state ==  9  RIGHT FOOT BALANCING
-                        30   30   30, 10   10    10   10, 10   10    10   10, 50   50   50    50     50  50, 50   50  250   200     50  50  % state == 10  YOGA RIGHT FOOT 
-                        30   30   30, 10   10    10   10, 10   10    10   10, 30   50   30    60     50  50, 30   50  300    60     50  50  % state == 11  PREPARING FOR SWITCHING 
-                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 12  LOOKING FOR CONTACT
-                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 13  TRANSITION TO INITIAL POSITION
-                  10*10   30*10   20*10, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60      5   5  % state == 14  FALLING
-                        10   30   20, 10   10    10    8, 10   10    10    8,  5    5    5     5      5   5,  5    5    5     5      1   1];% state == 15  RESTORING
+   %                   %   TORSO  %%      LEFT ARM   %%      RIGHT ARM   %%         LEFT LEG            %%         RIGHT LEG           %% 
+    gain.impedances  = [10   10   20, 10   10    10    8, 10   10    10    8, 30   30   20    20    100 100, 30   50   30    60    100 100  % state ==  1  TWO FEET BALANCING
+                        10   10   20, 10   10    10    8, 10   10    10    8, 30   30   20    20    100 100, 30   50   30    60    100 100  % state ==  2  COM TRANSITION TO LEFT 
+                        10   10   20, 10   10    10    8, 10   10    10    8, 30   50   30    60    100 100, 30   30   20    20    100 100  % state ==  3  LEFT FOOT BALANCING
+                        30   30   30, 10   10    10   10, 10   10    10   10,100  200  100   400    100 100,100   50   30   100    100 100  % state ==  4  YOGA LEFT FOOT 
+                        30   30   30,  5    5    10   10, 10   10    20   10,200  250   20    20     10  10,220  550  220   200     65 300  % state ==  5  PREPARING FOR SWITCHING 
+                        30   30   30, 10   10    20   10, 10   10    20   10,100  350   20   200     10 100,220  550  220   200     65 300  % state ==  6  LOOKING FOR CONTACT
+                        10   10   20, 10   10    10    8, 10   10    10    8, 30   50   60    30      5   5, 30   30   30    20      5   5  % state ==  7  TRANSITION TO INITIAL POSITION 
+                        10   10   20, 10   10    10    8, 10   10    10    8, 30   50   60    30    100 100, 30   30   30    20    100 100  % state ==  8  COM TRANSITION TO RIGHT FOOT
+                        10   10   20, 10   10    10    8, 10   10    10    8, 30   50   30    60    100 100, 30   30   20    20    100 100  % state ==  9  RIGHT FOOT BALANCING
+                        30   30   30, 10   10    10   10, 10   10    10   10,100   50   30   100    100 100,100  200  100   400    100 100  % state == 10  YOGA RIGHT FOOT 
+                        30   30   30, 10   10    10   10, 10   10    10   10,220  550  220   200     65 300,200  250   20    20     10  10  % state == 11  PREPARING FOR SWITCHING 
+                        30   30   30, 10   10    10   10, 10   10    10   10,220  550  220   200     65 300,100  350   20   200     10 100  % state == 12  LOOKING FOR CONTACT
+                        30   30   30, 10   10    10   10, 10   10    10   10,100   50   30   100    100 100,100  200   20   400    100 100  % state == 13  TRANSITION TO INITIAL POSITION
+                        10   30   20, 10   10    10    8, 10   10    10    8, 60  100   60   120     50  50, 150   100  60    120      40  40  % state == 14  FALLING
+                        10   30   20, 10   10    10    8, 10   10    10    8,  1    1    1     2     50  50, 10   10   10    10      1   1];% state == 15  RESTORING
    
    %% MPC parameters
    mpc_init.nsteps = 15;
    mpc_init.tstep = 0.6;
-   mpc_init.ENABLE = 1;
-%    %                                        Kp                               Kd                     Kw
-%    mpc_init.gains.COM = 1e5*[[0*gain.PCOM(15,1:2)';100],[2*sqrt(50);100*sqrt(65);2*sqrt(100)],1e1*ones(3,1)*gain.PAngularMomentum];
-%    
-%    %                  Kcipx;   Kicpy
-%    mpc_init.gains.ICP = 1e4*[10;    10];
-%    
-%    %                   Kpf,     Kdfs
-%    mpc_init.gains.F = [[ 2;
-%                          2;
-%                          0.01;
-%                          2;
-%                          2;
-%                          2;
-%                          2;
-%                          2;
-%                          0.01;
-%                          2;
-%                          2;
-%                          2],0.01*ones(12,1)];
-%                      
-%    mpc_init.gains.TerCOM = 1e6*[[50;65;0],[20*sqrt(50);20*sqrt(65);1*sqrt(100)],0*ones(3,1)*gain.PAngularMomentum];
-
-   %                        Kp         Kd           Kw
-   mpc_init.gains.COM = [[0;0;100],[1000;1000;2*sqrt(100)],1e5*ones(3,1)];
+   mpc_init.ENABLE = 0;
+   %                         Kp                  Kd                     Kw
+   mpc_init.gains.COM = 1e5*[[0*gain.PCOM(15,1:2)';100],[2*sqrt(50);100*sqrt(65);1*sqrt(100)],1e1*ones(3,1)*gain.PAngularMomentum];
    
-   %                   Kcipx;  Kicpy
-   mpc_init.gains.ICP = [1000;   1000];
+   %                  Kcipx;   Kicpy
+   mpc_init.gains.ICP = 1e5*[10;    10];
    
    %                   Kpf,     Kdfs
-   mpc_init.gains.F = 1e-3*[[ 2; 2; 0.01; 20; 20; 20; 2; 2; 0.01; 20; 20; 20],0.1*ones(12,1)];
+   mpc_init.gains.F = [[ 2;
+                         2;
+                         0.01;
+                         2;
+                         2;
+                         2;
+                         2;
+                         2;
+                         0.01;
+                         2;
+                         2;
+                         2],0.01*ones(12,1)];
                      
-   mpc_init.gains.TerCOM = [[1500;3000;0],[100; 100; 0],zeros(3,1)];
+   mpc_init.gains.TerCOM = 5e5*[[50;65;0],[20*sqrt(50);20*sqrt(65);1*sqrt(100)],0*ones(3,1)*gain.PAngularMomentum];
                      
    mpc_init.COMoffset = [0.05;0;0];
    

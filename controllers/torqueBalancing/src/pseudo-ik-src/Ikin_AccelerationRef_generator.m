@@ -1,21 +1,34 @@
-function dotNu_ikin   = Ikin_AccelerationRef_generator(JFeet, JCoM, JPosture, dJFeetNu, dJCoMNu,iKinFeetCorr, iKinComCorr, iKinPostCorr)
+function dotNu_ikin   = Ikin_AccelerationRef_generator(Jc, Jcom, Jsole, Jp, dJcNu, dJcomNu, dJsoleNu, iKinFeetCorr, iKinComCorr, iKinSoleCorr, iKinPostCorr)
 
 %setup parameters
-n_joints  = length(JCoM(1,7:end));
+n_joints  = length(Jcom(1,7:end));
 PINV_TOL  = 5e-7;  
 
 % null space projectors for primary and secondary task
-NullFeet   = eye(6+n_joints) - pinv(JFeet,PINV_TOL)*JFeet;
-NullCoM    = eye(6+n_joints) - pinv(JCoM*NullFeet,PINV_TOL)*JCoM*NullFeet;
+Nc    = eye(6+n_joints) - pinv(Jc,PINV_TOL)*Jc;
+Ncom  = eye(6+n_joints) - pinv(Jcom*Nc,PINV_TOL)*Jcom*Nc;
+Nsole = eye(6+n_joints) - pinv(Jsole*Ncom*Nc,PINV_TOL)*Jsole*Ncom*Nc;
 
-%reference acceleration calculation: primary task: feet position and orientation
-dotNu_feet   = pinv(JFeet,PINV_TOL)*(iKinFeetCorr - dJFeetNu);
+%reference acceleration calculation
+dotNu_feet   = pinv(Jc,PINV_TOL)*(iKinFeetCorr - dJcNu);
 
-%secondary task: CoM dynamics
-dotNu_com    =  pinv(JCoM*NullFeet, PINV_TOL)*(iKinComCorr - dJCoMNu - JCoM*dotNu_feet);
+dotNu_sole   = pinv(Jsole*Nc)*(iKinSoleCorr - dJsoleNu - Jsole*dotNu_feet); 
 
-%third task: posture
-dotNu_post   = pinv(JPosture*NullFeet*NullCoM, PINV_TOL)*(iKinPostCorr - JPosture*dotNu_feet -JPosture*NullFeet*dotNu_com);
+dotNu_com    = pinv(Jcom*Nc*Nsole, PINV_TOL)*(iKinComCorr - dJcomNu - Jcom*dotNu_feet - Jcom*Nc*dotNu_sole);
 
-dotNu_ikin   = dotNu_feet + NullFeet*(dotNu_com + NullCoM*dotNu_post);
+dotNu_post   = pinv(Jp*Nc*Nsole*Ncom, PINV_TOL)*(iKinPostCorr - Jp*dotNu_feet -Jp*Nc*dotNu_sole-Jp*Nc*Nsole*dotNu_com);
+
+dotNu_ikin   = dotNu_feet + Nc*(dotNu_sole + Nsole*(dotNu_com + Ncom*dotNu_post));
+
 end
+
+% %reference acceleration calculation
+% dotNu_feet   = pinv(Jc,PINV_TOL)*(iKinFeetCorr - dJcNu);
+% 
+% dotNu_com    = pinv(Jcom*Nc, PINV_TOL)*(iKinComCorr - dJcomNu - Jcom*dotNu_feet);
+% 
+% dotNu_sole   = pinv(Jsole*Nc*Ncom)*(iKinSoleCorr - dJsoleNu - Jsole*dotNu_feet - Jsole*Nc*dotNu_com); 
+% 
+% dotNu_post   = pinv(Jp*Nc*Ncom*Nsole, PINV_TOL)*(iKinPostCorr - Jp*dotNu_feet -Jp*Nc*dotNu_com-Jp*Nc*Ncom*dotNu_sole);
+% 
+% dotNu_ikin   = dotNu_feet + Nc*(dotNu_com + Ncom*(dotNu_sole + Nsole*dotNu_post));

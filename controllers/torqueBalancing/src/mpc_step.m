@@ -98,6 +98,6 @@ exitflag = 1;
 COM_des_out = zeros(9,1);
 COMref = zeros(3,1);
 
-coder.extrinsic('solve_mpc')
-[f(:),COM_des_out(:,:),exitflag(:),COMref(:,:)] = solve_mpc(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, 9.81, f_prev, COMref_prev, zeros(3,1), COMdesfilt, mpc_init.COMoffset(1:2),minZ, gains, gamma0, nsteps, dT, k_impact); 
+coder.extrinsic('solve_mpc_cvx')
+[f(:),COM_des_out(:,:),exitflag(:),COMref(:,:)] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, 9.81, f_prev, COMref_prev, zeros(3,1), COMdesfilt, mpc_init.COMoffset(1:2),minZ, gains, gamma0, nsteps, dT, k_impact); 
 COMref_prev = COMref;
