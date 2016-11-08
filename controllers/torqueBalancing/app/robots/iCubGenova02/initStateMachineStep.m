@@ -3,7 +3,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     
     PORTS.WBDT_LEFTLEG_EE  = '/wholeBodyDynamics/left_foot/cartesianEndEffectorWrench:o';
     PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamics/right_foot/cartesianEndEffectorWrench:o';
-    PORTS.WBDT_CHEST       = '/wholeBodyDynamics/torso/cartesianEndEffectorWrench:o';
+    PORTS.WBDT_CHEST       = '/wholeBodyDynamics/torso/endEffectorWrench:o';
         
     CONFIG.SMOOTH_DES_COM      = 1;    % If equal to one, the desired streamed values 
                                        % of the center of mass are smoothed internally 
@@ -25,11 +25,14 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     reg.impedances             = 0.1;
     reg.dampings               = 0;
     reg.HessianQP              = 1e-3;
+    
+    reg.EnSlack = 0; %enables the use of slack variables in the QP for two feet.
+    gain.slack_weight = blkdiag(1e11*eye(3),1e8*eye(3)); %relative weight of slack variables
 
     sat.torque                 = 60;
 
-    gain.footSize              = [ -0.07  0.12 ;    % xMin, xMax
-                                   -0.025 0.04 ];   % yMin, yMax  
+     gain.footSize  = [ -0.07  0.12   ;    % xMin, xMax
+                       -0.045 0.05 ];   % yMin, yMax  
                                
     gain.footSize_step        = [ -0.07   0.08 ;    % xMin, xMax
                                   -0.02   0.02];   % yMin, yMax 
@@ -66,30 +69,30 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     gain.SmoothingTimeGainScheduling              = 0.01;  
 
     %Smoothing time for time-varying constraints
-    %CONFIG.smoothingTimeTranDynamics  = 0.02; not used
-
-    gain.PCOM     =    [10    50  10;  % state ==  1  TWO FEET BALANCING
-                        10    50  10;  % state ==  2  COM TRANSITION TO LEFT 
-                        10    50  10;  % state ==  3  LEFT FOOT BALANCING
-                        10    50  10;  % state ==  4  YOGA LEFT FOOT 
-                        10    50  10;  % state ==  5  PREPARING FOR SWITCHING 
-                        10    50  10;  % state ==  6  LOOKING FOR CONTACT
-                        10    50  10;  % state ==  7  TRANSITION TO INITIAL POSITION 
-                        10    50  10;  % state ==  8  COM TRANSITION TO RIGHT FOOT
-                        10    50  10;  % state ==  9  RIGHT FOOT BALANCING
-                        10    50  10;  % state == 10  YOGA RIGHT FOOT 
-                        10    50  10;  % state == 11  PREPARING FOR SWITCHING 
-                        10    50  10;  % state == 12  LOOKING FOR CONTACT
-                        10    50  10;  % state == 13  TRANSITION TO INITIAL POSITION
-                        20    70+10   5;  % state == 14  FALLING
-                        20    65-15*0   5]; % state == 15  RESTORING
+    CONFIG.smoothingTimeTranDynamics  = 0.02; 
+    
+    gain.PCOM     =    [50    50  10;  % state ==  1  TWO FEET BALANCING
+                        50    50  10;  % state ==  2  COM TRANSITION TO LEFT 
+                        50    50  10;  % state ==  3  LEFT FOOT BALANCING
+                        50    50  10;  % state ==  4  YOGA LEFT FOOT 
+                        50    50  10;  % state ==  5  PREPARING FOR SWITCHING 
+                        50    50  10;  % state ==  6  LOOKING FOR CONTACT
+                        50    50  10;  % state ==  7  TRANSITION TO INITIAL POSITION 
+                        50    50  10;  % state ==  8  COM TRANSITION TO RIGHT FOOT
+                        50    50  10;  % state ==  9  RIGHT FOOT BALANCING
+                        50    50  10;  % state == 10  YOGA RIGHT FOOT 
+                        50    50  10;  % state == 11  PREPARING FOR SWITCHING 
+                        50    50  10;  % state == 12  LOOKING FOR CONTACT
+                        50    50  10;  % state == 13  TRANSITION TO INITIAL POSITION
+                        50    60  10;  % state == 14  FALLING
+                        30    40  10]; % state == 15  RESTORING
                     
     gain.PCOM  =  gain.PCOM;
     gain.ICOM  = gain.PCOM*0;
-    gain.DCOM  = 2*sqrt(gain.PCOM);
-    gain.DCOM(14:15,1)  = gain.DCOM(14:15,1)/40;
+    gain.DCOM  = 2*sqrt(gain.PCOM)/20;
+    gain.DCOM(14:15,1)  = gain.DCOM(14:15,1)/8;
 
-    gain.PAngularMomentum  = 0.25*10;
+    gain.PAngularMomentum  = 0.25;
     gain.DAngularMomentum  = 2*sqrt(gain.PAngularMomentum);
 
     % state ==  1  TWO FEET BALANCING
@@ -110,9 +113,9 @@ if strcmpi(SM.SM_TYPE, 'STEP')
 
 
    %                   %   TORSO  %%      LEFT ARM   %%      RIGHT ARM   %%         LEFT LEG            %%         RIGHT LEG           %% 
-    gain.impedances  = [10   10   20, 10   10    10    8, 10   10    10    8, 30   30   20    20    100 100, 30   50   30    60    100 100  % state ==  1  TWO FEET BALANCING
-                        10   10   20, 10   10    10    8, 10   10    10    8, 30   30   20    20    100 100, 30   50   30    60    100 100  % state ==  2  COM TRANSITION TO LEFT 
-                        10   10   20, 10   10    10    8, 10   10    10    8, 30   50   30    60    100 100, 30   30   20    20    100 100  % state ==  3  LEFT FOOT BALANCING
+    gain.impedances  = [10   30   20, 10   10    10    8, 10   10    10    8, 30   30   20    20    100 100, 30   50   30    60    100 100  % state ==  1  TWO FEET BALANCING
+                        10   30   20, 10   10    10    8, 10   10    10    8, 30   30   20    20    100 100, 30   50   30    60    100 100  % state ==  2  COM TRANSITION TO LEFT 
+                        10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60    100 100, 30   30   20    20    100 100  % state ==  3  LEFT FOOT BALANCING
                         30   30   30, 10   10    10   10, 10   10    10   10,100  200  100   400    100 100,100   50   30   100    100 100  % state ==  4  YOGA LEFT FOOT 
                         30   30   30,  5    5    10   10, 10   10    20   10,200  250   20    20     10  10,220  550  220   200     65 300  % state ==  5  PREPARING FOR SWITCHING 
                         30   30   30, 10   10    20   10, 10   10    20   10,100  350   20   200     10 100,220  550  220   200     65 300  % state ==  6  LOOKING FOR CONTACT
@@ -190,7 +193,7 @@ sm.yogaAlsoOnRightFoot           = true;
 sm.yogaInLoop                    = false;
 sm.com.threshold                 = 0.01;
 sm.wrench.thresholdContactOn     =  25;     % Force threshole above which contact is considered stable
-sm.wrench.thresholdContactOff    =  85;     % Force threshole under which contact is considered off
+sm.wrench.thresholdContactOff    =  100;     % Force threshole under which contact is considered off
 sm.joints                        = struct;
 sm.joints.thresholdNotInContact  =  5;    % Degrees
 sm.joints.thresholdInContact     = 50;      % Degrees
@@ -223,7 +226,7 @@ sm.jointsSmoothingTimes          = [5;   %% state ==  1  TWO FEET BALANCING
                                     2];  %% state == 15  RESTORING
                                 
 sm.com.states      = [0.0,  0.01,0.0   %% state ==  1  TWO FEET BALANCING NOT USED
-                      0.0,  0.01,0.0   %% state ==  2  COM TRANSITION TO LEFT FOOT: THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT FOOT
+                      0.0,  0.00,0.0   %% state ==  2  COM TRANSITION TO LEFT FOOT: THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT FOOT
                       0.0,  0.00,0.0   %% state ==  3  LEFT FOOT BALANCING 
                       0.0,  0.01,0.0   %% state ==  4  YOGA LEFT FOOT
                       0.0,  0.00,0.0   %% state ==  5  PREPARING FOR SWITCHING
@@ -240,7 +243,7 @@ sm.com.states      = [0.0,  0.01,0.0   %% state ==  1  TWO FEET BALANCING NOT US
                       0.0,  0.00,0.0   %% state == 14  FALLING: THIS REFERENCE IS IGNORED
                       0.0,  0.06,0.0];  %% state == 15  RESTORING
                   
-sm.tBalancing      = 0;%inf;%0.5;
+sm.tBalancing      = 1;%inf;%0.5;
 
 
 sm.joints.states = [[0.0864,0.0258,0.0152, ...                          %% state == 1  TWO FEET BALANCING, THIS REFERENCE IS IGNORED 

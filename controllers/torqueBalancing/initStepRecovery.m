@@ -26,10 +26,11 @@ clear; clc;
 % To do this, you can uncomment the 
 
 % setenv('YARP_ROBOT_NAME','iCubGenova01');
-% setenv('YARP_ROBOT_NAME','iCubGenova02');
+ setenv('YARP_ROBOT_NAME','iCubGenova02');
 % setenv('YARP_ROBOT_NAME','iCubDarmstadt01');
- setenv('YARP_ROBOT_NAME','icubGazeboSim');
+% setenv('YARP_ROBOT_NAME','icubGazeboSim');
 % setenv('YARP_ROBOT_NAME','iCubGenova05');
+
 
 % Simulation time in seconds
 CONFIG.SIMULATION_TIME     = inf;   
@@ -85,7 +86,7 @@ WBT_modelName            = 'matlabTorqueBalancing';
 % If set to true, the base orientation is estimated by using the IMU, while
 % the base position by assuming that the origin of either the right or the
 % left foot do not move. 
-CONFIG.USE_IMU4EST_BASE    = false;
+CONFIG.USE_IMU4EST_BASE    = true;
 
 % CONFIG.YAW_IMU_FILTER and CONFIG.PITCH_IMU_FILTER: when the flag
 % CONFIG.USE_IMU4EST_BASE = true, then the orientation of the floating base is
@@ -164,4 +165,8 @@ end
 
 [ConstraintsMatrixMPC,bVectorConstraintsMPC]= constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,mpc_init.footSize,fZmin);
 
-
+% CONFIG.ON_GAZEBO = 1;
+%     PORTS.WBDT_LEFTLEG_EE  = '/wholeBodyDynamicsTree/left_foot/cartesianEndEffectorWrench:o';
+%     PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamicsTree/right_foot/cartesianEndEffectorWrench:o';
+%     PORTS.IMU = '/icubGazeboSim/inertial';
+%     WBT_robotName = 'icubGazeboSim';
