@@ -31,11 +31,11 @@ if strcmpi(SM.SM_TYPE, 'STEP')
 
     sat.torque                 = 60;
 
-     gain.footSize  = [ -0.07  0.12   ;    % xMin, xMax
-                       -0.045 0.05 ];   % yMin, yMax  
+     gain.footSize  = [-0.03  0.10   ;    % xMin, xMax
+                       -0.03 +0.03];%-0.045 0.05 ];   % yMin, yMax  
                                
     gain.footSize_step        = [ -0.07   0.08 ;    % xMin, xMax
-                                  -0.02   0.02];   % yMin, yMax 
+                                  -0.03   0.03];   % yMin, yMax 
     %The step recovery estimators will be not considered for triggering a step
     %if they are outside the shadowed region (when balancing on a single foot)                               
     gain.l_foot_shadowed      = [ -0.01   inf;    % xMin, xMax
@@ -58,9 +58,9 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     gain.ik_rotation  = [0; -30/2*0; -15];   %X,Y,Z cartesian angles (deg)
     
                        %falling    %restoring (part1)   %restoring (part2)
-    gain.COM_offset = [      0.02,          0.02,                  0.02;
-                             0,             0,                  0.03;    
-                             0,             0,                     0];
+    gain.COM_offset = [      0.03,          0.04,                  0.02;
+                             0,              0,                    0.03;    
+                             0,              0,                      0];
                               
                    
     forceFrictionCoefficient     = 1/3;  
@@ -85,14 +85,15 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         50    50  10;  % state == 12  LOOKING FOR CONTACT
                         50    50  10;  % state == 13  TRANSITION TO INITIAL POSITION
                         50    60  10;  % state == 14  FALLING
-                        30    40  10]; % state == 15  RESTORING
+                        25    25  10]; % state == 15  RESTORING
                     
     gain.PCOM  =  gain.PCOM;
     gain.ICOM  = gain.PCOM*0;
-    gain.DCOM  = 2*sqrt(gain.PCOM)/20;
-    gain.DCOM(14:15,1)  = gain.DCOM(14:15,1)/8;
+    gain.DCOM  = 2*sqrt(gain.PCOM)/40;
+    gain.DCOM(14,:)  = gain.DCOM(14,:)*2;
+    gain.DCOM(15,:)  = gain.DCOM(15,:)*0;
 
-    gain.PAngularMomentum  = 0.25;
+    gain.PAngularMomentum  = 0.25*5;
     gain.DAngularMomentum  = 2*sqrt(gain.PAngularMomentum);
 
     % state ==  1  TWO FEET BALANCING
@@ -126,7 +127,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         30   30   30, 10   10    10   10, 10   10    10   10,220  550  220   200     65 300,200  250   20    20     10  10  % state == 11  PREPARING FOR SWITCHING 
                         30   30   30, 10   10    10   10, 10   10    10   10,220  550  220   200     65 300,100  350   20   200     10 100  % state == 12  LOOKING FOR CONTACT
                         30   30   30, 10   10    10   10, 10   10    10   10,100   50   30   100    100 100,100  200   20   400    100 100  % state == 13  TRANSITION TO INITIAL POSITION
-                        10   30   20, 10   10    10    8, 10   10    10    8, 60  100   60   120     50  50, 150   100  60    120      40  40  % state == 14  FALLING
+                        50   50   50, 10   10    10    8, 10   10    10    8, 60  100   60   120     50  50, 150   100  60    120      40  40  % state == 14  FALLING
                         10   30   20, 10   10    10    8, 10   10    10    8,  1    1    1     2     50  50, 10   10   10    10      1   1];% state == 15  RESTORING
    
    %% MPC parameters
@@ -192,7 +193,7 @@ sm.demoOnlyRightFoot             = false;
 sm.yogaAlsoOnRightFoot           = true;
 sm.yogaInLoop                    = false;
 sm.com.threshold                 = 0.01;
-sm.wrench.thresholdContactOn     =  25;     % Force threshole above which contact is considered stable
+sm.wrench.thresholdContactOn     =  50;     % Force threshole above which contact is considered stable
 sm.wrench.thresholdContactOff    =  100;     % Force threshole under which contact is considered off
 sm.joints                        = struct;
 sm.joints.thresholdNotInContact  =  5;    % Degrees
