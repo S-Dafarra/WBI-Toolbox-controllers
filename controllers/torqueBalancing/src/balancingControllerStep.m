@@ -204,21 +204,22 @@ function [tauModel,Sigma,pinvA,NA,f_HDot, ...
     %
     % which in terms of f0 is:
     %
-%     % ConstraintsMatrix2Feet*NA*f0 < bVectorConstraints - ConstraintsMatrix2Feet*f_HDot
-%     ConstraintsMatrixQP2Feet  = [ConstraintsMatrix2Feet*NA,ConstraintsMatrix2Feet*pinvA*reg.EnSlack];
-%     bVectorConstraintsQp2Feet = (bVectorConstraints2Feet-ConstraintsMatrix2Feet*f_HDot)';
+    % ConstraintsMatrix2Feet*NA*f0 < bVectorConstraints - ConstraintsMatrix2Feet*f_HDot
+    ConstraintsMatrixQP2Feet  = [ConstraintsMatrix2Feet*NA,ConstraintsMatrix2Feet*pinvA*reg.EnSlack];
+    bVectorConstraintsQp2Feet = (bVectorConstraints2Feet-ConstraintsMatrix2Feet*f_HDot)';
+     
+    % Evaluation of Hessian matrix and gradient vector for solving the
+    % optimization problem 1).
+    HessianMatrixQP2Feet      = [SigmaNA'*SigmaNA,zeros(12,6);zeros(6,12),gain.slack_weight] + eye(size(SigmaNA,2)+6)*reg.HessianQP;
+    gradientQP2Feet           = [(SigmaNA'*(tauModel + Sigma*f_HDot));zeros(6,1)]';
+  
+%      ConstraintsMatrixQP2Feet  = ConstraintsMatrix2Feet*NA;
+%      bVectorConstraintsQp2Feet = bVectorConstraints2Feet-ConstraintsMatrix2Feet*f_HDot;
 %     
 %     % Evaluation of Hessian matrix and gradient vector for solving the
 %     % optimization problem 1).
-%     HessianMatrixQP2Feet      = [SigmaNA'*SigmaNA,zeros(12,6);zeros(6,12),gain.slack_weight] + eye(size(SigmaNA,2)+6)*reg.HessianQP;
-%     gradientQP2Feet           = [(SigmaNA'*(tauModel + Sigma*f_HDot));zeros(6,1)]';
-    ConstraintsMatrixQP2Feet  = ConstraintsMatrix2Feet*NA;
-    bVectorConstraintsQp2Feet = bVectorConstraints2Feet-ConstraintsMatrix2Feet*f_HDot;
-    
-    % Evaluation of Hessian matrix and gradient vector for solving the
-    % optimization problem 1).
-    HessianMatrixQP2Feet      = SigmaNA'*SigmaNA + eye(size(SigmaNA,2))*reg.HessianQP;
-    gradientQP2Feet           = SigmaNA'*(tauModel + Sigma*f_HDot);
+%     HessianMatrixQP2Feet      = SigmaNA'*SigmaNA + eye(size(SigmaNA,2))*reg.HessianQP;
+%     gradientQP2Feet           = SigmaNA'*(tauModel + Sigma*f_HDot);
 
 
     %% QP PARAMETERS FOR ONE FOOT STANDING

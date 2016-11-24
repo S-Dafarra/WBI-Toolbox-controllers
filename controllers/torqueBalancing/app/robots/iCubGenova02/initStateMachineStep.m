@@ -3,7 +3,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     
     PORTS.WBDT_LEFTLEG_EE  = '/wholeBodyDynamics/left_foot/cartesianEndEffectorWrench:o';
     PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamics/right_foot/cartesianEndEffectorWrench:o';
-    PORTS.WBDT_CHEST       = '/wholeBodyDynamics/torso/endEffectorWrench:o';
+    PORTS.WBDT_CHEST       = '/wholeBodyDynamics/torso/cartesianEndEffectorWrench:o';
         
     CONFIG.SMOOTH_DES_COM      = 1;    % If equal to one, the desired streamed values 
                                        % of the center of mass are smoothed internally 
@@ -26,8 +26,8 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     reg.dampings               = 0;
     reg.HessianQP              = 1e-3;
     
-    reg.EnSlack = 0; %enables the use of slack variables in the QP for two feet.
-    gain.slack_weight = blkdiag(1e11*eye(3),1e8*eye(3)); %relative weight of slack variables
+    reg.EnSlack = 1; %enables the use of slack variables in the QP for two feet.
+    gain.slack_weight = blkdiag(1e10*eye(2),1e11,1e6*eye(3)); %relative weight of slack variables
 
     sat.torque                 = 60;
 
@@ -54,11 +54,12 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     gain.COP_weight           = 0; %relative weight in the optimization
     
     %Foot placement offset
+    CONFIG.useLocalIK = 0;  %0 remote IK, 1 -> local
     gain.ik_offset = [+0.02;-0.02; 0.02*0];
     gain.ik_rotation  = [0; -30/2*0; -15];   %X,Y,Z cartesian angles (deg)
     
                        %falling    %restoring (part1)   %restoring (part2)
-    gain.COM_offset = [      0.03,          0.04,                  0.02;
+    gain.COM_offset = [      0.01,          0.01,                  0.01;
                              0,              0,                    0.03;    
                              0,              0,                      0];
                               
@@ -74,7 +75,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     gain.PCOM     =    [50    50  10;  % state ==  1  TWO FEET BALANCING
                         50    50  10;  % state ==  2  COM TRANSITION TO LEFT 
                         50    50  10;  % state ==  3  LEFT FOOT BALANCING
-                        50    50  10;  % state ==  4  YOGA LEFT FOOT 
+                        40    60  10;  % state ==  4  YOGA LEFT FOOT 
                         50    50  10;  % state ==  5  PREPARING FOR SWITCHING 
                         50    50  10;  % state ==  6  LOOKING FOR CONTACT
                         50    50  10;  % state ==  7  TRANSITION TO INITIAL POSITION 
@@ -127,7 +128,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         30   30   30, 10   10    10   10, 10   10    10   10,220  550  220   200     65 300,200  250   20    20     10  10  % state == 11  PREPARING FOR SWITCHING 
                         30   30   30, 10   10    10   10, 10   10    10   10,220  550  220   200     65 300,100  350   20   200     10 100  % state == 12  LOOKING FOR CONTACT
                         30   30   30, 10   10    10   10, 10   10    10   10,100   50   30   100    100 100,100  200   20   400    100 100  % state == 13  TRANSITION TO INITIAL POSITION
-                        50   50   50, 10   10    10    8, 10   10    10    8, 60  100   60   120     50  50, 150   100  60    120      40  40  % state == 14  FALLING
+                        70   70   70, 10   10    10    8, 10   10    10    8, 60  100   60   120     50  50, 150   100  60*2    120*2      40  40  % state == 14  FALLING
                         10   30   20, 10   10    10    8, 10   10    10    8,  1    1    1     2     50  50, 10   10   10    10      1   1];% state == 15  RESTORING
    
    %% MPC parameters
@@ -223,13 +224,13 @@ sm.jointsSmoothingTimes          = [5;   %% state ==  1  TWO FEET BALANCING
                                     5;   %% state == 12  LOOKING FOR CONTACT 
                                          %%
                                     4;   %% state == 13  TRANSITION INIT POSITION
-                                    0.5;   %% state == 14  FALLING
+                                    0.45;   %% state == 14  FALLING
                                     2];  %% state == 15  RESTORING
                                 
 sm.com.states      = [0.0,  0.01,0.0   %% state ==  1  TWO FEET BALANCING NOT USED
                       0.0,  0.00,0.0   %% state ==  2  COM TRANSITION TO LEFT FOOT: THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT FOOT
                       0.0,  0.00,0.0   %% state ==  3  LEFT FOOT BALANCING 
-                      0.0,  0.01,0.0   %% state ==  4  YOGA LEFT FOOT
+                      0.0,  0.01*0,0.0   %% state ==  4  YOGA LEFT FOOT
                       0.0,  0.00,0.0   %% state ==  5  PREPARING FOR SWITCHING
                       0.0, -0.09,0.0   %% state ==  6  LOOKING FOR CONTACT 
                       0.0, -0.05,0.0   %% state ==  7  TRANSITION INIT POSITION: modified
@@ -244,7 +245,7 @@ sm.com.states      = [0.0,  0.01,0.0   %% state ==  1  TWO FEET BALANCING NOT US
                       0.0,  0.00,0.0   %% state == 14  FALLING: THIS REFERENCE IS IGNORED
                       0.0,  0.06,0.0];  %% state == 15  RESTORING
                   
-sm.tBalancing      = 1;%inf;%0.5;
+sm.tBalancing      = 5;%inf;%0.5;
 
 
 sm.joints.states = [[0.0864,0.0258,0.0152, ...                          %% state == 1  TWO FEET BALANCING, THIS REFERENCE IS IGNORED 
@@ -331,7 +332,7 @@ q3 =        [-0.0852,-0.4273,0.0821,...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092,0.2960, 0.0006,-0.3741,-0.1044,0.0700, ...
-              0.3714,0.9599, 1.3253,-1.6594, +0.5,0];%0.52,0.052, 0,-0.64, 0,0];
+              0.3714,0.9599, 1.3253,-1.6594, +0.5*0,0];%0.52,0.052, 0,-0.64, 0,0];
           
 q4 =        [-0.0852,-0.4273,0.0821,...
               0.1391, 1.4585,0.2464, 0.3042, ...
