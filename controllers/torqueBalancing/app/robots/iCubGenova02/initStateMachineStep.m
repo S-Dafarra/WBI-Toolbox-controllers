@@ -74,7 +74,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     
     gain.PCOM     =    [50    50  10;  % state ==  1  TWO FEET BALANCING
                         50    50  10;  % state ==  2  COM TRANSITION TO LEFT 
-                        50    50  10;  % state ==  3  LEFT FOOT BALANCING
+                        40    60  10;  % state ==  3  LEFT FOOT BALANCING
                         40    60  10;  % state ==  4  YOGA LEFT FOOT 
                         50    50  10;  % state ==  5  PREPARING FOR SWITCHING 
                         50    50  10;  % state ==  6  LOOKING FOR CONTACT
@@ -195,7 +195,7 @@ sm.yogaAlsoOnRightFoot           = true;
 sm.yogaInLoop                    = false;
 sm.com.threshold                 = 0.01;
 sm.wrench.thresholdContactOn     =  50;     % Force threshole above which contact is considered stable
-sm.wrench.thresholdContactOff    =  100;     % Force threshole under which contact is considered off
+sm.wrench.thresholdContactOff    =  75;     % Force threshole under which contact is considered off
 sm.joints                        = struct;
 sm.joints.thresholdNotInContact  =  5;    % Degrees
 sm.joints.thresholdInContact     = 50;      % Degrees
