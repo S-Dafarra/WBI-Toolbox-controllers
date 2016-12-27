@@ -1,6 +1,12 @@
 %% OVERWRITING SOME OF THE PARAMETERS CONTAINED IN gains.m WHEN USING FSM
 if strcmpi(SM.SM_TYPE, 'STEP')
     
+    WBT_robotName = 'icubSim';
+    
+    PORTS.IMU = '/icubSim/inertial';
+    dump.left_wrench_port = '/icubGazeboSim/left_foot/analog:o';
+    dump.right_wrench_port = '/icubGazeboSim/right_foot/analog:o';
+
     PORTS.WBDT_LEFTLEG_EE  = '/wholeBodyDynamicsTree/left_foot/cartesianEndEffectorWrench:o';
     PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamicsTree/right_foot/cartesianEndEffectorWrench:o';
     PORTS.WBDT_CHEST       = '/wholeBodyDynamicsTree/torso/cartesianEndEffectorWrench:o';
@@ -13,7 +19,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     CONFIG.SR.TECHNIQUE        = 0;    %0 uses Capture Point, 1 uses FPE, 2 an alternative method of computing the CP
    
     %%Just related to Capture point
-    CONFIG.SR.CP.robotStepTime    = 0.55; %seconds for the robot to take a step
+    CONFIG.SR.CP.robotStepTime    = 0.6; %seconds for the robot to take a step
     CONFIG.SR.CP.MODEL            = 0;    %0 uses the simple LIP, 1 the LIP plus finite sized foot, 2 the LIP plus foot and flywheel
     CONFIG.SR.CP.FF               = 0;    %0 uses no feed-forward, 1 adds the COP position (in foot local frame) to the desired foot position. With 2 is the same, but uses the CMP                                
 
@@ -57,13 +63,13 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     gain.COP_weight           = 0; %relative weight in the optimization
     
     %Foot placement offset
-    CONFIG.useLocalIK = 0;  %0 remote IK, 1 -> local
+    CONFIG.useLocalIK = 1;  %0 remote IK, 1 -> local
     gain.ik_offset = [+0.02;-0.02; 0.02*0];
     gain.ik_rotation  = [0; -30/2*0; -30];   %X,Y,Z cartesian angles (deg)
     
                        %falling    %restoring (part1)   %restoring (part2)
     gain.COM_offset = [      0,          0.02,                  0.02;
-                             0,          0.03,                  0.03;    
+                             0,          -0.02,                 0.01;    
                              0,             0,                     0];
                               
                    
@@ -88,7 +94,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         10    50  10;  % state == 11  PREPARING FOR SWITCHING 
                         10    50  10;  % state == 12  LOOKING FOR CONTACT
                         10    50  10;  % state == 13  TRANSITION TO INITIAL POSITION
-                        20    70+15   10;  % state == 14  FALLING
+                        30    70+15*0   10;  % state == 14  FALLING
                         20    70   5]; % state == 15  RESTORING
                     
     gain.PCOM  =  gain.PCOM;
@@ -130,7 +136,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         30   30   30, 10   10    10   10, 10   10    10   10, 30   50   30    60     50  50, 30   50  300    60     50  50  % state == 11  PREPARING FOR SWITCHING 
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 12  LOOKING FOR CONTACT
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 13  TRANSITION TO INITIAL POSITION
-                  10*5   30*5   20*5, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60      5   5  % state == 14  FALLING
+                  10*5   30*5   20*5, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 14  FALLING
                         10   30   20, 10   10    10    8, 10   10    10    8,  5    5    5     5      5   5,  5    5    5     5      1   1];% state == 15  RESTORING
    
    %% MPC parameters
@@ -237,7 +243,7 @@ sm.jointsSmoothingTimes          = [5;   %% state ==  1  TWO FEET BALANCING
                                     5;   %% state == 12  LOOKING FOR CONTACT 
                                          %%
                                     4;   %% state == 13  TRANSITION INIT POSITION
-                                    0.45;   %% state == 14  FALLING
+                                    0.4;   %% state == 14  FALLING
                                     2];  %% state == 15  RESTORING
                                 
 sm.com.states      = [0.0,  0.01,0.0   %% state ==  1  TWO FEET BALANCING NOT USED
@@ -345,7 +351,7 @@ q3 =        [-0.0852,-0.4273,0.0821,...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092,0.2960, 0.0006,-0.3741,-0.1044,0.0700, ...
-              0.3714,0.9599, 1.3253,-1.6594, +0.5,0];%0.52,0.052, 0,-0.64, 0,0];
+              0.3714,0.9599, 1.3253,-1.6594, +0.5*0,0];%0.52,0.052, 0,-0.64, 0,0];
           
 q4 =        [-0.0852,-0.4273,0.0821,...
               0.1391, 1.4585,0.2464, 0.3042, ...

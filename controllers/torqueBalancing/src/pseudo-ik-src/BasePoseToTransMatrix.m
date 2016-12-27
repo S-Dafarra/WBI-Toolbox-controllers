@@ -9,7 +9,7 @@ qBase = qRef_ikin_no_converted(1:7);
 TransMatrix  = [RBase xBase; [0 0 0 1]];
 
 % column-major serialization
-vectorizedTrans  = TransMatrix(:);
+vectorizedTrans  = reshape(TransMatrix,[],1);
 
 % new state vector
 qRef_ikin    = [vectorizedTrans; qRef_ikin_no_converted(8:end)];

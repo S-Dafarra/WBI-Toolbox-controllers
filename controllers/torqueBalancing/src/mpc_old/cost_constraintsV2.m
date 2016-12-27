@@ -1,4 +1,4 @@
-function [hessian,gradient,C,B,Ceq,Beq,Cleq,Bleq,fRH] = cost_constraints2(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, ref,gains, gamma0, nsteps, T, k_impact)
+function [hessian,gradient,C,B,Ceq,Beq,Cleq,Bleq,fRH] = cost_constraintsV2(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, ref,gains, gamma0, nsteps, T, k_impact)
 %% Inputs
 % Mg the mass matrix around the COM
 % Cl and Bl are the matrices constraining the left foot wrench with the inequality Cl*fl<=Bl

@@ -35,13 +35,21 @@ else
         w_H_r_sole = w_H_l_sole*(lsole_H_r_sole - remove_z); %imposes right and left foot to be at the same eight.
 end
 
-Pl   = w_H_l_sole(1:3,4);
+pos_leftFoot   = w_H_l_sole(1:3,4);
 w_R_l_sole     = w_H_l_sole(1:3,1:3);
 
-Pr   = w_H_r_sole(1:3,4);
+pos_rightFoot   = w_H_r_sole(1:3,4);
 w_R_r_sole      = w_H_r_sole(1:3,1:3);
 
+Pr              = pos_rightFoot - COMx;
+Pl              = pos_leftFoot  - COMx;
 
+AL              = [ eye(3),zeros(3);
+                    Sf(Pl),  eye(3)];
+AR              = [ eye(3), zeros(3);
+                     Sf(Pr), eye(3) ];
+                 
+Alr               = [ AL, AR];
 
 Cl  = ConstraintsMatrix * blkdiag(w_R_l_sole',w_R_l_sole');
 Cr = ConstraintsMatrix * blkdiag(w_R_r_sole',w_R_r_sole');
@@ -77,7 +85,7 @@ ch_points = [xch(K)',ych(K)'];
 gamma0 = [COMx;COMv;Hw];
 
 
-COMdesfilt_pos = [(Pl(1:2) + Pr(1:2))/2;COMdes(3,1)]+ mpc_init.COMoffset;
+COMdesfilt_pos = [(pos_leftFoot(1:2) + pos_rightFoot(1:2))/2;COMdes(3,1)]+ mpc_init.COMoffset;
  
 COMdesfilt = [COMdesfilt_pos,zeros(3,1)];
 
@@ -91,5 +99,5 @@ COM_des_out = zeros(9,1);
 COMref = zeros(3,1);
 
 coder.extrinsic('solve_mpc_cvx')
-[f(:),COM_des_out(:,:),exitflag(:),COMref(:,:)] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, ch_points, Pl, Pr, omega, 9.81, f_prev, COMref_prev, zeros(3,1), COMdesfilt, mpc_init.COMoffset(1:2),minZ, gains, gamma0, nsteps, dT, k_impact); 
+[f(:),COM_des_out(:,:),exitflag(:),COMref(:,:)] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, 9.81, f_prev, COMref_prev, zeros(3,1), COMdesfilt, mpc_init.COMoffset(1:2),minZ, gains, gamma0, nsteps, dT, k_impact); 
 COMref_prev = COMref;

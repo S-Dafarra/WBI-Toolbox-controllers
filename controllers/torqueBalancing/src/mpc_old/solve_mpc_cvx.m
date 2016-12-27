@@ -1,4 +1,4 @@
-function [f,COM_des,exitflag,COMref,chi] = solve_mpc(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, f_prev, COMx,COMv,COMdes, ICPoffset, minZ, gains, gamma0, nsteps, dT, k_impact)
+function [f,COM_des,exit_flag,COMref,chi] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, f_prev, COMx,COMv,COMdes, ICPoffset, minZ, gains, gamma0, nsteps, dT, k_impact)
 
 ref.minZ = minZ;
 
@@ -23,12 +23,26 @@ ref.F = f_prev;
 f=zeros(12,1);
 COM_des = zeros(9,1);
 
-options = optimoptions('quadprog','Algorithm','interior-point-convex','OptimalityTolerance',1e-3,'Display','off');
-[chi,~,exitflag] = quadprog(hessian,gradient,Cleq,Bleq,Ceq,Beq,[],[],[],options);
-
-if (exitflag>0)
+% options = optimoptions('quadprog','Algorithm','interior-point-convex','OptimalityTolerance',1e-3,'Display','off');
+% [chi,~,exitflag] = quadprog(hessian,gradient,Cleq,Bleq,Ceq,Beq,[],[],[],options);
+n = 21*nsteps;
+precision = cvx_precision('low');
+cvx_begin quiet
+cvx_solver mosek
+cvx_precision(precision);
+    variable chi(n);
+    minimize (0.5*chi'*hessian*chi + chi'*gradient);
+    subject to
+              Ceq*chi == Beq;
+              Cleq*chi <= Bleq;
+cvx_end
+exit_message = cvx_status;
+if (strcmp(exit_message,'Solved')||strcmp(exit_message,'Inaccurate/Solved'))
+    exit_flag = 1;
     f=fRH*chi;
     COM_des = chi(1:9);
+else
+    exit_flag = 0;
 end
 
 COMref = COM_hor_des(1:3,1);
