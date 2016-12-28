@@ -142,7 +142,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
    %% MPC parameters
    mpc_init.nsteps = 15;
    mpc_init.tstep = 0.6;
-   mpc_init.ENABLE = 0;
+   mpc_init.ENABLE = 1;
 %    %                                        Kp                               Kd                     Kw
 %    mpc_init.gains.COM = 1e5*[[0*gain.PCOM(15,1:2)';100],[2*sqrt(50);100*sqrt(65);2*sqrt(100)],1e1*ones(3,1)*gain.PAngularMomentum];
 %    
@@ -176,7 +176,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                      
    mpc_init.gains.TerCOM = [[1500;3000;0],[100; 100; 0],zeros(3,1)];
                      
-   mpc_init.COMoffset = [0.05;0;0];
+   mpc_init.COMoffset = [0.05*0;0;0];
    
    mpc_init.footSize        = [ -0.05   0.05 ;    % xMin, xMax
                                 -0.03   0.03];   % yMin, yMax 

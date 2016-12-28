@@ -2,7 +2,7 @@ function [f,COM_des,exit_flag,COMref,chi] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, ch_
 
 ref.minZ = minZ;
 
-[COM_hor_des,COMv_hor_des] = fourth_traj(COMx(1:3),COMdes(1:3,2)*0,COMdes(1:3,1),zeros(3,1),zeros(3,1),dT,1*0+100,nsteps); %bypassed for the moment
+[COM_hor_des,COMv_hor_des] = fourth_traj(COMx(1:3),COMdes(1:3,2)*0,COMdes(1:3,1),zeros(3,1),zeros(3,1),dT,1*1000,nsteps); %bypassed for the moment
 
 ref.COM = [COM_hor_des(1:3,1:nsteps);
            COMv_hor_des(1:3,1:nsteps);
