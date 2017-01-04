@@ -1,4 +1,4 @@
-function [f,COM_des,exit_flag,COMref,chi] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, f_prev, COMx,COMv,COMdes, ICPoffset, minZ, gains, gamma0, nsteps, dT, k_impact)
+function [f,COM_des,exit_flag,COMref,chi] = solve_mpc_cvxV1(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, f_prev, COMx,COMv,COMdes, ICPoffset, minZ, gains, gamma0, nsteps, dT, k_impact)
 
 ref.minZ = minZ;
 
@@ -15,7 +15,7 @@ end
 
 ref.F = f_prev;
 
-[hessian,gradient,~,~,Ceq,Beq,Cleq,Bleq,fRH,~] = cost_constraints(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, ref, gains, gamma0, nsteps, dT, k_impact);
+[hessian,gradient,~,~,Ceq,Beq,Cleq,Bleq,fRH,~] = cost_constraintsV1(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, g, ref, gains, gamma0, nsteps, dT, k_impact);
 
 %size([full(hessian),full(Ceq');full(Ceq),zeros(size(full(Ceq),1))])
 %rank([full(hessian),full(Ceq');full(Ceq),zeros(size(full(Ceq),1))])

@@ -54,8 +54,8 @@ eICP_hor = sparse(blkdiag(eICP_cell{:})); %extract the icp from the overall vect
 %The evolution of the state is as follows:
 %gamma(i+1) = Ev_gamma*gamma(i) + F_gamma*f(i) - G_gamma*|g| + S0_gamma with
 %g the modulus of the gravity acceleration
-%For what concerns the angular momentum, we have x(k+1)=w(k) + T (tau + (Pl-CoMx0) X fl + (Pr-CoMx0) X fr + f_l(0) X comx + f_r(0) X comx - f_l(0) X CoMx0 - f_r(0) X CoMx0)
-% which is the Taylor expansion stopped at the first order. The laste two
+%For what concerns the angular momentum, we have w(k+1)=w(k) + T (tau + (Pl-CoMx0) X fl + (Pr-CoMx0) X fr + f_l(0) X comx + f_r(0) X comx - f_l(0) X CoMx0 - f_r(0) X CoMx0)
+% which is the Taylor expansion stopped at the first order. The last two
 % terms are included into S0_gamma;
 
 CoMx0 = gamma0(1:3);
@@ -79,7 +79,7 @@ S0_gamma = [zeros(6,1);
 
 state_dim =(9+12)*nsteps;
 
-%The state evolves according to this equation: E_gamma*chi = Ev*chi - G + Ev_gamma0
+%The state evolves according to this equation: E_gamma*chi = Ev*chi - G + Ev_gamma0 +S0_gamma
 
 Ev_gamma0 = [Ev_gamma;zeros(9*(nsteps-1),9)]*gamma0;
 

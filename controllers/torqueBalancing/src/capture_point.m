@@ -10,7 +10,7 @@ function [r_CP, r_init] = capture_point(STEP, r_ic, r_CxP, omega, robot_step_tim
      r_ic0 = r_ic;
      r_CP = r_ic;    
  
- else  r_CP = (r_ic0 - r_CxP)*exp(omega * robot_step_time) + r_CxP;
+ else  r_CP = diag([exp(omega*robot_step_time);0])*(r_ic0 - r_CxP) + r_CxP;
        
  end
 end

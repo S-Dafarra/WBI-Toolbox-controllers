@@ -1,4 +1,4 @@
-function [f,exitflag,COM_des_out,COMref] = mpc_step(mpc_init,constraints_vec, ConstraintsMatrix, bVectorConstraints, w_H_l_sole,lsole_H_r_sole, w_H_r_sole_in, COMx, COMv, Hw, COMdes, minZ, f_prev, foot_size, omega, m, dT, STEP)
+function [f,exitflag,COM_des_out,COMref] = mpc_stepV1(mpc_init,constraints_vec, ConstraintsMatrix, bVectorConstraints, w_H_l_sole,lsole_H_r_sole, w_H_r_sole_in, COMx, COMv, Hw, COMdes, minZ, f_prev, foot_size, omega, m, dT, STEP)
 
 persistent elapsed_time;
 persistent COMref_prev;
@@ -98,6 +98,6 @@ exitflag = 1;
 COM_des_out = zeros(9,1);
 COMref = zeros(3,1);
 
-coder.extrinsic('solve_mpc_cvx')
-[f(:),COM_des_out(:,:),exitflag(:),COMref(:,:)] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, 9.81, f_prev, COMref_prev, zeros(3,1), COMdesfilt, mpc_init.COMoffset(1:2),minZ, gains, gamma0, nsteps, dT, k_impact); 
+coder.extrinsic('solve_mpc_cvxV1')
+[f(:),COM_des_out(:,:),exitflag(:),COMref(:,:)] = solve_mpc_cvxV1(m, Cl, Bl, Cr, Br, ch_points, Alr, omega, 9.81, f_prev, COMref_prev, zeros(3,1), COMdesfilt, mpc_init.COMoffset(1:2),minZ, gains, gamma0, nsteps, dT, k_impact); 
 COMref_prev = COMref;

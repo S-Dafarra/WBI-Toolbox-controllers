@@ -20,6 +20,9 @@ if strcmpi(SM.SM_TYPE, 'STEP')
    
     %%Just related to Capture point
     CONFIG.SR.CP.robotStepTime    = 0.6; %seconds for the robot to take a step
+    if (CONFIG.SR.TECHNIQUE == 0)
+        CONFIG.SR.CP.robotStepTime    =[0.6;0.6];
+    end
     CONFIG.SR.CP.MODEL            = 0;    %0 uses the simple LIP, 1 the LIP plus finite sized foot, 2 the LIP plus foot and flywheel
     CONFIG.SR.CP.FF               = 0;    %0 uses no feed-forward, 1 adds the COP position (in foot local frame) to the desired foot position. With 2 is the same, but uses the CMP                                
 
@@ -136,7 +139,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         30   30   30, 10   10    10   10, 10   10    10   10, 30   50   30    60     50  50, 30   50  300    60     50  50  % state == 11  PREPARING FOR SWITCHING 
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 12  LOOKING FOR CONTACT
                         10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 13  TRANSITION TO INITIAL POSITION
-                  10*5   30*5   20*5, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 14  FALLING
+                  30*5   30*5   30*5, 10   10    10    8, 10   10    10    8, 30   50   30    60     50  50, 30   50   30    60     50  50  % state == 14  FALLING
                         10   30   20, 10   10    10    8, 10   10    10    8,  5    5    5     5      5   5,  5    5    5     5      1   1];% state == 15  RESTORING
    
    %% MPC parameters
