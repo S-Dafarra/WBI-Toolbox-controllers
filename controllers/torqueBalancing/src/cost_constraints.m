@@ -21,7 +21,7 @@ function [hessian,gradient,C,B,Ceq,Beq,Cleq,Bleq,fRH] = cost_constraints(m, Cl, 
 % gamma0 is the initial state [comx;COMvel;w]
 % nsteps is the horizon length
 % T is the legth in time of the step
-% k_impact indicates in which time instant between 1 and nsteps the right
+% k_impact indicates in which time instant between 0 and nsteps-1 the right
 %          foot is in contact with the ground. If 0 the impact is already occurred,
 %          if 1 it happens at the immediate next time step (at the beginning of the first step)
 
@@ -115,9 +115,9 @@ if (k_impact > nsteps)
     C_horRI = zeros(0,state_dim);     %just a null matrix, but it has to be defined
 
 else
-    if k_impact>1
-        C_horR = eF_r(1:(6*(k_impact-1)),1:(12*(k_impact-1)))*eF(1:(12*(k_impact-1)),:); %the rightmost matrix extracts just the first (k_impact-1) wrenches, while the other one selects just the right wrench
-        C_horRI = Cr_hor((ncr*(k_impact-1)+1):end,(6*(k_impact-1)+1):end)*eF_r((6*(k_impact-1)+1):end,(12*(k_impact-1)+1):end)*eF((12*(k_impact-1)+1):end,:); %same as above, but the last wrenches are extracted, then multiplied by Cr
+    if k_impact>0
+        C_horR = eF_r(1:(6*k_impact),1:(12*k_impact))*eF(1:(12*k_impact),:); %the rightmost matrix extracts just the first k_impact wrenches, while the other one selects just the right wrench
+        C_horRI = Cr_hor((ncr*k_impact + 1):end,(6*k_impact + 1):end)*eF_r((6*k_impact +1):end,(12*k_impact +1):end)*eF((12*k_impact +1):end,:); %same as above, but the last wrenches are extracted, then multiplied by Cr
     
     else
          C_horR = zeros(0,state_dim);
@@ -138,8 +138,8 @@ Cch_hor = sparse(blkdiag(Cch_cell{:}));
 if (k_impact > nsteps)
     C_horCH = zeros(0,state_dim);
 else
-    if k_impact>1
-        C_horCH = Cch_hor((nch*(k_impact-1)+1):end,(2*(k_impact-1)+1):end)*eICP_hor((2*(k_impact-1)+1):end,(9*(k_impact-1)+1):end)*eGamma((9*(k_impact-1)+1):end,:);
+    if k_impact>0
+        C_horCH = Cch_hor((nch*k_impact +1):end,(2*k_impact +1):end)*eICP_hor((2*k_impact +1):end,(9*k_impact +1):end)*eGamma((9*k_impact +1):end,:);
     
     else
         C_horCH = Cch_hor*eICP_hor*eGamma;
@@ -199,7 +199,7 @@ grad_gamma = -eGamma'*K_hor_gamma*gamma_d;
 
 %% Terminal cost on gamma
 
-K_hor_gammaTer = sparse(diag([zeros(9*(min(nsteps,k_impact)-1),1);repmat(reshape(gains.TerCOM,[],1),nsteps-min(nsteps,k_impact)+1,1)]));
+K_hor_gammaTer = sparse(diag([zeros(9*(min(nsteps-1,k_impact)),1);repmat(reshape(gains.TerCOM,[],1),nsteps-min(nsteps-1,k_impact),1)]));
 hes_gamma_Ter = eGamma'*K_hor_gammaTer*eGamma;
 grad_gamma_Ter = -eGamma'*K_hor_gammaTer*gamma_d;
 
@@ -209,7 +209,7 @@ if (k_impact > nsteps)
     K_icp_hor = sparse(zeros(2*nsteps));
 else
     if k_impact>0
-        K_icp_hor = sparse(blkdiag( zeros(2*(k_impact-1)), diag(repmat(gains.ICP,nsteps-k_impact+1,1))));    
+        K_icp_hor = sparse(blkdiag( zeros(2*k_impact), diag(repmat(gains.ICP,nsteps-k_impact,1))));    
     else
         K_icp_hor = sparse(diag(repmat(gains.ICP,nsteps,1)));
     end

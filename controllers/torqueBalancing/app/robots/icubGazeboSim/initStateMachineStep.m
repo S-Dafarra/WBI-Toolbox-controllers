@@ -143,7 +143,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                         10   30   20, 10   10    10    8, 10   10    10    8,  5    5    5     5      5   5,  5    5    5     5      1   1];% state == 15  RESTORING
    
    %% MPC parameters
-   mpc_init.nsteps = 15;
+   mpc_init.nsteps = 25;
    mpc_init.tstep = 0.6;
    mpc_init.ENABLE = 1;
 %    %                                        Kp                               Kd                     Kw
