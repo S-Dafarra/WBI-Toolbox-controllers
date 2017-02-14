@@ -1,4 +1,4 @@
-function [f,exitflag,COM_des_out,COMref] = mpc_step(mpc_init,constraints_vec, ConstraintsMatrix, bVectorConstraints, w_H_l_sole,lsole_H_r_sole, w_H_r_sole_in, COMx, COMv, Hw, COMdes, minZ, f_prev, foot_size, omega, m, dT, STEP)
+function [f,exitflag,COM_des_out,COMref, MPC_STEP, errorLastCom] = mpc_step(mpc_init,constraints_vec, ConstraintsMatrix, bVectorConstraints, w_H_l_sole,lsole_H_r_sole, w_H_r_sole_in, COMx, COMv, Hw, COMdesStateMachine, minZ, f_prev, foot_size, omega, m, dT, state)
 
 persistent elapsed_time;
 persistent COMref_prev;
@@ -16,13 +16,15 @@ end
 if(constraints_vec(2)>0)
     k_impact = 0; %%impact already happened
     elapsed_time = 0;
-else if STEP
-        k_impact = max(floor((step_time - elapsed_time)/dT),1); %basically the 2 avoids requiring wrench on the right foot for a wrong preview on the step time
+else
+    if ( (state == 14) || (state == 15) )
+        k_impact = max(floor((step_time - elapsed_time)/dT),1); %basically the 1 avoids requiring wrench on the right foot for a wrong preview on the step time
         if (elapsed_time + dT) <= step_time
             elapsed_time = elapsed_time + dT;
         end
-    else k_impact = nsteps +1;
-         elapsed_time = 0;
+    else
+        k_impact = nsteps +1;
+        elapsed_time = 0;
     end
 end  
 
@@ -76,20 +78,31 @@ ch_points = [xch(K)',ych(K)'];
 
 gamma0 = [COMx;COMv;Hw];
 
-
-COMdesfilt_pos = [(Pl(1:2) + Pr(1:2))/2;COMdes(3,1)]+ mpc_init.COMoffset;
- 
-COMdesfilt = [COMdesfilt_pos,zeros(3,1)];
-
-if isempty(COMref_prev) || (constraints_vec(2)==0)
-    COMref_prev = COMdesfilt_pos;
+if state == 16
+    COMdesfilt_pos = COMdesStateMachine(1:3,1);
+else
+    COMdesfilt_pos = [(Pl(1:2) + Pr(1:2))/2;COMdesStateMachine(3,1)]+ mpc_init.COMoffset;
 end
+ 
+%COMdesfilt = [COMdesfilt_pos,zeros(3,1)];
+
+%if isempty(COMref_prev) || (constraints_vec(2)==0)
+    COMref_prev = COMdesfilt_pos; %The desired position for the center of mass is updated only before the step
+%end
 
 f= zeros(12,1);
 exitflag = 1;
 COM_des_out = zeros(9,1);
 COMref = zeros(3,1);
-
+COM_last = zeros(9,1);
 coder.extrinsic('solve_mpc_cvx')
-[f(:),COM_des_out(:,:),exitflag(:),COMref(:,:)] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, ch_points, Pl, Pr, omega, 9.81, f_prev, COMref_prev, zeros(3,1), COMdesfilt, mpc_init.COMoffset(1:2),minZ, gains, gamma0, nsteps, dT, k_impact); 
-COMref_prev = COMref;
+[f(:),COM_des_out(:,:),exitflag(:),COMref(:,:),~,COM_last(:,:)] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, ch_points, Pl, Pr, omega, 9.81, f_prev, zeros(3,1) , zeros(3,1), COMref_prev, mpc_init.COMoffset(1:2),minZ, gains, gamma0, nsteps, dT, k_impact); 
+
+MPC_STEP = 0;
+errorLastCom = norm([reshape(COMdesStateMachine, 6,1);zeros(3,1)] - COM_last);
+if  mpc_init.DECIDE_STEP == 1
+    if ((errorLastCom > 0.3) || (exitflag <= 0))
+        MPC_STEP = 1;
+    end
+    
+end

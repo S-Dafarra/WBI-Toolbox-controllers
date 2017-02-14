@@ -50,15 +50,15 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     
     %The step recovery estimators will be not considered for triggering a step
     %if they are outside the shadowed region (when balancing on a single foot)                               
-    gain.l_foot_shadowed      = [ -0.01   inf;    % xMin, xMax
+    gain.l_foot_shadowed      = [ -0.03   inf;    % xMin, xMax
                                    -inf    0];   % yMin, yMax 
                                     
-    gain.r_foot_shadowed      = [ -0.01   inf;    % xMin, xMax
+    gain.r_foot_shadowed      = [ -0.03   inf;    % xMin, xMax
                                       0   inf];   % yMin, yMax
     
     %Leg length
     gain.leg_length           = 0.6; %from root to the sole
-    gain.minimum_height       = 0.3; %minimum heigth that the root can reach.
+    gain.minimum_height       = 0.35; %minimum heigth that the root can reach.
     gain.min_step_length      = 0.1; %minimum distance between the ankle centres after a step
     
     %COP gain
@@ -146,32 +146,12 @@ if strcmpi(SM.SM_TYPE, 'STEP')
    mpc_init.nsteps = 25;
    mpc_init.tstep = 0.6;
    mpc_init.ENABLE = 1;
-%    %                                        Kp                               Kd                     Kw
-%    mpc_init.gains.COM = 1e5*[[0*gain.PCOM(15,1:2)';100],[2*sqrt(50);100*sqrt(65);2*sqrt(100)],1e1*ones(3,1)*gain.PAngularMomentum];
-%    
-%    %                  Kcipx;   Kicpy
-%    mpc_init.gains.ICP = 1e4*[10;    10];
-%    
-%    %                   Kpf,     Kdfs
-%    mpc_init.gains.F = [[ 2;
-%                          2;
-%                          0.01;
-%                          2;
-%                          2;
-%                          2;
-%                          2;
-%                          2;
-%                          0.01;
-%                          2;
-%                          2;
-%                          2],0.01*ones(12,1)];
-%                      
-%    mpc_init.gains.TerCOM = 1e6*[[50;65;0],[20*sqrt(50);20*sqrt(65);1*sqrt(100)],0*ones(3,1)*gain.PAngularMomentum];
+   mpc_init.DECIDE_STEP = 1; %let MPC algorithm to decide when to step, 0 otherwise
 
-   %                        Kp         Kd           Kw
+   %                        Kp            Kd                   Kw
    mpc_init.gains.COM = [[0;0;100],[1000;1000;2*sqrt(100)],1e5*ones(3,1)];
    
-   %                   Kcipx;  Kicpy
+   %                     Kcipx;  Kicpy
    mpc_init.gains.ICP = [1000;   1000];
    
    %                   Kpf,     Kdfs
@@ -246,8 +226,9 @@ sm.jointsSmoothingTimes          = [5;   %% state ==  1  TWO FEET BALANCING
                                     5;   %% state == 12  LOOKING FOR CONTACT 
                                          %%
                                     4;   %% state == 13  TRANSITION INIT POSITION
-                                    0.4;   %% state == 14  FALLING
-                                    2];  %% state == 15  RESTORING
+                                    0.4; %% state == 14  FALLING
+                                    2;   %% state == 15  RESTORING
+                                    1]; %% state == 16 MPC_DECIDE_STEP
                                 
 sm.com.states      = [0.0,  0.01,0.0   %% state ==  1  TWO FEET BALANCING NOT USED
                       0.0,  0.01,0.0   %% state ==  2  COM TRANSITION TO LEFT FOOT: THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT FOOT

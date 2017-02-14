@@ -1,4 +1,4 @@
-function [hessian,gradient,C,B,Ceq,Beq,Cleq,Bleq,fRH] = cost_constraints(m, Cl, Bl, Cr, Br, ch_points, Pl, Pr, omega, g, ref,gains, gamma0, nsteps, T, k_impact)
+function [hessian,gradient,C,B,Ceq,Beq,Cleq,Bleq,fRH, gamma_nsteps] = cost_constraints(m, Cl, Bl, Cr, Br, ch_points, Pl, Pr, omega, g, ref,gains, gamma0, nsteps, T, k_impact)
 %% Third version: new order of chi and first order approximation of angular momentum
 %% Inputs
 % Mg the mass matrix around the COM
@@ -237,3 +237,6 @@ gradient = grad_gamma + grad_icp + grad_df + grad_gamma_Ter;
 
 %% Extract f(0)
 fRH = eF(1:12,:);
+
+%% Extract gamma(nsteps)
+gamma_nsteps = eGamma(end-8:end,:);

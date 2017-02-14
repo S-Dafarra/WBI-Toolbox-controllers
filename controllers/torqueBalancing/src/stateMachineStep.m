@@ -3,26 +3,26 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
     stateMachineStep(CoM_0, q0, l_sole_CoM,r_sole_CoM,qj, t, ...
                   wrench_rightFoot,wrench_leftFoot,l_sole_H_b, r_sole_H_b,...
                   sm,gain, STEP_DOWN, r_CxP, COM_l_v, MAKE_A_STEP,...
-                  q_step, COM_ref, l_solex, r_solex)
+                  q_step, COM_ref, l_solex, r_solex, MPC_DECIDE_STEP)
     %#codegen
     persistent state;
     persistent tSwitch;
     persistent w_H_fixedLink;
-    persistent t_previous;
-    persistent COM_prev_l;
+    %persistent t_previous;
+    %persistent COM_prev_l;
     persistent t_debounce;
     persistent COMconstRef;
-    persistent q_before;
+    %persistent q_before;
     
     if isempty(state) || isempty(tSwitch) || isempty(w_H_fixedLink) 
         state         = sm.stateAt0;
         tSwitch       = 0;
         w_H_fixedLink = eye(4);
-        COM_prev_l = CoM_0;
-        t_previous = -1;
+        %COM_prev_l = CoM_0;
+        %t_previous = -1;
         t_debounce = -1;
         COMconstRef = -ones(3,1);
-        q_before = zeros(12,1);
+        %q_before = zeros(12,1);
     end
     
     %CoM_0(3) = CoM_0(3) - 0.05; 
@@ -130,9 +130,16 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
            tSwitch = t;
         end
         
-        if MAKE_A_STEP
-            state = 14;
-            tSwitch = t;
+        if MAKE_A_STEP == 1
+            if MPC_DECIDE_STEP == 1
+                state = 16;
+                tSwitch = t;
+            else
+                
+                state = 14;
+                tSwitch = t;
+            end
+
         end       
         
         
@@ -189,7 +196,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
     %% TRANSITION TO INITIAL POSITION
     if state == 7 
         w_H_b       =  w_H_fixedLink * l_sole_H_b;
-        w_H_b_r     =  w_H_b/r_sole_H_b;        
+        %w_H_b_r     =  w_H_b/r_sole_H_b;        
         
         %CoMDes      = 0.5*([w_H_fixedLink(1:2,4);CoM_0(3)] + [w_H_b_r(1:2,4);CoM_0(3)]); %+ sm.com.states(state,:)';         
         CoMDes      = 0.5*([l_solex(1:2);CoM_0(3)] + [r_solex(1:2);CoM_0(3)]);
@@ -357,14 +364,14 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
     qDes        = q_step;
     %qDes = sm.joints.pointsL(1,2:end)';
     
-    if t_previous < 0
-        t_previous = t;
-    end
+    %if t_previous < 0
+    %    t_previous = t;
+    %end
     
-    sim_pend = COM_prev_l(1:2) + (t-t_previous)*COM_l_v(1:2) + 0.5* (t-t_previous)^2 * 9.81/CoM_0(3) * (COM_prev_l(1:2) - r_CxP(1:2)); 
+    %sim_pend = COM_prev_l(1:2) + (t-t_previous)*COM_l_v(1:2) + 0.5* (t-t_previous)^2 * 9.81/CoM_0(3) * (COM_prev_l(1:2) - r_CxP(1:2)); 
     %CoMDes      = [sim_pend;0.8*CoM_0(3)];
     CoMDes = COM_ref(1:3)+gain.COM_offset(:,1);
-    t_previous = t;
+    %t_previous = t;
     
     if wrench_rightFoot(3) < (sm.wrench.thresholdContactOn + 20)
         t_debounce = t;
@@ -372,8 +379,8 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
     if (t-t_debounce) > 0.02
             state = 15;
             tSwitch = t;
-            t_previous = -1; %resetting
-            q_before = q_step;
+     %       t_previous = -1; %resetting
+     %       q_before = q_step;
             t_debounce = -1;
             COMconstRef = -ones(3,1);
            % w_H_fixedLink   = w_H_fixedLink*l_sole_H_b/r_sole_H_b;
@@ -386,7 +393,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
     if state == 15 
         %w_H_b       =  w_H_fixedLink*r_sole_H_b;
         w_H_b       =  w_H_fixedLink * l_sole_H_b;
-        w_H_b_r     =  w_H_b/r_sole_H_b;        
+        %w_H_b_r     =  w_H_b/r_sole_H_b;        
                
         %CoMDes      = [w_H_fixedLink(1:2,4);CoM_0(3)] - sm.com.states(15,:)';
         %CoMDes = [w_H_b_r(1:2,4);CoM_0(3)] + sm.com.states(15,:)';
@@ -401,7 +408,8 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
         if ((t-tSwitch) < 0.5)
             CoMDes = CoMDes + gain.COM_offset(:,3);%[0.02;0.03;0]; %cop %[0.05;0.05;0];  %lip
             SMOOTH_com = 0; 
-        else SMOOTH_com = 1; 
+        else
+            SMOOTH_com = 1;
         end
             
         
@@ -415,7 +423,7 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
 %          %SMOOTH_com = 0;
 %     end
     
-        qDes        = [sm.joints.states(7,:)]';%,q_before']'; %zeros(1,12)]';
+        qDes        = sm.joints.states(7,:)';%,q_before']'; %zeros(1,12)]';
         impedances  = gain.impedances(state,:);
         kpCom       = gain.PCOM(state,:);   
         kdCom       = gain.DCOM(state,:); 
@@ -426,9 +434,29 @@ function [w_H_b, CoMDes,qDes,constraints,impedances,kpCom,kdCom,...
         
     end
     
+  %% Wait MPC to decide
+  if state==16
+      %%% ALL THE VALUES ARE EQUAL TO YOGA RIGHT FOOT, KEEP VALUES CONSTANT
+      w_H_b       =  w_H_fixedLink * l_sole_H_b;
+      CoMDes      = [w_H_fixedLink(1:2,4);CoM_0(3)] + sm.com.states(4,:)';
+      
+      constraints = [1; 0]; %right foot is no longer a constraints
+
+      impedances  = gain.impedances(14,:);
+      kpCom       = gain.PCOM(4,:);
+      kdCom       = gain.DCOM(4,:);
+      
+      qDes = sm.joints.pointsL(1,2:end)';
+      
+      if MPC_DECIDE_STEP == 0
+          state = 14;
+          tSwitch = t;
+      end
+  end
+    
      %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    COM_prev_l = l_sole_CoM;
+    %COM_prev_l = l_sole_CoM;
     currentState        = state;
     jointsSmoothingTime = sm.jointsSmoothingTimes(state);
     
