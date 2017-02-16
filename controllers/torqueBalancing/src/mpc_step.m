@@ -17,7 +17,7 @@ if(constraints_vec(2)>0)
     k_impact = 0; %%impact already happened
     elapsed_time = 0;
 else
-    if ( (state == 14) || (state == 15) )
+    if state == 14
         k_impact = max(floor((step_time - elapsed_time)/dT),1); %basically the 1 avoids requiring wrench on the right foot for a wrong preview on the step time
         if (elapsed_time + dT) <= step_time
             elapsed_time = elapsed_time + dT;
@@ -102,9 +102,9 @@ coder.extrinsic('solve_mpc_cvx')
 [f(:),COM_des_out(:,:),exitflag(:),COMref(:,:),~,COM_last(:,:)] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, ch_points, Pl, Pr, omega, 9.81, f_prev, zeros(3,1) , zeros(3,1), COMref_prev, mpc_init.COMoffset(1:2),minZ, gains, gamma0, nsteps, dT, k_impact); 
 
 MPC_STEP = 0;
-errorLastCom = norm(COMdesStateMachine(1:3,1) - COM_last(1:3)) + 2*norm(COMdesStateMachine(1:3,2) - COM_last(4:6));
+errorLastCom = norm(COMdesStateMachine(1:2,1) - COM_last(1:2)) + 2*norm(COM_last(4:5));
 if  mpc_init.DECIDE_STEP == 1
-    if ((errorLastCom > 0.8) || (exitflag <= 0))
+    if ((errorLastCom > 0.1) || (exitflag <= 0))
         MPC_STEP = 1;
     end
     

@@ -21,7 +21,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
     %%Just related to Capture point
     CONFIG.SR.CP.robotStepTime    = 0.6; %seconds for the robot to take a step
     if (CONFIG.SR.TECHNIQUE == 0)
-        CONFIG.SR.CP.robotStepTime    =[0.8;0.8];
+        CONFIG.SR.CP.robotStepTime    =[0.6;0.6];
     end
     CONFIG.SR.CP.MODEL            = 0;    %0 uses the simple LIP, 1 the LIP plus finite sized foot, 2 the LIP plus foot and flywheel
     CONFIG.SR.CP.FF               = 0;    %0 uses no feed-forward, 1 adds the COP position (in foot local frame) to the desired foot position. With 2 is the same, but uses the CMP                                
@@ -46,7 +46,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
                                    -0.03   0.03];   % yMin, yMax 
                                
     gain.footSize_step        = [ -0.03   0.05 ;    % xMin, xMax
-                                  -0.01   0.01];   % yMin, yMax 
+                                  -0.02   0.02];   % yMin, yMax 
     
     %The step recovery estimators will be not considered for triggering a step
     %if they are outside the shadowed region (when balancing on a single foot)                               
@@ -146,7 +146,17 @@ if strcmpi(SM.SM_TYPE, 'STEP')
    mpc_init.nsteps = 25;
    mpc_init.tstep = 0.6;
    mpc_init.ENABLE = 1;
-   mpc_init.DECIDE_STEP = 0; %let MPC algorithm to decide when to step, 0 otherwise
+   mpc_init.DECIDE_STEP = 1; %let MPC algorithm to decide when to step, 0 otherwise
+   
+   if mpc_init.ENABLE == 1
+      CONFIG.SR.TECHNIQUE = 0;
+      CONFIG.SR.CP.robotStepTime    =[0.6;0.6];
+      if mpc_init.DECIDE_STEP == 1
+          CONFIG.SR.CP.robotStepTime    =[0.8;0.85];
+          gain.footSize_step  = [ -0.03   0.05 ;    % xMin, xMax
+                                  -0.01   0.01];   % yMin, yMax
+      end
+   end
 
    %                        Kp            Kd                   Kw
    mpc_init.gains.COM = [[0;0;100],[1000;1000;2*sqrt(100)],1e5*ones(3,1)];

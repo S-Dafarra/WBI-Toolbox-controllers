@@ -34,48 +34,6 @@ model = mdlLdr.model();
 option = iDynTree.VisualizerOptions();
 option.rootFrameArrowsDimension = 0.3;
 
-viz3 = iDynTree.Visualizer();
-%  work around 
-viz3.init(option);
-viz3.addModel(model,'icub');
-
-cam3 = viz3.camera();
-cam3.setPosition(iDynTree.Position(1,0.5,0.8));
-cam3.setTarget(iDynTree.Position(0,0,0.5));
-
-
-env3 = viz3.enviroment();
-%env3.setElementVisibility('root_frame',false);
-
-env3.addLight('light');
-light3 = env3.lightViz('light');
-light3.setPosition(iDynTree.Position(100,100,100));
-
-viz3.draw();
-
-for i=init_time:end_time
-tic
-%viz3.draw();
-
-jointPos3 = iDynTree.JointPosDoubleArray(model);
-joints3 = q_des(i,:)';
-jointPos3.fromMatlab(joints3);
-
-% Assuming that the l_sole frame is fixed and it is the world, compute the 
-% world_H_base that correspond to the specified joints 
-odom2 = iDynTree.SimpleLeggedOdometry();
-odom2.setModel(model);
-odom2.updateKinematics(jointPos3);
-odom2.init('l_sole','l_sole');
-
-viz3.modelViz(0).setPositions(odom2.getWorldLinkTransform(model.getDefaultBaseLink()),jointPos3);
-
-viz3.draw();
-t = toc;
-pause(max(0,0.01-t))
-
-end
-
 viz = iDynTree.Visualizer();
 
 %  work around 
@@ -119,6 +77,52 @@ viz.draw();
 
 t = toc;
 pause(max(0,0.01-t))
+end
+
+pause()
+viz.close()
+pause()
+
+viz3 = iDynTree.Visualizer();
+%  work around 
+viz3.init(option);
+viz3.addModel(model,'icub');
+
+cam3 = viz3.camera();
+cam3.setPosition(iDynTree.Position(1,0.5,0.8));
+cam3.setTarget(iDynTree.Position(0,0,0.5));
+
+
+env3 = viz3.enviroment();
+%env3.setElementVisibility('root_frame',false);
+
+env3.addLight('light');
+light3 = env3.lightViz('light');
+light3.setPosition(iDynTree.Position(100,100,100));
+
+viz3.draw();
+
+for i=init_time:end_time
+tic
+%viz3.draw();
+
+jointPos3 = iDynTree.JointPosDoubleArray(model);
+joints3 = q_des(i,:)';
+jointPos3.fromMatlab(joints3);
+
+% Assuming that the l_sole frame is fixed and it is the world, compute the 
+% world_H_base that correspond to the specified joints 
+odom2 = iDynTree.SimpleLeggedOdometry();
+odom2.setModel(model);
+odom2.updateKinematics(jointPos3);
+odom2.init('l_sole','l_sole');
+
+viz3.modelViz(0).setPositions(odom2.getWorldLinkTransform(model.getDefaultBaseLink()),jointPos3);
+
+viz3.draw();
+t = toc;
+pause(max(0,0.01-t))
+
 end
 
 
@@ -167,6 +171,5 @@ end
 
 
 pause()
-viz.close()
 viz2.close()
 viz3.close()
