@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3685"
+    ComputedModelVersion    "1.3686"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -113,7 +113,7 @@ Model {
 	  LoadSaveID		  "3698"
 	  Extents		  [1821.0, 905.0]
 	  ZoomFactor		  [0.79]
-	  Offset		  [0.0, 5.6843418860808015e-13]
+	  Offset		  [0.0, 6.8212102632969618e-13]
 	}
 	Object {
 	  $ObjectID		  11
@@ -131,7 +131,7 @@ Model {
 	  LoadSaveID		  "4207"
 	  Extents		  [1821.0, 905.0]
 	  ZoomFactor		  [1.3281558342351518]
-	  Offset		  [578.77156825153372, -276.19797258435636]
+	  Offset		  [578.77156825153372, -276.19797258435642]
 	}
 	Object {
 	  $ObjectID		  13
@@ -144,7 +144,7 @@ Model {
 	}
 	Object {
 	  $ObjectID		  14
-	  IsActive		  [1]
+	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "5436"
 	  Extents		  [1821.0, 905.0]
@@ -153,12 +153,12 @@ Model {
 	}
 	Object {
 	  $ObjectID		  15
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "5398"
 	  Extents		  [1821.0, 905.0]
 	  ZoomFactor		  [0.76]
-	  Offset		  [-1.1368683772161603e-13, 0.0]
+	  Offset		  [-2.2737367544323206e-13, 1.1368683772161603e-13]
 	}
 	Object {
 	  $ObjectID		  16
@@ -166,7 +166,7 @@ Model {
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "5456"
 	  Extents		  [1821.0, 905.0]
-	  ZoomFactor		  [1.66]
+	  ZoomFactor		  [1.6599999999999997]
 	  Offset		  [0.0, 0.0]
 	}
 	Object {
@@ -211,9 +211,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sdafarra"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Feb 15 16:22:36 2017"
-  RTWModifiedTimeStamp	  409076552
-  ModelVersionFormat	  "1.%<AutoIncrement:3685>"
+  LastModifiedDate	  "Thu Feb 16 09:38:42 2017"
+  RTWModifiedTimeStamp	  409138714
+  ModelVersionFormat	  "1.%<AutoIncrement:3686>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -31304,34 +31304,33 @@ Model {
 		    "66666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.8313"
 		    "72549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686"
 		    " 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines"
-		    "',3,'LineNames',{{'CP:1','CP:2','CP:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-0.2587','MaxYL"
-		    "imReal','0.27133','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.06551','LegendVisibility','off','XGrid'"
-		    ",true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922"
-		    " 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882"
-		    "353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 "
-		    "1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',"
-		    "{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'CP1:1','CP1:2','CP1:3'}},'ShowContent',true,'Pla"
-		    "cement',2),struct('MinYLimReal','-1.00000','MaxYLimReal','1.00000','YLabelReal','','MinYLimMag','0.00000','MaxYL"
-		    "imMag','1.06551','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'Ax"
-		    "esTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745"
-		    "098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745"
-		    "098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863"
-		    "],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{"
-		    "'CP_pratt '}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-0.125','MaxYLimReal','1.125','YLabelReal'"
-		    ",'','MinYLimMag','0.00000','MaxYLimMag','1.06551','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPha"
-		    "se',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrde"
-		    "r',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.3921568"
-		    "62745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0"
-		    "745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames'"
-		    ",{{}},'NumLines',3,'LineNames',{{'Triggers:1','Triggers:2','Triggers:3'}},'ShowContent',true,'Placement',4)},'Di"
-		    "splayPropertyDefaults',struct('YLabelReal','','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',"
-		    "false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',["
-		    "0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.71764705882"
-		    "3529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.07450"
-		    "98039215686 0.650980392156863]),'DisplayLayoutDimensions',[4 1],'DisplayContentCache',[]),extmgr.Configuration('"
-		    "Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY','PreviousZoomMode','ZoomX'),extmgr.Con"
-		    "figuration('Tools','Measurements',true,'Version','2016b')),'Version','2016b','Position',[1473 118 380 589],'Visi"
-		    "bleAtModelOpen','on')"
+		    "',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-0.2587','MaxYLimReal','0.27133',"
+		    "'YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.06551','LegendVisibility','off','XGrid',true,'YGrid',true"
+		    ",'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922"
+		    "],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.160784313725"
+		    "49;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.05882352941176"
+		    "47 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedC"
+		    "hannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',2),struct('MinYLimReal','-1.000"
+		    "00','MaxYLimReal','1.00000','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.06551','LegendVisibility','of"
+		    "f','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.68627"
+		    "4509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.41"
+		    "1764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509"
+		    "803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropert"
+		    "iesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',3),"
+		    "struct('MinYLimReal','-0.125','MaxYLimReal','1.125','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.06551"
+		    "','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0"
+		    ".686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0."
+		    "623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0."
+		    "717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<Si"
+		    "gnalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowConte"
+		    "nt',true,'Placement',4)},'DisplayPropertyDefaults',struct('YLabelReal','','LegendVisibility','off','XGrid',true,"
+		    "'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686"
+		    "274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.06"
+		    "66666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.05"
+		    "88235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'DisplayLayoutDimensions',[4 1],'DisplayContentCache"
+		    "',[]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY','PreviousZ"
+		    "oomMode','ZoomX'),extmgr.Configuration('Tools','Measurements',true,'Version','2016b')),'Version','2016b','Positi"
+		    "on',[1473 62 380 589],'VisibleAtModelOpen','on')"
 		    NumInputPorts	    "4"
 		    }
 		    Block {
@@ -79495,6 +79494,9 @@ Stateflow {
     screen		    [1 1 2726 768 1.25]
     treeNode		    [0 815 0 0]
     viewObj		    814
+    visible		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    31
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -79529,8 +79531,8 @@ Stateflow {
       "joints,6),eye(n_joints)]; \n\ndJFeetNu   = [constraints(1)*dJcNu_lf; constraints(2)*dJcNu_rf];\ndJCoMNu    = dJ_"
       "comNu(1:3);\n\nJsole      = [(1-constraints(1))*J_lfoot  ; (1-constraints(2))*J_rfoot];\ndJsoleNu   = [(1-constr"
       "aints(1))*dJcNu_lf ; (1-constraints(2))*dJcNu_rf];\n\n%% state acceleration reference calculation\ndNuRef_ikin ="
-      " Ikin_AccelerationRef_generator(JFeet, JCoM, Jsole, JPosture, dJFeetNu, dJCoMNu, dJsoleNu, iKinFeetCorr, iKinCom"
-      "Corr, iKinSoleCorr, iKinPostCorr); \n\nend"
+      " Ikin_Acceleration_generator(JFeet, JCoM, Jsole, JPosture, dJFeetNu, dJCoMNu, dJsoleNu, iKinFeetCorr, iKinComCor"
+      "r, iKinSoleCorr, iKinPostCorr); \n\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
       fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
       "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"

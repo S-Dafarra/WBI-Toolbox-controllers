@@ -1,8 +1,8 @@
-function dotNu_ikin   = Ikin_AccelerationRef_generator(Jc, Jcom, Jsole, Jp, dJcNu, dJcomNu, dJsoleNu, iKinFeetCorr, iKinComCorr, iKinSoleCorr, iKinPostCorr)
+function dotNu_ikin   = Ikin_Acceleration_generator(Jc, Jcom, Jsole, Jp, dJcNu, dJcomNu, dJsoleNu, iKinFeetCorr, iKinComCorr, iKinSoleCorr, iKinPostCorr)
 
 %setup parameters
 n_joints  = length(Jcom(1,7:end));
-PINV_TOL  = 5e-7;  
+PINV_TOL  = 1e-5;  
 
 % null space projectors for primary and secondary task
 Nc    = eye(6+n_joints) - pinv(Jc,PINV_TOL)*Jc;
