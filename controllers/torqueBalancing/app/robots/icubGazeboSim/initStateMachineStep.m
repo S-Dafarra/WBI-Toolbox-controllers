@@ -152,7 +152,7 @@ if strcmpi(SM.SM_TYPE, 'STEP')
       CONFIG.SR.TECHNIQUE = 0;
       CONFIG.SR.CP.robotStepTime    =[0.6;0.6];
       if mpc_init.DECIDE_STEP == 1
-          CONFIG.SR.CP.robotStepTime    =[0.8;0.85];
+          CONFIG.SR.CP.robotStepTime    =[0.7;0.85];
           gain.footSize_step  = [ -0.03   0.05 ;    % xMin, xMax
                                   -0.01   0.01];   % yMin, yMax
       end
