@@ -1,6 +1,5 @@
 %% OVERWRITING SOME OF THE PARAMETERS CONTAINED IN gains.m WHEN USING FSM
-if strcmpi(SM.SM_TYPE, 'STEP')
-    
+
     WBT_robotName = 'icubSim';
     
     PORTS.IMU = '/icubSim/inertial';
@@ -195,9 +194,7 @@ gain.ikin.kd                 = 2*sqrt(gain.ikin.kp);
 %4th task - postural          %   TORSO  %%  LEFT ARM       %%      RIGHT ARM  %%     LEFT LEG            %%         RIGHT LEG         %% 
 gain.ikin.impedances      = [100   300   200, 10    10   10   8, 10   10   10   8, 30  50   30    60   50  50, 30   50   30    60   5   5];
 gain.ikin.dampings        = 2*sqrt(gain.ikin.impedances);
-
-       
-end               
+              
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                      
          
 %% %%%%%%%%%%%%%%%%    FINITE STATE MACHINE SPECIFIC PARAMETERS

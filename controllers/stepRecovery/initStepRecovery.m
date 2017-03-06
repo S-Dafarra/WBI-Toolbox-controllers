@@ -36,26 +36,6 @@ clear; clc;
 CONFIG.SIMULATION_TIME     = inf;   
 
 %% PRELIMINARY CONFIGURATIONS 
-% SM.SM_TYPE: defines the kind of state machines that can be chosen.
-%
-% 'YOGA': the robot will perform the YOGA++ demo. The associated
-%         configuration parameters can be found under the folder
-%
-%         robots/YARP_ROBOT_NAME/initStateMachine.m
-%   
-% 'COORDINATOR': the robot can either stay still, or follow a
-%                center-of-mass trajectory, or follow references for the
-%                joints. The associated configuration parameters can be 
-%                found under the folder
-%
-%               robots/YARP_ROBOT_NAME/initRegGen.m
-% 
-% 'WALKING': under development.
-%
-% 'STEP': step recovery, under development
-
-
-SM.SM_TYPE                 = 'STEP';
 
 % CONFIG.SCOPES: if set to true, all visualizers for debugging are active
 CONFIG.SCOPES.ALL          = false;
@@ -77,7 +57,7 @@ CONFIG.CHECK_LIMITS        = false;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% DO NOT MODIFY THE FOLLOWING VARIABLES, THEY ARE AUTOMATICALLY 
 %% CHANGED WHEN SIMULATING THE ROBOT ON GAZEBO, 
-WBT_modelName            = 'matlabTorqueBalancing';
+WBT_modelName            = 'matlabStepRecovery';
 
 
 % CONFIG.USE_IMU4EST_BASE: if set to false, the base frame is estimated by 
@@ -133,33 +113,8 @@ addpath('./src/')
 addpath('./src/pseudo-ik-src/')
 addpath('../utilityMatlabFunctions/')
 
-
-% robotSpecificReferences  = fullfile('app/robots',getenv('YARP_ROBOT_NAME'),'initRefGen.m');
-% run(robotSpecificReferences);
-
-SM.SM.MASK.COORDINATOR   = bin2dec('0001');
-SM.SM.MASK.YOGA          = bin2dec('0010');
-SM.SM.MASK.WALKING       = bin2dec('0100');
-SM.SM.MASK.STEP          = bin2dec('1000');
-
-
-SM.SM_TYPE_BIN = SM.SM.MASK.COORDINATOR;
-% robotSpecificFSM = fullfile('app/robots',getenv('YARP_ROBOT_NAME'),'initStateMachine.m');
-% run(robotSpecificFSM);
-
-if strcmpi(SM.SM_TYPE, 'COORDINATOR')
-    SM.SM_TYPE_BIN = SM.SM.MASK.COORDINATOR;
-elseif strcmpi(SM.SM_TYPE, 'YOGA')
-    SM.SM_TYPE_BIN = SM.SM.MASK.YOGA;
-elseif strcmpi(SM.SM_TYPE, 'WALKING')
-    SM.SM_TYPE_BIN = SM.SM.MASK.WALKING;
-    robotSpecificFSM = fullfile('robots',getenv('YARP_ROBOT_NAME'),'initStateMachineWalking.m');
-    run(robotSpecificFSM);
-elseif strcmpi(SM.SM_TYPE, 'STEP')
-    SM.SM_TYPE_BIN = SM.SM.MASK.STEP;
-    robotSpecificFSM = fullfile('app/robots',getenv('YARP_ROBOT_NAME'),'initStateMachineStep.m');
-    run(robotSpecificFSM);
-end
+robotSpecificFSM = fullfile('app/robots',getenv('YARP_ROBOT_NAME'),'initStateMachineStep.m');
+run(robotSpecificFSM);
 
 [ConstraintsMatrix,bVectorConstraints]= constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,gain.footSize,fZmin);
 
