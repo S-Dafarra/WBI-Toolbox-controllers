@@ -32,7 +32,7 @@ mdlLdr.loadReducedModelFromFile('model.urdf',consideredJoints);
 model = mdlLdr.model();
 
 option = iDynTree.VisualizerOptions();
-option.rootFrameArrowsDimension = 0.3;
+%option.rootFrameArrowsDimension = 0.3;
 
 viz = iDynTree.Visualizer();
 

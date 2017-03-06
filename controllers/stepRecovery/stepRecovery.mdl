@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3688"
+    ComputedModelVersion    "1.3689"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -60,7 +60,7 @@ Model {
       }
       Array {
 	Type			"Simulink.EditorInfo"
-	Dimension		13
+	Dimension		10
 	Object {
 	  $ObjectID		  5
 	  IsActive		  [0]
@@ -112,8 +112,8 @@ Model {
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "3698"
 	  Extents		  [1821.0, 905.0]
-	  ZoomFactor		  [0.79]
-	  Offset		  [0.0, 9.0949470177292824e-13]
+	  ZoomFactor		  [1.0]
+	  Offset		  [242.0316455696202, 120.28481012658335]
 	}
 	Object {
 	  $ObjectID		  11
@@ -131,7 +131,7 @@ Model {
 	  LoadSaveID		  "4207"
 	  Extents		  [1821.0, 905.0]
 	  ZoomFactor		  [1.3281558342351518]
-	  Offset		  [578.77156825153372, -276.19797258435653]
+	  Offset		  [578.77156825153372, -276.19797258435659]
 	}
 	Object {
 	  $ObjectID		  13
@@ -144,45 +144,18 @@ Model {
 	}
 	Object {
 	  $ObjectID		  14
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "5436"
 	  Extents		  [1821.0, 905.0]
 	  ZoomFactor		  [1.28]
 	  Offset		  [0.0, 0.0]
 	}
-	Object {
-	  $ObjectID		  15
-	  IsActive		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "5398"
-	  Extents		  [1821.0, 905.0]
-	  ZoomFactor		  [0.75865051903114189]
-	  Offset		  [-597.65735461801592, 2.5461801596351279]
-	}
-	Object {
-	  $ObjectID		  16
-	  IsActive		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "5456"
-	  Extents		  [1821.0, 905.0]
-	  ZoomFactor		  [1.6599999999999997]
-	  Offset		  [0.0, 0.0]
-	}
-	Object {
-	  $ObjectID		  17
-	  IsActive		  [1]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "5482"
-	  Extents		  [1821.0, 905.0]
-	  ZoomFactor		  [1.3080132223868688]
-	  Offset		  [507.51549428332407, 102.05548487172337]
-	}
 	PropName		"EditorsInfo"
       }
       Object {
 	$PropName		"DockComponentsInfo"
-	$ObjectID		18
+	$ObjectID		15
 	$ClassName		"Simulink.DockComponentInfo"
 	Type			"GLUE2:PropertyInspector"
 	ID			"Property Inspector"
@@ -211,9 +184,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sdafarra"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Feb 16 10:55:31 2017"
-  RTWModifiedTimeStamp	  409143305
-  ModelVersionFormat	  "1.%<AutoIncrement:3688>"
+  LastModifiedDate	  "Mon Mar 06 17:11:02 2017"
+  RTWModifiedTimeStamp	  410720964
+  ModelVersionFormat	  "1.%<AutoIncrement:3689>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -261,7 +234,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    19
+    $ObjectID		    16
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "stepRecovery"
     signals_		    []
@@ -306,7 +279,7 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      20
+      $ObjectID		      17
       Version		      "1.16.5"
       DisabledProps	      []
       Description	      ""
@@ -314,7 +287,7 @@ Model {
 	Type			"Handle"
 	Dimension		10
 	Simulink.SolverCC {
-	  $ObjectID		  21
+	  $ObjectID		  18
 	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
@@ -354,7 +327,7 @@ Model {
 	  SampleTimeProperty	  []
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  22
+	  $ObjectID		  19
 	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
@@ -394,7 +367,7 @@ Model {
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  23
+	  $ObjectID		  20
 	  Version		  "1.16.5"
 	  Array {
 	    Type		    "Cell"
@@ -452,7 +425,7 @@ Model {
 	  AccelVerboseBuild	  off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  24
+	  $ObjectID		  21
 	  Version		  "1.16.5"
 	  Array {
 	    Type		    "Cell"
@@ -474,8 +447,8 @@ Model {
 	  SaveWithDisabledLinksMsg "warning"
 	  SaveWithParameterizedLinksMsg	"warning"
 	  CheckSSInitialOutputMsg on
-	  UnderspecifiedInitializationDetection	"Classic"
-	  MergeDetectMultiDrivingBlocksExec "none"
+	  UnderspecifiedInitializationDetection	"Simplified"
+	  MergeDetectMultiDrivingBlocksExec "error"
 	  CheckExecutionContextPreStartOutputMsg off
 	  CheckExecutionContextRuntimeOutputMsg	off
 	  SignalResolutionControl "UseLocalSettings"
@@ -560,7 +533,7 @@ Model {
 	  AllowAutomaticUnitConversions	on
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  25
+	  $ObjectID		  22
 	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
@@ -608,7 +581,7 @@ Model {
 	  UseSimulinkCoderFeatures on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  26
+	  $ObjectID		  23
 	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
@@ -627,7 +600,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  27
+	  $ObjectID		  24
 	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
@@ -655,7 +628,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  28
+	  $ObjectID		  25
 	  Version		  "1.16.5"
 	  Array {
 	    Type		    "Cell"
@@ -741,7 +714,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      29
+	      $ObjectID		      26
 	      Version		      "1.16.5"
 	      Array {
 		Type			"Cell"
@@ -824,7 +797,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      30
+	      $ObjectID		      27
 	      Version		      "1.16.5"
 	      Array {
 		Type			"Cell"
@@ -921,7 +894,7 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  31
+	  $ObjectID		  28
 	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
@@ -960,7 +933,7 @@ Model {
 	  CovStopTime		  0
 	}
 	SSC.SimscapeCC {
-	  $ObjectID		  32
+	  $ObjectID		  29
 	  Version		  "1.16.5"
 	  Array {
 	    Type		    "Cell"
@@ -972,7 +945,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    MECH.SimMechanicsCC {
-	      $ObjectID		      33
+	      $ObjectID		      30
 	      WarnOnRedundantConstraints on
 	      WarnOnSingularInitialAssembly off
 	      ShowCutJoints	      off
@@ -1004,13 +977,13 @@ Model {
 	      Name		      "SimscapeMultibody1G"
 	    }
 	    simmechanics.ConfigurationSet {
-	      $ObjectID		      34
+	      $ObjectID		      31
 	      Description	      "Simscape Multibody"
 	      Array {
 		Type			"Handle"
 		Dimension		2
 		simmechanics.DiagnosticsConfigSet {
-		  $ObjectID		  35
+		  $ObjectID		  32
 		  Description		  "Diagnostics"
 		  Name			  "DiagnosticsConfigSet"
 		  SimMechanicsInvalidVisualProperty "warning"
@@ -1024,7 +997,7 @@ Model {
 		  SimMechanicsJointTargetOverSpecification "error"
 		}
 		simmechanics.ExplorerConfigSet {
-		  $ObjectID		  36
+		  $ObjectID		  33
 		  Description		  "Explorer"
 		  Name			  "ExplorerConfigSet"
 		  SimMechanicsOpenEditorOnUpdate on
@@ -1058,11 +1031,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    20
+    $ObjectID		    17
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    37
+    $ObjectID		    34
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1570,7 +1543,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"60"
+	ZoomFactor		"50"
 	Block {
 	  BlockType		  Inport
 	  Name			  "MPC_STEP"
@@ -1649,28 +1622,6 @@ Model {
 	  SID			  "2096"
 	  Position		  [-955, 2239, -850, 2261]
 	  ZOrder		  501
-	  ShowName		  off
-	  Priority		  "-10"
-	  Value			  "SM.SM_TYPE_BIN"
-	  OutDataTypeStr	  "uint8"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant1"
-	  SID			  "3691"
-	  Position		  [100, 2939, 205, 2961]
-	  ZOrder		  698
-	  ShowName		  off
-	  Priority		  "-10"
-	  Value			  "SM.SM_TYPE_BIN"
-	  OutDataTypeStr	  "uint8"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant2"
-	  SID			  "3692"
-	  Position		  [100, 2649, 205, 2671]
-	  ZOrder		  699
 	  ShowName		  off
 	  Priority		  "-10"
 	  Value			  "SM.SM_TYPE_BIN"
@@ -1812,11 +1763,12 @@ Model {
 	  Ports			  [1, 11, 1]
 	  Position		  [-560, 2547, -380, 2753]
 	  ZOrder		  505
+	  Commented		  "on"
 	  RequestExecContextInheritance	off
 	  Variant		  off
 	  System {
 	    Name		    "Internal coordinator"
-	    Location		    [0, 23, 1280, 796]
+	    Location		    [65, 24, 1920, 1080]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1828,7 +1780,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "90"
+	    ZoomFactor		    "100"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "jointAngles"
@@ -2664,7 +2616,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		38
+		$ObjectID		35
 		$ClassName		"Simulink.Mask"
 		Description		"This block evaluates the homogeneous transformation between the world and the root link, i.e. ^wH_b. I"
 		"t assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertial frame, but"
@@ -2673,7 +2625,7 @@ Model {
 		"r str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  39
+		  $ObjectID		  36
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "link_name"
@@ -4636,32 +4588,6 @@ Model {
 	}
 	Block {
 	  BlockType		  MultiPortSwitch
-	  Name			  "Multiport\nSwitch"
-	  SID			  "2912"
-	  Ports			  [5, 1]
-	  Position		  [220, 2938, 310, 3042]
-	  ZOrder		  609
-	  ShowName		  off
-	  DataPortOrder		  "Specify indices"
-	  DataPortIndices	  "{1, 2, 4, 8}"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  MultiPortSwitch
-	  Name			  "Multiport\nSwitch1"
-	  SID			  "2913"
-	  Ports			  [5, 1]
-	  Position		  [220, 2648, 310, 2752]
-	  ZOrder		  610
-	  ShowName		  off
-	  DataPortOrder		  "Specify indices"
-	  DataPortIndices	  "{1, 2, 4, 8}"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  MultiPortSwitch
 	  Name			  "Multiport\nSwitch2"
 	  SID			  "4305"
 	  Ports			  [5, 1]
@@ -4705,6 +4631,7 @@ Model {
 	  Position		  [-340, 2276, -335, 2474]
 	  ZOrder		  508
 	  ShowName		  off
+	  Commented		  "on"
 	  Inputs		  "10"
 	  DisplayOption		  "bar"
 	}
@@ -4716,6 +4643,7 @@ Model {
 	  Position		  [-340, 2541, -335, 2739]
 	  ZOrder		  509
 	  ShowName		  off
+	  Commented		  "on"
 	  Inputs		  "10"
 	  DisplayOption		  "bar"
 	}
@@ -4727,6 +4655,7 @@ Model {
 	  Position		  [-340, 2801, -335, 2999]
 	  ZOrder		  604
 	  ShowName		  off
+	  Commented		  "on"
 	  Inputs		  "10"
 	  DisplayOption		  "bar"
 	}
@@ -5721,6 +5650,7 @@ Model {
 	  Position		  [-560, 2282, -380, 2488]
 	  ZOrder		  506
 	  Priority		  "-100"
+	  Commented		  "on"
 	  RequestExecContextInheritance	off
 	  Variant		  off
 	  System {
@@ -8789,11 +8719,11 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    40
+		    $ObjectID		    37
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    41
+		    $ObjectID		    38
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -9145,11 +9075,11 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    42
+		    $ObjectID		    39
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    43
+		    $ObjectID		    40
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -9519,7 +9449,7 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    44
+		    $ObjectID		    41
 		    $ClassName		    "Simulink.Mask"
 		    Description		    "This block evaluates the homogeneous transformation between the world and the root link, i.e. "
 		    "^wH_b. It assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertia"
@@ -9528,7 +9458,7 @@ Model {
 		    ")\nclear str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    45
+		    $ObjectID		    42
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -10394,7 +10324,7 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    46
+		    $ObjectID		    43
 		    $ClassName		    "Simulink.Mask"
 		    Description		    "This block evaluates the homogeneous transformation between the world and the root link, i.e. "
 		    "^wH_b. It assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertia"
@@ -10403,7 +10333,7 @@ Model {
 		    ")\nclear str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    47
+		    $ObjectID		    44
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -11426,7 +11356,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		48
+		$ObjectID		45
 		$ClassName		"Simulink.Mask"
 		Description		"This block evaluates the homogeneous transformation between the world and the root link, i.e. ^wH_b. I"
 		"t assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertial frame, but"
@@ -11435,7 +11365,7 @@ Model {
 		"r str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  49
+		  $ObjectID		  46
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "link_name"
@@ -12301,7 +12231,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		50
+		$ObjectID		47
 		$ClassName		"Simulink.Mask"
 		Description		"This block evaluates the homogeneous transformation between the world and the root link, i.e. ^wH_b. I"
 		"t assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertial frame, but"
@@ -12310,7 +12240,7 @@ Model {
 		"r str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  51
+		  $ObjectID		  48
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "link_name"
@@ -13927,7 +13857,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "79"
+	    ZoomFactor		    "100"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "jointAngles"
@@ -14641,7 +14571,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"126"
+		ZoomFactor		"100"
 		Block {
 		  BlockType		  Inport
 		  Name			  "COMx"
@@ -17237,7 +17167,7 @@ Model {
 		    System {
 		    Name		    "Pseudo-Inverse kinematics Solver"
 		    Location		    [65, 24, 1920, 1080]
-		    Open		    on
+		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -17877,11 +17807,11 @@ Model {
 		    Variant		    off
 		    Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    52
+		    $ObjectID		    49
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    53
+		    $ObjectID		    50
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -18226,11 +18156,11 @@ Model {
 		    Variant		    off
 		    Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    54
+		    $ObjectID		    51
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    55
+		    $ObjectID		    52
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -21332,7 +21262,7 @@ Model {
 		    System {
 		    Name		    "ikin_utilities"
 		    Location		    [65, 24, 1920, 1080]
-		    Open		    on
+		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -21923,7 +21853,7 @@ Model {
 		    System {
 		    Name		    "ikin_forwardKin"
 		    Location		    [65, 24, 1920, 1080]
-		    Open		    on
+		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -31330,7 +31260,7 @@ Model {
 		    "88235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'DisplayLayoutDimensions',[4 1],'DisplayContentCache"
 		    "',[]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY','PreviousZ"
 		    "oomMode','ZoomX'),extmgr.Configuration('Tools','Measurements',true,'Version','2016b')),'Version','2016b','Positi"
-		    "on',[1459 176 380 589],'VisibleAtModelOpen','on')"
+		    "on',[1459 150 370 559],'VisibleAtModelOpen','on')"
 		    NumInputPorts	    "4"
 		    }
 		    Block {
@@ -39849,11 +39779,11 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    56
+		    $ObjectID		    53
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    57
+		    $ObjectID		    54
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -40205,11 +40135,11 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    58
+		    $ObjectID		    55
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    59
+		    $ObjectID		    56
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -40579,7 +40509,7 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    60
+		    $ObjectID		    57
 		    $ClassName		    "Simulink.Mask"
 		    Description		    "This block evaluates the homogeneous transformation between the world and the root link, i.e. "
 		    "^wH_b. It assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertia"
@@ -40588,7 +40518,7 @@ Model {
 		    ")\nclear str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    61
+		    $ObjectID		    58
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -41454,7 +41384,7 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    62
+		    $ObjectID		    59
 		    $ClassName		    "Simulink.Mask"
 		    Description		    "This block evaluates the homogeneous transformation between the world and the root link, i.e. "
 		    "^wH_b. It assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertia"
@@ -41463,7 +41393,7 @@ Model {
 		    ")\nclear str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    63
+		    $ObjectID		    60
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "link_name"
@@ -42486,7 +42416,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		64
+		$ObjectID		61
 		$ClassName		"Simulink.Mask"
 		Description		"This block evaluates the homogeneous transformation between the world and the root link, i.e. ^wH_b. I"
 		"t assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertial frame, but"
@@ -42495,7 +42425,7 @@ Model {
 		"r str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  65
+		  $ObjectID		  62
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "link_name"
@@ -43361,7 +43291,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		66
+		$ObjectID		63
 		$ClassName		"Simulink.Mask"
 		Description		"This block evaluates the homogeneous transformation between the world and the root link, i.e. ^wH_b. I"
 		"t assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertial frame, but"
@@ -43370,7 +43300,7 @@ Model {
 		"r str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  67
+		  $ObjectID		  64
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "link_name"
@@ -45422,6 +45352,7 @@ Model {
 	  Position		  [-560, 2807, -380, 3013]
 	  ZOrder		  603
 	  Priority		  "-100"
+	  Commented		  "on"
 	  RequestExecContextInheritance	off
 	  Variant		  off
 	  System {
@@ -46839,7 +46770,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		68
+		$ObjectID		65
 		$ClassName		"Simulink.Mask"
 		Description		"This block evaluates the homogeneous transformation between the world and the root link, i.e. ^wH_b. I"
 		"t assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertial frame, but"
@@ -46848,7 +46779,7 @@ Model {
 		"r str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  69
+		  $ObjectID		  66
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "link_name"
@@ -47714,7 +47645,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		70
+		$ObjectID		67
 		$ClassName		"Simulink.Mask"
 		Description		"This block evaluates the homogeneous transformation between the world and the root link, i.e. ^wH_b. I"
 		"t assumes that the link specified by the variable 'link_name' has a constant position\nw.r.t. an inertial frame, but"
@@ -47723,7 +47654,7 @@ Model {
 		"r str;\n\nport_label('input',1,'q_j','texmode','on')\n\nport_label('input',2,'inertial','texmode','on')\n"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  71
+		  $ObjectID		  68
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "link_name"
@@ -50158,21 +50089,6 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  79
-	  SrcBlock		  "Mux3"
-	  SrcPort		  1
-	  Points		  [385, 0; 0, -180]
-	  DstBlock		  "Multiport\nSwitch1"
-	  DstPort		  4
-	}
-	Line {
-	  ZOrder		  80
-	  SrcBlock		  "State Machine Walking"
-	  SrcPort		  11
-	  DstBlock		  "Multiport\nSwitch"
-	  DstPort		  4
-	}
-	Line {
 	  ZOrder		  81
 	  SrcBlock		  "Selector1"
 	  SrcPort		  1
@@ -50202,38 +50118,6 @@ Model {
 	  Points		  [75, 0]
 	  DstBlock		  "State Machine Walking"
 	  DstPort		  enable
-	}
-	Line {
-	  ZOrder		  85
-	  SrcBlock		  "Mux1"
-	  SrcPort		  1
-	  Points		  [321, 0; 0, 325]
-	  DstBlock		  "Multiport\nSwitch1"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  86
-	  SrcBlock		  "Mux2"
-	  SrcPort		  1
-	  Points		  [212, 0; 0, 40]
-	  DstBlock		  "Multiport\nSwitch1"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  87
-	  SrcBlock		  "State Machine"
-	  SrcPort		  11
-	  Points		  [417, 0; 0, 505]
-	  DstBlock		  "Multiport\nSwitch"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  88
-	  SrcBlock		  "Internal coordinator"
-	  SrcPort		  11
-	  Points		  [255, 0; 0, 220]
-	  DstBlock		  "Multiport\nSwitch"
-	  DstPort		  2
 	}
 	Line {
 	  ZOrder		  89
@@ -50298,10 +50182,10 @@ Model {
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  100
-	  SrcBlock		  "Multiport\nSwitch"
-	  SrcPort		  1
-	  Points		  [97, 0]
+	  ZOrder		  778
+	  SrcBlock		  "State Machine Step Recovery"
+	  SrcPort		  11
+	  Points		  [391, 0; 0, -305; 391, 0]
 	  Branch {
 	    ZOrder		    204
 	    Points		    [183, 0; 0, -65; 235, 0]
@@ -50554,9 +50438,10 @@ Model {
 	  DstPort		  10
 	}
 	Line {
-	  ZOrder		  164
-	  SrcBlock		  "Multiport\nSwitch1"
+	  ZOrder		  777
+	  SrcBlock		  "Mux4"
 	  SrcPort		  1
+	  Points		  [421, 0; 0, -495; 97, 0; 0, 10]
 	  DstBlock		  "Demux"
 	  DstPort		  1
 	}
@@ -50606,20 +50491,6 @@ Model {
 	  SrcBlock		  "Demux"
 	  SrcPort		  10
 	  DstBlock		  "gainsDCOM"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  271
-	  SrcBlock		  "Constant1"
-	  SrcPort		  1
-	  DstBlock		  "Multiport\nSwitch"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  272
-	  SrcBlock		  "Constant2"
-	  SrcPort		  1
-	  DstBlock		  "Multiport\nSwitch1"
 	  DstPort		  1
 	}
 	Line {
@@ -50722,14 +50593,6 @@ Model {
 	  DstPort		  enable
 	}
 	Line {
-	  ZOrder		  390
-	  SrcBlock		  "Mux4"
-	  SrcPort		  1
-	  Points		  [399, 0; 0, -445]
-	  DstBlock		  "Multiport\nSwitch1"
-	  DstPort		  5
-	}
-	Line {
 	  ZOrder		  382
 	  SrcBlock		  "State Machine Step Recovery"
 	  SrcPort		  8
@@ -50781,14 +50644,6 @@ Model {
 	  SrcPort		  10
 	  DstBlock		  "Mux4"
 	  DstPort		  10
-	}
-	Line {
-	  ZOrder		  391
-	  SrcBlock		  "State Machine Step Recovery"
-	  SrcPort		  11
-	  Points		  [515, 0; 0, -265]
-	  DstBlock		  "Multiport\nSwitch"
-	  DstPort		  5
 	}
 	Line {
 	  ZOrder		  411
@@ -61928,7 +61783,7 @@ Model {
       Variant		      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		72
+	$ObjectID		69
 	$ClassName		"Simulink.Mask"
 	Display			"disp('SYNCHRONIZER')"
       }
@@ -79069,9 +78924,6 @@ Stateflow {
     screen		    [1 1 1280 1024 1.041666666666667]
     treeNode		    [0 797 0 0]
     viewObj		    796
-    visible		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    16
     decomposition	    CLUSTER_CHART
     type		    EML_CHART

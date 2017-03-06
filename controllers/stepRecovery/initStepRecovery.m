@@ -134,8 +134,8 @@ addpath('./src/pseudo-ik-src/')
 addpath('../utilityMatlabFunctions/')
 
 
-robotSpecificReferences  = fullfile('app/robots',getenv('YARP_ROBOT_NAME'),'initRefGen.m');
-run(robotSpecificReferences);
+% robotSpecificReferences  = fullfile('app/robots',getenv('YARP_ROBOT_NAME'),'initRefGen.m');
+% run(robotSpecificReferences);
 
 SM.SM.MASK.COORDINATOR   = bin2dec('0001');
 SM.SM.MASK.YOGA          = bin2dec('0010');
@@ -144,8 +144,8 @@ SM.SM.MASK.STEP          = bin2dec('1000');
 
 
 SM.SM_TYPE_BIN = SM.SM.MASK.COORDINATOR;
-robotSpecificFSM = fullfile('app/robots',getenv('YARP_ROBOT_NAME'),'initStateMachine.m');
-run(robotSpecificFSM);
+% robotSpecificFSM = fullfile('app/robots',getenv('YARP_ROBOT_NAME'),'initStateMachine.m');
+% run(robotSpecificFSM);
 
 if strcmpi(SM.SM_TYPE, 'COORDINATOR')
     SM.SM_TYPE_BIN = SM.SM.MASK.COORDINATOR;
