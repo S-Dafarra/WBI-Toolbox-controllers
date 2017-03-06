@@ -28,7 +28,7 @@ clear; clc;
 % setenv('YARP_ROBOT_NAME','iCubGenova01');
  setenv('YARP_ROBOT_NAME','iCubGenova02');
 % setenv('YARP_ROBOT_NAME','iCubDarmstadt01');
-%setenv('YARP_ROBOT_NAME','icubGazeboSim');
+setenv('YARP_ROBOT_NAME','icubGazeboSim');
 % setenv('YARP_ROBOT_NAME','iCubGenova05');
 
 % Simulation time in seconds
@@ -94,7 +94,7 @@ CONFIG.USE_IMU4EST_BASE    = false;
 CONFIG.YAW_IMU_FILTER      = true;
 CONFIG.PITCH_IMU_FILTER    = true;
 
-% CONFIG.CORRECT_NECK_IMU: when set euqal to true, the kineamtics from the
+% CONFIG.CORRECT_NECK_IMU: when set equal to true, the kineamtics from the
 % IMU and the contact foot is corrected by using the neck angles. If it set
 % equal to false, recall that the neck is assumed to be in (0,0,0)
 CONFIG.CORRECT_NECK_IMU    = true;
@@ -159,3 +159,4 @@ end
 %     PORTS.WBDT_RIGHTLEG_EE = '/wholeBodyDynamicsTree/right_foot/cartesianEndEffectorWrench:o';
 %     PORTS.IMU = '/icubGazeboSim/inertial';
 %     WBT_robotName = 'icubGazeboSim';
+
