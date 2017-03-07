@@ -22,7 +22,7 @@ function [tauModel,Sigma,pinvA,NA,f_HDot, ...
           errorCoM,qTilde,f]    =  ...
               balancingControllerStep(constraints,ROBOT_DOF_FOR_SIMULINK,ConstraintsMatrix,bVectorConstraints,...
               q,qDes,v, M, h , H,intHw,w_H_l_sole, w_H_r_sole, JL,JR, dJLv,dJRv, xcom,J_CoM, desired_x_dx_ddx_CoM,...
-              gainsPCOM,gainsDCOM,impedances,r_fin,r_init,r_icp,ENABLE_cop,intErrorCoM,ki_int_qtilde,reg,gain)
+              gainsPCOM,gainsDCOM,impedances, intErrorCoM,ki_int_qtilde,reg,gain)
     %BALANCING CONTROLLER
 
     %% DEFINITION OF CONTROL AND DYNAMIC VARIABLES
@@ -123,18 +123,7 @@ function [tauModel,Sigma,pinvA,NA,f_HDot, ...
     % versions of the controller
     impedances      = diag(impedances)*pinv(NLMbar,reg.pinvTol) + reg.impedances*eye(ROBOT_DOF);
     dampings        = diag(dampings)*pinv(NLMbar,reg.pinvTol)   + reg.dampings*eye(ROBOT_DOF); 
-    
-    %%Cop control during one foot falling
-    L = sqrt((r_fin(1)-r_init(1))^2 + (r_fin(2)-r_init(2))^2);
-    ctheta = 0;
-    stheta = 0;
-    if L > 0
-        ctheta = (r_init(2)-r_fin(2))/L;
-        stheta = (r_fin(1)-r_init(1))/L;
-    end
-    x_start = -ctheta*r_init(1) - stheta*r_init(2);
-    C = [zeros(2,1); -(gain.cop_gain+1)*[ctheta,stheta]*r_icp(1:2) - (gain.cop_gain)*x_start; stheta; -ctheta; 0]'* blkdiag(w_R_l_sole',w_R_l_sole');
-    
+       
     %% QP PARAMETERS FOR TWO FEET STANDING
     % In the case the robot stands on two feet, the control objective is 
     % the minimization of the joint torques through the redundancy of the 
@@ -240,7 +229,7 @@ function [tauModel,Sigma,pinvA,NA,f_HDot, ...
     bVectorConstraintsQp1Foot = bVectorConstraints';
 
     A1Foot                    = AL*constraints(1)*(1-constraints(2)) + AR*constraints(2)*(1-constraints(1));
-    HessianMatrixQP1Foot      = A1Foot'*A1Foot + gain.COP_weight*ENABLE_cop*(C'*C) +eye(size(A1Foot,2))*reg.HessianQP;
+    HessianMatrixQP1Foot      = A1Foot'*A1Foot + eye(size(A1Foot,2))*reg.HessianQP;
     gradientQP1Foot           = (-A1Foot'*(HDotDes - gravityWrench))';
 
     %% DEBUG DIAGNOSTICS

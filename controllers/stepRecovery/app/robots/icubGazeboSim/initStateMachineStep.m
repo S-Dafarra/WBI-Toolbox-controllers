@@ -60,9 +60,6 @@
     gain.minimum_height       = 0.35; %minimum heigth that the root can reach.
     gain.min_step_length      = 0.1; %minimum distance between the ankle centres after a step
     
-    %COP gain
-    gain.cop_gain             = 10;
-    gain.COP_weight           = 0; %relative weight in the optimization
     
     %Foot placement offset
     CONFIG.useLocalIK = 1;  %0 remote IK, 1 -> local
