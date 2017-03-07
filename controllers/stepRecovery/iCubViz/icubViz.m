@@ -81,7 +81,12 @@ end
 
 pause()
 viz.close()
-pause()
+prompt = 'Write any button to continue. ';
+str = input(prompt, 's');
+if isempty(str)
+    clc
+    return;
+end
 
 viz3 = iDynTree.Visualizer();
 %  work around 

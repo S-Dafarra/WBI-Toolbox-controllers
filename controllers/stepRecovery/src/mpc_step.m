@@ -82,7 +82,7 @@ if state == 16
     COMdesfilt_pos = COMdesStateMachine(1:3,1);
     gains.COM = (mpc_init.gains.COM + mpc_init.gains.TerCOM);
     gains.COM(1:2,1) = gains.COM(1:2,1)*10;
-    gains.COM(1:2,2) = gains.COM(1:2,2)*30;
+    gains.COM(1:3,2) = gains.COM(1:3,2)*30;
 else
     COMdesfilt_pos = [(Pl(1:2) + Pr(1:2))/2;COMdesStateMachine(3,1)]+ mpc_init.COMoffset;
 end
@@ -104,7 +104,7 @@ coder.extrinsic('solve_mpc_cvx')
 MPC_STEP = 0;
 errorLastCom = norm(COMdesStateMachine(1:2,1) - COM_last(1:2)) + 2*norm(COM_last(4:5));
 if  mpc_init.DECIDE_STEP == 1
-    if ((errorLastCom > 0.1) || (exitflag <= 0))
+    if ((errorLastCom > 0.08) || (exitflag <= 0))
         MPC_STEP = 1;
     end
     

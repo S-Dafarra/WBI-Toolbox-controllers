@@ -1,6 +1,6 @@
 nsteps = 15;
 T= 0.01;
-k_impact = 1;
+k_impact = 16;
 
 
 %Mg = blkdiag(diag(30*ones(3,1)),rand(3,3))
