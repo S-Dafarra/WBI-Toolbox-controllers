@@ -51,30 +51,30 @@ Bl = bVectorConstraints;
 Br = bVectorConstraints;
 
     
-xm = foot_size(1,1);
-xM = foot_size(1,2);
-ym = foot_size(2,1);
-yM = foot_size(2,2);
-
-pointsl = w_H_l_sole*[xM, xM, xm, xm;
-                     ym, yM, yM, ym;
-                     0,  0,  0,  0;
-                     1,  1,  1,  1];
-
-pointsr = w_H_r_sole*[xM, xM, xm, xm;
-                     ym, yM, yM, ym;
-                      0,  0,  0,  0;
-                      1,  1,  1,  1];
-             
-xch = [pointsl(1,:),pointsr(1,:)]; %consider just the projection on the ground
-ych = [pointsl(2,:),pointsr(2,:)]; 
-
-K_in = zeros(length(xch),1);
-coder.extrinsic('mpc_ch')
-K_in(:) = mpc_ch(xch,ych);
-K = K_in(1:sum(K_in>0)); %avoid considering the zeros used to fill the vector
-
-ch_points = [xch(K)',ych(K)'];
+% xm = foot_size(1,1);
+% xM = foot_size(1,2);
+% ym = foot_size(2,1);
+% yM = foot_size(2,2);
+% 
+% pointsl = w_H_l_sole*[xM, xM, xm, xm;
+%                      ym, yM, yM, ym;
+%                      0,  0,  0,  0;
+%                      1,  1,  1,  1];
+% 
+% pointsr = w_H_r_sole*[xM, xM, xm, xm;
+%                      ym, yM, yM, ym;
+%                       0,  0,  0,  0;
+%                       1,  1,  1,  1];
+%              
+% xch = [pointsl(1,:),pointsr(1,:)]; %consider just the projection on the ground
+% ych = [pointsl(2,:),pointsr(2,:)]; 
+% 
+% K_in = zeros(length(xch),1);
+% coder.extrinsic('mpc_ch')
+% K_in(:) = mpc_ch(xch,ych);
+% K = K_in(1:sum(K_in>0)); %avoid considering the zeros used to fill the vector
+% 
+% ch_points = [xch(K)',ych(K)'];
 
 gamma0 = [COMx;COMv;Hw];
 
@@ -99,7 +99,7 @@ COM_des_out = zeros(9,1);
 COMref = zeros(3,1);
 COM_last = zeros(9,1);
 coder.extrinsic('solve_mpc_cvx')
-[f(:),COM_des_out(:,:),exitflag(:),COMref(:,:),~,COM_last(:,:)] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, ch_points, Pl, Pr, omega, 9.81, f_prev, zeros(3,1) , zeros(3,1), COMref_prev, mpc_init.COMoffset(1:2),minZ, gains, gamma0, nsteps, dT, k_impact); 
+[f(:),COM_des_out(:,:),exitflag(:),COMref(:,:),~,COM_last(:,:)] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, Pl, Pr, omega, 9.81, f_prev, zeros(3,1) , zeros(3,1), COMref_prev, mpc_init.COMoffset(1:2),minZ, gains, gamma0, nsteps, dT, k_impact); 
 
 MPC_STEP = 0;
 errorLastCom = norm(COMdesStateMachine(1:2,1) - COM_last(1:2)) + 2*norm(COM_last(4:5));

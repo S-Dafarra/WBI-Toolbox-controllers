@@ -163,7 +163,7 @@
    %                   Kpf,     Kdfs
    mpc_init.gains.F = 1e-3*[[ 2; 2; 0.01; 20; 20; 20; 2; 2; 0.01; 20; 20; 20],0.1*ones(12,1)];
                      
-   mpc_init.gains.TerCOM = [[1500;3000;0],[100; 100; 0],zeros(3,1)];
+   mpc_init.gains.TerCOM = [[1500 + 1000;3000 + 1000;0],[100 + 4900; 100 + 4900; 0],zeros(3,1)];
                      
    mpc_init.COMoffset = [0.05*0;0;0];
    

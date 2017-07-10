@@ -1,6 +1,7 @@
+
 nsteps = 15;
 T= 0.01;
-k_impact = 16;
+k_impact = 0;
 
 
 %Mg = blkdiag(diag(30*ones(3,1)),rand(3,3))
@@ -68,7 +69,7 @@ ICPoffset = [0;0];
 % toc
 % fRH*chi
 tic
-[f,COM_des,exit_flag,~,chi, COM_last] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, [xch(K)',ych(K)'], Pl, Pr, omega, g, f_prev, COMx, COMv, COMdes, ICPoffset, minZ, gains, gamma0, nsteps, T, k_impact); 
+[f,COM_des,exit_flag,~,chi, COM_last] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, Pl, Pr, omega, g, f_prev, COMx, COMv, COMdes, ICPoffset, minZ, gains, gamma0, nsteps, T, k_impact); 
 f
 exit_flag
 COM_last

@@ -1,4 +1,4 @@
-function [hessian,gradient,C,B,Ceq,Beq,Cleq,Bleq,fRH, gamma_nsteps] = cost_constraints(m, Cl, Bl, Cr, Br, ch_points, Pl, Pr, omega, g, ref,gains, gamma0, nsteps, T, k_impact)
+function [hessian,gradient,C,B,Ceq,Beq,Cleq,Bleq,fRH, gamma_nsteps] = cost_constraints(m, Cl, Bl, Cr, Br, Pl, Pr, omega, g, ref,gains, gamma0, nsteps, T, k_impact)
 %% Third version: new order of chi and first order approximation of angular momentum
 %% Inputs
 % Mg the mass matrix around the COM
@@ -130,24 +130,24 @@ B_horRI = repmat(Br,size(C_horRI,1)/ncr,1);
 
 %% Constraints on the Capture Point
 
-[Cch,Bch] = ch_constraints(ch_points); %if Cch*x<=Bch then x is in the convex hull
-nch = size(Cch,1);
-Cch_cell = repmat({Cch},nsteps,1);
-Cch_hor = sparse(blkdiag(Cch_cell{:}));
-
-if (k_impact > nsteps)
-    C_horCH = zeros(0,state_dim);
-else
-    if k_impact>0
-        C_horCH = Cch_hor((nch*k_impact +1):end,(2*k_impact +1):end)*eICP_hor((2*k_impact +1):end,(9*k_impact +1):end)*eGamma((9*k_impact +1):end,:);
-    
-    else
-        C_horCH = Cch_hor*eICP_hor*eGamma;
-    end
-end
-
-
-B_horCH = repmat(Bch,size(C_horCH,1)/nch,1);
+% [Cch,Bch] = ch_constraints(ch_points); %if Cch*x<=Bch then x is in the convex hull
+% nch = size(Cch,1);
+% Cch_cell = repmat({Cch},nsteps,1);
+% Cch_hor = sparse(blkdiag(Cch_cell{:}));
+% 
+% if (k_impact > nsteps)
+%     C_horCH = zeros(0,state_dim);
+% else
+%     if k_impact>0
+%         C_horCH = Cch_hor((nch*k_impact +1):end,(2*k_impact +1):end)*eICP_hor((2*k_impact +1):end,(9*k_impact +1):end)*eGamma((9*k_impact +1):end,:);
+%     
+%     else
+%         C_horCH = Cch_hor*eICP_hor*eGamma;
+%     end
+% end
+% 
+% 
+% B_horCH = repmat(Bch,size(C_horCH,1)/nch,1);
 
 
 %% Overall Constraints: C*chi<=B
@@ -160,16 +160,16 @@ C = [C_ev;
      C_horL;
      C_horR;
      -C_horR;
-     C_horRI;
-     C_horCH];
+     C_horRI];
+     %C_horCH];
       
  B = [B_ev;
      -B_ev;
      B_horL;
      B_horR;
      -B_horR;
-     B_horRI;
-     B_horCH];
+     B_horRI];
+     %B_horCH];
       
  Ceq = [C_ev;
         C_horR];
@@ -178,12 +178,12 @@ C = [C_ev;
         B_horR];
     
  Cleq = [C_horL;
-         C_horRI;
-         C_horCH];
+         C_horRI];
+         %C_horCH];
               
  Bleq = [B_horL;
-         B_horRI;
-         B_horCH];
+         B_horRI];
+         %B_horCH];
           
  %% Definition of the cost function
  
@@ -205,18 +205,18 @@ grad_gamma_Ter = -eGamma'*K_hor_gammaTer*gamma_d;
 
 %% Cost related to the icp
 
-if (k_impact > nsteps)
-    K_icp_hor = sparse(zeros(2*nsteps));
-else
-    if k_impact>0
-        K_icp_hor = sparse(blkdiag( zeros(2*k_impact), diag(repmat(gains.ICP,nsteps-k_impact,1))));    
-    else
-        K_icp_hor = sparse(diag(repmat(gains.ICP,nsteps,1)));
-    end
-end
-
-hes_icp = eGamma'*eICP_hor'*K_icp_hor*eICP_hor*eGamma;
-grad_icp = -eGamma'*eICP_hor'*K_icp_hor*repmat(ref.ICP,nsteps,1);
+% if (k_impact > nsteps)
+%     K_icp_hor = sparse(zeros(2*nsteps));
+% else
+%     if k_impact>0
+%         K_icp_hor = sparse(blkdiag( zeros(2*k_impact), diag(repmat(gains.ICP,nsteps-k_impact,1))));    
+%     else
+%         K_icp_hor = sparse(diag(repmat(gains.ICP,nsteps,1)));
+%     end
+% end
+% 
+% hes_icp = eGamma'*eICP_hor'*K_icp_hor*eICP_hor*eGamma;
+% grad_icp = -eGamma'*eICP_hor'*K_icp_hor*repmat(ref.ICP,nsteps,1);
 
 %% Cost related to forces
 
@@ -232,8 +232,8 @@ hes_df = eF'*Fdif'*Kdf_hor*Fdif*eF;
 grad_df = -eF'*Fdif'*Kdf_hor*f0;
 
 %% Overall cost
-hessian = hes_gamma + hes_icp + hes_f + hes_df + hes_gamma_Ter;
-gradient = grad_gamma + grad_icp + grad_df + grad_gamma_Ter;
+hessian = hes_gamma + hes_f + hes_df + hes_gamma_Ter;
+gradient = grad_gamma + grad_df + grad_gamma_Ter;
 
 %% Extract f(0)
 fRH = eF(1:12,:);

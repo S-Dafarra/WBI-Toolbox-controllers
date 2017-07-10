@@ -1,4 +1,4 @@
-function [f,COM_des,exit_flag,COMref,chi, COM_last] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, ch_points, Pl, Pr, omega, g, f_prev, COMx,COMv,COMdes, ICPoffset, minZ, gains, gamma0, nsteps, dT, k_impact)
+function [f,COM_des,exit_flag,COMref,chi, COM_last] = solve_mpc_cvx(m, Cl, Bl, Cr, Br, Pl, Pr, omega, g, f_prev, COMx,COMv,COMdes, ICPoffset, minZ, gains, gamma0, nsteps, dT, k_impact)
 
 ref.minZ = minZ;
 
@@ -12,14 +12,14 @@ ref.COM = [repmat(COMdes(:,1),1,nsteps);
            zeros(3,nsteps);
            zeros(3,nsteps)];
 
-if(sum(ch_points(1,:)==ch_points(end,:))==2) %the last point is equal to the first
-     ref.ICP = mean(ch_points(1:(end-1),:))'+ICPoffset; %the centroid of the convex hull
-else ref.ICP = mean(ch_points)'+ICPoffset; %the centroid of the convex hull
-end
+% if(sum(ch_points(1,:)==ch_points(end,:))==2) %the last point is equal to the first
+%      ref.ICP = mean(ch_points(1:(end-1),:))'+ICPoffset; %the centroid of the convex hull
+% else ref.ICP = mean(ch_points)'+ICPoffset; %the centroid of the convex hull
+% end
 
 ref.F = f_prev;
 
-[hessian,gradient,~,~,Ceq,Beq,Cleq,Bleq,fRH, gamma_n] = cost_constraints(m, Cl, Bl, Cr, Br, ch_points, Pl, Pr,omega, g, ref, gains, gamma0, nsteps, dT, k_impact);
+[hessian,gradient,~,~,Ceq,Beq,Cleq,Bleq,fRH, gamma_n] = cost_constraints(m, Cl, Bl, Cr, Br, Pl, Pr,omega, g, ref, gains, gamma0, nsteps, dT, k_impact);
 
 %size([full(hessian),full(Ceq');full(Ceq),zeros(size(full(Ceq),1))])
 %rank([full(hessian),full(Ceq');full(Ceq),zeros(size(full(Ceq),1))])
